@@ -4,14 +4,28 @@
   <url>
     <loc>http://www.fairygui.com/product/sdk_release_notes.html</loc>
     
-    <lastmod>2017-12-15T09:30:46.996Z</lastmod>
+    <lastmod>2018-01-04T17:01:47.152Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/product/release_notes.html</loc>
+    
+    <lastmod>2018-01-04T16:56:11.003Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/graph.html</loc>
+    
+    <lastmod>2018-01-04T16:36:44.457Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.fairygui.com/product/index.html</loc>
     
-    <lastmod>2017-11-28T23:50:49.380Z</lastmod>
+    <lastmod>2018-01-04T16:34:38.150Z</lastmod>
     
   </url>
   
@@ -19,13 +33,6 @@
     <loc>http://www.fairygui.com/guide/editor/text.html</loc>
     
     <lastmod>2017-11-27T08:10:56.617Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/release_notes.html</loc>
-    
-    <lastmod>2017-11-27T08:08:59.398Z</lastmod>
     
   </url>
   
@@ -254,13 +261,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/relation.html</loc>
-    
-    <lastmod>2017-09-08T22:58:27.894Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/unity/atlas.html</loc>
     
     <lastmod>2017-09-08T22:58:27.894Z</lastmod>
@@ -303,9 +303,9 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/graph.html</loc>
+    <loc>http://www.fairygui.com/guide/editor/relation.html</loc>
     
-    <lastmod>2017-09-08T22:58:27.893Z</lastmod>
+    <lastmod>2017-09-08T22:58:27.894Z</lastmod>
     
   </url>
   

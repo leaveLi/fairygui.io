@@ -7,7 +7,7 @@
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
-        <meta name="keywords" content="FairyGUI,FGUI,UI编辑器,H5编辑器,GUI,Unity GUI,LayaAir GUI,Flash GUI,Egret GUI,Pixi GUI,LibGDX GUI,Cocos2dx GUI">
+        <meta name="keywords" content="FairyGUI,FGUI,UI编辑器,H5编辑器,GUI,Unity GUI,LayaAir GUI,Flash GUI,Egret GUI,Pixi GUI,LibGDX GUI,Cocos2dx GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -114,7 +114,17 @@
     
       <h1>发行日志</h1>
     
-    <h2 id="3-4-3"><a href="#3-4-3" class="headerlink" title="3.4.3"></a>3.4.3</h2><ol>
+    <h2 id="3-5-0"><a href="#3-5-0" class="headerlink" title="3.5.0"></a>3.5.0</h2><ol>
+<li><p>增加了自定义数据。可以在两个地方输入自定义的数据：<br><img src="../../images/20180105004522.png" alt=""> <img src="../../images/20180105004541.png" alt=""></p>
+<p>第一种定义方式在运行时可以通过两种方式获得：<br>a. 通过GComponent.packageItem.componentData.GetAttribute(“customData”)读取；<br>b. 在组件的扩展类里，重写ConstructXML(xml)方法，然后xml.GetAttribute(“customData”)读取。</p>
+<p>第二种定义方式在运行时直接读取GObject.data即可。</p>
+</li>
+<li><p>Laya和Egret项目增加了一个发布选项，通过此选项可以控制发布的描述文件是否压缩。默认是压缩的。如果你已经使用了web服务器的gzip压缩功能，又或者打包时会另外压缩，那可以选择不压缩的格式。<br><img src="../../images/20180105005321.png" alt=""></p>
+</li>
+<li><p>增加了大文本输入对话框。在任意文本输入的地方，按快捷键Ctrl+Enter，就可以弹出一个对话框用于输入，解决原来在属性面板录入长度较大文本的不方便的问题。</p>
+</li>
+</ol>
+<h2 id="3-4-3"><a href="#3-4-3" class="headerlink" title="3.4.3"></a>3.4.3</h2><ol>
 <li>修正了编辑器里文本“自动缩小”功能对位图字体无效的问题。</li>
 <li>Laya项目重新加回了导出代码语言的选择，可以选择AS或TS。</li>
 <li>修正了Cocos2dx项目导出代码的错误。（C++还玩导出代码，嫌编译太快了吗）。</li>

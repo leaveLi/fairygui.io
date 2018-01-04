@@ -6,12 +6,12 @@ order: 0
 
 ## FairyGUI 编辑器 
 
->当前版本3.4.3
+>当前版本3.5.0
 
 <div id="downloads">
-<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_3_4_3.zip" target="_self">Windows平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
+<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_3_5_0.zip" target="_self">Windows平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
 
-<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_Mac_3_4_3.zip" target="_self">OSX平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
+<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_Mac_3_5_0.zip" target="_self">OSX平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
 </div>
 
 FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建议解压到非中文目录下。
@@ -86,3 +86,19 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-as3.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-as3.svg" alt="forks">
 
 [下载例子](http://res.fairygui.com/FairyGUI-as3-demo171128.zip)
+
+## Cry Engine SDK
+
+示例源码：[https://github.com/fairygui/FairyGUI-cryengine](https://github.com/fairygui/FairyGUI-cryengine)
+
+<img src="https://img.shields.io/github/stars/fairygui/FairyGUI-cryengine.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-cryengine.svg" alt="forks">
+
+该SDK为私有SDK，如需使用请联系管理员。
+
+## Havok Vision SDK
+
+示例源码：[https://github.com/fairygui/FairyGUI-vision](https://github.com/fairygui/FairyGUI-vision)
+
+<img src="https://img.shields.io/github/stars/fairygui/FairyGUI-vision.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-vision.svg" alt="forks">
+
+该SDK为私有SDK，如需使用请联系管理员。

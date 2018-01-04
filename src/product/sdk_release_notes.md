@@ -3,6 +3,13 @@ title: SDK更新日志
 type: product
 order: 2
 ---
+
+## 2018/1/4
+1. [All] 增加了对编辑器自定义数据的支持。
+2. [Egret/Laya] UIPackage.addPackage增加了一个可选参数，现在你可以直接传入描述文件数据。
+3. [Egret/Laya] 增加了对编辑器输出非压缩格式的支持。
+4. [Egret] 适配最新引擎5.1.2。
+
 ## 2017/12/15
 
 1. [Unity] Unity发布了1.9.3版本。
