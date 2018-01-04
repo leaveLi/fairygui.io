@@ -115,6 +115,7 @@
       <h1>发行日志</h1>
     
     <h2 id="3-5-0"><a href="#3-5-0" class="headerlink" title="3.5.0"></a>3.5.0</h2><ol>
+<li>增加了Cry Engine和Havok Vision两种新项目类型。</li>
 <li><p>增加了自定义数据。可以在两个地方输入自定义的数据：<br><img src="../../images/20180105004522.png" alt=""> <img src="../../images/20180105004541.png" alt=""></p>
 <p>第一种定义方式在运行时可以通过两种方式获得：<br>a. 通过GComponent.packageItem.componentData.GetAttribute(“customData”)读取；<br>b. 在组件的扩展类里，重写ConstructXML(xml)方法，然后xml.GetAttribute(“customData”)读取。</p>
 <p>第二种定义方式在运行时直接读取GObject.data即可。</p>
