@@ -6,7 +6,7 @@ order: 0
 
 ## TS/JS版本
 
-1. 将FairyGUI库以及依赖的rawinflate库拷贝到bin/libs目录
+1. 将FairyGUI库以及依赖的rawinflate库拷贝到bin/libs目录。（如果你在编辑器发布时没有勾选`压缩描述文件`，那么这个库是不需要的）。
 
   ![](../../images/20170809155135.png)
 
@@ -63,4 +63,4 @@ order: 0
 ## AS版本
 
 1. 从GITHUB中拉FairyGUI layabox SDK的源代码，放到你的源码工程里。
-2. 在index.html里加入rawinflate.min.js，注意要放在你的js前。
+2. 在index.html里加入rawinflate.min.js，注意要放在你的js前。（如果你在编辑器发布时没有勾选`压缩描述文件`，那么这个库是不需要的）。

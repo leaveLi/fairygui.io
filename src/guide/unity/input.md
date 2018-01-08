@@ -26,7 +26,7 @@ FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射
 - `onTouchBegin` 鼠标按键按下（左、中、右键），或者手指按下。鼠标按钮可以从context.inputEvent.button获得，0-左键,1-中键,2-右键。
 - `onTouchMove` 鼠标指针移动或者手指在屏幕上移动。这个事件只有两种情况会触发，1、在onTouchBegin里调用了context.CaptureTouch()，那么后续的移动事件都会在这个对象上触发（无论手指或指针位置是不是在该对象上方）。2、舞台的onTouchMove始终会触发，即Stage.inst.onTouchMove，不需要使用CaptureTouch捕获。
 - `onTouchEnd` 鼠标按键释放或者手指从屏幕上离开。如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的，如果确实需要，可以在onTouchBegin里调用context.CaptureTouch()请求捕获。
-- `onClick` 鼠标或者手指点击。可以从context.inputEvent.isDoubleClick判断是否双击。
+- `onClick` 鼠标或者手指点击。可以从context.inputEvent.isDoubleClick判断是否双击。**如果你在找长按事件，那么请使用LongPressGesture[(长按手势)](#手势)。**
 - `onRightClick` 鼠标右键点击。
 
 在任何事件（即不只是鼠标/触摸相关的事件）回调中都可以获得当前鼠标或手指位置，以及点击的对象，例如：
@@ -128,19 +128,12 @@ targetObject是接收手势的元件，注意一定要是可触摸的。图片�
 
 常用的手势有：
 
-### LongPressGesture
+`LongPressGesture` 长按手势。
 
-长按手势。
+`SwipeGesture` 手指划动手势。
 
-### SwipeGesture
+`PinchGesture`两指缩放手势。
 
-手指划动手势。
+`RotationGesture` 两指旋转手势。
 
-### PinchGesture
-
-两指缩放手势。
-
-### RotationGesture
-
-两指旋转手势。
-
+手势的使用方法可以参考Gesture这个Demo。

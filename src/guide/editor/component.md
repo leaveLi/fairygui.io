@@ -45,7 +45,22 @@ order: 90
 
 - `背景颜色` 设置组件编辑区域的背景颜色，仅用于辅助设计，实际组件背景都是透明的，不会有颜色。如果你需要组件有一个真实的背景色，可以放置一个图形。
 
-- `备注` 设置组件的备注信息。这个信息目前仅供插件开发者使用，没有其他用途。
+- `自定义数据` 可以设置一个自定义的数据，这个数据FairyGUI不做解析，按原样发布到最后的描述文件中。开发者可以在运行时获取。获取方式是：
+  ```csharp
+    //Unity/Cry
+    aComponent.packageItem.componentData.GetAttribute("customData");
+    //Cocos2dx/Vision
+    aComponent->getPackageItem()->componentData->Attribute("customData");
+    //LayaAir
+    aComponent.packageItem.componentData.getAttribute("customData");
+    //Egret
+    aComponent.packageItem.componentData.attributes.customData;
+    //AS3/Starling
+    aComponent.packageItem.componentData.@customData;
+  ```
+  如果组件有扩展类，那么也可以覆盖方法ConstructFromXML(xml)，这里的xml就相当于componentData，可以按上面介绍的方法获取customData属性。
+
+  这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。
 
 ## 设计图功能
 

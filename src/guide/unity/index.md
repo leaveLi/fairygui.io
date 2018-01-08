@@ -43,7 +43,12 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     UIPackage.AddPackage(bundle);
   ```
 
-**在使用AssetBundle的载入方案中，将由FairyGUI接管bundle并负责bundle资源的释放。**
+**在使用AssetBundle的载入方案中，AddPackge提供了一个参数，用于控制是否由FairyGUI接管bundle并负责bundle资源的释放。**
+
+```csharp
+    //第二个参数为false，表示不需要让FairyGUI释放bundle。
+    UIPackage.AddPackage(bundle, false);
+```
 
 ## UIPanel
 

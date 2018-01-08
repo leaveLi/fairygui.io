@@ -10,7 +10,7 @@ FairyGUI提供了一个强大的UI编辑器，`使用习惯与Adobe系列软件�
 
 与市场上其他UI编辑器不同，FairyGUI编辑器重视设计师体验，摒弃了脚本和配置文件这些需要代码思维的操作。借助FairyGUI提供的 `组件`、`关联`、`控制器` 以及 `动效`，我们可以在不写代码的情况下使用编辑器轻松地制作大量复杂的带有动画效果的自动布局的UI。
 
-FairyGUI提供了多个游戏引擎SDK：`Unity`、`白鹭`、`LayaAir`、`Haxe`、`Pixi`、`Flash`、`Starling`，未来还将支持`Cocos2d-x`、`UE4`、`LibGDX`等。借助FairyGUI-SDK，你可以轻松在UI中使用3D对象、粒子等元素，而且FairyGUI还解决了环形进度条、像素点击测试、图文混排、循环列表、虚拟列表、曲面UI、VR输入等UI开发中常见的痛点。
+FairyGUI提供了多个游戏引擎SDK：`Unity`、`Cocos2d-x`、`Cry Egine`, `Havok Vision/Project Anarchy`、`白鹭`、`LayaAir`、`Haxe`、`Pixi`、`Flash`、`Starling`，未来还将支持`UE4`、`LibGDX`等。借助FairyGUI-SDK，你可以轻松在UI中使用3D对象、粒子等元素，而且FairyGUI还解决了环形进度条、像素点击测试、图文混排、循环列表、虚拟列表、曲面UI、VR输入等UI开发中常见的痛点。
 
 ## 特性列表
 

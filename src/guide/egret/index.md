@@ -6,7 +6,7 @@ order: 0
 
 ## Egret 4.x
 
-1. 将FairyGUI库以及依赖的rawinflate库拷贝到libs目录。
+1. 将FairyGUI库以及依赖的rawinflate库拷贝到libs目录。（如果你在编辑器发布时没有勾选`压缩描述文件`，那么这个库是不需要的）。
 
   ![](../../images/20170809161022.png)
 
@@ -54,7 +54,7 @@ order: 0
 
 步骤与4.x的基本一样，不过需要额外的两个操作：
 
-1. 复制一份rawinflate.min.js，并改名为rawinflate.js。
+1. 复制一份rawinflate.min.js，并改名为rawinflate.js。（如果你在编辑器发布时没有勾选`压缩描述文件`，那么这个库是不需要的）。
 2. 在egretProperties.json文件中添加:
 
   ```csharp
