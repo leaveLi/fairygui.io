@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - 在Egret中使用FairyGUI</title>
+        <title>FairyGUI - 在Cocos2dx中使用FairyGUI</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="-在Egret中使用FairyGUIFairyGUI">
+        <meta property="og:title" content="-在Cocos2dx中使用FairyGUIFairyGUI">
         <meta property="og:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="在Egret中使用FairyGUI — FairyGUI">
+        <meta name="twitter:title" content="在Cocos2dx中使用FairyGUI — FairyGUI">
         <meta name="twitter:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
@@ -26,7 +26,7 @@
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.min.js"></script>
-        <script>window.PAGE_TYPE = "guide_egret"</script>
+        <script>window.PAGE_TYPE = "guide_cocos2dx"</script>
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
@@ -80,7 +80,7 @@
         <h2>
             Guide
             <!--<select class="version-select">
-                <option value="SELF" selected>egret</option>
+                <option value="SELF" selected>cocos2dx</option>
             </select>-->
  		 
 		  <a style="
@@ -303,7 +303,7 @@
 	                <li><h3>Cocos2dx</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">在Cocos2dx中使用FairyGUI</a>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link current">在Cocos2dx中使用FairyGUI</a>
 	                </li>
 	            
 	            
@@ -323,7 +323,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link current">在Egret中使用FairyGUI</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">在Egret中使用FairyGUI</a>
 	                </li>
 	            
 
@@ -337,42 +337,30 @@
 </div>
 
 
-<div class="content guide_egret with-sidebar ">
+<div class="content guide_cocos2dx with-sidebar ">
     
-      <h1>在Egret中使用FairyGUI</h1>
+      <h1>在Cocos2dx中使用FairyGUI</h1>
     
-    <h2 id="Egret-4-x"><a href="#Egret-4-x" class="headerlink" title="Egret 4.x"></a>Egret 4.x</h2><ol>
-<li><p>将FairyGUI库以及依赖的rawinflate库拷贝到libs目录。（如果你在编辑器发布时没有勾选<code>压缩描述文件</code>，那么这个库是不需要的）。</p>
-<p><img src="../../images/20170809161022.png" alt=""></p>
+    <h2 id="运行Demo"><a href="#运行Demo" class="headerlink" title="运行Demo"></a>运行Demo</h2><ol>
+<li>从GitHub Clone或者直接下载FairyGUI-cocos2dx。</li>
+<li><p>下载3.x版本cocos2dx命名成cocos2d放在Example根目录。cocos2dx源码需要改动一处地方才能通过编译，打开2d/CCLabel.h，大约在672行，为updateBMFontScale函数打上virtual修饰符。即</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">virtual void updateBMFontScale();</div></pre></td></tr></table></figure>
 </li>
-<li><p>在index.html里添加上述两个库的引用。</p>
-<p><img src="../../images/20170809161215.png" alt=""></p>
-<p>注：FairyGUI只依赖egret的core和res两个模块，不需要gui和eui。</p>
+<li><p>使用Visual Studio打开Examples/proj.win32/Examples.sln，然后直接运行Demo。</p>
 </li>
-<li><p>使用FairyGUI编辑器完成UI编辑。发布目录请选择Egret工程的resource/assets目录。发布后得到两个（或以上）文件。</p>
-<p><img src="../../images/20170809161256.png" alt=""></p>
-</li>
-<li><p>在default.res.json里，将上述的文件添加到定义中。扩展名为fui文件，类型请选择为bin。注意：Egret自动检测添加的资源，名称通常会自动加上下划线和后缀，例如basic.fui，名称自动设置为“basic_fui”，这里我们要手动将_fui去掉，名称只需要为“basic”。</p>
-<p><img src="../../images/20170809161350.png" alt=""></p>
-<p>资源一般都加到preload组里，如果你是高阶玩家，也可以试试动态加载。确保在使用到相应的元件前加载好就行。</p>
-</li>
-<li><p>在代码里完成规定的初始化，例如设定默认字体，滚动条等等。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"><span class="comment">  * 创建游戏场景</span></div><div class="line"><span class="comment">  * Create a game scene</span></div><div class="line"><span class="comment">  */</span></div><div class="line"> <span class="function"><span class="keyword">private</span> <span class="title">createGameScene</span>(<span class="params"></span>):<span class="keyword">void</span> </span>&#123;</div><div class="line">     fairygui.UIPackage.addPackage(<span class="string">"basic"</span>);</div><div class="line">     </div><div class="line">     fairygui.UIConfig.defaultFont = <span class="string">"宋体"</span>;</div><div class="line">     fairygui.UIConfig.verticalScrollBar = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>, <span class="string">"ScrollBar_VT"</span>);</div><div class="line">     fairygui.UIConfig.horizontalScrollBar = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>, <span class="string">"ScrollBar_HZ"</span>);</div><div class="line">     fairygui.UIConfig.popupMenu = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>, <span class="string">"PopupMenu"</span>);</div><div class="line">     fairygui.UIConfig.buttonSound = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>,<span class="string">"click"</span>);</div><div class="line">     </div><div class="line">     <span class="keyword">this</span>.stage.addChild(fairygui.GRoot.inst.displayObject);</div><div class="line"></div><div class="line">     <span class="keyword">this</span>.mainPanel = <span class="keyword">new</span> MainPanel();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<li>Demo的UI工程在Examples/UIProject下。结合UI工程和例子代码可以了解到FairyGUI在Cocos2dx下的使用方法。</li>
 </ol>
-<p>如果出现“fairygui not defined”的错误，请再一次检查index.html里是否有fairygui.js的引用。</p>
-<h2 id="Egret-5-x"><a href="#Egret-5-x" class="headerlink" title="Egret 5.x"></a>Egret 5.x</h2><p>步骤与4.x的基本一样，不过需要额外的两个操作：</p>
-<ol>
-<li>复制一份rawinflate.min.js，并改名为rawinflate.js。（如果你在编辑器发布时没有勾选<code>压缩描述文件</code>，那么这个库是不需要的）。</li>
-<li><p>在egretProperties.json文件中添加:</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&#123;  </div><div class="line">    <span class="string">"name"</span>: <span class="string">"rawinflate"</span>,  </div><div class="line">    <span class="string">"path"</span>: <span class="string">"./libs/rawinflate"</span>  </div><div class="line">&#125;,  </div><div class="line">&#123;  </div><div class="line">    <span class="string">"name"</span>: <span class="string">"fairygui"</span>,  </div><div class="line">    <span class="string">"path"</span>: <span class="string">"./libs/fairygui"</span>  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<h2 id="加入FairyGUI到你的项目"><a href="#加入FairyGUI到你的项目" class="headerlink" title="加入FairyGUI到你的项目"></a>加入FairyGUI到你的项目</h2><p>将libfairygui加入到你的WorkSpace里，然后添加引用即可。libfairygui是一个静态库，最后链接到你的程序里。</p>
+<h2 id="关于GRoot"><a href="#关于GRoot" class="headerlink" title="关于GRoot"></a>关于GRoot</h2><p>GRoot是UI的根对象，我们可以像Demo那样，每个场景都创建一个GRoot对象。GRoot::getInstance()（或者简单的使用UIRoot这个宏）指向的是最后创建的GRoot对象，一般来说就是当前Scene包含的GRoot对象。Cocos2dx在切换Scene时Scene里的一切东西都会销毁，也包括加入到Scene里的GRoot。如果你想避免界面的重复创建，一个GRoot在不同Scene里公用，那么可以自己对GRoot retain。切换场景后自行add GRoot到Scene即可。</p>
+<h2 id="事件机制"><a href="#事件机制" class="headerlink" title="事件机制"></a>事件机制</h2><p>与事件相关的API有</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventCallback&amp; callback</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventCallback&amp; callback, <span class="keyword">const</span> EventTag&amp; tag</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeEventListener</span>(<span class="params"><span class="keyword">int</span> eventType</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventTag&amp; tag</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeEventListeners</span>(<span class="params"></span>)</span>;</div></pre></td></tr></table></figure>
+<p><code>eventType</code> 一个事件类型常量，定义在event/UIEventType.h里。<br><code>callback</code> 回调函数，可以用CC_CALLBACK_1宏来定义，也可以用lamba表达式。<br><code>tag</code> 如果事件注册后要进行remove操作，那么add的时候必须标识这个事件。这里的机制是调用者提供一个EventTag。EventTag可以用整形，或者一个指针地址来构造，例如可以直接传递this。特别地，0表示没有EventTag，也就是不要使用0作为特殊的EventTag。</p>
+<h2 id="Lua-Binding"><a href="#Lua-Binding" class="headerlink" title="Lua Binding"></a>Lua Binding</h2><p>FairyGUI-cocos2dx只提供了C++版本，Lua Binding需要由你自行完成。网上有很多方案可以完成这点。</p>
 
     
     <div class="footer">
       发现错误或想贡献文档?
-      <a href="https://github.com/fairygui/fairygui.github.io/tree/master/src/guide/egret/index.md" target="_blank">
+      <a href="https://github.com/fairygui/fairygui.github.io/tree/master/src/guide/cocos2dx/index.md" target="_blank">
         在 Github 上编辑此文档!
       </a>
     </div>

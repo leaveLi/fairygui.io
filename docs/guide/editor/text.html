@@ -30,7 +30,7 @@
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
-            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+            <a class="logo" href="https://github.com/fairygui"></a>
         </div>
         <div id="bg"> <!--end tag in the `index.ejs`-->
 
@@ -300,6 +300,16 @@
 	            
 	                
 	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">在Cocos2dx中使用FairyGUI</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -320,16 +330,6 @@
 	            
 
 	            
-	            
-	           	
-	                
-	                
-	                <li><h3>Haxe</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/haxe/index.html" class="sidebar-link">在Haxe中使用FairyGUI</a>
-	                </li>
-	            
 
             
         </ul>
@@ -346,7 +346,7 @@
 <p>FairyGUI编辑器运行的环境，与应用实际运行的环境是不相同的。比如你在PC上制作界面，最终界面可能运行在手机上。在编辑界面时，动态字体是使用FairyGUI使用编辑器所在的系统环境的字体，在运行时，则是由实际的运行环境，例如Android系统等提供的字体。设计时的字体可以与运行时的字体不同，但建议选取效果较为相近的。</p>
 <p>设置编辑器使用的字体可以在项目属性里设置。运行时的字体则需要由代码设置：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Droid Sans Fallback是安卓上支持中文的默认字体</span></div><div class="line">UIConfig.defaultFont = <span class="string">'Droid Sans Fallback'</span>;</div></pre></td></tr></table></figure>
-<p>设置运行时使用的字体需保证该字体在目标平台上也存在，否则达不到想要的效果。</p>
+<p>设置运行时使用的字体需保证该字体在目标平台上也存在，否则达不到想要的效果。如果你想打包字体到目标平台，那么需要查询引擎提供的支持，比如Unity，可以这样做：<a href="../unity/font.html" title="使用字体">../unity/font.html</a></p>
 <p>如果要在编辑器里使用ttf字体，请双击ttf文件，确认安装到系统，这样重启编辑器后就可以在字体列表里看到这种字体了。</p>
 <h2 id="位图字体"><a href="#位图字体" class="headerlink" title="位图字体"></a>位图字体</h2><p>在游戏中经常有这样的设计：一些表达特别元素的字符，使用了图片来制作，例如：</p>
 <p><img src="../../images/20170801102632.png" alt=""></p>
@@ -381,7 +381,7 @@
 <h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>点击主工具栏中的<img src="../../images/20170801092548.png" alt="">按钮，生成一个文本元件。</p>
 <p><img src="../../images/20170801092638.png" alt=""></p>
 <ul>
-<li><p><code>文本</code> 设置文本内容。当需要换行时，在编辑器里可以直接按回车。运行时需要换行可以用“\n”，尽量避免使用“\r\n”。</p>
+<li><p><code>文本</code> 设置文本内容。当需要换行时，在编辑器里可以<strong>直接按回车</strong>。用代码赋值时需要换行可以用“\n”。<br>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
 </li>
 <li><p><code>字体</code> 设置文字使用的字体。你不需要每个文本设置一次字体。在项目属性里可以设置项目中所有文本默认使用的字体。运行时则通过UIConfig.defaultFont统一设置。如果某些文本确实需要指定特别的字体，可以点击右边的A按钮，选择其他字体，或者直接输入字体名称。如果需要使用位图字体，可以从资源库中把字体资源拖动到这里。</p>
 </li>
@@ -391,7 +391,7 @@
 </li>
 <li><p><code>行距</code> 每行的像素间距。</p>
 </li>
-<li><p><code>字距</code> 每个字符的像素间距。</p>
+<li><p><code>字距</code> 每个字符的像素间距。<em>（Unity、AS3、Starling支持，其他引擎均不支持）</em></p>
 </li>
 <li><p><code>自动大小</code> </p>
 <ul>

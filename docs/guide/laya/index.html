@@ -30,7 +30,7 @@
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
-            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+            <a class="logo" href="https://github.com/fairygui"></a>
         </div>
         <div id="bg"> <!--end tag in the `index.ejs`-->
 
@@ -300,6 +300,16 @@
 	            
 	                
 	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">在Cocos2dx中使用FairyGUI</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -320,16 +330,6 @@
 	            
 
 	            
-	            
-	           	
-	                
-	                
-	                <li><h3>Haxe</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/haxe/index.html" class="sidebar-link">在Haxe中使用FairyGUI</a>
-	                </li>
-	            
 
             
         </ul>
@@ -342,7 +342,7 @@
       <h1>在LayaAir中使用FairyGUI</h1>
     
     <h2 id="TS-JS版本"><a href="#TS-JS版本" class="headerlink" title="TS/JS版本"></a>TS/JS版本</h2><ol>
-<li><p>将FairyGUI库以及依赖的rawinflate库拷贝到bin/libs目录</p>
+<li><p>将FairyGUI库以及依赖的rawinflate库拷贝到bin/libs目录。（如果你在编辑器发布时没有勾选<code>压缩描述文件</code>，那么这个库是不需要的）。</p>
 <p><img src="../../images/20170809155135.png" alt=""></p>
 </li>
 <li><p>把fairygui.d.ts拷贝到libs目录。</p>
@@ -361,7 +361,7 @@
 </ol>
 <h2 id="AS版本"><a href="#AS版本" class="headerlink" title="AS版本"></a>AS版本</h2><ol>
 <li>从GITHUB中拉FairyGUI layabox SDK的源代码，放到你的源码工程里。</li>
-<li>在index.html里加入rawinflate.min.js，注意要放在你的js前。</li>
+<li>在index.html里加入rawinflate.min.js，注意要放在你的js前。（如果你在编辑器发布时没有勾选<code>压缩描述文件</code>，那么这个库是不需要的）。</li>
 </ol>
 
     

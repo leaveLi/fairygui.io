@@ -30,7 +30,7 @@
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
-            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+            <a class="logo" href="https://github.com/fairygui"></a>
         </div>
         <div id="bg"> <!--end tag in the `index.ejs`-->
 
@@ -300,6 +300,16 @@
 	            
 	                
 	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">在Cocos2dx中使用FairyGUI</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -320,16 +330,6 @@
 	            
 
 	            
-	            
-	           	
-	                
-	                
-	                <li><h3>Haxe</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/haxe/index.html" class="sidebar-link">在Haxe中使用FairyGUI</a>
-	                </li>
-	            
 
             
         </ul>
@@ -348,9 +348,14 @@
 <h2 id="显示白屏-提示atlas-not-found"><a href="#显示白屏-提示atlas-not-found" class="headerlink" title="显示白屏/提示atlas not found"></a>显示白屏/提示atlas not found</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: texture &apos;atlas0.png&apos; not found in xxx</div></pre></td></tr></table></figure>
 <p>Unity5.5版本开始，纹理设置新增了<a href="http://ask.fairygui.com/?/question/1" target="_blank" rel="external">TextureShape</a>属性，把他设置为2d就可以了。 </p>
 <h2 id="显示不出图片-文字"><a href="#显示不出图片-文字" class="headerlink" title="显示不出图片/文字"></a>显示不出图片/文字</h2><ol>
-<li>如果用的是Unity5.5版本，首先检查是否上一个问题。</li>
+<li>如果用的是Unity5.5或以上版本，首先检查是否上一个问题。</li>
 <li>如果你是自己创建的新项目，看看有没有在项目中放置着色器，即插件里Resources/Shaders里的着色器。</li>
-<li>如果是Unity编辑模式下能看到，运行时看不到，那就是你的UI包没有正确放置，或者发生了跨包引用，而又没有手动载入依赖包。具体原因再看一次前面的教程：显示UI面板。</li>
+<li>如果是Unity编辑模式下能看到，运行时看不到，那就是你的UI包没有正确放置到Resources目录，或者发生了跨包引用但又没有手动载入依赖包。具体原因再看一次前面的教程：显示UI面板。</li>
+</ol>
+<h2 id="UI显示有重复，或者UI销毁后依然显示"><a href="#UI显示有重复，或者UI销毁后依然显示" class="headerlink" title="UI显示有重复，或者UI销毁后依然显示"></a>UI显示有重复，或者UI销毁后依然显示</h2><ol>
+<li>场景里没有放置主相机。</li>
+<li>主相机的ClearFlags错误设置为Depth。</li>
+<li>还有其他相机，Culling Mask包含了UI。</li>
 </ol>
 <h2 id="字体渲染效果不对"><a href="#字体渲染效果不对" class="headerlink" title="字体渲染效果不对"></a>字体渲染效果不对</h2><p>如果你设置了字体后，觉得字体效果不对，可以用以下的方式排查：</p>
 <ol>

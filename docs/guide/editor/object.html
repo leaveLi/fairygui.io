@@ -30,7 +30,7 @@
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
-            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+            <a class="logo" href="https://github.com/fairygui"></a>
         </div>
         <div id="bg"> <!--end tag in the `index.ejs`-->
 
@@ -300,6 +300,16 @@
 	            
 	                
 	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">在Cocos2dx中使用FairyGUI</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -319,16 +329,6 @@
 
 	            
 
-	            
-	            
-	           	
-	                
-	                
-	                <li><h3>Haxe</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/haxe/index.html" class="sidebar-link">在Haxe中使用FairyGUI</a>
-	                </li>
 	            
 
             
@@ -400,6 +400,8 @@
 <h2 id="TIPS属性"><a href="#TIPS属性" class="headerlink" title="TIPS属性"></a>TIPS属性</h2><p><img src="../../images/20170726161155.png" alt=""></p>
 <p>当鼠标移到元件范围内时，显示这里可以定义的文本。用户需要提供一个组件作为显示。这个组件一般扩展为标签，以便底层将TIPS文本设置到“标题”中。打开主菜单“文件”-&gt;“项目设置”，然后在弹出的对话框里选择“预览设置”，右边面板会出现一个“TIPS组件”的设置，将你制作好的标签组件拖入即可。这里的设置仅适用于编辑器预览，运行时需要用代码再次设置，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.tooltipsWin = <span class="string">"ui://包名/组件名"</span>;</div></pre></td></tr></table></figure>
+<h2 id="自定义数据"><a href="#自定义数据" class="headerlink" title="自定义数据"></a>自定义数据</h2><p><img src="../../images/20180108143441.png" alt=""></p>
+<p>可以设置一个自定义的数据，这个数据FairyGUI不做解析，按原样发布到最后的描述文件中。开发者可以在运行时获取。获取方式是：GObject.data。<br>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
 <h2 id="GObject"><a href="#GObject" class="headerlink" title="GObject"></a>GObject</h2><ul>
 <li><p><code>设置坐标</code> SetXY或者单独设置x、y。</p>
 </li>

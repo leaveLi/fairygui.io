@@ -30,7 +30,7 @@
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
-            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+            <a class="logo" href="https://github.com/fairygui"></a>
         </div>
         <div id="bg"> <!--end tag in the `index.ejs`-->
 
@@ -300,6 +300,16 @@
 	            
 	                
 	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">在Cocos2dx中使用FairyGUI</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -319,16 +329,6 @@
 
 	            
 
-	            
-	            
-	           	
-	                
-	                
-	                <li><h3>Haxe</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/haxe/index.html" class="sidebar-link">在Haxe中使用FairyGUI</a>
-	                </li>
 	            
 
             
@@ -350,7 +350,7 @@
 <li><code>onTouchBegin</code> 鼠标按键按下（左、中、右键），或者手指按下。鼠标按钮可以从context.inputEvent.button获得，0-左键,1-中键,2-右键。</li>
 <li><code>onTouchMove</code> 鼠标指针移动或者手指在屏幕上移动。这个事件只有两种情况会触发，1、在onTouchBegin里调用了context.CaptureTouch()，那么后续的移动事件都会在这个对象上触发（无论手指或指针位置是不是在该对象上方）。2、舞台的onTouchMove始终会触发，即Stage.inst.onTouchMove，不需要使用CaptureTouch捕获。</li>
 <li><code>onTouchEnd</code> 鼠标按键释放或者手指从屏幕上离开。如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的，如果确实需要，可以在onTouchBegin里调用context.CaptureTouch()请求捕获。</li>
-<li><code>onClick</code> 鼠标或者手指点击。可以从context.inputEvent.isDoubleClick判断是否双击。</li>
+<li><code>onClick</code> 鼠标或者手指点击。可以从context.inputEvent.isDoubleClick判断是否双击。<strong>如果你在找长按事件，那么请使用LongPressGesture<a href="#手势">(长按手势)</a>。</strong></li>
 <li><code>onRightClick</code> 鼠标右键点击。</li>
 </ul>
 <p>在任何事件（即不只是鼠标/触摸相关的事件）回调中都可以获得当前鼠标或手指位置，以及点击的对象，例如：</p>
@@ -383,10 +383,11 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">LongPressGesture gesture = <span class="keyword">new</span> LongPressGesture(targetObject);</div><div class="line">gesture.onAction.Add(OnGestureAction);</div></pre></td></tr></table></figure>
 <p>targetObject是接收手势的元件，注意一定要是可触摸的。图片是不可触摸的，一般建议用组件，或者图形（图形透明度可以设置为0）。如果你需要全屏幕监测手势，那么可以直接用GRoot.inst作为targetObject（需1.9.0 SDK或更高版本支持）</p>
 <p>常用的手势有：</p>
-<h3 id="LongPressGesture"><a href="#LongPressGesture" class="headerlink" title="LongPressGesture"></a>LongPressGesture</h3><p>长按手势。</p>
-<h3 id="SwipeGesture"><a href="#SwipeGesture" class="headerlink" title="SwipeGesture"></a>SwipeGesture</h3><p>手指划动手势。</p>
-<h3 id="PinchGesture"><a href="#PinchGesture" class="headerlink" title="PinchGesture"></a>PinchGesture</h3><p>两指缩放手势。</p>
-<h3 id="RotationGesture"><a href="#RotationGesture" class="headerlink" title="RotationGesture"></a>RotationGesture</h3><p>两指旋转手势。</p>
+<p><code>LongPressGesture</code> 长按手势。</p>
+<p><code>SwipeGesture</code> 手指划动手势。</p>
+<p><code>PinchGesture</code>两指缩放手势。</p>
+<p><code>RotationGesture</code> 两指旋转手势。</p>
+<p>手势的使用方法可以参考Gesture这个Demo。</p>
 
     
     <div class="footer">

@@ -30,7 +30,7 @@
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
-            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+            <a class="logo" href="https://github.com/fairygui"></a>
         </div>
         <div id="bg"> <!--end tag in the `index.ejs`-->
 
@@ -300,6 +300,16 @@
 	            
 	                
 	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">在Cocos2dx中使用FairyGUI</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -319,16 +329,6 @@
 
 	            
 
-	            
-	            
-	           	
-	                
-	                
-	                <li><h3>Haxe</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/haxe/index.html" class="sidebar-link">在Haxe中使用FairyGUI</a>
-	                </li>
 	            
 
             
@@ -361,7 +361,8 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//bundle的载入由开发者自行实现。</span></div><div class="line">UIPackage.AddPackage(bundle);</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><strong>在使用AssetBundle的载入方案中，将由FairyGUI接管bundle并负责bundle资源的释放。</strong></p>
+<p><strong>在使用AssetBundle的载入方案中，AddPackge提供了一个参数，用于控制是否由FairyGUI接管bundle并负责bundle资源的释放。</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//第二个参数为false，表示不需要让FairyGUI释放bundle。</span></div><div class="line">UIPackage.AddPackage(bundle, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
 <h2 id="UIPanel"><a href="#UIPanel" class="headerlink" title="UIPanel"></a>UIPanel</h2><p>在Unity中使用编辑器制作的界面有两种方式，第一种是使用UIPanel。</p>
 <p>只需3步就可以使用将编辑器中制作好的界面放入到Unity的场景中。</p>
 <ol>

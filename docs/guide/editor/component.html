@@ -30,7 +30,7 @@
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
-            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+            <a class="logo" href="https://github.com/fairygui"></a>
         </div>
         <div id="bg"> <!--end tag in the `index.ejs`-->
 
@@ -300,6 +300,16 @@
 	            
 	                
 	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">在Cocos2dx中使用FairyGUI</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -319,16 +329,6 @@
 
 	            
 
-	            
-	            
-	           	
-	                
-	                
-	                <li><h3>Haxe</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/haxe/index.html" class="sidebar-link">在Haxe中使用FairyGUI</a>
-	                </li>
 	            
 
             
@@ -380,7 +380,10 @@
 </li>
 <li><p><code>背景颜色</code> 设置组件编辑区域的背景颜色，仅用于辅助设计，实际组件背景都是透明的，不会有颜色。如果你需要组件有一个真实的背景色，可以放置一个图形。</p>
 </li>
-<li><p><code>备注</code> 设置组件的备注信息。这个信息目前仅供插件开发者使用，没有其他用途。</p>
+<li><p><code>自定义数据</code> 可以设置一个自定义的数据，这个数据FairyGUI不做解析，按原样发布到最后的描述文件中。开发者可以在运行时获取。获取方式是：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aComponent.packageItem.componentData.GetAttribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//Cocos2dx/Vision</span></div><div class="line">aComponent-&gt;getPackageItem()-&gt;componentData-&gt;Attribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//LayaAir</span></div><div class="line">aComponent.packageItem.componentData.getAttribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//Egret</span></div><div class="line">aComponent.packageItem.componentData.attributes.customData;</div><div class="line"><span class="comment">//AS3/Starling</span></div><div class="line">aComponent.packageItem.componentData.@customData;</div></pre></td></tr></table></figure>
+<p>如果组件有扩展类，那么也可以覆盖方法ConstructFromXML(xml)，这里的xml就相当于componentData，可以按上面介绍的方法获取customData属性。</p>
+<p>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
 </li>
 </ul>
 <h2 id="设计图功能"><a href="#设计图功能" class="headerlink" title="设计图功能"></a>设计图功能</h2><p><img src="../../images/20170802102647.png" alt=""></p>
