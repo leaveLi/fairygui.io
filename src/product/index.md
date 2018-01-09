@@ -93,12 +93,10 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-cryengine.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-cryengine.svg" alt="forks">
 
-该SDK为私有SDK，如需使用请联系管理员。
-
 ## Havok Vision SDK
 
 示例源码：[https://github.com/fairygui/FairyGUI-vision](https://github.com/fairygui/FairyGUI-vision)
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-vision.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-vision.svg" alt="forks">
 
-该SDK为私有SDK，如需使用请联系管理员。
+[下载例子](http://res.fairygui.com/FairyGUI-vision-demo20180109.zip)
