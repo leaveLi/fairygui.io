@@ -337,6 +337,8 @@ ScrollPane中常用的API有：
 
 - `posX` `posY` `SetPosX` `SetPosY` 获得或设置滚动的位置，以绝对像素值来计算。取值范围是0-最大滚动距离。垂直最大滚动距离=（内容高度-视口高度），水平最大滚动距离=（内容宽度-视口宽度）。如果希望滚动条从当前值到设置值有一个动态变化的过程，可以使用Set方法，它们提供了一个是否使用缓动的参数。
 
+- `currentPageX` `currentPageY` `setCurrentPageX` `setCurrentPageY` 如果滚动设置为页面模式，那么可以通过这些方法设置或者获得当前的页面索引。
+
 - `ScrollLeft` `ScrollRight` `ScrollUp` `ScrollDown` 向指定方向滚动N*`scrollStep`。例如，如果scrollStep=20，那么ScrollLeft(1)表示向左滚动20像素，ScrollLeft(2)表示向左滚动40像素。注意：如果滚动属性设置了贴近元件，例如元件大小为41像素，则需要滚动距离超过20像素，才能真正发生滚动，那么如果调用ScrollLeft(1)，在scrollStep=20的情况下，会导致看不到任何效果。
 
 - `ScrollToView` 调整滚动位置，使指定的元件出现在视口内。

@@ -346,7 +346,7 @@
 <li><p>将打包后的文件直接发布到Unity的Resources目录或者其子目录下，</p>
 <p><img src="../../images/2015-10-21_151409.png" alt=""></p>
 <p>这种方式处理的UI包，如果使用UIPanel显示UI，不需要任何代码载入；如果是动态创建UI，要使用代码载入包：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//demo就是发布时填写的文件名</span></div><div class="line">UIPackage.AddPackage(<span class="string">"demo"</span>);</div><div class="line"></div><div class="line"><span class="comment">//如果在子目录下</span></div><div class="line">UIPackage.AddPacakge(<span class="string">"路径/demo"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//demo就是发布时填写的文件名</span></div><div class="line">UIPackage.AddPackage(<span class="string">"demo"</span>);</div><div class="line"></div><div class="line"><span class="comment">//如果在子目录下</span></div><div class="line">UIPackage.AddPackage(<span class="string">"路径/demo"</span>);</div></pre></td></tr></table></figure>
 </li>
 <li><p>将发布后的文件打包为两个AssetBundle，即定义文件和资源各打包为一个bundle(desc_bundle+res_bundle)。这样做的好处是一般UI的更新都是修改元件位置什么的，不涉及图片资源的更新，那么只需要重新打包和推送desc_bundle就行了，不需要让玩家更新通常体积比较大的res_bundle，节省流量。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，请遵循以下规则打包：</p>
 <ul>
@@ -361,7 +361,7 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//bundle的载入由开发者自行实现。</span></div><div class="line">UIPackage.AddPackage(bundle);</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><strong>在使用AssetBundle的载入方案中，AddPackge提供了一个参数，用于控制是否由FairyGUI接管bundle并负责bundle资源的释放。</strong></p>
+<p><strong>在使用AssetBundle的载入方案中，AddPackge提供了一个参数，用于控制是否由FairyGUI接管bundle并负责bundle资源的释放。默认为true，即由FairyGUI接管bundle并负责bundle资源的释放</strong></p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//第二个参数为false，表示不需要让FairyGUI释放bundle。</span></div><div class="line">UIPackage.AddPackage(bundle, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
 <h2 id="UIPanel"><a href="#UIPanel" class="headerlink" title="UIPanel"></a>UIPanel</h2><p>在Unity中使用编辑器制作的界面有两种方式，第一种是使用UIPanel。</p>
 <p>只需3步就可以使用将编辑器中制作好的界面放入到Unity的场景中。</p>

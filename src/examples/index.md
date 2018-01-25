@@ -4,6 +4,8 @@ type: examples
 order: 0
 ---
 
+在线示例仅能提供H5类引擎的示例，其他引擎请在产品页面相应引擎SDK下下载Demo！
+
 Laya/Egret在线示例：
 
 1. [综合例子](http://www.fairygui.com/laya-demo/main)

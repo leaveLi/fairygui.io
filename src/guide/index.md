@@ -68,7 +68,7 @@ FairyGUI提供了多个游戏引擎SDK：`Unity`、`Cocos2d-x`、`Cry Egine`, `H
 
 1.  下载FairyGUI编辑器。
 2.  下载对应你的开发平台的FairyGUI SDK。
-3.  对照SDK里的例子（包括编辑器里的UI设计，和运行时的代码），阅读全部官网教程或[视频教程](http://www.taikr.com/course/446)。
+3.  对照SDK里的例子（包括编辑器里的UI设计，和运行时的代码），阅读全部官网教程或[视频教程](http://www.sikiedu.com/course/139)。
 4.  愉快地开始你的UI制作之旅。
 
 

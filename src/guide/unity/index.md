@@ -19,7 +19,7 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     UIPackage.AddPackage("demo");
     
     //如果在子目录下
-    UIPackage.AddPacakge("路径/demo");
+    UIPackage.AddPackage("路径/demo");
   ```
 
 2. 将发布后的文件打包为两个AssetBundle，即定义文件和资源各打包为一个bundle(desc_bundle+res_bundle)。这样做的好处是一般UI的更新都是修改元件位置什么的，不涉及图片资源的更新，那么只需要重新打包和推送desc_bundle就行了，不需要让玩家更新通常体积比较大的res_bundle，节省流量。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，请遵循以下规则打包：
@@ -43,7 +43,7 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     UIPackage.AddPackage(bundle);
   ```
 
-**在使用AssetBundle的载入方案中，AddPackge提供了一个参数，用于控制是否由FairyGUI接管bundle并负责bundle资源的释放。**
+**在使用AssetBundle的载入方案中，AddPackge提供了一个参数，用于控制是否由FairyGUI接管bundle并负责bundle资源的释放。默认为true，即由FairyGUI接管bundle并负责bundle资源的释放**
 
 ```csharp
     //第二个参数为false，表示不需要让FairyGUI释放bundle。
