@@ -362,9 +362,9 @@
 <li><p>给3D对象设置合适的位置、缩放和旋转。</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">go.transform.localPosition = <span class="keyword">new</span> Vector3(<span class="number">61</span>, <span class="number">-89</span>, <span class="number">1000</span>); </div><div class="line">go.transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">180</span>, <span class="number">180</span>, <span class="number">180</span>);</div><div class="line">go.transform.localEulerAngles = <span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">100</span>, <span class="number">0</span>);</div></pre></td></tr></table></figure>
 <p>注意：对于模型这种有“厚度”的对象（在z轴有一定范围），localPosition的z值不应该为0，可以设置一个较大的正数值（正数表示远离摄像机）。因为Shader是开启了ZTest的，如果模型在z轴的坐标为0，和UI的z值相同，那么他的前端就可能与他上一层的UI重叠。</p>
-<p>模型的缩放可以根据这个公式计算：缩放倍数 = 显示大小（单位像素）/ 模型大小（单位米）。例如如果一个模型是1米高，最终需要显示400像素高，那么需要放大400倍。</p>
+<p>模型的缩放可以根据这个公式估算：缩放倍数 = 显示大小（单位像素）/ 模型大小（单位米）。例如如果一个模型是1米高，最终需要显示400像素高，那么需要放大400倍。</p>
 </li>
-<li><p>在UI中需要放置3D对象中放置一个空白的图形，假设名称为“holder”。</p>
+<li><p>在UI中放置一个空白的图形，假设名称为“holder”。</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGraph holder = view.GetChild(<span class="string">"holder"</span>).asGraph;</div></pre></td></tr></table></figure>
 </li>
 <li><p>构建GoWrapper对象，放入到holder中。</p>
@@ -374,20 +374,20 @@
 <p><strong>点击处理</strong></p>
 <p>GoWrapper默认是没有大小的，所有不能处理点击事件。如果需要对3D对象显示区域的点击事件，可以在holder上再放置一个图形（透明度设置为0）作为点击区域，或者一个空组件也行。</p>
 <p><strong>调试方式</strong></p>
-<p>使用这种方式插入3D对象，需要使用代码，并在运行时才能看到效果，对设置GameObject的位置、旋转、缩放等都不太直观。FairyGUI提供了直观的方法。可以把3D对象直接挂到UIPanel对象下，<strong>并设置3D对象的Layer为UI</strong>，然后勾选UIPanel的“Set Native Children Order”。如下：</p>
+<p>使用这种方式插入3D对象，需要使用代码，并在运行时才能看到效果，对设置GameObject的位置、旋转、缩放等都不太直观。FairyGUI提供了直观的方法，可以把3D对象直接挂到UIPanel对象下。<strong>首先设置3D对象的Layer为UI</strong>，然后勾选UIPanel的“Set Native Children Order”。如下：</p>
 <p><img src="../../images/20170809140223.png" alt=""></p>
-<p>但这种方法GameObject并不会随着UIPanel的移动而移动，因此只能用作调试用途。例如制作UI上用的粒子时，可以用这种方法测试。</p>
+<p>但这种方法GameObject并不会随着UIPanel的移动而移动，因此只能用作调试用途。例如制作UI上用的粒子时，可以提供这种方法给美术。</p>
 <p><strong>更新GameObject</strong></p>
 <p>GoWrapper会在构造函数里查询你的GameObject里所有的Renderer并保存。如果你的GameObject后续发生了改变，需要告知GoWrapper重新查询和保存，否则显示不正确。</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">wrapper.CacheRenderers();</div></pre></td></tr></table></figure>
 <p><strong>更换GameObject</strong></p>
 <p>如果要修改GoWrapper包装的对象，可以使用：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">wrapper.wrapTarget = anotherGameObject;</div></pre></td></tr></table></figure>
-<p>设置新的包装对象后，原来的包装对象只会被删除引用，但不会被销毁。如果你要销毁原来的GameObject，可以这样：</p>
+<p>设置新的包装对象后，原来的包装对象只会被删除引用，但不会被销毁。如果你要销毁原来的GameObject，必须自行处理，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Object.Destroy(wrapper.wrapTarget);</div><div class="line">wrapper.wrapTarget = anotherGameObject;</div></pre></td></tr></table></figure>
 <p><strong>剪裁</strong></p>
 <p>如果需要对3D对象进行剪裁，可以利用自定义遮罩。自定义遮罩的使用方法参考：<a href="../editor/component.html#遮罩">组件的遮罩</a>。</p>
-<p>例如如果需要在一个列表内的item显示模型，并希望模型在列表滚动时被正确隐藏，这时仅通过列表自身的溢出滚动功能是无法实现的。这时需要将列表转换为一个组件，在组件内拖入一个矩形图形覆盖列表的视口，然后将这个图形设置为组件的自定义遮罩。</p>
+<p>例如需要在一个列表内的item显示模型，并希望模型在列表滚动时被正确隐藏，这时仅通过列表自身的溢出滚动功能是无法实现的。首先将列表转换为一个组件，在组件内拖入一个矩形图形覆盖列表的视口，然后将这个图形设置为组件的自定义遮罩。</p>
 <p>模型的着色器也必须做出相应的修改，把以下代码添加到模型的着色器的Properties段（可参考FairyGUI-Image.shader）：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">_StencilComp (<span class="string">"Stencil Comparison"</span>, Float) = <span class="number">8</span></div><div class="line">_Stencil (<span class="string">"Stencil ID"</span>, Float) = <span class="number">0</span></div><div class="line">_StencilOp (<span class="string">"Stencil Operation"</span>, Float) = <span class="number">0</span></div><div class="line">_StencilWriteMask (<span class="string">"Stencil Write Mask"</span>, Float) = <span class="number">255</span></div><div class="line">_StencilReadMask (<span class="string">"Stencil Read Mask"</span>, Float) = <span class="number">255</span></div></pre></td></tr></table></figure>
 <p>把以下代码加到模型的着色器的SubShader段（可参考FairyGUI-Image.shader）：</p>

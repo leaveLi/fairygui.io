@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/guide/unity/insert3d.html</loc>
+    
+    <lastmod>2018-01-26T17:38:50.401Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/guide/editor/scrollbar.html</loc>
     
     <lastmod>2018-01-26T12:32:56.952Z</lastmod>
@@ -114,13 +121,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
-    
-    <lastmod>2018-01-08T08:54:38.296Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/text.html</loc>
     
     <lastmod>2018-01-08T08:54:38.296Z</lastmod>
@@ -135,13 +135,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/egret/index.html</loc>
-    
-    <lastmod>2018-01-08T08:54:38.296Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/transition.html</loc>
     
     <lastmod>2018-01-08T08:54:38.296Z</lastmod>
@@ -149,14 +142,28 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/group.html</loc>
+    <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
+    
+    <lastmod>2018-01-08T08:54:38.296Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/egret/index.html</loc>
+    
+    <lastmod>2018-01-08T08:54:38.296Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/object.html</loc>
     
     <lastmod>2018-01-08T08:54:38.286Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/object.html</loc>
+    <loc>http://www.fairygui.com/guide/editor/group.html</loc>
     
     <lastmod>2018-01-08T08:54:38.286Z</lastmod>
     
@@ -170,14 +177,14 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/button.html</loc>
+    <loc>http://www.fairygui.com/guide/cocos2dx/index.html</loc>
     
     <lastmod>2018-01-08T08:54:38.276Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/cocos2dx/index.html</loc>
+    <loc>http://www.fairygui.com/guide/editor/button.html</loc>
     
     <lastmod>2018-01-08T08:54:38.276Z</lastmod>
     
@@ -264,13 +271,6 @@
     <loc>http://www.fairygui.com/guide/unity/uipainter.html</loc>
     
     <lastmod>2017-09-28T04:32:17.261Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/unity/insert3d.html</loc>
-    
-    <lastmod>2017-09-25T10:50:32.909Z</lastmod>
     
   </url>
   
