@@ -25,7 +25,7 @@ order: 90
     //纹理将在本帧渲染后才能更新，所以访问纹理的代码需要延迟到下一帧执行。
     yield return null;
 
-    Texture tex = dObject.paintingGraphics.texture.nativeTexture;
+    RenderTexture tex = (RenderTexture)dObject.paintingGraphics.texture.nativeTexture;
     //得到tex后，你可以使用Unity的方法保存为图片或者进行其他处理。具体处理略。
 
     //处理结束后结束绘画模式。id要和Enter方法的对应。

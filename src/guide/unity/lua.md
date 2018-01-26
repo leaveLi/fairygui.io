@@ -19,7 +19,7 @@ order: 80
     _GT(typeof(DisplayObject)),
     _GT(typeof(Container)),
     _GT(typeof(Stage)),
-    _GT(typeof(Controller)),
+    _GT(typeof(FairyGUI.Controller)),
     _GT(typeof(GObject)),
     _GT(typeof(GGraph)),
     _GT(typeof(GGroup)),
@@ -170,7 +170,7 @@ FairyGUI在C#里可以使用UIObjectFactory.SetPackageItemExtension进行自定�
 
 2. 注册扩展类。要在创建任何对象前注册好。
 ```csharp
-    fgui.register_extension(UIPackage.GetItemURL("包名","我的按钮"), MyButton)
+    fgui.register_extension("ui://包名/我的按钮", MyButton)
 ```
 
 3. 完成以上两步后，任何“我的按钮”这个资源创建出来的对象都可以使用MyButton访问了。例如：
