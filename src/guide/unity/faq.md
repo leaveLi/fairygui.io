@@ -35,8 +35,8 @@ Unity5.5版本开始，纹理设置新增了[TextureShape](http://ask.fairygui.c
 
 ## UI显示有重复，或者UI销毁后依然显示
 1. 场景里没有放置主相机。
-2. 主相机的ClearFlags错误设置为Depth。
-3. 还有其他相机，Culling Mask包含了UI。
+2. 主相机的ClearFlags错误设置为了Depth。
+3. 场景里还有其他相机，且它的Culling Mask设置勾选了UI。
 
 ## 字体渲染效果不对
 
@@ -59,13 +59,50 @@ Unity5.5版本开始，纹理设置新增了[TextureShape](http://ask.fairygui.c
 
 这个API并不需要由开启了fairyBatching的组件调用，aObject可以是任何一个内含的元件。并且你可以在任何时间调用，每帧调用也可以，只要你确认是需要。它的消耗不算大，但也不能说没有。
 
+## 图片拼接/平铺有缝
+
+将需要拼接或平铺的图片单独导出为一个纹理集，然后设置纹理集的Filter Mode为Point。**还需要在项目的图形质量设置中关闭抗锯齿。**
+
+## 场景里出现CaptureCamera
+
+以下情况场景中会自动出现CaptureCamera：
+1. 组件的BlendMode不为默认值“Normal”。
+2. 对组件使用任意滤镜；
+3. 对任意对象使用模糊滤镜；
+4. 组件设置了倾斜；
+5. 使用了2D模拟3D透视功能，即GObject.perspective = true;
+
+## 出现需要定义层的警告
+
+```
+Please define two layers named 'VUI' and 'Hidden VUI' "
+```
+
+当场景里自动出现CaptureCamera（为什么会出现这个，参考上一条）时，如果没有VUI、Hidden VUI这两个Layer的定义，就会出现这个警告，所以你要在Layer定义里加上他们。这两个Layer可以随便定义到没使用的层序号，但要注意所有相机的Culling Mask都**不选择**这两个层。
+
+## 不想将我的UI放置到“UI”这个Layer
+
+可以的，但你需要使用源码版本。将StageCamera.cs里的LayerName改掉就行了。
+
 ## Stage.LateUpdate函数CPU占用过高
 
-Stage.LateUpdate不但包含了FairyGUI自身的消耗，而且因为他是发出事件的源头，所以也包含了事件处理逻辑的消耗 。所以进入Deep Profiler模式，展开Stage.LateUpdate，查看你的事件处理函数的消耗。FairyGUI自身的消耗是在Container.Update下，在非Deep Profiler模式下是很少的（Deep Profile下的数据只能看占比值，不能看绝对值）。
+Stage.LateUpdate不但包含了FairyGUI自身的消耗，而且因为他是发出事件的源头，所以也包含了事件处理逻辑的消耗 。所以进入Deep Profiler模式，展开Stage.LateUpdate，查看你的事件处理函数的消耗。FairyGUI自身的消耗是在Container.Update下，在非Deep Profiler模式下是很少的（注意：Deep Profile下的数据只能看占比值，不能看绝对值，因为这种Profile模式自身产生的消耗也是很大的）。
 
 ## DrawCall过高
 
-开启了FairyBatching后，仍然觉得DrawCall过高的话，可以使用Unity的工具Frame Debugger排查。可以看看是不是过多的使用了遮罩（溢出隐藏、滚动），或者元件之间不合理的重叠。另外大段文本、图片平铺、使用滤镜、BlendMode也会阻断DrawCall的合并。
+开启了FairyBatching后，仍然觉得DrawCall过高的话，可以使用Unity的工具Frame Debugger排查。可以看看是不是过多的使用了遮罩（溢出隐藏、滚动），或者**元件之间不合理的重叠**。另外大段文本、图片平铺、使用滤镜、BlendMode也会阻断DrawCall的合并。
+
+## UI包卸载后在Profiler里看到依然有Asset没释放
+
+这可能是Unity编辑器自身对贴图等资源的引用。真实运行环境不会有。
+
+## 有长按事件吗
+
+长按处理使用LongPressGesture。
+
+## FairyGUI和UGUI可以共存吗
+
+可以的。参考教程[插入模型/粒子/Canvas](insert3d.html)。
 
 ## Lua不能侦听事件
 

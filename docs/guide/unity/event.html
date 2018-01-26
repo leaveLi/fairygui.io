@@ -158,6 +158,11 @@
 	            
 	                
 	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">滚动容器</a>
+	                </li>
+	            
+	                
+	                <li>
 	                    <a href="/guide/editor/controller.html" class="sidebar-link">控制器</a>
 	                </li>
 	            
@@ -234,6 +239,12 @@
 	                
 	                <li>
 	                    <a href="/guide/unity/index.html" class="sidebar-link">显示UI面板</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">坐标转换</a>
 	                </li>
 	            
 	                
@@ -341,7 +352,7 @@
     
       <h1>事件机制</h1>
     
-    <p>Unity平台参考了Flash的事件机制，设计了自己独特的事件机制。<code>EventDispatcher</code>是事件分发的中心，GObject就是一个EventDispatcher。每个事件类型都对应一个<code>EventListener</code>，接收事件并调用处理函数。</p>
+    <p><code>EventDispatcher</code>是事件分发的中心，GObject就是一个EventDispatcher。每个事件类型都对应一个<code>EventListener</code>，接收事件并调用处理函数。</p>
 <p>例如，编写某个元件单击的处理逻辑：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.onClick.Add(aCallback);</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params"></span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">//some logic</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="冒泡和捕获"><a href="#冒泡和捕获" class="headerlink" title="冒泡和捕获"></a>冒泡和捕获</h2><p>一些特殊的事件，比如鼠标/触摸事件，具备向父组件传递的特性，这个传递过程叫做冒泡。例如当手指接触A元件时，A元件触发TouchBegin事件，然后A元件的父组件B触发TouchBegin事件，然后B的父组件C也触发TouchBegin事件，以此类推，直到舞台根部。这个设计保证了所有相关的显示对象都有机会处理触摸事件，而不只是最顶端的显示对象。</p>

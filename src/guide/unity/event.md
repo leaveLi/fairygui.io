@@ -4,7 +4,7 @@ type: guide_unity
 order: 40
 ---
 
-Unity平台参考了Flash的事件机制，设计了自己独特的事件机制。`EventDispatcher`是事件分发的中心，GObject就是一个EventDispatcher。每个事件类型都对应一个`EventListener`，接收事件并调用处理函数。
+`EventDispatcher`是事件分发的中心，GObject就是一个EventDispatcher。每个事件类型都对应一个`EventListener`，接收事件并调用处理函数。
 
 例如，编写某个元件单击的处理逻辑：
 

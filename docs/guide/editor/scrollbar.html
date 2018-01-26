@@ -158,6 +158,11 @@
 	            
 	                
 	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">滚动容器</a>
+	                </li>
+	            
+	                
+	                <li>
 	                    <a href="/guide/editor/controller.html" class="sidebar-link">控制器</a>
 	                </li>
 	            
@@ -234,6 +239,12 @@
 	                
 	                <li>
 	                    <a href="/guide/unity/index.html" class="sidebar-link">显示UI面板</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">坐标转换</a>
 	                </li>
 	            
 	                
@@ -341,7 +352,7 @@
     
       <h1>滚动条</h1>
     
-    <p>与很多UI框架使用皮肤机制定义滚动条不同，在FairyGUI中，滚动条是可以随心设计的。<br>滚动容器和滚动条是独立的，也就是说，即使没有滚动条，滚动容器也能完成滚动的功能。</p>
+    <p>与很多UI框架使用皮肤机制定义滚动条不同，在FairyGUI中，滚动条是可以随心设计的。<br><a href="scrollpane.html">滚动容器</a>和滚动条是独立的，也就是说，即使没有滚动条，滚动容器也能完成滚动的功能。<br>注意：滚动条不能直接拖到舞台上使用，永远不要这样做。</p>
 <h2 id="创建滚动条"><a href="#创建滚动条" class="headerlink" title="创建滚动条"></a>创建滚动条</h2><p>可以通过两种方式创建滚动条组件。</p>
 <ul>
 <li>点击主菜单“资源”-&gt;“新建滚动条”，然后按照向导的提示一步步完成。</li>
@@ -366,8 +377,8 @@
 <li><p><code>bar</code> 这个限制区域表示滚动滑块上下或者左右时滑动的范围，一般用一个空白的图形来表示就可以了，只作占位用途，没有实际渲染效果。</p>
 </li>
 </ul>
-<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>滚动条有两种方法使用，一种是在“项目属性”-&gt;“预览设置”里设成为全局滚动条资源；另一种是在滚动容器的属性里设置。无论哪种方式，滚动条都是自动创建，然后根据滚动容器的属性调整的（参考<a href="component.html#滚动设置">滚动设置</a>），你无法选定滚动条组件进行属性设置。</p>
-<h2 id="GScrollBar"><a href="#GScrollBar" class="headerlink" title="GScrollBar"></a>GScrollBar</h2><p>运行时滚动条组件的类型是GScrollBar，但你不需要访问GScrollBar对象。所有滚动相关的操作都通过ScrollPane完成，参考<a href="component.html#ScrollPane">ScrollPane</a>。</p>
+<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>滚动条有两种方法使用，一种是在“项目属性”-&gt;“预览设置”里设成为全局滚动条资源；另一种是在滚动容器的属性里设置。无论哪种方式，滚动条都是自动创建，然后根据滚动容器的属性调整的（参考<a href="scrollpane.html">滚动容器</a>，你无法选定滚动条组件进行属性设置。</p>
+<h2 id="GScrollBar"><a href="#GScrollBar" class="headerlink" title="GScrollBar"></a>GScrollBar</h2><p>运行时滚动条组件的类型是GScrollBar，但你不需要访问GScrollBar对象。所有滚动相关的操作都通过ScrollPane完成，参考<a href="scrollpane.html">滚动容器</a>。</p>
 
     
     <div class="footer">

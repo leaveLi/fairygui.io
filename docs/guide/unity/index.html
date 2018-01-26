@@ -158,6 +158,11 @@
 	            
 	                
 	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">滚动容器</a>
+	                </li>
+	            
+	                
+	                <li>
 	                    <a href="/guide/editor/controller.html" class="sidebar-link">控制器</a>
 	                </li>
 	            
@@ -234,6 +239,12 @@
 	                
 	                <li>
 	                    <a href="/guide/unity/index.html" class="sidebar-link current">显示UI面板</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">坐标转换</a>
 	                </li>
 	            
 	                
@@ -363,6 +374,9 @@
 </ol>
 <p><strong>在使用AssetBundle的载入方案中，AddPackge提供了一个参数，用于控制是否由FairyGUI接管bundle并负责bundle资源的释放。默认为true，即由FairyGUI接管bundle并负责bundle资源的释放</strong></p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//第二个参数为false，表示不需要让FairyGUI释放bundle。</span></div><div class="line">UIPackage.AddPackage(bundle, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<h2 id="卸载UI包"><a href="#卸载UI包" class="headerlink" title="卸载UI包"></a>卸载UI包</h2><p>当一个包不再使用时，可以将其卸载。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这里可以使用包的id，包的名称，包的路径，均可以</span></div><div class="line">UIPackage.RemovePackage(<span class="string">"package"</span>);</div></pre></td></tr></table></figure>
+<p>包卸载后，所有包里包含的贴图等资源均会被卸载，由包里创建出来的组件也无法显示正常（虽然不会报错），所以这些组件应该（或已经）被销毁。<br>一般不建议包进行频繁装载卸载，因为每次装载卸载必然是要消耗CPU时间（意味着耗电）和产生大量GC的。UI系统占用的内存是可以精确估算的，你可以按照包的使用频率设定哪些包是常驻内存的（建议尽量多）。</p>
 <h2 id="UIPanel"><a href="#UIPanel" class="headerlink" title="UIPanel"></a>UIPanel</h2><p>在Unity中使用编辑器制作的界面有两种方式，第一种是使用UIPanel。</p>
 <p>只需3步就可以使用将编辑器中制作好的界面放入到Unity的场景中。</p>
 <ol>

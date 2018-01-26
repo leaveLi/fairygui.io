@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - 图形</title>
+        <title>FairyGUI - 滚动容器</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="-图形FairyGUI">
+        <meta property="og:title" content="-滚动容器FairyGUI">
         <meta property="og:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="图形 — FairyGUI">
+        <meta name="twitter:title" content="滚动容器 — FairyGUI">
         <meta name="twitter:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
@@ -128,7 +128,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/graph.html" class="sidebar-link current">图形</a>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">图形</a>
 	                </li>
 	            
 	                
@@ -158,7 +158,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">滚动容器</a>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link current">滚动容器</a>
 	                </li>
 	            
 	                
@@ -350,37 +350,79 @@
 
 <div class="content guide_editor with-sidebar ">
     
-      <h1>图形</h1>
+      <h1>滚动容器</h1>
     
-    <p>FairyGUI支持生成简单的图形。 点击侧工具栏的<img src="../../images/20170728164112.png" alt="">按钮生成一个图形。</p>
-<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p><img src="../../images/20170728164159.png" alt=""></p>
+    <h2 id="滚动属性"><a href="#滚动属性" class="headerlink" title="滚动属性"></a>滚动属性</h2><p>对组件或者列表设置了“溢出处理”为“水平滚动”、“垂直滚动”，“自由滚动”后，组件或者列表即成为滚动容器。点击“溢出处理”旁边的<img src="../../images/20170801144514.png" alt="">按钮，可以设置详细的滚动的相关属性。</p>
+<p><img src="../../images/20170802112058.png" alt=""></p>
 <ul>
-<li><p><code>图形</code> 选择形状为矩形、圆形或者“无”。“无”表示这是一个空的图形，他不消耗任何显示资源，通常用作一个占位的用途。详细可见下面的介绍。<em>（部分SDK不支持圆形）</em></p>
+<li><p><code>滚动条显示</code> 滚动条的显示策略。 </p>
+<ul>
+<li><code>默认</code> 使用全局设置，在主菜单“文件”-&gt;“项目属性”-&gt;“预览设置”里设置。</li>
+<li><code>可见</code> 表示滚动条一直显示。</li>
+<li><code>滚动时显示</code> 表示滚动条只有在滚动时才会显示，其他情况下自动隐藏。</li>
+<li><code>隐藏</code> 表示滚动条一直不可见的状态。</li>
+</ul>
 </li>
-<li><p><code>线条大小</code> 形状的描边大小。0则表示不描边。<em>（Unity/Starling版本目前不支持圆形的描边）</em></p>
+<li><p><code>边缘回弹效果</code> 滚动到达边缘时是否允许继续滑动/拖动一定距离，表现一个回弹的效果。一般在移动平台上使用，PC上较少。有些开发者会提出为什么我的滚动容器里内容没超出视口，却依然能滚动，这其实是边缘回弹效果。</p>
 </li>
-<li><p><code>线条颜色</code> 形状的描边颜色。</p>
+<li><p><code>触摸滚动效果</code> 是否允许用户直接拖拽滚动区域内的内容。一般在移动平台上使用，PC上较少，PC上一般需要拖动滚动条，或使用鼠标滚轮。</p>
 </li>
-<li><p><code>填充颜色</code> 形状的填充颜色。如果你希望绘制中空的图形，那把填充颜色的透明度设置为0即可。</p>
+<li><p><code>滚动条组件</code> 设置滚动条资源。一般不需要设置，全局有一个设置，在主菜单“文件”-&gt;“项目属性”-&gt;“预览设置”里。如果你要使用不同于全局设置的滚动条资源，那么在这里设置。</p>
 </li>
-<li><p><code>圆角</code> 一个整数或者4个用逗号分隔的整数。例如“4”，表示矩形的四个角均为半径为4的圆角。例如“2,1,1,4”，则指定了每个角的半径。<em>Unity、Starling版本不支持圆角的设置，如果你仍然希望使用圆角矩形，可以在右键菜单里点击“转换为位图”</em></p>
+<li><p><code>定位</code> 可以设置滚动条在容器中的位置，这是一个相对于正常位置的偏移值。</p>
+</li>
+<li><p><code>下拉/上拉刷新组件</code> 设置上拉刷新或下拉刷新时需要显示的组件。下面是下拉刷新的效果：</p>
 </li>
 </ul>
-<h2 id="GGraph"><a href="#GGraph" class="headerlink" title="GGraph"></a>GGraph</h2><p>图形支持动态创建，动态创建图形需要注意一定要设置图形的大小，否则显示不出来。例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGraph holder = <span class="keyword">new</span> GGraph();</div><div class="line">holder.SetSize(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">holder.DrawRect(...);</div><div class="line">aComponent.AddChild(holder);</div></pre></td></tr></table></figure>
-<p>前面提到，空白的图形可以用作一个占位的用途，运行中可能用其他对象替换这个空白图形。FairyGUI的显示对象与原生显示对象混合使用时就需要用到这种空白的图形。</p>
-<p>举例：现在要在UI中放置入一个原生的对象aSprite，则可以在适当位置放入一个空白的图形，假设对象为holder，那么代码里可以这样写：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">holder.SetNativeObject(aSprite);</div></pre></td></tr></table></figure>
-<p>这样就把aSprite放到了holder所在的位置和深度上。 通过这样的办法，任何原生显示对象都可以轻松插入到FairyGUI的显示列表中。</p>
-<p>如果SetNativeObject被重复调用，则前一个设置对象被销毁，插入新的对象。</p>
-<p>通过GGraph.shape属性可以获得原生矢量绘制的接口类。特别说明的是，Unity平台没有矢量绘制引擎，因此目前只提供了绘制矩形、圆形和多边形。以下是Unity里运用GGraph对象的一些技巧：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//传入多边形的各个顶点绘制多边形</span></div><div class="line">aGraph.shape.DrawPolygon(<span class="keyword">new</span> Vector2[] &#123; ...&#125; &#125;, <span class="keyword">new</span> Color[] &#123; ... &#125;;</div><div class="line"></div><div class="line"><span class="comment">//绘制一个渐变色的矩形</span></div><div class="line">aGraph.shape.DrawRect(<span class="number">0</span>, <span class="keyword">new</span> Color[] &#123; ... &#125;);</div></pre></td></tr></table></figure>
-<p>再次提醒，如果图形是动态创建的，记得设置图形的大小。</p>
+<center><br><img src="../../images/gaollg12.gif" alt=""><br></center>
 
+<ul>
+<li><p><code>将垂直滚动条显示在左边</code> 设置垂直滚动条显示在容器的左边，而不是在容器的右边。</p>
+</li>
+<li><p><code>仅在内容溢出时才显示滚动条</code> 只有当容器内的内容超出视口区域时，才显示滚动条，否则隐藏。注意：即使是不显示，滚动条还是有预留的占位的，这个和“滚动条显示”设置为“隐藏”不相同，后者是完全取消滚动条的占位的。</p>
+</li>
+<li><p><code>滚动位置自动贴近元件</code> 在滚动结束后，保证滚动位置刚好处于任意元件的上边缘（或左边缘）。</p>
+</li>
+<li><p><code>页面模式</code> 以视口大小为页面大小，每次滚动的距离是一页。一般在移动平台上使用，PC上较少，拖动滚动条进行滚动操作与这个模式冲突。</p>
+</li>
+<li><p><code>禁用惯性</code> 当用手拖拽内容一段距离，并释放手指后，系统会根据手指移动的速度计算出一个速率，然后滚动会按照将此速率衰减到零的方式慢慢停下来，这称为惯性滚动。如果不需要此特性，可以关闭。这个功能是和“触摸滚动效果”配合使用的。</p>
+</li>
+<li><p><code>禁用剪裁</code> 一般情况下，容器会对超出视口的内容进行剪裁。特殊情况下，例如，如果一个列表的item组件自身就是滚动容器，那么item组件可以关闭剪裁。因为大量的剪裁会消耗很多的系统性能。</p>
+</li>
+</ul>
+<h2 id="ScrollPane"><a href="#ScrollPane" class="headerlink" title="ScrollPane"></a>ScrollPane</h2><p>当组件的“溢出处理”设置为“滚动”后，可以通过GComponent.scrollPane使用滚动相关的功能，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">ScrollPane scrollPane =  aComponent.scrollPane;</div><div class="line"><span class="comment">//设置滚动位置为100像素</span></div><div class="line">scrollPane.posX = <span class="number">100</span>;</div><div class="line"></div><div class="line"><span class="comment">//滚动到中间位置，带动画过程</span></div><div class="line">scrollPane.SetPercX(<span class="number">0.5</span>f, <span class="literal">true</span>);</div></pre></td></tr></table></figure>
+<p>当你增删子组件后，或者移动子组件的位置、调整子组件的大小，容器是自动更新滚动区域的，不需要调用任何API。这个刷新发生在本帧绘制之前。如果你希望立刻访问子元件的正确坐标，那么可以调用<code>EnsureBoundsCorrect</code>通知GComponent立刻重排。EnsureBoundsCorrect是一个友好的函数，你不用担心重复调用会有额外性能消耗。</p>
+<p>ScrollPane中常用的API有：</p>
+<ul>
+<li><p><code>viewWidth</code> <code>viewHeight</code> 视口宽度和高度。</p>
+</li>
+<li><p><code>contentWidth</code> <code>contentHeight</code> 内容高度和宽度。</p>
+</li>
+<li><p><code>percX</code> <code>percY</code> <code>SetPercX</code> <code>SetPercY</code> 获得或设置滚动的位置，以百分比来计算，取值范围是0-1。如果希望滚动条从当前值到设置值有一个动态变化的过程，可以使用Set方法，它们提供了一个是否使用缓动的参数。</p>
+</li>
+<li><p><code>posX</code> <code>posY</code> <code>SetPosX</code> <code>SetPosY</code> 获得或设置滚动的位置，以绝对像素值来计算。取值范围是0-最大滚动距离。垂直最大滚动距离=（内容高度-视口高度），水平最大滚动距离=（内容宽度-视口宽度）。如果希望滚动条从当前值到设置值有一个动态变化的过程，可以使用Set方法，它们提供了一个是否使用缓动的参数。</p>
+</li>
+<li><p><code>currentPageX</code> <code>currentPageY</code> <code>setCurrentPageX</code> <code>setCurrentPageY</code> 如果滚动设置为页面模式，那么可以通过这些方法设置或者获得当前的页面索引。</p>
+</li>
+<li><p><code>ScrollLeft</code> <code>ScrollRight</code> <code>ScrollUp</code> <code>ScrollDown</code> 向指定方向滚动N*<code>scrollStep</code>。例如，如果scrollStep=20，那么ScrollLeft(1)表示向左滚动20像素，ScrollLeft(2)表示向左滚动40像素。注意：如果滚动属性设置了贴近元件，例如元件大小为41像素，则需要滚动距离超过20像素，才能真正发生滚动，那么如果调用ScrollLeft(1)，在scrollStep=20的情况下，会导致看不到任何效果。</p>
+</li>
+<li><p><code>ScrollToView</code> 调整滚动位置，使指定的元件出现在视口内。</p>
+</li>
+</ul>
+<p>可以侦听滚动改变，在任何情况下滚动位置改变都会触发这个事件。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">scrollPane.onScroll.Add(onScroll);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(Event.SCROLL, onScroll);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL, <span class="keyword">this</span>.onScroll, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL, <span class="keyword">this</span>, <span class="keyword">this</span>.onScroll);</div></pre></td></tr></table></figure>
+<p>和滚动相关的事件还有：</p>
+<ul>
+<li><code>ScrollEnd</code> 惯性滚动结束后回调。</li>
+<li><code>PullDownRelease</code> 下拉刷新回调。</li>
+<li><code>PullUpRelease</code> 上拉刷新回调。</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">scrollPane.onScrollEnd.Add(onScrollEnd);</div><div class="line">scrollPane.onPullDownRelease.Add(onPullDownRelease);</div><div class="line">scrollPane.onPullUpRelease.Add(onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, onScrollEnd);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, onPullDownRelease);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, <span class="keyword">this</span>.onScrollEnd, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, <span class="keyword">this</span>.onPullDownRelease, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, <span class="keyword">this</span>.onPullUpRelease, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL_END, <span class="keyword">this</span>, <span class="keyword">this</span>.onScrollEnd);  </div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_DOWN_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullDownRelease);  </div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_UP_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullUpRelease);</div></pre></td></tr></table></figure>
     
     <div class="footer">
       发现错误或想贡献文档?
-      <a href="https://github.com/fairygui/fairygui.github.io/tree/master/src/guide/editor/graph.md" target="_blank">
+      <a href="https://github.com/fairygui/fairygui.github.io/tree/master/src/guide/editor/scrollpane.md" target="_blank">
         在 Github 上编辑此文档!
       </a>
     </div>

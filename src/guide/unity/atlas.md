@@ -10,7 +10,9 @@ FairyGUI编辑器发布到Unity的资源通常包含一个或多个纹理集，�
 
 纹理集是由UI编辑器自动生成的，但在Unity里可以改变纹理集的属性，常用的设置有：
 
-- `Texture Shape` 一定要选择为2D。**这个选项从5.5版本开始出现。如果不是2D，则出现UI图片都显示白色方块的问题。**
+- `Texture Type` 设置为Advanced(5.5前版本)或者Default(5.5后版本）。**不需要设置为Sprite。**
+
+- `Texture Shape` 一定要选择2D。**这个选项从5.5版本开始出现。如果不是2D，则出现UI图片都显示白色方块的问题。**
 
 - `Generate Mip Maps` 不勾选。UI不使用Mip Maps功能。
 

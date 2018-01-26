@@ -49,12 +49,6 @@ FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射
 
     //获取指定手指的位置，参数是手指id
     Vector2 pos2 = Stage.inst.GetTouchPosition(1);
-
-    //这是当前按下的手指的数量
-    int touchCount = Stage.inst.touchCount;
-
-    //获得当前所有按下的手指
-    int[] touchIDs = Stage.inst.GetAllTouch(null);
 ```
 
 在任何时候，如果需要获得当前点击的对象，或者鼠标下的对象，都可以通过以下的方式获得：
@@ -65,6 +59,20 @@ FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射
     //判断是不是在某个组件内
     Debug.Log(testComponent.IsAncestorOf(obj));
 ```
+
+## 多点触摸
+
+FairyGUI支持多点触摸的处理。每个手指都会按照TouchBegin->TouchMove->TouchEnd流程派发事件，可以使用EventContext.inputEvent.touchId区分不同的手指。一般来说，普通的点击事件无需关心手指id，只有需要用到整个触摸流程的才需要处理。
+
+```csharp
+    //这是当前按下的手指的数量
+    int touchCount = Stage.inst.touchCount;
+
+    //获得当前所有按下的手指id
+    int[] touchIDs = Stage.inst.GetAllTouch(null);
+```
+
+如果你不想使用多点触摸功能，可以使用Unity的API：Input.multiTouchEnabled = false关闭。
 
 ## VR输入处理
 
