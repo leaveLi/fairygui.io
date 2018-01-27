@@ -24,14 +24,18 @@ make sure to disable autocrlf option!
 ```
 FairyGUI: texture 'atlas0.png' not found in xxx
 ```
-
 Unity5.5版本开始，纹理设置新增了[TextureShape](http://ask.fairygui.com/?/question/1)属性，把他设置为2d就可以了。 
 
-## 显示不出图片/文字
+## 运行报错且看不到界面，但编辑模式没问题
 
-1. 如果用的是Unity5.5或以上版本，首先检查是否上一个问题。
-2. 如果你是自己创建的新项目，看看有没有在项目中放置着色器，即插件里Resources/Shaders里的着色器。
-3. 如果是Unity编辑模式下能看到，运行时看不到，那就是你的UI包没有正确放置到Resources目录，或者发生了跨包引用但又没有手动载入依赖包。具体原因再看一次前面的教程：显示UI面板。
+```
+Create Component1@Package1 failed!
+```
+你的UI包没有正确放置到**Resources**目录，或者Resources拼错了！太多新手犯这样的错误。另外如果有跨包引用，需要使用AddPackage手动载入依赖包。
+
+## 显示不出图片/文字，但没有报错
+
+项目中没有放置FairyGUI的着色器，即插件里Resources/Shaders里的着色器。请重新安装插件。
 
 ## UI显示有重复，或者UI销毁后依然显示
 1. 场景里没有放置主相机。
@@ -80,7 +84,7 @@ Please define two layers named 'VUI' and 'Hidden VUI' "
 
 当场景里自动出现CaptureCamera（为什么会出现这个，参考上一条）时，如果没有VUI、Hidden VUI这两个Layer的定义，就会出现这个警告，所以你要在Layer定义里加上他们。这两个Layer可以随便定义到没使用的层序号，但要注意所有相机的Culling Mask都**不选择**这两个层。
 
-## 不想将我的UI放置到“UI”这个Layer
+## 放置UI到其他Layer
 
 可以的，但你需要使用源码版本。将StageCamera.cs里的LayerName改掉就行了。
 

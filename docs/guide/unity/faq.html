@@ -358,11 +358,9 @@
 <p>除了上面这个错误，如果包仍然不能加载，检查包名和路径是否正确，特别要注意包只能放置在Resources目录或者它的子目录下，否则就只能打AB包。再看看是不是Unity的项目放置在了带中文名称的目录，这都有可能造成载入失败。</p>
 <h2 id="显示白屏-提示atlas-not-found"><a href="#显示白屏-提示atlas-not-found" class="headerlink" title="显示白屏/提示atlas not found"></a>显示白屏/提示atlas not found</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: texture &apos;atlas0.png&apos; not found in xxx</div></pre></td></tr></table></figure>
 <p>Unity5.5版本开始，纹理设置新增了<a href="http://ask.fairygui.com/?/question/1" target="_blank" rel="external">TextureShape</a>属性，把他设置为2d就可以了。 </p>
-<h2 id="显示不出图片-文字"><a href="#显示不出图片-文字" class="headerlink" title="显示不出图片/文字"></a>显示不出图片/文字</h2><ol>
-<li>如果用的是Unity5.5或以上版本，首先检查是否上一个问题。</li>
-<li>如果你是自己创建的新项目，看看有没有在项目中放置着色器，即插件里Resources/Shaders里的着色器。</li>
-<li>如果是Unity编辑模式下能看到，运行时看不到，那就是你的UI包没有正确放置到Resources目录，或者发生了跨包引用但又没有手动载入依赖包。具体原因再看一次前面的教程：显示UI面板。</li>
-</ol>
+<h2 id="运行报错且看不到界面，但编辑模式没问题"><a href="#运行报错且看不到界面，但编辑模式没问题" class="headerlink" title="运行报错且看不到界面，但编辑模式没问题"></a>运行报错且看不到界面，但编辑模式没问题</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Create Component1@Package1 failed!</div></pre></td></tr></table></figure>
+<p>你的UI包没有正确放置到<strong>Resources</strong>目录，或者Resources拼错了！太多新手犯这样的错误。另外如果有跨包引用，需要使用AddPackage手动载入依赖包。</p>
+<h2 id="显示不出图片-文字，但没有报错"><a href="#显示不出图片-文字，但没有报错" class="headerlink" title="显示不出图片/文字，但没有报错"></a>显示不出图片/文字，但没有报错</h2><p>项目中没有放置FairyGUI的着色器，即插件里Resources/Shaders里的着色器。请重新安装插件。</p>
 <h2 id="UI显示有重复，或者UI销毁后依然显示"><a href="#UI显示有重复，或者UI销毁后依然显示" class="headerlink" title="UI显示有重复，或者UI销毁后依然显示"></a>UI显示有重复，或者UI销毁后依然显示</h2><ol>
 <li>场景里没有放置主相机。</li>
 <li>主相机的ClearFlags错误设置为了Depth。</li>
@@ -389,7 +387,7 @@
 </ol>
 <h2 id="出现需要定义层的警告"><a href="#出现需要定义层的警告" class="headerlink" title="出现需要定义层的警告"></a>出现需要定义层的警告</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Please define two layers named &apos;VUI&apos; and &apos;Hidden VUI&apos; &quot;</div></pre></td></tr></table></figure>
 <p>当场景里自动出现CaptureCamera（为什么会出现这个，参考上一条）时，如果没有VUI、Hidden VUI这两个Layer的定义，就会出现这个警告，所以你要在Layer定义里加上他们。这两个Layer可以随便定义到没使用的层序号，但要注意所有相机的Culling Mask都<strong>不选择</strong>这两个层。</p>
-<h2 id="不想将我的UI放置到“UI”这个Layer"><a href="#不想将我的UI放置到“UI”这个Layer" class="headerlink" title="不想将我的UI放置到“UI”这个Layer"></a>不想将我的UI放置到“UI”这个Layer</h2><p>可以的，但你需要使用源码版本。将StageCamera.cs里的LayerName改掉就行了。</p>
+<h2 id="放置UI到其他Layer"><a href="#放置UI到其他Layer" class="headerlink" title="放置UI到其他Layer"></a>放置UI到其他Layer</h2><p>可以的，但你需要使用源码版本。将StageCamera.cs里的LayerName改掉就行了。</p>
 <h2 id="Stage-LateUpdate函数CPU占用过高"><a href="#Stage-LateUpdate函数CPU占用过高" class="headerlink" title="Stage.LateUpdate函数CPU占用过高"></a>Stage.LateUpdate函数CPU占用过高</h2><p>Stage.LateUpdate不但包含了FairyGUI自身的消耗，而且因为他是发出事件的源头，所以也包含了事件处理逻辑的消耗 。所以进入Deep Profiler模式，展开Stage.LateUpdate，查看你的事件处理函数的消耗。FairyGUI自身的消耗是在Container.Update下，在非Deep Profiler模式下是很少的（注意：Deep Profile下的数据只能看占比值，不能看绝对值，因为这种Profile模式自身产生的消耗也是很大的）。</p>
 <h2 id="DrawCall过高"><a href="#DrawCall过高" class="headerlink" title="DrawCall过高"></a>DrawCall过高</h2><p>开启了FairyBatching后，仍然觉得DrawCall过高的话，可以使用Unity的工具Frame Debugger排查。可以看看是不是过多的使用了遮罩（溢出隐藏、滚动），或者<strong>元件之间不合理的重叠</strong>。另外大段文本、图片平铺、使用滤镜、BlendMode也会阻断DrawCall的合并。</p>
 <h2 id="UI包卸载后在Profiler里看到依然有Asset没释放"><a href="#UI包卸载后在Profiler里看到依然有Asset没释放" class="headerlink" title="UI包卸载后在Profiler里看到依然有Asset没释放"></a>UI包卸载后在Profiler里看到依然有Asset没释放</h2><p>这可能是Unity编辑器自身对贴图等资源的引用。真实运行环境不会有。</p>
