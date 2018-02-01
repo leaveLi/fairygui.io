@@ -93,7 +93,7 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     GComponent view = panel.ui;
 ```
 
-UIPanel在GameObjec销毁时（手动销毁或者过场景等）时会一并销毁。
+UIPanel在GameObject销毁时（手动销毁或者过场景等）会一并销毁。
 
 UIPane只保存了UI包的名称和组件的名称，它不对纹理或其他资源产生任何引用，也就是UI使用的资源不会包含在场景数据中。
 
@@ -146,11 +146,13 @@ UIPanel也可以在游戏中创建，为任意游戏对象动态挂接UI界面�
     UIPanel panel = yourGameObject.AddComponent<UIPanel>();
     panel.packageName = “包名”;
     panel.componentName = “组件名”;
+
+    //下面这是设置选项非必须
     
     //设置renderMode的方式
     panel.container.renderMode = RenderMode.WorldSpace;
     
-    //设置fairyBatching
+    //设置fairyBatching的方式
     panel.container.fairyBatching = true;
     
     //设置sortingOrder的方式
@@ -159,6 +161,7 @@ UIPanel也可以在游戏中创建，为任意游戏对象动态挂接UI界面�
     //设置hitTestMode的方式
     panel.SetHitTestMode(HitTestMode.Default);
     
+    //最后，创建出UI
     panel.CreateUI();
 ```
 
@@ -219,11 +222,11 @@ UIPanel可以用来制作头顶血条。要注意的是：
     view.Dispose();
 ```
 
-**使用UIPanel和UIPackage.CreateObject的场合**
+**使用UIPanel和UIPackage.CreateObject的场合和注意事项**
 
-UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameObject上。当然，UIPanel在2D UI中也可以使用，他的优点是可以直接摆放在场景中，符合Unity的ECS架构。缺点是是这种用法对UI管理带来很多麻烦，特别是对中大型游戏。
+UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameObject上。当然，UIPanel在2D UI中也可以使用，他的优点是可以直接摆放在场景中，符合Unity的ECS架构。缺点是这种用法对UI管理带来很多麻烦，特别是对中大型游戏。
 
-使用UIPackage.CreateObject可以使用代码创建任何界面，可以应用在传统的设计模式中，Lua支持也十分方便。不过必须要小心处理生成的对象的生命周期。
+使用UIPackage.CreateObject可以使用代码创建任何界面，可以应用在传统的设计模式中，Lua支持也十分方便。不过必须要小心处理生成的对象的生命周期，因为它需要手动显式销毁，并且永远不要将使用CreateObject创建出来的对象挂到其他一些普通GameObject上，否则那些GameObject销毁时会一并销毁这个UI里的GameObject，但这个UI又还处于正常使用状态，就会出现空引用错误。
 
 ## Stage Camera
 
@@ -238,6 +241,7 @@ UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameOb
 ## UIContentScaler
 
 UIContentScaler组件是用来设置适配的。在启动场景里任何一个GameObject挂上UIContentScaler组件即可。并不需要每个场景都挂。
+**使用UIContentScaler和使用GRoot.inst.setContentScaleFactor的效果是完全一样的，选择其中一种方式设置适配即可。**
 
 ![](../../images/2016-03-23_125255.png)
 
@@ -254,63 +258,3 @@ UIContentScaler组件是用来设置适配的。在启动场景里任何一个Ga
 UIConfig组件用于设置一些全局的参数。使用UIConfig组件设置和在代码中使用UIConfig类设置全局参数效果是一样的。UIConfig组件还可以加载包，点击`Preload Packages`下面的Add即可。
 
 ![](../../images/2016-04-06_095535.png)
-
-## 坐标转换
-
-FairyGUI是以左上角为原点的，Unity的屏幕坐标是以左下角为原点的。如果需要进行这两者的转换，可以用：
-
-```csharp
-    //Unity的屏幕坐标系，以左下角为原点
-    Vector2 pos = Input.mousePosition;
-
-    //转换为FairyGUI的屏幕坐标
-    pos.y = Screen.height - pos.y;
-```
-
-如果要获得任意一个UI元件在屏幕上的坐标，可以用：
-
-```csharp
-    Vector2 screenPos = aObject.LocalToGlobal(Vector2.zero);
-```
-
-如果要获取屏幕坐标在UI元件上的局部坐标，可以用：
-
-```csharp
-    Vector2 screenPos = Stage.inst.touchPosition;
-    Vector2 localPos = aObject.GlobalToLocal(screenPos);
-```
-
-如果有UI适配导致的全局缩放，那么逻辑屏幕大小和物理屏幕大小不一致，逻辑屏幕的坐标就是GRoot里的坐标。如果要进行局部坐标与逻辑屏幕坐标的转换，可以用：
-
-```csharp
-    //物理屏幕坐标转换为逻辑屏幕坐标
-    Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
-    
-    //UI元件坐标与逻辑屏幕坐标之间的转换
-    aObject.LocalToRoot(pos);
-    aObject.RootToLocal(pos);
-```
-
-如果要转换任意两个UI对象间的坐标，例如需要知道A里面的坐标(10,10)在B里面的位置，可以用：
-
-```csharp
-    Vector2 posInB = aObject.TransformPoint(bObject, new Vector2(10,10));
-```
-
-如果要转换世界空间的坐标到UI里的坐标，可以用：
-
-```csharp
-    Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
-    //原点位置转换
-    screenPos.y = Screen.height - screenPos.y; 
-    Vector2 pt = GRoot.inst.GlobalToLocal(screenPos);
-```
-
-如果要转换UI里的坐标到世界空间的坐标，可以用：
-
-```csharp
-    Vector2 screenPos = GRoot.inst.LocalToGlobal(pos);
-    //原点位置转换
-    screenPos.y = Screen.height - screenPos.y; 
-    Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-```

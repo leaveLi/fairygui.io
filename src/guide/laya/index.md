@@ -4,6 +4,10 @@ type: guide_laya
 order: 0
 ---
 
+开发小游戏须知：
+
+因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，发布时勾选“不压缩描述文件”就可以了。rawinflate这个库就不会再引用到。
+
 ## TS/JS版本
 
 1. 将FairyGUI库以及依赖的rawinflate库拷贝到bin/libs目录。（如果你在编辑器发布时没有勾选`压缩描述文件`，那么这个库是不需要的）。

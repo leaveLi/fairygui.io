@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/guide/unity/index.html</loc>
+    
+    <lastmod>2018-02-01T07:55:34.710Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/egret/index.html</loc>
+    
+    <lastmod>2018-01-30T03:25:50.002Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/laya/index.html</loc>
+    
+    <lastmod>2018-01-30T03:16:23.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/unity/transform.html</loc>
+    
+    <lastmod>2018-01-30T02:35:03.848Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/object.html</loc>
+    
+    <lastmod>2018-01-29T15:00:43.949Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/guide/unity/faq.html</loc>
     
     <lastmod>2018-01-27T06:55:01.321Z</lastmod>
@@ -65,20 +100,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/unity/transform.html</loc>
-    
-    <lastmod>2018-01-26T12:14:56.192Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/unity/index.html</loc>
-    
-    <lastmod>2018-01-26T12:10:36.017Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/unity/input.html</loc>
     
     <lastmod>2018-01-26T10:52:46.748Z</lastmod>
@@ -135,27 +156,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/laya/index.html</loc>
-    
-    <lastmod>2018-01-08T08:54:38.296Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/egret/index.html</loc>
-    
-    <lastmod>2018-01-08T08:54:38.296Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
-    
-    <lastmod>2018-01-08T08:54:38.296Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/transition.html</loc>
     
     <lastmod>2018-01-08T08:54:38.296Z</lastmod>
@@ -170,16 +170,9 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/group.html</loc>
+    <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
     
-    <lastmod>2018-01-08T08:54:38.286Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/object.html</loc>
-    
-    <lastmod>2018-01-08T08:54:38.286Z</lastmod>
+    <lastmod>2018-01-08T08:54:38.296Z</lastmod>
     
   </url>
   
@@ -191,14 +184,21 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/cocos2dx/index.html</loc>
+    <loc>http://www.fairygui.com/guide/editor/group.html</loc>
+    
+    <lastmod>2018-01-08T08:54:38.286Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/button.html</loc>
     
     <lastmod>2018-01-08T08:54:38.276Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/button.html</loc>
+    <loc>http://www.fairygui.com/guide/cocos2dx/index.html</loc>
     
     <lastmod>2018-01-08T08:54:38.276Z</lastmod>
     

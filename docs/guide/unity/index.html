@@ -244,7 +244,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/transform.html" class="sidebar-link">坐标转换</a>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">坐标系统</a>
 	                </li>
 	            
 	                
@@ -395,7 +395,7 @@
 <p><img src="../../images/2017-08-08_213749.png" alt=""></p>
 <p>运行时，获得UIPanel的UI的方式是：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIPanel panel = gameObject.GetComponent&lt;UIPanel&gt;();</div><div class="line">GComponent view = panel.ui;</div></pre></td></tr></table></figure>
-<p>UIPanel在GameObjec销毁时（手动销毁或者过场景等）时会一并销毁。</p>
+<p>UIPanel在GameObject销毁时（手动销毁或者过场景等）会一并销毁。</p>
 <p>UIPane只保存了UI包的名称和组件的名称，它不对纹理或其他资源产生任何引用，也就是UI使用的资源不会包含在场景数据中。</p>
 <p>在编辑状态下，无论UI组件引用了哪些UI包的资源，包括放置在Resources目录下的和不放置在Resources下的，都能够正确显示。<strong>但当运行后，UIPanel只能自动载入放置在Resources目录或其子目录下的UI包，也只会载入自身所在的UI包，其他情况的UI包（例如引用到的UI包或打包到AssetBundle的UI包）不能自动载入</strong>。你需要在UIPanel创建前使用UIPackage.AddPackage准备好这类UI包。UIPanel在Start事件或者第一次访问UIPanel.ui属性时创建UI界面，你仍然有机会在Awake里完成这些操作。</p>
 <p>下面是UIPanel的一些属性说明：</p>
@@ -447,7 +447,7 @@
 </ul>
 <p><strong>动态创建UIPanel</strong></p>
 <p>UIPanel也可以在游戏中创建，为任意游戏对象动态挂接UI界面，例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//UIPanel的生命周期将和yourGameObject保持一致。再次提醒，注意yourGameObject的layer。</span></div><div class="line">UIPanel panel = yourGameObject.AddComponent&lt;UIPanel&gt;();</div><div class="line">panel.packageName = “包名”;</div><div class="line">panel.componentName = “组件名”;</div><div class="line"></div><div class="line"><span class="comment">//设置renderMode的方式</span></div><div class="line">panel.container.renderMode = RenderMode.WorldSpace;</div><div class="line"></div><div class="line"><span class="comment">//设置fairyBatching</span></div><div class="line">panel.container.fairyBatching = <span class="literal">true</span>;</div><div class="line"></div><div class="line"><span class="comment">//设置sortingOrder的方式</span></div><div class="line">panel.SetSortingOrder(<span class="number">1</span>, <span class="literal">true</span>);</div><div class="line"></div><div class="line"><span class="comment">//设置hitTestMode的方式</span></div><div class="line">panel.SetHitTestMode(HitTestMode.Default);</div><div class="line"></div><div class="line">panel.CreateUI();</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//UIPanel的生命周期将和yourGameObject保持一致。再次提醒，注意yourGameObject的layer。</span></div><div class="line">UIPanel panel = yourGameObject.AddComponent&lt;UIPanel&gt;();</div><div class="line">panel.packageName = “包名”;</div><div class="line">panel.componentName = “组件名”;</div><div class="line"></div><div class="line"><span class="comment">//下面这是设置选项非必须</span></div><div class="line"></div><div class="line"><span class="comment">//设置renderMode的方式</span></div><div class="line">panel.container.renderMode = RenderMode.WorldSpace;</div><div class="line"></div><div class="line"><span class="comment">//设置fairyBatching的方式</span></div><div class="line">panel.container.fairyBatching = <span class="literal">true</span>;</div><div class="line"></div><div class="line"><span class="comment">//设置sortingOrder的方式</span></div><div class="line">panel.SetSortingOrder(<span class="number">1</span>, <span class="literal">true</span>);</div><div class="line"></div><div class="line"><span class="comment">//设置hitTestMode的方式</span></div><div class="line">panel.SetHitTestMode(HitTestMode.Default);</div><div class="line"></div><div class="line"><span class="comment">//最后，创建出UI</span></div><div class="line">panel.CreateUI();</div></pre></td></tr></table></figure>
 <p><strong>UIPanel的排序</strong></p>
 <p>UIPanel在屏幕上的显示顺序是由他的sortingOrder属性决定的。sortingOrder越大，显示在越前面（越靠近屏幕）。但这里的排序是指同一个相机下的UIPanel。如果两个UIPanel由不同的相机渲染，那么他们的显示层次首先是由相机的深度（Depth）决定的，渲染相机深度较大的UIPanel一定显示在前面。</p>
 <p>对于RenderMode为ScreenSpace的UIPanel，特别的，1000是一个特殊的层次，它表示2D UI（GRoot）的显示层次，也就是说，sortingOrder大于1000的UIPanel会显示在2D UI的上面，小于1000的都显示在2D UI的下面。</p>
@@ -466,16 +466,16 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIPackage.CreateObjectAsync(<span class="string">"包名"</span>,<span class="string">"组件名"</span>, MyCreateObjectCallback);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">MyCreateObjectCallback</span>(<span class="params">GObject obj</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>动态创建的界面不会自动销毁，例如一个背包窗口，你并不需要在每次过场景都销毁。如果要销毁界面，需要手工调用Dispose方法，例如</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">view.Dispose();</div></pre></td></tr></table></figure>
-<p><strong>使用UIPanel和UIPackage.CreateObject的场合</strong></p>
-<p>UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameObject上。当然，UIPanel在2D UI中也可以使用，他的优点是可以直接摆放在场景中，符合Unity的ECS架构。缺点是是这种用法对UI管理带来很多麻烦，特别是对中大型游戏。</p>
-<p>使用UIPackage.CreateObject可以使用代码创建任何界面，可以应用在传统的设计模式中，Lua支持也十分方便。不过必须要小心处理生成的对象的生命周期。</p>
+<p><strong>使用UIPanel和UIPackage.CreateObject的场合和注意事项</strong></p>
+<p>UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameObject上。当然，UIPanel在2D UI中也可以使用，他的优点是可以直接摆放在场景中，符合Unity的ECS架构。缺点是这种用法对UI管理带来很多麻烦，特别是对中大型游戏。</p>
+<p>使用UIPackage.CreateObject可以使用代码创建任何界面，可以应用在传统的设计模式中，Lua支持也十分方便。不过必须要小心处理生成的对象的生命周期，因为它需要手动显式销毁，并且永远不要将使用CreateObject创建出来的对象挂到其他一些普通GameObject上，否则那些GameObject销毁时会一并销毁这个UI里的GameObject，但这个UI又还处于正常使用状态，就会出现空引用错误。</p>
 <h2 id="Stage-Camera"><a href="#Stage-Camera" class="headerlink" title="Stage Camera"></a>Stage Camera</h2><p>当添加UIPanel后，或者第一次动态创建UI时，场景里会自动新增一个“Stage Camera”。这是默认的UI相机。你也可以手动在场景里增加这个UI相机：</p>
 <p><img src="../../images/2017-08-09_174219.png" alt=""></p>
 <p>“Stage Camera”一般不需要修改它的属性，除了下面这个：</p>
 <ul>
 <li><code>Constant Size</code> 是否使用固定的相机大小。默认是true。这个选项仅影响粒子效果的缩放。当取值为true时，屏幕放大或缩小，粒子效果也会随着放大和缩小，这适用于手机游戏；当取值为false时，屏幕放大或缩小，粒子效果不会随着放大和缩小，这适用于PC游戏。</li>
 </ul>
-<h2 id="UIContentScaler"><a href="#UIContentScaler" class="headerlink" title="UIContentScaler"></a>UIContentScaler</h2><p>UIContentScaler组件是用来设置适配的。在启动场景里任何一个GameObject挂上UIContentScaler组件即可。并不需要每个场景都挂。</p>
+<h2 id="UIContentScaler"><a href="#UIContentScaler" class="headerlink" title="UIContentScaler"></a>UIContentScaler</h2><p>UIContentScaler组件是用来设置适配的。在启动场景里任何一个GameObject挂上UIContentScaler组件即可。并不需要每个场景都挂。<br><strong>使用UIContentScaler和使用GRoot.inst.setContentScaleFactor的效果是完全一样的，选择其中一种方式设置适配即可。</strong></p>
 <p><img src="../../images/2016-03-23_125255.png" alt=""></p>
 <ul>
 <li><code>Scale Mode</code> 缩放模式。<ul>
@@ -490,20 +490,7 @@
 </ul>
 <h2 id="UIConfig"><a href="#UIConfig" class="headerlink" title="UIConfig"></a>UIConfig</h2><p>UIConfig组件用于设置一些全局的参数。使用UIConfig组件设置和在代码中使用UIConfig类设置全局参数效果是一样的。UIConfig组件还可以加载包，点击<code>Preload Packages</code>下面的Add即可。</p>
 <p><img src="../../images/2016-04-06_095535.png" alt=""></p>
-<h2 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h2><p>FairyGUI是以左上角为原点的，Unity的屏幕坐标是以左下角为原点的。如果需要进行这两者的转换，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity的屏幕坐标系，以左下角为原点</span></div><div class="line">Vector2 pos = Input.mousePosition;</div><div class="line"></div><div class="line"><span class="comment">//转换为FairyGUI的屏幕坐标</span></div><div class="line">pos.y = Screen.height - pos.y;</div></pre></td></tr></table></figure>
-<p>如果要获得任意一个UI元件在屏幕上的坐标，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = aObject.LocalToGlobal(Vector2.zero);</div></pre></td></tr></table></figure>
-<p>如果要获取屏幕坐标在UI元件上的局部坐标，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = Stage.inst.touchPosition;</div><div class="line">Vector2 localPos = aObject.GlobalToLocal(screenPos);</div></pre></td></tr></table></figure>
-<p>如果有UI适配导致的全局缩放，那么逻辑屏幕大小和物理屏幕大小不一致，逻辑屏幕的坐标就是GRoot里的坐标。如果要进行局部坐标与逻辑屏幕坐标的转换，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//物理屏幕坐标转换为逻辑屏幕坐标</span></div><div class="line">Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);</div><div class="line"></div><div class="line"><span class="comment">//UI元件坐标与逻辑屏幕坐标之间的转换</span></div><div class="line">aObject.LocalToRoot(pos);</div><div class="line">aObject.RootToLocal(pos);</div></pre></td></tr></table></figure>
-<p>如果要转换任意两个UI对象间的坐标，例如需要知道A里面的坐标(10,10)在B里面的位置，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 posInB = aObject.TransformPoint(bObject, <span class="keyword">new</span> Vector2(<span class="number">10</span>,<span class="number">10</span>));</div></pre></td></tr></table></figure>
-<p>如果要转换世界空间的坐标到UI里的坐标，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);</div><div class="line"><span class="comment">//原点位置转换</span></div><div class="line">screenPos.y = Screen.height - screenPos.y; </div><div class="line">Vector2 pt = GRoot.inst.GlobalToLocal(screenPos);</div></pre></td></tr></table></figure>
-<p>如果要转换UI里的坐标到世界空间的坐标，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = GRoot.inst.LocalToGlobal(pos);</div><div class="line"><span class="comment">//原点位置转换</span></div><div class="line">screenPos.y = Screen.height - screenPos.y; </div><div class="line">Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);</div></pre></td></tr></table></figure>
+
     
     <div class="footer">
       发现错误或想贡献文档?

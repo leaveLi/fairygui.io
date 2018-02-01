@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - 坐标转换</title>
+        <title>FairyGUI - 坐标系统</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="-坐标转换FairyGUI">
+        <meta property="og:title" content="-坐标系统FairyGUI">
         <meta property="og:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="坐标转换 — FairyGUI">
+        <meta name="twitter:title" content="坐标系统 — FairyGUI">
         <meta name="twitter:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
@@ -244,7 +244,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/transform.html" class="sidebar-link current">坐标转换</a>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link current">坐标系统</a>
 	                </li>
 	            
 	                
@@ -350,21 +350,24 @@
 
 <div class="content guide_unity with-sidebar ">
     
-      <h1>坐标转换</h1>
+      <h1>坐标系统</h1>
     
-    <p>FairyGUI是以左上角为原点的，Unity的屏幕坐标是以左下角为原点的。如果需要进行这两者的转换，可以用：</p>
+    <h2 id="坐标原点"><a href="#坐标原点" class="headerlink" title="坐标原点"></a>坐标原点</h2><p>FairyGUI是以屏幕左上角为原点的，Unity的屏幕坐标是以左下角为原点的。一般这个转换都不需要开发者干预，如果确实需要进行这两者的转换，可以用：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity的屏幕坐标系，以左下角为原点</span></div><div class="line">Vector2 pos = Input.mousePosition;</div><div class="line"></div><div class="line"><span class="comment">//转换为FairyGUI的屏幕坐标</span></div><div class="line">pos.y = Screen.height - pos.y;</div></pre></td></tr></table></figure>
+<h2 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h2><p>GObject里的x/y/position值都是<strong>局部坐标</strong>，也就是相对于父元件的偏移。GObject没有提供直接的属性获得对象的全局坐标，但提供了方法进行转换。</p>
 <p>如果要获得任意一个UI元件在屏幕上的坐标，可以用：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = aObject.LocalToGlobal(Vector2.zero);</div></pre></td></tr></table></figure>
-<p>如果要获取屏幕坐标在UI元件上的局部坐标，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = Stage.inst.touchPosition;</div><div class="line">Vector2 localPos = aObject.GlobalToLocal(screenPos);</div></pre></td></tr></table></figure>
+<p>（注意，这里说的屏幕，是指FairyGUI语义中的屏幕，是以屏幕左上角为原点的，不是指Unity语义中的屏幕）</p>
+<p>相反，如果要获取屏幕坐标在UI元件上的局部坐标，可以用：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 localPos = aObject.GlobalToLocal(screenPos);</div></pre></td></tr></table></figure>
 <p>如果有UI适配导致的全局缩放，那么逻辑屏幕大小和物理屏幕大小不一致，逻辑屏幕的坐标就是GRoot里的坐标。如果要进行局部坐标与逻辑屏幕坐标的转换，可以用：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//物理屏幕坐标转换为逻辑屏幕坐标</span></div><div class="line">Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);</div><div class="line"></div><div class="line"><span class="comment">//UI元件坐标与逻辑屏幕坐标之间的转换</span></div><div class="line">aObject.LocalToRoot(pos);</div><div class="line">aObject.RootToLocal(pos);</div></pre></td></tr></table></figure>
+<p><strong>注意，我们在编辑器里定义的，代码里处理的，一般就是指这个逻辑屏幕坐标。</strong></p>
 <p>如果要转换任意两个UI对象间的坐标，例如需要知道A里面的坐标(10,10)在B里面的位置，可以用：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 posInB = aObject.TransformPoint(bObject, <span class="keyword">new</span> Vector2(<span class="number">10</span>,<span class="number">10</span>));</div></pre></td></tr></table></figure>
-<p>如果要转换世界空间的坐标到UI里的坐标，可以用：</p>
+<h2 id="与世界空间坐标转换"><a href="#与世界空间坐标转换" class="headerlink" title="与世界空间坐标转换"></a>与世界空间坐标转换</h2><p>如果要转换世界空间的坐标到UI里的坐标，需要先将世界空间的坐标转换为屏幕坐标，再继续转换，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);</div><div class="line"><span class="comment">//原点位置转换</span></div><div class="line">screenPos.y = Screen.height - screenPos.y; </div><div class="line">Vector2 pt = GRoot.inst.GlobalToLocal(screenPos);</div></pre></td></tr></table></figure>
-<p>如果要转换UI里的坐标到世界空间的坐标，可以用：</p>
+<p>如果要转换UI里的坐标到世界空间的坐标，需要先将UI里的坐标转换为屏幕坐标，再继续转换，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = GRoot.inst.LocalToGlobal(pos);</div><div class="line"><span class="comment">//原点位置转换</span></div><div class="line">screenPos.y = Screen.height - screenPos.y; </div><div class="line">Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);</div></pre></td></tr></table></figure>
     
     <div class="footer">
