@@ -321,6 +321,34 @@
 	            
 	                
 	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">在Cry Engine中使用FairyGUI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-坐标系统</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-输入处理</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-事件机制</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -433,7 +461,7 @@
 <p>按钮全局声音的设置为：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity版本要求一个AudioClip对象，如果是使用库里面的资源，那么可以使用：</span></div><div class="line">UIConfig.buttonSound = (AudioClip)UIPackage.GetItemAssetByURL(<span class="string">"ui://包名/声音名"</span>);</div><div class="line"></div><div class="line"><span class="comment">//其他版本要求一个资源url，即：</span></div><div class="line">UIConfig.buttonSound = <span class="string">"ui://包名/声音名"</span>;</div><div class="line"></div><div class="line"><span class="comment">//全局音量    </span></div><div class="line">UIConfig.buttonSoundVolumeScale = <span class="number">1</span>f;</div></pre></td></tr></table></figure>
 <p>单选和多选按钮状态改变时有通知事件：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">button.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">button.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">button.addEventListener(StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">button.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">button.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">button.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">button.addEventListener(StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">button.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">button-&gt;addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));</div></pre></td></tr></table></figure>
     
     <div class="footer">
       发现错误或想贡献文档?

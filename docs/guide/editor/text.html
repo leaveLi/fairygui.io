@@ -321,6 +321,34 @@
 	            
 	                
 	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">在Cry Engine中使用FairyGUI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-坐标系统</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-输入处理</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-事件机制</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -458,13 +486,13 @@
 </ul>
 <h2 id="GTextField"><a href="#GTextField" class="headerlink" title="GTextField"></a>GTextField</h2><p>文本支持动态创建，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GTextField aTextField = <span class="keyword">new</span> GTextField();</div><div class="line">aTextField.SetSize(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">aTextField.text = <span class="string">"Hello World"</span>;</div></pre></td></tr></table></figure>
-<p>在Unity平台中，如果你需要改变文本的样式，请使用以下的方式：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">TextFormat tf = aTextField.textFormat;</div><div class="line">tf.color = ...;</div><div class="line">tf.size = ...;</div><div class="line">aTextField.textFormat = tf;</div></pre></td></tr></table></figure>
+<p>动态改变文本的样式（字体大小、颜色等），在不同的平台，方式略有差别：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">TextFormat tf = aTextField.textFormat;</div><div class="line">tf.color = ...;</div><div class="line">tf.size = ...;</div><div class="line">aTextField.textFormat = tf;</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">TextFormat* tf = aTextField-&gt;getTextFormat();</div><div class="line">tf-&gt;color = ...;</div><div class="line">tf-&gt;size  ...;</div><div class="line">aTextField-&gt;applyTextFormat();</div><div class="line"></div><div class="line"><span class="comment">//其他平台</span></div><div class="line">aTextField.color = ...;</div><div class="line">aTextField.fontSize = ...;</div></pre></td></tr></table></figure>
 <p>如果要设置文本的字体为位图字体，字体名称直接使用字体的url就可以了，例如‘ui://包名/字体名’。</p>
 <h2 id="GTextInput"><a href="#GTextInput" class="headerlink" title="GTextInput"></a>GTextInput</h2><p>如果文本勾选为“输入”，则运行中的实例对象为GTextInput。</p>
 <p>可以通过UIConfig.inputHighlightColor和UIConfig.inputCaretSize修改光标的颜色和大小。注意，输入光标的大小会自动根据屏幕缩放选择最合适的宽度，一般情况下你不需要修改。</p>
 <p>输入文本在文本改变时有通知事件：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aTextInput.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aTextInput.addEventListener(Event.CHANGE, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aTextInput.addEventListener(Event.CHANGE, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aTextInput.<span class="keyword">on</span>(laya.events.Event.INPUT, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aTextInput.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aTextInput.addEventListener(Event.CHANGE, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aTextInput.addEventListener(Event.CHANGE, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aTextInput.<span class="keyword">on</span>(laya.events.Event.INPUT, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div></pre></td></tr></table></figure>
 <p>在获得焦点和失去焦点时有通知事件：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aTextInput.onFocusIn.Add(onFocusIn);</div><div class="line">aTextInput.onFocusOut.Add(onFocusOut);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aTextInput.addEventListener(FocusEvent.FOCUS_IN, onFocusIn);</div><div class="line">aTextInput.addEventListener(FocusEvent.FOCUS_OUT, onFocusOut);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aTextInput.addEventListener(FocusEvent.FOCUS_IN, <span class="keyword">this</span>.onFocusIn, <span class="keyword">this</span>);</div><div class="line">aTextInput.addEventListener(FocusEvent.FOCUS_OUT, <span class="keyword">this</span>.onFocusOut, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aTextInput.<span class="keyword">on</span>(laya.events.Event.FOCUS, <span class="keyword">this</span>, <span class="keyword">this</span>.onFocusIn);</div><div class="line">aTextInput.<span class="keyword">on</span>(laya.events.Event.BLUR, <span class="keyword">this</span>, <span class="keyword">this</span>.onFocusOut);</div></pre></td></tr></table></figure>
 <p>如果要主动设置焦点，可以用</p>

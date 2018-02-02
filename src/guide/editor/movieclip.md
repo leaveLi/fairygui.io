@@ -87,7 +87,7 @@ order: 30
 动画播放完成可以获得一个回调通知：（如果是循环播放，则所有循环结束后才算播放完成）
 
 ```csharp
-    //Unity
+    //Unity/Cry
     aMovie.onPlayEnd.Add(...);
 
     //AS3
@@ -98,4 +98,7 @@ order: 30
 
     //Laya
     aMovie.setPlaySettings(..., Handler.create(callback, this));
+
+    //Cocos2dx
+    aMovie->setPlaySettings(..., CC_CALLBACK_0(AClass::onPlayComplete, this));
 ```

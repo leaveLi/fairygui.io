@@ -70,7 +70,7 @@ order: 160
 滑动条进度改变时有通知事件：
 
 ```csharp
-    //Unity
+    //Unity/Cry
     slider.onChanged.Add(onChanged);
 
     //AS3
@@ -81,4 +81,7 @@ order: 160
 
     //Laya
     slider.on(fairygui.Events.STATE_CHANGED, this, this.onChanged);
+
+    //Cocos2dx
+    slider->addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));
 ```

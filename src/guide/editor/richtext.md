@@ -64,10 +64,10 @@ order: 70
     aRichTextField.text = "<a href='xxx'>Hello World</a>";
 ```
 
-侦听富文本中链接点击的方法是：
+侦听富文本中链接点击的方法是（这个事件是冒泡的，也就是你可以不在富文本上侦听，在它的父元件或者祖父元件上侦听都是可以的）：
 
 ```csharp
-    //Unity, EventContext里的data就是href值。
+    //Unity/Cry, EventContext里的data就是href值。
     aRichTextField.onClickLink.Add(onClickLink);
 
     //AS3/Egret，TextEvent.text就是href值。
@@ -78,6 +78,9 @@ order: 70
 
     //Laya, onClickLink的参数就是href值。
     aRichTextField.on(laya.events.Event.LINK,this,this.onClickLink);
+
+    //Cocos2dx，EventContext.getDataValue().asString()就是href的值。
+    aRichTextField->addEventListener(UIEventType::ClickLink, CC_CALLBACK_1(AClass::onClickLink, this));
 ```
 
 富文本最重要的功能是支持HTML解析和渲染。普通的文本样式标签，例如`FONT`、`B`、`I`、`U`这些一般都能很好的支持。其他一些对象标签，例如`A`、`IMG`等在各个引擎中支持的力度有所不同：

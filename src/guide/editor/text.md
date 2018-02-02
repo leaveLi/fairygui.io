@@ -136,13 +136,24 @@ FairyGUI编辑器支持位图字体。首先，我们创建一种字体。点击
     aTextField.text = "Hello World";
 ```
 
-在Unity平台中，如果你需要改变文本的样式，请使用以下的方式：
+动态改变文本的样式（字体大小、颜色等），在不同的平台，方式略有差别：
 
 ```csharp
+    //Unity/Cry
     TextFormat tf = aTextField.textFormat;
     tf.color = ...;
     tf.size = ...;
     aTextField.textFormat = tf;
+
+    //Cocos2dx
+    TextFormat* tf = aTextField->getTextFormat();
+    tf->color = ...;
+    tf->size  ...;
+    aTextField->applyTextFormat();
+
+    //其他平台
+    aTextField.color = ...;
+    aTextField.fontSize = ...;
 ```
 
 如果要设置文本的字体为位图字体，字体名称直接使用字体的url就可以了，例如‘ui://包名/字体名’。
@@ -156,7 +167,7 @@ FairyGUI编辑器支持位图字体。首先，我们创建一种字体。点击
 输入文本在文本改变时有通知事件：
 
 ```csharp
-    //Unity
+    //Unity/Cry
     aTextInput.onChanged.Add(onChanged);
 
     //AS3

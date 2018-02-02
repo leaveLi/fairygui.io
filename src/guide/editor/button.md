@@ -141,7 +141,7 @@ order: 130
 单选和多选按钮状态改变时有通知事件：
 
 ```csharp
-    //Unity
+    //Unity/Cry
     button.onChanged.Add(onChanged);
 
     //AS3
@@ -152,4 +152,7 @@ order: 130
 
     //Laya
     button.on(fairygui.Events.STATE_CHANGED, this, this.onChanged);
+
+    //Cocos2dx
+    button->addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));
 ```

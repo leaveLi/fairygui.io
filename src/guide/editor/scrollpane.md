@@ -76,7 +76,7 @@ ScrollPane中常用的API有：
 可以侦听滚动改变，在任何情况下滚动位置改变都会触发这个事件。
 
 ```csharp
-    //Unity
+    //Unity/Cry
     scrollPane.onScroll.Add(onScroll);
 
     //AS3
@@ -87,6 +87,9 @@ ScrollPane中常用的API有：
 
     //Laya，注意是用组件侦听，不是ScrollPane
     aComponent.on(fairygui.Events.SCROLL, this, this.onScroll);
+
+    //Cocos2dx，注意是用组件侦听，不是ScrollPane
+    aComponent->addEventListener(UIEventType::Scroll, CC_CALLBACK_1(AClass::onScroll, this));
 ```
 
 和滚动相关的事件还有：
@@ -96,7 +99,7 @@ ScrollPane中常用的API有：
 - `PullUpRelease` 上拉刷新回调。
 
 ```csharp
-    //Unity
+    //Unity/Cry
     scrollPane.onScrollEnd.Add(onScrollEnd);
     scrollPane.onPullDownRelease.Add(onPullDownRelease);
     scrollPane.onPullUpRelease.Add(onPullUpRelease);
@@ -112,7 +115,12 @@ ScrollPane中常用的API有：
     scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, this.onPullUpRelease, this);
 
     //Laya，注意是用组件侦听，不是ScrollPane
-    aComponent.on(fairygui.Events.SCROLL_END, this, this.onScrollEnd);  
-    aComponent.on(fairygui.Events.PULL_DOWN_RELEASE, this, this.onPullDownRelease);  
-    aComponent.on(fairygui.Events.PULL_UP_RELEASE, this, this.onPullUpRelease);    
+    aComponent.on(fairygui.Events.SCROLL_END, this, this.onScrollEnd);
+    aComponent.on(fairygui.Events.PULL_DOWN_RELEASE, this, this.onPullDownRelease);
+    aComponent.on(fairygui.Events.PULL_UP_RELEASE, this, this.onPullUpRelease);
+
+    //Cocos2dx，注意是用组件侦听，不是ScrollPane
+    aComponent->addEventListener(UIEventType::ScrollEnd, CC_CALLBACK_1(AClass::onScrollEnd, this));
+    aComponent->addEventListener(UIEventType::PullDownRelease, CC_CALLBACK_1(AClass::onPullDownRelease, this));
+    aComponent->addEventListener(UIEventType::PullUpRelease, CC_CALLBACK_1(AClass::onPullUpRelease, this));
 ```

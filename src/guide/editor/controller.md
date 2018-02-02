@@ -263,7 +263,7 @@ order: 100
 控制器改变时有通知事件：
 
 ```csharp
-    //Unity
+    //Unity/Cry
     c1.onChanged.Add(onChanged);
 
     //AS3
@@ -274,12 +274,15 @@ order: 100
 
     //Laya
     c1.on(fairygui.Events.STATE_CHANGED, this, this.onChanged);
+
+    //Cocos2dx
+    c1->addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));
 ```
 
 改变控制器页面时，与之连接的属性控制可能带有缓动，如果你要获得缓动结束的通知，可以侦听GearStop事件：
 
 ```csharp
-    //Unity
+    //Unity/Cry
     aObject.OnGearStop.Add(OnGearStop);
 
     //Egret
@@ -287,6 +290,9 @@ order: 100
 
     //Laya
     c1.on(fairygui.Events.GEAR_STOP, this, this.OnGearStop);
+
+    //Cocos2dx
+    c1->addEventListener(UIEventType::GearStop, CC_CALLBACK_1(AClass::OnGearStop, this));
 ```
 
 如果你正在做界面的初始化，可能不希望出现缓动。可以这样做：

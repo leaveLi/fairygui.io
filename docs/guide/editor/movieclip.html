@@ -321,6 +321,34 @@
 	            
 	                
 	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">在Cry Engine中使用FairyGUI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-坐标系统</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-输入处理</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-事件机制</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -407,7 +435,7 @@
 <p>对动画播放过程的控制，可以使用PlayState对象：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//返回播放头部</span></div><div class="line">((MovieClip)aMovie.displayObject).playState.reset();</div></pre></td></tr></table></figure>
 <p>动画播放完成可以获得一个回调通知：（如果是循环播放，则所有循环结束后才算播放完成）</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aMovie.onPlayEnd.Add(...);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aMovie.setPlaySettings(..., callback);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aMovie.setPlaySettings(..., callback, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aMovie.setPlaySettings(..., Handler.create(callback, <span class="keyword">this</span>));</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aMovie.onPlayEnd.Add(...);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aMovie.setPlaySettings(..., callback);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aMovie.setPlaySettings(..., callback, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aMovie.setPlaySettings(..., Handler.create(callback, <span class="keyword">this</span>));</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">aMovie-&gt;setPlaySettings(..., CC_CALLBACK_0(AClass::onPlayComplete, this));</div></pre></td></tr></table></figure>
 
     
     <div class="footer">

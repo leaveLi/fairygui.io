@@ -22,7 +22,7 @@ order: 205
 拖动开始、拖动的过程和拖动结束都可以获得通知：
 
 ```csharp
-    //Unity
+    //Unity/Cry
     aObject.onDragStart.Add(onDragStart);
     aObject.onDragMove.Add(onDragMove);
     aObject.onDragEnd.Add(onDragEnd);
@@ -41,6 +41,11 @@ order: 205
     aObject.on(laya.events.Event.DRAG_START, this, this.onDragStart);
     aObject.on(laya.events.Event.DRAG_MOVE, this, this.onDragMove);
     aObject.on(laya.events.Event.DRAG_END, this, this.onDragEnd);
+
+    //Cocos2dx
+    aObject->addEventListener(UIEventType::DragStart, CC_CALLBACK_1(AClass::onDragStart, this));
+    aObject->addEventListener(UIEventType::DragMove, CC_CALLBACK_1(AClass::onDragMove, this));
+    aObject->addEventListener(UIEventType::DragEnd, CC_CALLBACK_1(AClass::onDragEnd, this));
 ```
 
 ## 转换拖动
@@ -50,9 +55,9 @@ order: 205
 ```csharp
     //设置拖动区域为可拖动，然后侦听拖动开始事件
     _dragArea.draggable = true;
-    _dragArea.onDragStart.Add(__dragStart);
+    _dragArea.onDragStart.Add(onDragStart);
 
-    void __dragStart(EventContext context)
+    void onDragStart(EventContext context)
     {
         //取消掉源拖动，也就是_dragArea不会被实际拖动
         context.PreventDefault();
@@ -70,9 +75,9 @@ order: 205
 
 ```csharp
     aObject.draggable = true;
-    aObject.onDragStart.Add(__dragStart);
+    aObject.onDragStart.Add(onDragStart);
 
-    void __dragStart(EventContext context)
+    void onDragStart(EventContext context)
     {
         //取消掉源拖动
         context.PreventDefault();

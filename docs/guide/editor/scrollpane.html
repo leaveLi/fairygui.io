@@ -321,6 +321,34 @@
 	            
 	                
 	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">在Cry Engine中使用FairyGUI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-坐标系统</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-输入处理</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-事件机制</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -411,14 +439,14 @@
 </li>
 </ul>
 <p>可以侦听滚动改变，在任何情况下滚动位置改变都会触发这个事件。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">scrollPane.onScroll.Add(onScroll);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(Event.SCROLL, onScroll);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL, <span class="keyword">this</span>.onScroll, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL, <span class="keyword">this</span>, <span class="keyword">this</span>.onScroll);</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">scrollPane.onScroll.Add(onScroll);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(Event.SCROLL, onScroll);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL, <span class="keyword">this</span>.onScroll, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL, <span class="keyword">this</span>, <span class="keyword">this</span>.onScroll);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent-&gt;addEventListener(UIEventType::Scroll, CC_CALLBACK_1(AClass::onScroll, this));</div></pre></td></tr></table></figure>
 <p>和滚动相关的事件还有：</p>
 <ul>
 <li><code>ScrollEnd</code> 惯性滚动结束后回调。</li>
 <li><code>PullDownRelease</code> 下拉刷新回调。</li>
 <li><code>PullUpRelease</code> 上拉刷新回调。</li>
 </ul>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">scrollPane.onScrollEnd.Add(onScrollEnd);</div><div class="line">scrollPane.onPullDownRelease.Add(onPullDownRelease);</div><div class="line">scrollPane.onPullUpRelease.Add(onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, onScrollEnd);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, onPullDownRelease);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, <span class="keyword">this</span>.onScrollEnd, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, <span class="keyword">this</span>.onPullDownRelease, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, <span class="keyword">this</span>.onPullUpRelease, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL_END, <span class="keyword">this</span>, <span class="keyword">this</span>.onScrollEnd);  </div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_DOWN_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullDownRelease);  </div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_UP_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullUpRelease);</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">scrollPane.onScrollEnd.Add(onScrollEnd);</div><div class="line">scrollPane.onPullDownRelease.Add(onPullDownRelease);</div><div class="line">scrollPane.onPullUpRelease.Add(onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, onScrollEnd);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, onPullDownRelease);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, <span class="keyword">this</span>.onScrollEnd, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, <span class="keyword">this</span>.onPullDownRelease, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, <span class="keyword">this</span>.onPullUpRelease, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL_END, <span class="keyword">this</span>, <span class="keyword">this</span>.onScrollEnd);</div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_DOWN_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullDownRelease);</div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_UP_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent-&gt;addEventListener(UIEventType::ScrollEnd, CC_CALLBACK_1(AClass::onScrollEnd, this));</div><div class="line">aComponent-&gt;addEventListener(UIEventType::PullDownRelease, CC_CALLBACK_1(AClass::onPullDownRelease, this));</div><div class="line">aComponent-&gt;addEventListener(UIEventType::PullUpRelease, CC_CALLBACK_1(AClass::onPullUpRelease, this));</div></pre></td></tr></table></figure>
     
     <div class="footer">
       发现错误或想贡献文档?

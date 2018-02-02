@@ -321,6 +321,34 @@
 	            
 	                
 	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">在Cry Engine中使用FairyGUI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-坐标系统</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-输入处理</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-事件机制</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
@@ -405,8 +433,8 @@
 </ul>
 <h2 id="GRichTextField"><a href="#GRichTextField" class="headerlink" title="GRichTextField"></a>GRichTextField</h2><p>富文本支持动态创建，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GRichTextField aRichTextField = <span class="keyword">new</span> GRichTextField();</div><div class="line">aRichTextField.SetSize(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">aRichTextField.text = <span class="string">"&lt;a href='xxx'&gt;Hello World&lt;/a&gt;"</span>;</div></pre></td></tr></table></figure>
-<p>侦听富文本中链接点击的方法是：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity, EventContext里的data就是href值。</span></div><div class="line">aRichTextField.onClickLink.Add(onClickLink);</div><div class="line"></div><div class="line"><span class="comment">//AS3/Egret，TextEvent.text就是href值。</span></div><div class="line">aRichTextField.addEventListener(TextEvent.LINK, onClickLink);</div><div class="line"></div><div class="line"><span class="comment">//Egret，TextEvent.text就是href值。</span></div><div class="line">aRichTextField.addEventListener(TextEvent.LINK, <span class="keyword">this</span>.onClickLink, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya, onClickLink的参数就是href值。</span></div><div class="line">aRichTextField.<span class="keyword">on</span>(laya.events.Event.LINK,<span class="keyword">this</span>,<span class="keyword">this</span>.onClickLink);</div></pre></td></tr></table></figure>
+<p>侦听富文本中链接点击的方法是（这个事件是冒泡的，也就是你可以不在富文本上侦听，在它的父元件或者祖父元件上侦听都是可以的）：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry, EventContext里的data就是href值。</span></div><div class="line">aRichTextField.onClickLink.Add(onClickLink);</div><div class="line"></div><div class="line"><span class="comment">//AS3/Egret，TextEvent.text就是href值。</span></div><div class="line">aRichTextField.addEventListener(TextEvent.LINK, onClickLink);</div><div class="line"></div><div class="line"><span class="comment">//Egret，TextEvent.text就是href值。</span></div><div class="line">aRichTextField.addEventListener(TextEvent.LINK, <span class="keyword">this</span>.onClickLink, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya, onClickLink的参数就是href值。</span></div><div class="line">aRichTextField.<span class="keyword">on</span>(laya.events.Event.LINK,<span class="keyword">this</span>,<span class="keyword">this</span>.onClickLink);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx，EventContext.getDataValue().asString()就是href的值。</span></div><div class="line">aRichTextField-&gt;addEventListener(UIEventType::ClickLink, CC_CALLBACK_1(AClass::onClickLink, this));</div></pre></td></tr></table></figure>
 <p>富文本最重要的功能是支持HTML解析和渲染。普通的文本样式标签，例如<code>FONT</code>、<code>B</code>、<code>I</code>、<code>U</code>这些一般都能很好的支持。其他一些对象标签，例如<code>A</code>、<code>IMG</code>等在各个引擎中支持的力度有所不同：</p>
 <ul>
 <li><code>AS3/Starling</code> 支持<code>A</code>标签和<code>IMG</code>标签，支持混排UI库里的图片/动画和外部图片。支持定制超级链接的样式：</li>

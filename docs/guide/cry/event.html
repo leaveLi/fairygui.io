@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - 下拉框</title>
+        <title>FairyGUI - Cry-事件机制</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="-下拉框FairyGUI">
+        <meta property="og:title" content="-Cry-事件机制FairyGUI">
         <meta property="og:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="下拉框 — FairyGUI">
+        <meta name="twitter:title" content="Cry-事件机制 — FairyGUI">
         <meta name="twitter:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
@@ -26,7 +26,7 @@
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.min.js"></script>
-        <script>window.PAGE_TYPE = "guide_editor"</script>
+        <script>window.PAGE_TYPE = "guide_cry"</script>
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
@@ -80,7 +80,7 @@
         <h2>
             Guide
             <!--<select class="version-select">
-                <option value="SELF" selected>editor</option>
+                <option value="SELF" selected>cry</option>
             </select>-->
  		 
 		  <a style="
@@ -183,7 +183,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/combobox.html" class="sidebar-link current">下拉框</a>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">下拉框</a>
 	                </li>
 	            
 	                
@@ -342,7 +342,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-事件机制</a>
+	                    <a href="/guide/cry/event.html" class="sidebar-link current">Cry-事件机制</a>
 	                </li>
 	            
 	            
@@ -376,69 +376,75 @@
 </div>
 
 
-<div class="content guide_editor with-sidebar ">
+<div class="content guide_cry with-sidebar ">
     
-      <h1>下拉框</h1>
+      <h1>Cry-事件机制</h1>
     
-    <h2 id="创建下拉框"><a href="#创建下拉框" class="headerlink" title="创建下拉框"></a>创建下拉框</h2><p>可以通过两种方式创建下拉框组件。</p>
-<ul>
-<li>点击主菜单“资源”-&gt;“新建下拉框”，然后按照向导的提示一步步完成。</li>
+    <p><code>EventDispatcher</code>是事件分发的中心，GObject就是一个EventDispatcher。每个事件类型都对应一个<code>EventListener</code>，接收事件并调用处理函数。</p>
+<p>例如，编写某个元件单击的处理逻辑：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.onClick.Add(aCallback);</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params"></span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">//some logic</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="冒泡和捕获"><a href="#冒泡和捕获" class="headerlink" title="冒泡和捕获"></a>冒泡和捕获</h2><p>一些特殊的事件，比如鼠标/触摸事件，具备向父组件传递的特性，这个传递过程叫做冒泡。例如当手指接触A元件时，A元件触发TouchBegin事件，然后A元件的父组件B触发TouchBegin事件，然后B的父组件C也触发TouchBegin事件，以此类推，直到舞台根部。这个设计保证了所有相关的显示对象都有机会处理触摸事件，而不只是最顶端的显示对象。</p>
+<p>冒泡过程可以被打断，通过调用EventContext.StopPropagation()可以使冒泡停止向父组件推进。</p>
+<p>从上面的冒泡过程可以看出，事件处理的顺序应该是：A’s listeners-&gt;B’s listeners-&gt;C’s listeners，这里还有一种机制可以让链路上任意一个对象可以提前处理事件，这就是事件捕获。事件捕获是反向的，例如在上面的例子中，就是C先捕获事件，然后是B，再到A。所以所有事件处理的完整顺序应该是：</p>
+<p>C’s capture listeners-&gt;B’s capture listeners-&gt;A’s capture listeners-&gt;A’s listeners-&gt;B’s listeners-&gt;C’s listeners</p>
+<p>捕获传递链是不能中止的，冒泡传递链可以通过StopPropagation中止。<br>事件捕获的设计可以使父元件优于子元件和孙子元件检查事件。</p>
+<p>并非所有事件都有冒泡设计，在非冒泡事件中，capture的回调优于普通回调，仅此而已，可以作为一个优先级特性来使用。</p>
+<h2 id="事件回调函数"><a href="#事件回调函数" class="headerlink" title="事件回调函数"></a>事件回调函数</h2><p>每个事件可以注册一个或多个回调函数。函数原型为：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback0</span>(<span class="params"></span>)</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback1</span>(<span class="params">EventContext context</span>)</span>;</div></pre></td></tr></table></figure>
+<p>两种形式的使用方法都是相同的，差别在于不带参数或带一个参数,只是为了方便在不需要用到EventContext时少写一点而已。</p>
+<p>没有直接传递自定义参数进回调函数的办法。但可以通过三种方式间接实现：</p>
+<ol>
+<li>通过全局或者模块变量；</li>
+<li><p>使用lamba表达式，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">a.onClick.Add(()=&gt;&#123; ... &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>将变量放到显示对象的data属性里。例如:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">a.data = ...;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Debug.Log(context.sender.data)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="EventListener"><a href="#EventListener" class="headerlink" title="EventListener"></a>EventListener</h2><ul>
+<li><code>Add</code> <code>Remove</code> 添加或删除一个回调。</li>
+<li><code>AddCapture</code> <code>RemoveCapture</code> 添加或删除一个捕获期回调。</li>
 </ul>
-<p><img src="../../images/20170803191137.png" alt=""></p>
+<h2 id="EventContext"><a href="#EventContext" class="headerlink" title="EventContext"></a>EventContext</h2><p>EventContext是回调函数的参数类型。</p>
 <ul>
-<li>新建一个组件，然后在组件属性里选择扩展为“下拉框”。</li>
-</ul>
-<h2 id="设计属性"><a href="#设计属性" class="headerlink" title="设计属性"></a>设计属性</h2><p>在组件编辑状态下，下拉框组件的属性面板是：</p>
-<p><img src="../../images/20170803161919.png" alt=""></p>
-<ul>
-<li><code>弹出组件</code> 下拉框在选项弹出时需要用到的组件。</li>
-</ul>
-<p><img src="../../images/20170803162921.png" alt=""></p>
-<p>这个组件最基本的设计就是一个背景+一个列表。背景对容器组件做好宽高关联。列表需要命名为“list”，并设置好“项目资源”，一般来说，列表的“溢出处理”都设置为“垂直滚动”。列表不需要建立任何关联。</p>
-<p>当下拉框需要弹出下拉列表时，会将弹出组件的宽度设置成下拉框的宽度，然后填充列表数据，并按照“可见项目数量”的要求调整列表高度，最后显示出来。</p>
-<p><strong>命名约定</strong></p>
-<ul>
-<li><code>button</code> 下拉框也需要一个按钮控制器，因为他和按钮的形态是一样的。可以按设计按钮的方式设计下拉框。当下拉框被点击下拉时，“button”控制器将停留在“down”页，下拉列表收回后，“button”控制器回到“up”页或“over”页。</li>
-<li></li>
-<li><p><code>title</code> 可以是普通文本，富文本，也可以是标签、按钮。</p>
+<li><p><code>sender</code> 获得事件的分发者。</p>
 </li>
-<li><p><code>icon</code> 可以是装载器，也可以是标签、按钮。</p>
+<li><p><code>initiator</code> 获得事件的发起者。一般来说，事件的分发者和发起者是相同的，但如果事件已发生冒泡，则可能不相同。参考下面冒泡的描述。</p>
 </li>
-<li><h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2></li>
-</ul>
-<p>在舞台上选中一个下拉框组件，右边的属性面板列表出现：</p>
-<p><img src="../../images/20170803163612.png" alt=""></p>
-<ul>
-<li><p><code>标题</code> 设置的文本将赋值到标签组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。</p>
+<li><p><code>type</code> 事件类型。</p>
 </li>
-<li><p><code>图标</code> 设置的URL将赋值到标签组件内的“icon”元件的图标属性。如果不存在“icon”元件，则什么事都不会发生。</p>
+<li><p><code>inputEvent</code> 如果事件是键盘/触摸/鼠标事件，通过访问inputEvent对象可以获得这类事件的相关数据。</p>
 </li>
-<li><p><code>可见项目数量</code> 下拉显示时最多显示的项目数量。例如，如果这里设置的值为10，而下拉框的数据有100条，那么下拉列表的视口会调整到只显示10条，其他需要滚动查看。</p>
+<li><p><code>data</code> 事件的数据。根据事件不同，可以有不同的含义。</p>
 </li>
-<li><p><code>弹出方向</code> 下拉列表的弹出方向。</p>
+<li><p><code>StopPropagation</code> 点击子节点的区域，父节点也能收到触摸事件，这就是事件冒泡的特性。如果你不想再向父节点传递，可以调用这个方法。</p>
 </li>
-<li><p><code>选择控制</code> 可以绑定一个控制器。这样当下拉框选择发生改变时，控制器也同时跳转到相同索引的页面。反之亦然，如果控制器跳转到某个页面，那么下拉框也同时选定相同索引的项目。</p>
+<li><p><code>CaptureTouch</code> 当鼠标左键释放或者手指抬起时，如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的。如果确实需要，可以请求捕获。在TouchBegin事件处理函数内，你可以调用context.CaptureTouch()，这样，无论鼠标在哪里释放（即使不在对象区域内），对象的onTouchEnd都会被调用。注意仅生效一次。<br>在1.9.1SDK后，如果调用了CaptureTouch，那么GObject.onTouchMove事件将在手指（或鼠标左键）抬起前一直触发（无论手指或指针位置是不是在该对象上方），直到鼠标左键释放或者手指抬起。</p>
 </li>
-<li><p><code>编辑列表项目</code> 点击后弹出对话框，可以编辑下拉列表的项目：</p>
-</li>
-</ul>
-<p><img src="../../images/20170803173655.png" alt=""></p>
-<ul>
-<li><p><code>文本</code> 设置这个列表项目的标题。</p>
-</li>
-<li><p><code>图标</code> 设置这个列表项目的图标。</p>
-</li>
-<li><p><code>值</code> 设置这个列表项目的value属性。用途可参考下面API的说明。</p>
+<li><p><code>UncaptureTouch</code> 取消CaptureTouch发起的触摸事件捕获。</p>
 </li>
 </ul>
-<h2 id="GComboBox"><a href="#GComboBox" class="headerlink" title="GComboBox"></a>GComboBox</h2><p>我们可以在编辑器编辑下拉列表的项目，也可以用代码动态设置，例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComboBox combo = gcom.GetChild(<span class="string">"n1"</span>).asComboBox;</div><div class="line"></div><div class="line"><span class="comment">//items是列表项目标题的数组。</span></div><div class="line">combo.items = <span class="keyword">new</span> <span class="keyword">string</span>[] &#123; <span class="string">"Item 1"</span>, <span class="string">"Item 2"</span>, ...&#125;;</div><div class="line"></div><div class="line"><span class="comment">//values是可选的，代表每个列表项目的value。</span></div><div class="line">combo.values = <span class="keyword">new</span> <span class="keyword">string</span>[] &#123; <span class="string">"value1"</span>, <span class="string">"value2"</span>, ...&#125;;</div><div class="line"></div><div class="line"><span class="comment">//获得当前选中项的索引</span></div><div class="line">Debug.Log(combo.selectedIndex);</div><div class="line"></div><div class="line"><span class="comment">//获得当前选中项的value。</span></div><div class="line">Debug.Log(combo.<span class="keyword">value</span>);</div><div class="line"></div><div class="line"><span class="comment">//设置选中项，通过索引</span></div><div class="line">combo.selectedIndex = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="comment">//设置选中项，通过value</span></div><div class="line">combo.<span class="keyword">value</span> = <span class="string">"value1"</span>;</div></pre></td></tr></table></figure>
-<p>下拉框选择改变时有通知事件：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">combo.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">combo.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">combo.addEventListener(StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">combo.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">combo-&gt;addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));</div></pre></td></tr></table></figure>
+<h2 id="InputEvent"><a href="#InputEvent" class="headerlink" title="InputEvent"></a>InputEvent</h2><p>对键盘事件和鼠标/触摸事件，可以通过EventContext.inputEvent获得此类事件的相关数据。</p>
+<ul>
+<li><p><code>x</code> <code>y</code> 鼠标或手指的位置；这是舞台坐标，因为UI可能因为自适配发生了缩放，所以如果要转成UI元件中的坐标，要使用GObject.GlobalToLocal转换。</p>
+</li>
+<li><p><code>keyCode</code> 按键代码；</p>
+</li>
+<li><p><code>modifiers</code> 参考UnityEngine.EventModifiers。</p>
+</li>
+<li><p><code>mouseWheelDelta</code> 鼠标滚轮滚动值。</p>
+</li>
+<li><p><code>touchId</code> 当前事件相关的手指ID；在PC平台，该值为0，没有意义。</p>
+</li>
+<li><p><code>isDoubleClick</code> 是否双击。</p>
+</li>
+</ul>
+
     
     <div class="footer">
       发现错误或想贡献文档?
-      <a href="https://github.com/fairygui/fairygui.github.io/tree/master/src/guide/editor/combobox.md" target="_blank">
+      <a href="https://github.com/fairygui/fairygui.github.io/tree/master/src/guide/cry/event.md" target="_blank">
         在 Github 上编辑此文档!
       </a>
     </div>
