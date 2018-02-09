@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/guide/editor/scrollpane.html</loc>
+    
+    <lastmod>2018-02-09T04:51:12.503Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/showcase/index.html</loc>
+    
+    <lastmod>2018-02-09T04:26:45.933Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/index.html</loc>
+    
+    <lastmod>2018-02-07T09:55:00.445Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/unity/input.html</loc>
+    
+    <lastmod>2018-02-07T09:38:49.388Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/component.html</loc>
+    
+    <lastmod>2018-02-07T03:36:12.895Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/examples/index.html</loc>
     
     <lastmod>2018-02-04T10:33:43.492Z</lastmod>
@@ -107,20 +142,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/scrollpane.html</loc>
-    
-    <lastmod>2018-02-02T04:16:31.330Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/index.html</loc>
-    
-    <lastmod>2018-02-02T04:11:44.915Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/unity/index.html</loc>
     
     <lastmod>2018-02-01T07:55:34.710Z</lastmod>
@@ -184,23 +205,9 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/component.html</loc>
-    
-    <lastmod>2018-01-26T12:29:54.736Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/unity/atlas.html</loc>
     
     <lastmod>2018-01-26T12:17:01.784Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/unity/input.html</loc>
-    
-    <lastmod>2018-01-26T10:52:46.748Z</lastmod>
     
   </url>
   
@@ -264,13 +271,6 @@
     <loc>http://www.fairygui.com/guide/cocos2dx/index.html</loc>
     
     <lastmod>2018-01-08T08:54:38.276Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/showcase/index.html</loc>
-    
-    <lastmod>2018-01-05T04:03:12.098Z</lastmod>
     
   </url>
   

@@ -73,6 +73,16 @@ ScrollPane中常用的API有：
 
 - `ScrollToView` 调整滚动位置，使指定的元件出现在视口内。
 
+- `touchEffect` 打开或关闭触摸滚动功能。
+
+- `scrollStep` 这个值是指滚动“一格”的距离。这个距离有三个用途：a）scrollUp/scrollDown/scrollLeft/scrollRight； b）点击滚动条的箭头按钮； c）鼠标滚轮，鼠标滚轮滚一次的距离是scrollStep*2。
+
+- `bounceBackEffect` 可以打开或关闭边缘回弹功能。
+
+- `mouseWheelEnabled` 打开或关闭鼠标滚动支持。
+
+- `decelerationRate` 减速率，调整这个值可以控制惯性滚动的距离和时间。惯性滚动是指手指拖动一定距离然后释放后，滚动容器内容继续滚动一定距离后停止。越接近1，减速越慢，意味着滑动的时间和距离更长。默认值是UIConfig.defaultScrollDecelerationRate。
+
 可以侦听滚动改变，在任何情况下滚动位置改变都会触发这个事件。
 
 ```csharp
