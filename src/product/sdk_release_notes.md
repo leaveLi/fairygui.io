@@ -4,6 +4,11 @@ type: product
 order: 2
 ---
 
+## 2018/3/5
+1. [Laya/Egret/Starling/Flash] 重构ScrollPane，支持了Header和Footer，也就是下拉刷新和上拉刷新功能的支持。（其他SDK早已支持，这次是对这几个SDK的填坑。）。功能演示可以在产品页面下载最新的Demo，里面包含了PullToRefresh这个Demo。
+2. [Laya] 适配最新引擎1.7.16。
+2. [Egret] 适配最新引擎5.1.5。
+
 ## 2018/1/4
 1. [All] 增加了对编辑器自定义数据的支持。
 2. [Egret/Laya] UIPackage.addPackage增加了一个可选参数，现在你可以直接传入描述文件数据。

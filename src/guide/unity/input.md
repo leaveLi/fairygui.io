@@ -34,10 +34,13 @@ FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射
 ```csharp
     void AnyEventHandler(EventContext context)
     {
+        //点击位置，注意是屏幕坐标，要转换本地坐标要使用GlobalToLocal
         Debug.Log(context.inputEvent.x + ", " + context.inputEvent.y);
 
-        Debug.Log(context.sender);
-        Debug.Log(context.initiator);
+        //获取点击的对象
+        Debug.Log((GObject)context.sender);
+        //如果事件是冒泡的，可以获得最底层的对象。但要注意，这里的对象类型是DisplayObject，不是GObject。
+        Debug.Log((DisplayObject)context.initiator);
     }
 ```
 
@@ -121,7 +124,7 @@ Unity在键盘输入时自带了一个额外的输入框，如果你不需要这
 
 **复制粘贴问题**
 
-当使用DLL形式的插件时，因为DLL默认是为移动平台编译的，所以不支持复制粘贴（如果要支持，需要自己写原生）。如果是在PC平台上使用时，需要将[CopyPastePatch.cs](https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/CopyPastePatch.cs)放到工程里，并在游戏启动时调用CopyPastePatch.Apply()，就可以在PC平台激活复制粘贴功能。如果你是使用源码形式的插件，不需要进行这个处理。
+当使用DLL形式的插件时，因为DLL默认是为移动平台编译的，所以不支持复制粘贴（如果要支持，需要自己写原生代码支持）。如果是在PC平台上使用时，需要将[CopyPastePatch.cs](https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/CopyPastePatch.cs)放到工程里，并在游戏启动时调用CopyPastePatch.Apply()，就可以在PC平台激活复制粘贴功能。**如果你是使用源码形式的插件，不需要进行这个处理。**
 
 ## 手势
 
