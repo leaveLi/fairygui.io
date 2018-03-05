@@ -449,15 +449,15 @@
 <h3 id="矩形遮罩"><a href="#矩形遮罩" class="headerlink" title="矩形遮罩"></a>矩形遮罩</h3><p>将组件的“溢出处理”设置为“隐藏”或者“滚动”，那么组件就带了矩形遮罩。超出组件(矩形区域-边缘留空）的区域都不可见。无论在什么平台，这种遮罩的效率是最高的。</p>
 <h3 id="自定义遮罩"><a href="#自定义遮罩" class="headerlink" title="自定义遮罩"></a>自定义遮罩</h3><p>可以设置组件内一个图片或者图形作为组件的遮罩。这种遮罩一般都是使用模板测试(Stencil Op)技术。各个平台支持的力度不同：</p>
 <ul>
-<li><code>AS3/Starling/Egret/Laya</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内可见，其他区域不可见。</li>
-</ul>
+<li><p><code>AS3/Starling/Egret/Laya</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内可见，其他区域不可见。</p>
 <p>不能使用图片（Image）作为遮罩，因为使用图片作为遮罩也是取其矩形区域而已，用一个矩形（Graph）的图形效果是一样的。</p>
-<p>Starling版本要使用自定义遮罩必须在应用程序描述文件里加上</p>
+<p>Starling版本要使用自定义遮罩必须在应用程序描述文件里加上:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&lt;initialWindow&gt;</div><div class="line">    &lt;depthAndStencil&gt;<span class="literal">true</span>&lt;/depthAndStencil&gt;</div><div class="line">&lt;/initialWindow&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li><code>Unity</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内<strong>可见</strong>，其他区域不可见。</li>
-</ul>
+</li>
+<li><p><code>Unity</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内<strong>可见</strong>，其他区域不可见。</p>
 <p>使用图片（Image）作为遮罩时，图片内透明度为0的像素对应区域的内容<strong>不可见</strong>，反之可见。超出图片区域的内容<strong>不可见</strong>。</p>
+</li>
+</ul>
 <h3 id="反向遮罩（挖洞）"><a href="#反向遮罩（挖洞）" class="headerlink" title="反向遮罩（挖洞）"></a>反向遮罩（挖洞）</h3><p>效果和正常遮罩相反，也就是可见的区域变不可见，不可见的区域变可见。目前仅Unity平台支持，例如：</p>
 <p><img src="../../images/20170622162422.png" alt=""></p>
 <p>使用图形（Graph）作为遮罩时，有图形的区域内容<strong>不可见</strong>，例如，一个圆形，则圆形区域内不可见，其他区域可见。</p>

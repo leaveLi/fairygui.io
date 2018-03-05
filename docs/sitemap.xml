@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/guide/editor/component.html</loc>
+    
+    <lastmod>2018-03-05T05:24:50.254Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/product/sdk_release_notes.html</loc>
+    
+    <lastmod>2018-03-05T05:22:09.262Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/product/index.html</loc>
+    
+    <lastmod>2018-03-05T05:18:22.504Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/label.html</loc>
+    
+    <lastmod>2018-03-05T04:04:12.282Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/adaptation.html</loc>
+    
+    <lastmod>2018-03-01T10:43:46.814Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/unity/input.html</loc>
+    
+    <lastmod>2018-02-09T13:13:07.740Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/guide/editor/scrollpane.html</loc>
     
     <lastmod>2018-02-09T04:51:12.503Z</lastmod>
@@ -19,20 +61,6 @@
     <loc>http://www.fairygui.com/guide/editor/index.html</loc>
     
     <lastmod>2018-02-07T09:55:00.445Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/unity/input.html</loc>
-    
-    <lastmod>2018-02-07T09:38:49.388Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/component.html</loc>
-    
-    <lastmod>2018-02-07T03:36:12.895Z</lastmod>
     
   </url>
   
@@ -233,13 +261,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/product/index.html</loc>
-    
-    <lastmod>2018-01-09T02:11:01.077Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/image.html</loc>
     
     <lastmod>2018-01-09T02:02:20.228Z</lastmod>
@@ -261,13 +282,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/label.html</loc>
-    
-    <lastmod>2018-01-08T08:54:38.286Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/cocos2dx/index.html</loc>
     
     <lastmod>2018-01-08T08:54:38.276Z</lastmod>
@@ -278,13 +292,6 @@
     <loc>http://www.fairygui.com/product/release_notes.html</loc>
     
     <lastmod>2018-01-04T17:11:33.132Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/sdk_release_notes.html</loc>
-    
-    <lastmod>2018-01-04T17:01:47.152Z</lastmod>
     
   </url>
   
@@ -334,13 +341,6 @@
     <loc>http://www.fairygui.com/guide/editor/window.html</loc>
     
     <lastmod>2017-09-24T00:21:33.380Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/adaptation.html</loc>
-    
-    <lastmod>2017-09-24T00:13:35.194Z</lastmod>
     
   </url>
   

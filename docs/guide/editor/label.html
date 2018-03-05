@@ -387,7 +387,7 @@
 <li>新建一个组件，然后在组件属性里选择扩展为“标签”。</li>
 </ul>
 <h2 id="设计属性"><a href="#设计属性" class="headerlink" title="设计属性"></a>设计属性</h2><p>在组件编辑状态下，标签组件的属性面板是：</p>
-<p><img src="../../images/20170802232618.png" alt=""></p>
+<p><img src="../../images/20170803135953.png" alt=""></p>
 <p><strong>命名约定</strong></p>
 <ul>
 <li><p><code>title</code> 可以是普通文本，富文本，也可以是标签、按钮。</p>
@@ -409,7 +409,7 @@
 </li>
 </ul>
 <p>如果“title”是输入文本，则属性面板内会出现<img src="../../images/20170801144514.png" alt="">按钮，点击后出现输入设置面板。设置方法可参考文本的教程。</p>
-<h2 id="GLabel"><a href="#GLabel" class="headerlink" title="GLabel"></a>GLabel</h2><p>设置标签的标题或者图标，你甚至不需要强制对象为GLable的类型，直接用GObject提供的接口就可以，例如：</p>
+<h2 id="GLabel"><a href="#GLabel" class="headerlink" title="GLabel"></a>GLabel</h2><p>设置标签的标题或者图标，你甚至不需要强制对象为GLabel的类型，直接用GObject提供的接口就可以，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = gcom.GetChild(<span class="string">"n1"</span>);</div><div class="line">obj.text = <span class="string">"hello"</span>;</div><div class="line">obj.icon = <span class="string">"ui://包名/图片名"</span>;</div></pre></td></tr></table></figure>
 <p>修改标题颜色可以这样：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GLabel label = gcom.GetChild(<span class="string">"n1"</span>).asLabel;</div><div class="line">lable.titleColor = ...;</div></pre></td></tr></table></figure>
