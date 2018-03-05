@@ -17,7 +17,8 @@ Laya/Egret在线示例：
 7. [内置了常用的模式等待功能](http://www.fairygui.com/laya-demo/modalwaiting)
 8. [UI动效例子](http://www.fairygui.com/laya-demo/transition)
 9. [3D酷炫例子](http://www.fairygui.com/laya-demo/inventory)
-
+10. [下拉刷新例子](http://www.fairygui.com/laya-demo/pulltorefresh)
+ 
 Pixi在线示例
 
 1. [综合例子](http://jc-space.com/pixigui)
