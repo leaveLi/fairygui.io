@@ -65,7 +65,7 @@ Create Component1@Package1 failed!
 
 ## 图片拼接/平铺有缝
 
-将需要拼接或平铺的图片单独导出为一个纹理集，然后设置纹理集的Filter Mode为Point。**还需要在项目的图形质量设置中关闭抗锯齿。**
+双击图片，在图片属性对话框中勾选“重复边缘像素”。
 
 ## 场景里出现CaptureCamera
 
@@ -119,5 +119,3 @@ Stage.LateUpdate不但包含了FairyGUI自身的消耗，而且因为他是发�
 ## FairyGUI支持XLua吗
 
 无论tolua、slua还是xlua，都是C# binding的方案。FairyGUI是使用C#写的，且没有引用到除了系统库、Unity库外的任何第三方库，所以不存在不支持某某lua的说法。xlua和FairyGUI结合使用的例子可以百度“FairyGUI xlua”。
-
-

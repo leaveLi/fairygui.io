@@ -404,7 +404,7 @@
 <p>对于打开了fairyBatching的组件，当开发者自己调用SetPosition等API改变子元件或者孙子元件的位置、大小，旋转或缩放，并不会自动触发深度调整，例如一个图片原来显示在一个窗口里的顶层，你用Tween将它从原来的位置移到另外一个位置，这个图片就有可能被窗口里的其他元素遮挡。这时开发者需要手动触发深度调整，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.InvalidateBatchingState();</div></pre></td></tr></table></figure>
 <p>这个API并不需要由开启了fairyBatching的组件调用，aObject可以是任何一个内含的元件。并且你可以在任何时间调用，每帧调用也可以，只要你确认是需要。它的消耗不算大，但也不能说没有。</p>
-<h2 id="图片拼接-平铺有缝"><a href="#图片拼接-平铺有缝" class="headerlink" title="图片拼接/平铺有缝"></a>图片拼接/平铺有缝</h2><p>将需要拼接或平铺的图片单独导出为一个纹理集，然后设置纹理集的Filter Mode为Point。<strong>还需要在项目的图形质量设置中关闭抗锯齿。</strong></p>
+<h2 id="图片拼接-平铺有缝"><a href="#图片拼接-平铺有缝" class="headerlink" title="图片拼接/平铺有缝"></a>图片拼接/平铺有缝</h2><p>双击图片，在图片属性对话框中勾选“重复边缘像素”。</p>
 <h2 id="场景里出现CaptureCamera"><a href="#场景里出现CaptureCamera" class="headerlink" title="场景里出现CaptureCamera"></a>场景里出现CaptureCamera</h2><p>以下情况场景中会自动出现CaptureCamera：</p>
 <ol>
 <li>组件的BlendMode不为默认值“Normal”。</li>

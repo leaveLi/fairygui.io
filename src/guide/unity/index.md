@@ -206,7 +206,7 @@ UIPanel可以用来制作头顶血条。要注意的是：
     aComponnent.AddChild(view);
 ```
 
-如果界面内容过多，创建时可能引起卡顿，FairyGUI提供了异步创建UI的方式，异步创建方式下，每帧消耗的CPU资源将受到控制，但创建时间也会比同步创建稍久一点。例如：
+如果界面内容过多，创建时可能引起卡顿，FairyGUI提供了异步创建UI的方式，异步创建方式下，每帧消耗的CPU时间将受到控制，但创建时间也会比同步创建稍长一点。例如：
 
 ```csharp
     UIPackage.CreateObjectAsync("包名","组件名", MyCreateObjectCallback);

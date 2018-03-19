@@ -401,6 +401,8 @@
 <p>IOS上常用的Unicode编码和表情图片资源可以从这里下载：<a href="http://res.fairygui.com/ios-emoji.zip" title="ios-emoji.zip" target="_blank" rel="external">http://res.fairygui.com/ios-emoji.zip</a></p>
 <p>需要注意，0x1f600的Unicode编码在C#里是用两个char表达，即”\U0001f600”，但不代表这两个char的整数值是0x1和0xf600。如果需要对含UCS32编码的文本进行网络传输或者数据库保存，需要确保你的网络层或者数据库接口支持这种编码。可以百度获得这种编码的详细处理方式，关键字是“ios 表情编码”。</p>
 <p>UGUI自带的文字组件没有表情的处理，所以Unity屏蔽了表情的输入。如果要打开这个功能，需要修改Xcode项目下/Classes/UI/Keyboard.mm文件，将FILTER_EMOJIS_IOS_KEYBOARD宏修改为0。</p>
+<h2 id="阿拉伯语言文字显示"><a href="#阿拉伯语言文字显示" class="headerlink" title="阿拉伯语言文字显示"></a>阿拉伯语言文字显示</h2><p>FairyGUI支持从右向左的阿拉伯语言文字显示。如果需要打开此功能，使用源码版本的，需要在Unity Player Settings的Scripting Define Symbols里增加RTL_TEXT_SUPPORT；使用DLL版本的，请自行编译包含这个功能的DLL，或者向谷主索取。</p>
+<p><img src="../../images/20180319022527.png" alt=""></p>
 <h2 id="自定义滤镜"><a href="#自定义滤镜" class="headerlink" title="自定义滤镜"></a>自定义滤镜</h2><p>待补充。。。</p>
 
     

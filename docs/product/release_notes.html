@@ -114,7 +114,19 @@
     
       <h1>发行日志</h1>
     
-    <h2 id="3-5-0"><a href="#3-5-0" class="headerlink" title="3.5.0"></a>3.5.0</h2><ol>
+    <h2 id="3-6-0"><a href="#3-6-0" class="headerlink" title="3.6.0"></a>3.6.0</h2><ol>
+<li>图片属性里增加了一个选项：重复边缘像素。勾选后，在图集里会自动将图片最边缘的像素扩充出来，以避免图片在拼接或者平铺时产生缝隙。</li>
+<li>列表项目编辑界面增加了“选中时图标”的设置。</li>
+<li>列表项目编辑界面增加了“发布时清楚”设置，勾选后，最终发布时不会包含这里定义的列表数据，也就是列表数据将仅作编辑器预览用途。</li>
+<li>库面板中，增加了一个“与编辑器链接”的设置，激活这个功能后，当活动文档发生切换时，会同时在资源库中选中活动文档对应的组件。 </li>
+<li>修正了Cocos2dx项目中，图集选择支持旋转后导出不正确的bug。</li>
+<li>修正了导出代码功能中，如果组件中含有普通组，则生成的显示对象索引不正确的bug。</li>
+<li>修正了Windows系统中，如果文件名与package.xml中定义的文件名大小写不一致时，刷新会出现重复资源的bug。</li>
+<li>修正了如果发布时如果还有大量序列帧动画，发布结果可能丢失帧的bug。</li>
+<li>修正了查找引用中，“我依赖的资源”功能不完整的bug。</li>
+<li>优化了Mac系统下的快捷键。</li>
+</ol>
+<h2 id="3-5-0"><a href="#3-5-0" class="headerlink" title="3.5.0"></a>3.5.0</h2><ol>
 <li>增加了Cry Engine和Havok Vision两种新项目类型。</li>
 <li><p>增加了自定义数据。可以在两个地方输入自定义的数据：<br><img src="../../images/20180105004522.png" alt=""> <img src="../../images/20180105004541.png" alt=""></p>
 <p>第一种定义方式在运行时可以通过两种方式获得：<br>a. 通过GComponent.packageItem.componentData.GetAttribute(“customData”)读取；<br>b. 在组件的扩展类里，重写ConstructXML(xml)方法，然后xml.GetAttribute(“customData”)读取。</p>

@@ -4,6 +4,13 @@ type: product
 order: 2
 ---
 
+## 2018/3/19
+1. [All] GRoot.ShowPopup里现在会自动检查sortingOrder，保证popup的东西一定在目标前面。
+2. [Unity] Unity发布了2.0.0版本。
+3. [Unity] 增加了对阿拉伯语言显示的支持。如果需要打开此功能，使用源码版本的，需要在Unity Player Settings的Scripting Define Symbols里增加RTL_TEXT_SUPPORT；使用DLL版本的，请自行编译包含这个功能的DLL，或者向谷主索取。
+4. [Unity] 增加了UIConfig.depthSupportForPaitingMode.如果你要对使用了自定义遮罩的组件进行设置倾斜、设置BlendMode，设置滤镜，又或者曲面UI中含有自定义遮罩的组件时，需要设置这个开关为true才能显示正常。
+5. [Unity] 修正了轴心不为中心或左上角时，倾斜显示不正确的bug。
+
 ## 2018/3/5
 1. [Laya/Egret/Starling/Flash] 重构ScrollPane，支持了Header和Footer，也就是下拉刷新和上拉刷新功能的支持。（其他SDK早已支持，这次是对这几个SDK的填坑。）。功能演示可以在产品页面下载最新的Demo，里面包含了PullToRefresh这个Demo。
 2. [Laya] 适配最新引擎1.7.16。

@@ -72,6 +72,12 @@ IOS上常用的Unicode编码和表情图片资源可以从这里下载：[http:/
 
 UGUI自带的文字组件没有表情的处理，所以Unity屏蔽了表情的输入。如果要打开这个功能，需要修改Xcode项目下/Classes/UI/Keyboard.mm文件，将FILTER_EMOJIS_IOS_KEYBOARD宏修改为0。
 
+## 阿拉伯语言文字显示
+
+FairyGUI支持从右向左的阿拉伯语言文字显示。如果需要打开此功能，使用源码版本的，需要在Unity Player Settings的Scripting Define Symbols里增加RTL_TEXT_SUPPORT；使用DLL版本的，请自行编译包含这个功能的DLL，或者向谷主索取。
+
+![](../../images/20180319022527.png)
+
 ## 自定义滤镜
 
 待补充。。。

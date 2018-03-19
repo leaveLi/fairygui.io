@@ -437,6 +437,7 @@
 </ul>
 <p><img src="../../images/20170807144559.png" alt=""></p>
 <p>点击增加，将增加一个由”项目资源“指定的项目，你也可以直接从库中直接拖动一个组件到界面中。如果item是一个标签或按钮，那么可以在这里设置它的文本和图标。</p>
+<p>  <strong>发布时自动清空</strong> 表示这里编辑的列表数据在最终发布时不会包含，也就是列表数据仅作编辑器预览用途。</p>
 <h2 id="GList"><a href="#GList" class="headerlink" title="GList"></a>GList</h2><h3 id="管理列表内容"><a href="#管理列表内容" class="headerlink" title="管理列表内容"></a>管理列表内容</h3><p>列表对应的类型是GList。在FairyGUI中，列表的本质就是一个组件，GList也是从GComponent派生来的，所以你可以用GComponent的API直接访问列表内的内容，例如可以用GetChild或者GetChildAt访问列表内的项目；也可以用AddChild添加一个item。这部分的API可以参考GComponent的<a href="component.html#GComponent">显示列表管理</a>。</p>
 <p>当你对列表增删改后，列表是自动排列和刷新的，不需要调用任何API。自动排列时会根据列表的布局设置item的坐标、大小和深度，所以不要自行设置item的位置，也不要设置sortingOrder尝试去控制item的深度。除了一个例外，垂直布局的列表只会自动设置item的y坐标，如果你需要item有一个水平位移的效果，你仍然可以修改item的x值。水平布局的也是一样道理。</p>
 <p>这个排列和刷新发生在本帧绘制之前，如果你希望立刻访问item的正确坐标，那么可以调用<code>EnsureBoundsCorrect</code>通知GList立刻重排。EnsureBoundsCorrect是一个友好的函数，你不用担心重复调用会有额外性能消耗。</p>
