@@ -4,6 +4,16 @@ type: guide
 order: 0
 ---
 
+## 学习路径
+
+1.  下载FairyGUI编辑器。
+2.  下载对应你的开发平台的FairyGUI SDK。
+3.  对照SDK里的例子（包括编辑器里的UI设计，和运行时的代码），阅读全部官网教程或网上的视频教程。
+  [视频教程-强大的UI编辑器 - FairyGUI入门教程](http://www.sikiedu.com/course/139)
+  [视频教程-狼人杀面杀APP（基于FairyGUI）](http://www.sikiedu.com/course/170)
+  备注：视频教程由第三方提供。
+4.  愉快地开始你的UI制作之旅。
+
 ## FairyGUI的独特之处
 
 FairyGUI提供了一个强大的UI编辑器，`使用习惯与Adobe系列软件保持一致`，美术设计师和策划都可以轻松上手。
@@ -63,13 +73,4 @@ FairyGUI提供了多个游戏引擎SDK：`Unity`、`Cocos2d-x`、`Cry Egine`, `H
 * 提供插件机制，可以根据项目的需要为编辑器加入个性功能。
 
 * 支持设计图功能，直接将设计图显示在背景，便于对照精准拼接。
-
-## 学习路径
-
-1.  下载FairyGUI编辑器。
-2.  下载对应你的开发平台的FairyGUI SDK。
-3.  对照SDK里的例子（包括编辑器里的UI设计，和运行时的代码），阅读全部官网教程或[视频教程](http://www.sikiedu.com/course/139)。
-4.  愉快地开始你的UI制作之旅。
-
-
 
