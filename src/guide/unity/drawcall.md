@@ -56,7 +56,7 @@ FairyGUI提供了一个开关控制组件是否启用深度调整，它就是`fa
 
 ![](../../images/2015-09-23_180017.png)
 
-设置了fairyBatching后由42个DC减少到了6个DC，另外，可以看到Saved by batching: 27的字样。
+设置了fairyBatching后由42个DC减少到了6个DC，另外，可以看到Saved by batching: 37的字样。
 
 ![](../../images/2015-09-23_180207.png)
 
