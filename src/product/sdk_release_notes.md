@@ -4,6 +4,13 @@ type: product
 order: 2
 ---
 
+## 2018/3/30
+1. [All] 增加了对GLoader新填充类型的支持。
+2. [All] 修改了虚拟列表滚动时在某些特殊情况下不再响应滚动的bug。
+3. [Unity] Unity发布了2.1.0版本。
+4. [Unity] 现在支持图形中的圆角。
+5. [Unity] 修正了共享材质系统中的一个bug。
+
 ## 2018/3/19
 1. [All] GRoot.ShowPopup里现在会自动检查sortingOrder，保证popup的东西一定在目标前面。
 2. [Unity] Unity发布了2.0.0版本。

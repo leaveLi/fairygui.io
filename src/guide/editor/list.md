@@ -167,7 +167,7 @@ order: 180
 
 ### foldInvisibleItems
 
-这是列表的一个选项，如果为true，但某个item不可见时（visible=false），列表不会为他留位置，也就是排版是会忽略这个item；如果为false，在列表会为这个item保留位置，显示效果就是一个空白的占位。默认值是false。
+这是列表的一个选项，如果为true，但某个item不可见时（visible=false），列表不会为他留位置，也就是排版时会忽略这个item；如果为false，在列表会为这个item保留位置，显示效果就是一个空白的占位。默认值是false。
 
 ### 列表自动大小
 
