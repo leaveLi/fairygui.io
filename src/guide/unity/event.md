@@ -58,7 +58,7 @@ C’s capture listeners->B’s capture listeners->A’s capture listeners->A’s
 
     void aCallback(EventContext context)
     {
-        Debug.Log(context.sender.data)
+        Debug.Log(((GObject)context.sender).data)
     }
   ```
 

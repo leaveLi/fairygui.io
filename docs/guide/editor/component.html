@@ -420,7 +420,7 @@
 <li><p><code>背景颜色</code> 设置组件编辑区域的背景颜色，仅用于辅助设计，实际组件背景都是透明的，不会有颜色。如果你需要组件有一个真实的背景色，可以放置一个图形。</p>
 </li>
 <li><p><code>自定义数据</code> 可以设置一个自定义的数据，这个数据FairyGUI不做解析，按原样发布到最后的描述文件中。开发者可以在运行时获取。获取方式是：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aComponent.packageItem.componentData.GetAttribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//Cocos2dx/Vision</span></div><div class="line">aComponent-&gt;getPackageItem()-&gt;componentData-&gt;Attribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//LayaAir</span></div><div class="line">aComponent.packageItem.componentData.getAttribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//Egret</span></div><div class="line">aComponent.packageItem.componentData.attributes.customData;</div><div class="line"><span class="comment">//AS3/Starling</span></div><div class="line">aComponent.packageItem.componentData.@customData;</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aComponent.packageItem.componentData.GetAttribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//Cocos2dx/Vision</span></div><div class="line">aComponent-&gt;getPackageItem()-&gt;componentData-&gt;RootElement()-&gt;Attribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//LayaAir</span></div><div class="line">aComponent.packageItem.componentData.getAttribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//Egret</span></div><div class="line">aComponent.packageItem.componentData.attributes.customData;</div><div class="line"><span class="comment">//AS3/Starling</span></div><div class="line">aComponent.packageItem.componentData.@customData;</div></pre></td></tr></table></figure>
 <p>如果组件有扩展类，那么也可以覆盖方法ConstructFromXML(xml)，这里的xml就相当于componentData，可以按上面介绍的方法获取customData属性。</p>
 <p>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
 </li>
@@ -488,6 +488,8 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent gcom = UIPackage.CreateObject(<span class="string">"包名"</span>,<span class="string">"组件名"</span>).asCom;</div><div class="line">GRoot.inst.AddChild(gcom);</div></pre></td></tr></table></figure>
 <p>FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器可以包含一个或多个基础显示对象，也可以包含容器。这个树状结构称为显示列表。FairyGUI提供了API管理显示列表。</p>
 <h3 id="显示列表管理"><a href="#显示列表管理" class="headerlink" title="显示列表管理"></a>显示列表管理</h3><ul>
+<li><p><code>numChildren</code> 获得容器内孩子元件的数量。</p>
+</li>
 <li><p><code>AddChild</code> <code>AddChildAt</code> 向容器内添加元件。前者将元件添加到显示列表的队尾；后者可以指定一个索引控制元件的插入位置。</p>
 </li>
 <li><p><code>RemoveChild</code> <code>RemoveChildAt</code> <code>RemoveCihldren</code> 从容器内删除元件。当元件从显示对象中移出时，将不再占用显示资源。但元件从显示列表移出后，只是不显示，并没有销毁，如果你没有保存这个对象的引用留待后续使用，或者没有调用对象的Dispose方法销毁对象，那么会产生内存泄露。</p>

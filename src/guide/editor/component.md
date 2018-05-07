@@ -50,7 +50,7 @@ order: 90
     //Unity/Cry
     aComponent.packageItem.componentData.GetAttribute("customData");
     //Cocos2dx/Vision
-    aComponent->getPackageItem()->componentData->Attribute("customData");
+    aComponent->getPackageItem()->componentData->RootElement()->Attribute("customData");
     //LayaAir
     aComponent.packageItem.componentData.getAttribute("customData");
     //Egret
@@ -203,6 +203,8 @@ FairyGUI的遮罩有两种：矩形遮罩和自定义遮罩。
 FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器可以包含一个或多个基础显示对象，也可以包含容器。这个树状结构称为显示列表。FairyGUI提供了API管理显示列表。
 
 ### 显示列表管理
+
+- `numChildren` 获得容器内孩子元件的数量。
 
 - `AddChild` `AddChildAt` 向容器内添加元件。前者将元件添加到显示列表的队尾；后者可以指定一个索引控制元件的插入位置。
 

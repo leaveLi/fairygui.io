@@ -15,7 +15,7 @@ make sure to disable autocrlf option!
 如果你使用的FairyGUI编辑器版本小于3.1.5，那么包描述文件的格式为纯文本，当这个文件从GIT上拉下来时，有可能由于GIT的自动转换换行符功能导致文件内容发生变化从而造成FairyGUI识别错误。解决办法是关闭GIT的自动转换换行符功能，然后再重新拉一次下来。
 
 如果你使用的FairyGUI编辑器版本大于等于3.1.5，那么包描述文件的格式已修改为二进制，不再受GIT的影响。仍然出现这个错误的原因是新的格式需要Unity SDK 1.8.3或以上版本支持。旧版本无法识别这个格式，就会报这个错误。解决办法是升级你的Unity SDK，升级你的Unity SDK，升级你的Unity SDK，重要事情说三遍。
-如果暂时不想升级，可以修改xxx.fairy（你的项目描述文件），将里面的version="3.1"改成version="3"，这样编辑器就会使用旧的文本格式发布。
+如果暂时不想升级，可以修改xxx.fairy（你的项目描述文件），将里面的`version="3.1"`改成`version="3"`，这样编辑器就会使用旧的文本格式发布。
 
 除了上面这个错误，如果包仍然不能加载，检查包名和路径是否正确，特别要注意包只能放置在Resources目录或者它的子目录下，否则就只能打AB包。再看看是不是Unity的项目放置在了带中文名称的目录，这都有可能造成载入失败。
 
@@ -46,7 +46,8 @@ Create Component1@Package1 failed!
 
 如果你设置了字体后，觉得字体效果不对，可以用以下的方式排查：
 
-1. 如果是只用了字体名称，没有使用ttf字体文件的，那么你需要再次确认你的操作系统（例如Windows）里是否有安装这种字体，字体名称是否正确。正确的系统字体名称可以在FairyGUI编辑器，选择任何一个文本，点字体属性旁边的A按钮看到。
+1. 如果是只用了字体名称，没有使用ttf字体文件的，那么你需要再次确认你的操作系统（例如Windows）里是否有安装这种字体，字体名称是否正确。**对于部分字体，Unity能识别的字体名称不一定是字体的中文名称**。查看准确的系统字体名称，你可以将ttf文件拖入到Unity，就可以在Inspector的"Font Names"里看到正确的字体名称。也可以下载FontCreator软件，查看字体的Font Family属性。
+
 2. 如果是用了ttf文件的，那么运行时在Project视图，点击ttf文件左边的箭头后，可以看到ttf文件下有Font Texture和Font Material。Font Texture里应该有你游戏中使用到的文字，并能看到渲染效果。如果能看到，说明这个字体在Unity中的渲染效果就是这样。
 
 ![](../../images/20170808230450.png)
@@ -119,3 +120,19 @@ Stage.LateUpdate不但包含了FairyGUI自身的消耗，而且因为他是发�
 ## FairyGUI支持XLua吗
 
 无论tolua、slua还是xlua，都是C# binding的方案。FairyGUI是使用C#写的，且没有引用到除了系统库、Unity库外的任何第三方库，所以不存在不支持某某lua的说法。xlua和FairyGUI结合使用的例子可以百度“FairyGUI xlua”。
+
+## 使用UIConfig.buttonSoundVolume改变全局按钮音量无效
+
+UIConfig.buttonSoundVolume仅用于初始化设置，后续改变是无效的。如果要控制全局声音的开关或音量，可以这样：
+
+```csharp
+    //开关声音
+    GRoot.inst.EnabledSound();
+    GRoot.inst.DisableSound();
+
+    //调整全局声音音量，这个包括按钮声音和动效播放的声音
+    GRoot.inst.soundVolume = 0.5f;
+```
+## FairyGUI可以播放视频吗
+
+播放视频的功能Unity有提供，不需要FairyGUI支持。你可以使用一个Loader，然后将视频对象的texture赋值给Loader就可以了。

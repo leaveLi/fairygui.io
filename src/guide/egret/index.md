@@ -24,7 +24,7 @@ order: 0
 
   ![](../../images/20170809161256.png)
 
-4. 在default.res.json里，将上述的文件添加到定义中。扩展名为fui文件，类型请选择为bin。注意：Egret自动检测添加的资源，名称通常会自动加上下划线和后缀，例如basic.fui，名称自动设置为“basic_fui”，这里我们要手动将_fui去掉，名称只需要为“basic”。
+4. 在default.res.json里，将上述的文件添加到定义中。扩展名为fui文件，类型请选择为bin。**注意：Egret自动检测添加的资源，名称通常会自动加上下划线和后缀，例如basic.fui，名称自动设置为“basic_fui”，这里我们要手动将_fui去掉，名称只需要为“basic”。**
 
   ![](../../images/20170809161350.png)
 

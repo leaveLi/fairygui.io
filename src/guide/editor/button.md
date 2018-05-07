@@ -138,6 +138,17 @@ order: 130
     UIConfig.buttonSoundVolumeScale = 1f;
 ```
 
+这个设置只能在创建任何UI前设置。如果要控制全局声音的开关或音量，可以这样：
+
+```csharp
+    //开关声音
+    GRoot.inst.EnabledSound();
+    GRoot.inst.DisableSound();
+
+    //调整全局声音音量，这个包括按钮声音和动效播放的声音
+    GRoot.inst.soundVolume = 0.5f;
+```
+
 单选和多选按钮状态改变时有通知事件：
 
 ```csharp

@@ -414,7 +414,7 @@
 <p>设置新的包装对象后，原来的包装对象只会被删除引用，但不会被销毁。如果你要销毁原来的GameObject，必须自行处理，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Object.Destroy(wrapper.wrapTarget);</div><div class="line">wrapper.wrapTarget = anotherGameObject;</div></pre></td></tr></table></figure>
 <p><strong>剪裁</strong></p>
-<p>如果需要对3D对象进行剪裁，可以利用自定义遮罩。自定义遮罩的使用方法参考：<a href="../editor/component.html#遮罩">组件的遮罩</a>。</p>
+<p>如果需要对3D对象进行剪裁，可以利用自定义遮罩（<strong>模型、粒子等均适用</strong>）。自定义遮罩的使用方法参考：<a href="../editor/component.html#遮罩">组件的遮罩</a>。</p>
 <p>例如需要在一个列表内的item显示模型，并希望模型在列表滚动时被正确隐藏，这时仅通过列表自身的溢出滚动功能是无法实现的。首先将列表转换为一个组件，在组件内拖入一个矩形图形覆盖列表的视口，然后将这个图形设置为组件的自定义遮罩。</p>
 <p>模型的着色器也必须做出相应的修改，把以下代码添加到模型的着色器的Properties段（可参考FairyGUI-Image.shader）：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">_StencilComp (<span class="string">"Stencil Comparison"</span>, Float) = <span class="number">8</span></div><div class="line">_Stencil (<span class="string">"Stencil ID"</span>, Float) = <span class="number">0</span></div><div class="line">_StencilOp (<span class="string">"Stencil Operation"</span>, Float) = <span class="number">0</span></div><div class="line">_StencilWriteMask (<span class="string">"Stencil Write Mask"</span>, Float) = <span class="number">255</span></div><div class="line">_StencilReadMask (<span class="string">"Stencil Read Mask"</span>, Float) = <span class="number">255</span></div></pre></td></tr></table></figure>
