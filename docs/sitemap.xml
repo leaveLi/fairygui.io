@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/showcase/index.html</loc>
+    
+    <lastmod>2018-05-22T01:29:48.829Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/guide/cocos2dx/index.html</loc>
     
     <lastmod>2018-05-22T01:22:19.153Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://www.fairygui.com/guide/editor/list.html</loc>
     
     <lastmod>2018-05-21T10:46:21.942Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/showcase/index.html</loc>
-    
-    <lastmod>2018-05-16T04:01:33.534Z</lastmod>
     
   </url>
   
