@@ -41,4 +41,4 @@ GRoot是UI的根对象，我们可以像Demo那样，每个场景都创建一个
 `tag` 如果事件注册后要进行remove操作，那么add的时候必须标识这个事件。这里的机制是调用者提供一个EventTag。EventTag可以用整形，或者一个指针地址来构造，例如可以直接传递this。特别地，0表示没有EventTag，也就是不要使用0作为特殊的EventTag。
 
 ## Lua Binding
-FairyGUI-cocos2dx只提供了C++版本，Lua Binding需要由你自行完成。网上有很多方案可以完成这点。
+FairyGUI-cocos2dx只提供了C++版本，Lua Binding需要由你自行完成。网上有很多方案可以完成这点。例如这位热心网友的分享：[https://www.jianshu.com/p/547e584e05d8](https://www.jianshu.com/p/547e584e05d8 "FairyGUI在Cocos2d-x下的多平台接入和lua绑定")
