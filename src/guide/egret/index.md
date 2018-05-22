@@ -6,7 +6,16 @@ order: 0
 
 开发小游戏须知：
 
-因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，发布时勾选“不压缩描述文件”就可以了。rawinflate这个库就不会再引用到。
+1. 因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，发布时勾选“不压缩描述文件”就可以了。rawinflate这个库就不会再引用到。
+2. 小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名。
+3. 在scripts/wxgame/wxgame.ts里，找到
+  ```
+    content += ";egret.fairygui;";
+  ```
+  改成：
+  ```
+    content += ";window.egret.fairygui;";
+  ```
 
 ## Egret 4.x
 

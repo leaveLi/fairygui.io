@@ -141,8 +141,8 @@ order: 180
     aList.itemRenderer = RenderListItem;
     aList.callbackThisObj = this;
     
-    //Laya
-    aList.itemRenderer = Handler.create(this, this.RenderListItem, false);
+    //Laya。（注意，最后一个参数必须为false！）
+    aList.itemRenderer = Handler.create(this, this.RenderListItem, null, false);
 
     //Cocos2dx
     aList->itemRenderer = CC_CALLBACK_2(AClass::renderListItem, this);

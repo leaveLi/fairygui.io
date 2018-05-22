@@ -94,5 +94,12 @@ c. 双向拉伸中间部分（即九宫格的中间部分，横向，纵向同�
     //必须注意GImage不管理外部对象的生命周期，不会主动销毁your_Texture2D
     aImage.texture = new NTexture(your_Texture2D);
 ```
-
 再次强调，这种需求仍然是建议尽量使用装载器实现。
+
+在Unity平台中，你可以为GImage设置自定义的材质，或者着色器。例如：
+
+```csharp
+    aImage.shader = yourShader; 
+    //或者
+    aImage.material = yourMaterial;
+```

@@ -458,7 +458,7 @@
 </ul>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.SetPivot(<span class="number">0.5</span>f, <span class="number">0.5</span>f); <span class="comment">//设置轴心</span></div><div class="line">aObject.SetPivot(<span class="number">0.5</span>f, <span class="number">0.5</span>f, <span class="literal">true</span>); <span class="comment">//设置轴心，并同时作为锚点</span></div></pre></td></tr></table></figure>
 <ul>
-<li><p><code>设置可见</code> visible = true/false。在FariyGUI里，对象的显示和隐藏是通过直接从底层的舞台上移除实现的，不会影响FairyGUI的显示列表，但会影响底层的显示列表，也就是addToStage和removeFromStage事件是会触发的。</p>
+<li><p><code>设置可见</code> visible = true/false。注意：即使对象设置visible=false，它仍然在显示列表中，所以仍然会消耗一定的计算资源（但不会消耗渲染资源），所以如果是长期的隐藏，建议移出显示列表，即removeFromParent。另外，不要和显示控制器混淆，两者是独立的。即使对象的visible=true,如果不在显示控制器的指定页面里，对象仍然是不可见的。</p>
 </li>
 <li><p><code>设置交互</code> touchable = true/false。</p>
 </li>

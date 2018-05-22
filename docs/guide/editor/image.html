@@ -449,6 +449,8 @@
 <p>在Unity平台中，如果在某些特殊场合需要将Texture2D对象赋予给GImage，可以这样做：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//必须注意GImage不管理外部对象的生命周期，不会主动销毁your_Texture2D</span></div><div class="line">aImage.texture = <span class="keyword">new</span> NTexture(your_Texture2D);</div></pre></td></tr></table></figure>
 <p>再次强调，这种需求仍然是建议尽量使用装载器实现。</p>
+<p>在Unity平台中，你可以为GImage设置自定义的材质，或者着色器。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aImage.shader = yourShader; </div><div class="line"><span class="comment">//或者</span></div><div class="line">aImage.material = yourMaterial;</div></pre></td></tr></table></figure>
 
     
     <div class="footer">

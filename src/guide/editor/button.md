@@ -115,16 +115,6 @@ order: 130
     button.pageOption.name = "page_name"; //或通过页面名称设置
 ```
 
-按钮可以模拟触发点击：
-
-```csharp
-    //模拟触发点击，只会有一个触发的表现，以及改变按钮状态，不会触发侦听按钮的点击事件。
-    button.FireClick(true);
-
-    //如果同时要触发点击事件，需要额外调用：
-    button.onClick.Call();
-```
-
 按钮全局声音的设置为：
 
 ```csharp
@@ -147,6 +137,35 @@ order: 130
 
     //调整全局声音音量，这个包括按钮声音和动效播放的声音
     GRoot.inst.soundVolume = 0.5f;
+```
+
+监听普通按钮点击的方式为：（注意，点击事件不只是按钮有，任何支持触摸的元件都有，例如普通组件、装载器、图形等，他们的点击事件注册方式和按钮是相同的。）
+
+```csharp
+    //Unity/Cry
+    button.onClick.Add(onClick);
+
+    //AS3
+    button.addClickListener(onClick);
+
+    //Egret
+    button.addClickListener(this.onClick, this);
+
+    //Laya
+    button.onClick(this, this.onClick);
+
+    //Cocos2dx
+    button->addClickListener(CC_CALLBACK_1(AClass::onClick, this));
+```
+
+按钮可以模拟触发点击：
+
+```csharp
+    //模拟触发点击，只会有一个触发的表现，以及改变按钮状态，不会触发侦听按钮的点击事件。
+    button.FireClick(true);
+
+    //如果同时要触发点击事件，需要额外调用：(仅Unity/Cry示例，其他平台自己研究）
+    button.onClick.Call();
 ```
 
 单选和多选按钮状态改变时有通知事件：
