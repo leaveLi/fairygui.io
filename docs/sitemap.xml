@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/product/release_notes.html</loc>
+    
+    <lastmod>2018-05-22T05:25:31.279Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/product/index.html</loc>
+    
+    <lastmod>2018-05-22T05:24:55.653Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/showcase/index.html</loc>
     
     <lastmod>2018-05-22T01:29:48.829Z</lastmod>
@@ -54,20 +68,6 @@
     <loc>http://www.fairygui.com/guide/editor/image.html</loc>
     
     <lastmod>2018-05-21T14:42:46.441Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/release_notes.html</loc>
-    
-    <lastmod>2018-05-21T13:43:44.238Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/index.html</loc>
-    
-    <lastmod>2018-05-21T13:32:41.173Z</lastmod>
     
   </url>
   
