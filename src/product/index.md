@@ -45,7 +45,7 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-layabox.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-layabox.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-layabox-demo180305.zip)
+[下载例子](http://res.fairygui.com/FairyGUI-layabox-demo180523.zip)
 
 ## Egret SDK
 
@@ -53,7 +53,7 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-egret.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-egret.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-egret-demo180305.zip)
+[下载例子](http://res.fairygui.com/FairyGUI-egret-demo180523.zip)
 
 ## Pixi SDK
 
@@ -77,7 +77,7 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-starling.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-starling.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-starling-demo180305.zip)
+[下载例子](http://res.fairygui.com/FairyGUI-starling-demo180523.zip)
 
 ## Flash SDK
 
@@ -85,7 +85,7 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-as3.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-as3.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-as3-demo180305.zip)
+[下载例子](http://res.fairygui.com/FairyGUI-as3-demo180523.zip)
 
 ## Cry Engine SDK
 
@@ -93,10 +93,12 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-cryengine.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-cryengine.svg" alt="forks">
 
+[下载例子](https://github.com/fairygui/FairyGUI-cryengine-examples)
+
 ## Havok Vision SDK
 
 示例源码：[https://github.com/fairygui/FairyGUI-vision](https://github.com/fairygui/FairyGUI-vision)
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-vision.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-vision.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-vision-demo20180109.zip)
+[下载例子](https://github.com/fairygui/FairyGUI-vision-examples)

@@ -4,6 +4,22 @@ type: product
 order: 2
 ---
 
+## 2018/5/23
+1. [All] 修正了当元件有设置轴心或锚点，部分关联关系工作不正常的问题。
+2. [All] 修正了进度条max设置为0时，进度显示不正确的bug。
+3. [Laya] 增加了UIConfig.packageFileExtension，配合编辑器改发布文件扩展名的功能（小程序需要）。
+4. [Cocos2dx] Cocos2dx发布了1.3版本。
+5. [Cocos2dx] 修正了一个致命的引用计数问题。
+6. [Cocos2dx] 修正了像素点击测试不准确的问题。
+7. [Unity] Unity发布了2.2.0版本。
+8. [Unity] 增加了对线性颜色空间的支持。
+9. [Unity] 消除了动效播放过程中可能产生的GC。
+10. [Unity] 修正了Blend Mode为Multiply或者Screen时，显示不正确的bug。
+11. [Unity] 修正了UIPackage里延时卸载AB的bug。
+12. [Unity] 修正了滚动容器的虚化边缘没有在边缘回弹时显示的bug。
+13. [Unity] 修正了显示对象修改visible属性时，可能出现fairyBatching不正确的bug。
+14. [Unity] 修正了当文本宽度为0，仍然显示1个字符的bug。
+
 ## 2018/3/30
 1. [All] 增加了对GLoader新填充类型的支持。
 2. [All] 修改了虚拟列表滚动时在某些特殊情况下不再响应滚动的bug。
