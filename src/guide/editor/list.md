@@ -281,8 +281,8 @@ order: 180
     aList.itemProvider = GetListItemResource;
     aList.callbackThisObj = this;
 
-    //Laya
-    aList.itemProvider = Handler.create(this, this.GetListItemResource);
+    //Laya。（注意，最后一个参数必须为false！）
+    aList.itemProvider = Handler.create(this, this.GetListItemResource, null, false);
 
     //Cocos2dx
     aList->itemProvider = CC_CALLBACK_1(AClass::getListItemResource, this);
@@ -300,4 +300,5 @@ order: 180
 ```
 
 循环列表只支持单行或者单列的布局，不支持流动布局和分页布局。
+因为循环列表是首尾相连的，指定一个item索引可能出现在不同的位置，所以需要指定滚定位置时，尽量避免使用item索引。例如，如果需要循环列表左/上滚一格或者右/下滚一格，最好的办法就是调用ScrollPane的API：ScrollLeft/ScrollRight/ScrollUp/ScrollDown
 循环列表的特性与虚拟列表一致，在此不再赘述。
