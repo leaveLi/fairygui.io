@@ -3,26 +3,14 @@
         <%- partial('partials/main_menu', { context: 'sidebar' }) %>
     </ul>
     <div class="list">
-		<a class="become-backer" href="<%- url_for("/about/donate.html") %>">
+		<!--<a class="become-backer" href="<%- url_for("/about/donate.html") %>">
             打赏
-        </a>
+        </a>-->
         <h2>
             <%- type === 'api' ? 'API' : (type.split('_')[0].charAt(0).toUpperCase() + type.split('_')[0].slice(1)) %>
             <!--<select class="version-select">
                 <option value="SELF" selected><%- type.split('_')[1] %></option>
             </select>-->
- 		<% if(type.indexOf('guide')!=-1) { %> 
-		  <a style="
-		      padding: 0 10px;
-		      margin-top: -10px;
-		      line-height: 30px;
-		      color: white;
-		      font-weight: 200;
-		      letter-spacing: 1px;"
-			target="_blank" 
-		    href="http://shang.qq.com/wpa/qunwpa?idkey=098bd1b1410eacf21973f93386d410380be58f9c59e9f9b6c571cb679e554014"><img title="FairyGUI官方交流群2" src="http://pub.idqqimg.com/wpa/images/group.png" alt="FairyGUI技术交流群" border="0" />
-		  </a>
-		<% } %>
         </h2>
         <ul class="menu-root">
             <% if (type.indexOf('guide')!=-1) { %>

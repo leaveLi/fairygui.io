@@ -3,6 +3,7 @@
 	<li><a href="<%- url_for('/') %>" class="nav-link">首页</a></li>
 <% } %>
 <li><a href="<%- url_for("/product/")%>" class="nav-link<%- page.path.match(/product/) ? ' current' : '' %>">产品</a></li>
+<li><a href="<%- url_for("/service/") %>" class="nav-link<%- page.path.match(/service/) ? ' current' : '' %>">服务</a></li>
 <li><a href="<%- url_for("/guide/") %>" class="nav-link<%- page.path.match(/guide\//) ? ' current' : '' %>">教程</a></li>
 <li><a href="<%- url_for("http://www.fairygui.com/api/")%>" target="_blank"  class="nav-link">API</a></li>
 <li><a href="<%- url_for("/examples/") %>" class="nav-link<%- page.path.match(/examples/) ? ' current' : '' %>">在线例子</a></li>
