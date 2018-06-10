@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
+    
+    <lastmod>2018-06-10T16:12:48.448Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/text.html</loc>
+    
+    <lastmod>2018-06-10T16:12:08.163Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/product/release_notes.html</loc>
+    
+    <lastmod>2018-06-10T16:07:13.842Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/product/index.html</loc>
+    
+    <lastmod>2018-06-10T15:57:07.709Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/component.html</loc>
+    
+    <lastmod>2018-06-08T03:03:52.298Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/service/index.html</loc>
     
     <lastmod>2018-06-05T08:00:00.802Z</lastmod>
@@ -12,20 +47,6 @@
     <loc>http://www.fairygui.com/about/index.html</loc>
     
     <lastmod>2018-06-05T06:24:24.161Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/release_notes.html</loc>
-    
-    <lastmod>2018-06-03T16:39:46.311Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/index.html</loc>
-    
-    <lastmod>2018-06-03T16:26:53.341Z</lastmod>
     
   </url>
   
@@ -124,20 +145,6 @@
     <loc>http://www.fairygui.com/guide/unity/faq.html</loc>
     
     <lastmod>2018-05-07T00:57:25.573Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/component.html</loc>
-    
-    <lastmod>2018-05-07T00:56:26.001Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/text.html</loc>
-    
-    <lastmod>2018-05-07T00:54:30.402Z</lastmod>
     
   </url>
   
@@ -264,13 +271,6 @@
     <loc>http://www.fairygui.com/guide/cry/event.html</loc>
     
     <lastmod>2018-02-02T07:11:21.272Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
-    
-    <lastmod>2018-02-02T04:33:21.142Z</lastmod>
     
   </url>
   

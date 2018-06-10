@@ -473,7 +473,8 @@
 <p>其他类型的“扩展”的工作方式与按钮类似。后续文档会详细介绍每种“扩展”的属性和行为。</p>
 <h2 id="GComponent"><a href="#GComponent" class="headerlink" title="GComponent"></a>GComponent</h2><p>组件支持动态创建，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent gcom = <span class="keyword">new</span> GComponent();</div><div class="line">gcom.SetSize(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">GRoot.inst.AddChild(gcom);</div></pre></td></tr></table></figure>
-<p>动态创建的组件是空组件，可以作为其他组件的容器。一个常见的用途，如果你要建立一个多层的UI管理系统，那么空组件就是一个合适的层级容器选择。动态创建的组件默认是点击穿透的。</p>
+<p>动态创建的组件是空组件，可以作为其他组件的容器。一个常见的用途，如果你要建立一个多层的UI管理系统，那么空组件就是一个合适的层级容器选择。动态创建的组件默认是点击穿透的，也就是说如果直接new一个空组件作为接收点击用途，你还得这样设置：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//设置组件点击不穿透。</span></div><div class="line">gcom.opaque = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>如果要创建UI库里的组件，应该使用这样的方式：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent gcom = UIPackage.CreateObject(<span class="string">"包名"</span>,<span class="string">"组件名"</span>).asCom;</div><div class="line">GRoot.inst.AddChild(gcom);</div></pre></td></tr></table></figure>
 <p>FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器可以包含一个或多个基础显示对象，也可以包含容器。这个树状结构称为显示列表。FairyGUI提供了API管理显示列表。</p>
