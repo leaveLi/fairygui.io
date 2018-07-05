@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/product/index.html</loc>
+    
+    <lastmod>2018-07-05T03:53:54.165Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
     
     <lastmod>2018-07-05T03:10:00.498Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://www.fairygui.com/guide/editor/object.html</loc>
     
     <lastmod>2018-07-05T01:21:01.373Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/index.html</loc>
-    
-    <lastmod>2018-07-04T17:24:27.764Z</lastmod>
     
   </url>
   
@@ -359,7 +359,7 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/progressbar.html</loc>
+    <loc>http://www.fairygui.com/guide/haxe/index.html</loc>
     
     <lastmod>2017-09-08T22:58:27.894Z</lastmod>
     
@@ -373,7 +373,7 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/haxe/index.html</loc>
+    <loc>http://www.fairygui.com/guide/editor/progressbar.html</loc>
     
     <lastmod>2017-09-08T22:58:27.894Z</lastmod>
     
