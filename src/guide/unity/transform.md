@@ -70,5 +70,6 @@ GObject里的x/y/position值都是**局部坐标**，也就是相对于父元件
     Vector2 screenPos = GRoot.inst.LocalToGlobal(pos);
     //原点位置转换
     screenPos.y = Screen.height - screenPos.y; 
+    一般情况下，还需要提供距离摄像机视野正前方distance长度的参数作为screenPos.z(如果需要，将screenPos改为Vector3类型）
     Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
 ```
