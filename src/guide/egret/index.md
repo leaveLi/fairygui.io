@@ -11,7 +11,7 @@ order: 0
 3. 在scripts/wxgame/wxgame.ts里，在适当的地方加上：
   ```
     if(filename == "libs/fairygui/fairygui.js" || filename == "libs/fairygui/fairygui.min.js") {
-        content += ";window.egret.fairygui = fairygui;";
+        content += ";window.fairygui = fairygui;";
     }
   ```
 

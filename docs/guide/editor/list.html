@@ -425,7 +425,7 @@
 <li><p><code>编辑列表数据</code> 为列表增删项目。</p>
 </li>
 </ul>
-<p><img src="../../images/20170807144559.png" alt=""></p>
+<p><img src="../../images/20180705094732.png" alt=""></p>
 <p>点击增加，将增加一个由”项目资源“指定的项目，如果你的列表是多种资源混合，新增一个项目后，可以从库中拖动组件到“资源”栏中。如果item是一个标签或按钮，那么可以在这里设置它的文本和图标。</p>
 <p>  <strong>发布时自动清空</strong> 表示这里编辑的列表数据在最终发布时不会包含，也就是列表数据仅作编辑器预览用途。</p>
 <h2 id="GList"><a href="#GList" class="headerlink" title="GList"></a>GList</h2><h3 id="管理列表内容"><a href="#管理列表内容" class="headerlink" title="管理列表内容"></a>管理列表内容</h3><p>列表对应的类型是GList。在FairyGUI中，列表的本质就是一个组件，GList也是从GComponent派生来的，所以你可以用GComponent的API直接访问列表内的内容，例如可以用GetChild或者GetChildAt访问列表内的项目；也可以用AddChild添加一个item。这部分的API可以参考GComponent的<a href="component.html#GComponent">显示列表管理</a>。</p>

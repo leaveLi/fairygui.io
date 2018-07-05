@@ -60,8 +60,6 @@ order: 90
   ```
   如果组件有扩展类，那么也可以覆盖方法ConstructFromXML(xml)，这里的xml就相当于componentData，可以按上面介绍的方法获取customData属性。
 
-  这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。
-
 ## 设计图功能
 
 ![](../../images/20170802102647.png)
@@ -268,7 +266,7 @@ FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器�
     }
 ```
 
-然后注册你的扩展类。注意，**必须在组件构建前注册**。
+然后注册你的扩展类。注意，**必须在组件构建前注册**，如果你使用的是UIPanel，那么在Start里注册是不够早的，必须在Awake里，总之，如果注册不成功，90%都是注册晚于创建，10%是URL错误。
 
 ```csharp
     UIObjectFactory.SetPackageItemExtension("ui://包名/组件A”, typeof(MyComponent));

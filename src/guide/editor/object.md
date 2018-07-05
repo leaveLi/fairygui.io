@@ -83,7 +83,6 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
 ![](../../images/20180108143441.png)
 
 可以设置一个自定义的数据，这个数据FairyGUI不做解析，按原样发布到最后的描述文件中。开发者可以在运行时获取。获取方式是：GObject.data或GObject.userData（Cocos2dx、Vision）。
-这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。
 
 ## GObject
 

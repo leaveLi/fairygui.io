@@ -14,7 +14,7 @@ FairyGUI使用Unity的动态字体技术渲染文字。只需以下几个简单�
 
   ![](../../images/2015-10-21_164556.png)
     
-  注意在Font Names中填写的是字体名称，标准的字体名称可以从这里找到：[中文字体的英文名称对照表](https://wenku.baidu.com/view/598e5aec19e8b8f67c1cb915.html)。例如Droid Sans Fallback是Android平台支持中文的内置默认字体之一。多个字体用逗号隔开，Unity会使用第一个在系统中能找到的字体。
+  注意在Font Names中填写的是字体名称，建议使用英文字体名称，字体的英文名称可以从FairyGUI编辑器里找到。例如Droid Sans Fallback是Android平台支持中文的内置默认字体之一。多个字体用逗号隔开，Unity会使用第一个在系统中能找到的字体。
 
 3. 设置UIConfig.defaultFont="字体文件名称"即可，注意这里使用的是文件名称，也就是说，如果放置在Resources目录的是arial.ttf，则UIConfig.defaultFont = "arial"，不需要带.ttf后缀。
 

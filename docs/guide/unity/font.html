@@ -376,7 +376,7 @@
 </li>
 <li><p>在Unity中点击字体文件，在inspector中修改字体属性：</p>
 <p><img src="../../images/2015-10-21_164556.png" alt=""></p>
-<p>注意在Font Names中填写的是字体名称，标准的字体名称可以从这里找到：<a href="https://wenku.baidu.com/view/598e5aec19e8b8f67c1cb915.html" target="_blank" rel="external">中文字体的英文名称对照表</a>。例如Droid Sans Fallback是Android平台支持中文的内置默认字体之一。多个字体用逗号隔开，Unity会使用第一个在系统中能找到的字体。</p>
+<p>注意在Font Names中填写的是字体名称，建议使用英文字体名称，字体的英文名称可以从FairyGUI编辑器里找到。例如Droid Sans Fallback是Android平台支持中文的内置默认字体之一。多个字体用逗号隔开，Unity会使用第一个在系统中能找到的字体。</p>
 </li>
 <li><p>设置UIConfig.defaultFont=”字体文件名称”即可，注意这里使用的是文件名称，也就是说，如果放置在Resources目录的是arial.ttf，则UIConfig.defaultFont = “arial”，不需要带.ttf后缀。</p>
 <p>因为我们没有勾选Include Font Data，所以无论这个字体文件有多大，最终并不会包含在我们的发布包中，也就是说不会增大发行包的体积。Unity会在实际运行的系统中查找与Font Names匹配的第一个字体，并使用此字体进行动态渲染。但这要求玩家的运行系统环境中有你设定的字体，如果没有，实际使用的字体可能并不是你想要的效果，这种情况下，如果你确实需要保留字体效果，那就勾选Include Font Data。</p>

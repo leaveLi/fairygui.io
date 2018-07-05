@@ -370,10 +370,10 @@
     
       <h1>装载器</h1>
     
-    <p>装载器的用途是动态载入图片或动画。点击主工具栏中的<img src="../../images/20170728201500.png" alt="">按钮，生成一个装载器。</p>
-<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p><img src="../../images/20170728201606.png" alt=""></p>
+    <p>装载器的用途是动态载入资源。点击主工具栏中的<img src="../../images/20170728201500.png" alt="">按钮，生成一个装载器。</p>
+<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p><img src="../../images/20180705094612.png" alt=""></p>
 <ul>
-<li><p><code>URL</code> URL指向的资源可以是图片或者动画。</p>
+<li><p><code>URL</code> URL指向的资源可以是图片、动画或者组件。</p>
 </li>
 <li><p><code>自动大小</code> 设置装载器是否根据内容的大小自动调整自身的大小。例如，如果图片的大小是100x100，则装载器的大小自动变成100x100。</p>
 </li>
@@ -386,6 +386,8 @@
 <li><code>等比缩放（适应宽度）</code> 内容宽度占满装载器宽度，高度等比缩放。</li>
 <li><code>自由缩放</code> 内容缩放至占满装载器矩形范围，不保持比例。</li>
 </ul>
+</li>
+<li><p><code>仅允许缩小</code> 勾选后，装载器加载的内容将永远不被放大，但可以被缩小。</p>
 </li>
 <li><p><code>对齐</code> 设置装载器内容的对齐方式。</p>
 </li>
@@ -402,7 +404,7 @@
 </ul>
 <h2 id="GLoader"><a href="#GLoader" class="headerlink" title="GLoader"></a>GLoader</h2><p>装载器支持动态创建，动态创建装载器一定要设置装载器的大小，否则显示不出来。例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GLoader aLoader = <span class="keyword">new</span> GLoader();</div><div class="line">aLoader.SetSize(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">aLoader.url = <span class="string">"ui://包名/图片名"</span>;</div></pre></td></tr></table></figure>
-<p>GLoader可以载入图片和动画，但不能是组件或其他类型的元件。如果是UI包里的资源，那么通过“ui://包名/图片名”这种格式的地址就可以载入。但实际项目中，可能我们还需要载入和显示一些不在UI包里的，我们称之为“外部”的图片。默认的GLoader具有有限度的的加载外部资源的能力，它们是：</p>
+<p>GLoader可以载入图片、动画和组件。如果是UI包里的资源，那么通过“ui://包名/图片名”这种格式的地址就可以载入。但实际项目中，可能我们还需要载入和显示一些不在UI包里的，我们称之为“外部”的图片。默认的GLoader具有有限度的的加载外部资源的能力，它们是：</p>
 <ul>
 <li>AS3 使用flash.display.Loader加载的外部资源。</li>
 <li>Starling 使用flash.display.Loader加载的位图资源。加载后转化为Texture。</li>
