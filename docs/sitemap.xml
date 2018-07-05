@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.fairygui.com/guide/unity/drawcall.html</loc>
+    <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
     
-    <lastmod>2018-07-05T02:59:27.112Z</lastmod>
+    <lastmod>2018-07-05T03:10:00.498Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
+    <loc>http://www.fairygui.com/guide/unity/transform.html</loc>
     
-    <lastmod>2018-07-05T02:33:07.577Z</lastmod>
+    <lastmod>2018-07-05T03:08:53.596Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/unity/drawcall.html</loc>
+    
+    <lastmod>2018-07-05T02:59:27.112Z</lastmod>
     
   </url>
   
@@ -296,13 +303,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/unity/transform.html</loc>
-    
-    <lastmod>2018-01-30T02:35:03.848Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/unity/lua.html</loc>
     
     <lastmod>2018-01-26T17:44:14.072Z</lastmod>
@@ -359,13 +359,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/haxe/index.html</loc>
-    
-    <lastmod>2017-09-08T22:58:27.894Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/progressbar.html</loc>
     
     <lastmod>2017-09-08T22:58:27.894Z</lastmod>
@@ -374,6 +367,13 @@
   
   <url>
     <loc>http://www.fairygui.com/guide/editor/relation.html</loc>
+    
+    <lastmod>2017-09-08T22:58:27.894Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/haxe/index.html</loc>
     
     <lastmod>2017-09-08T22:58:27.894Z</lastmod>
     
