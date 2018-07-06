@@ -401,7 +401,7 @@
 </li>
 <li><p><code>同时作为锚点</code> 勾选这个选项后，元件的原点位置将设置为轴心所在的位置。默认情况下，每个元件的(0,0)都是在左上角；勾选了轴心同时作为锚点后，则元件的(0,0)在轴心的位置。注意，关联系统是不计入这个选项的影响的，所以勾选了锚点后的元件，再使用宽高类的关联，可能表现不正常。</p>
 </li>
-<li><p><code>透明度</code> 设置元件的透明度。0表示全透明，100表示全不透明。</p>
+<li><p><code>透明度</code> 设置元件的透明度。0表示全透明，1表示全不透明。</p>
 </li>
 <li><p><code>旋转</code> 设置元件的旋转角度，单位是度（degree）。正数表示顺时针旋转，负数表示逆时针旋转。</p>
 </li>
@@ -448,7 +448,7 @@
 </ul>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.SetPivot(<span class="number">0.5</span>f, <span class="number">0.5</span>f); <span class="comment">//设置轴心</span></div><div class="line">aObject.SetPivot(<span class="number">0.5</span>f, <span class="number">0.5</span>f, <span class="literal">true</span>); <span class="comment">//设置轴心，并同时作为锚点</span></div></pre></td></tr></table></figure>
 <ul>
-<li><p><code>设置可见</code> visible = true/false。注意：即使对象设置visible=false，它仍然在显示列表中，所以仍然会消耗一定的计算资源（但不会消耗渲染资源），所以如果是长期的隐藏，建议移出显示列表，即removeFromParent。另外，不要和显示控制器混淆，两者是独立的。即使对象的visible=true,如果不在显示控制器的指定页面里，对象仍然是不可见的。</p>
+<li><p><code>设置可见</code> visible = true/false。注意：即使对象设置visible=false，它仍然在显示列表中，所以仍然会消耗一定的计算资源（但不会消耗渲染资源），所以如果是长期的隐藏，建议移出显示列表，即RemoveFromParent。另外，不要和显示控制器混淆，两者是独立的。即使对象的visible=true,如果不在显示控制器的指定页面里，对象仍然是不可见的。</p>
 </li>
 <li><p><code>设置交互</code> touchable = true/false。</p>
 </li>

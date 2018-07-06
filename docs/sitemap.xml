@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/product/release_notes.html</loc>
+    
+    <lastmod>2018-07-06T14:12:40.803Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/product/index.html</loc>
     
-    <lastmod>2018-07-05T04:40:39.350Z</lastmod>
+    <lastmod>2018-07-06T14:10:04.398Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/object.html</loc>
+    
+    <lastmod>2018-07-05T14:14:12.895Z</lastmod>
     
   </url>
   
@@ -37,13 +51,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/product/release_notes.html</loc>
-    
-    <lastmod>2018-07-05T02:31:22.095Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/list.html</loc>
     
     <lastmod>2018-07-05T01:47:50.666Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://www.fairygui.com/guide/editor/component.html</loc>
     
     <lastmod>2018-07-05T01:21:41.315Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/object.html</loc>
-    
-    <lastmod>2018-07-05T01:21:01.373Z</lastmod>
     
   </url>
   
@@ -359,14 +359,14 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/haxe/index.html</loc>
+    <loc>http://www.fairygui.com/guide/editor/relation.html</loc>
     
     <lastmod>2017-09-08T22:58:27.894Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/relation.html</loc>
+    <loc>http://www.fairygui.com/guide/haxe/index.html</loc>
     
     <lastmod>2017-09-08T22:58:27.894Z</lastmod>
     
