@@ -49,7 +49,7 @@
 <li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">在线例子</a></li>
 <li><a href="/showcase/" class="nav-link">商业案例</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答社区</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答</a></li>
 <li><a href="/about/" class="nav-link">关于</a></li>
 <li><a class="nav-link">中文</a> / <a href="http://en.fairygui.com/" target="_self"  class="nav-link">English</a></li>
   </ul>
@@ -71,7 +71,7 @@
 <li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">在线例子</a></li>
 <li><a href="/showcase/" class="nav-link">商业案例</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答社区</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答</a></li>
 <li><a href="/about/" class="nav-link">关于</a></li>
 <li><a class="nav-link">中文</a> / <a href="http://en.fairygui.com/" target="_self"  class="nav-link">English</a></li>
     </ul>
@@ -396,7 +396,7 @@
 <li><p><code>按下效果</code> 用控制器可以随意控制按钮在不同页面的形态，但出于方便，内置了几种常用的按钮按下效果。</p>
 <ul>
 <li><code>缩放</code> 按下时按钮变大或变小。按下缩放是通过改变按钮组件的ScaleX和ScaleY实现的。注意：设置了按下缩放后，按钮初始化时会自动将轴心设置为（0.5，0.5）。</li>
-<li><code>变暗</code> 按下时按钮呈现变暗的状态。变暗实际是通过改变按钮组件内所有图片的颜色实现的。如果你还有对按钮内图片的颜色的单独设置，这可能会发生冲突。</li>
+<li><code>变暗</code> 按下时按钮呈现变暗的状态。变暗实际是通过改变按钮组件内所有图片的颜色实现的。<strong>如果你还有对按钮内图片的颜色的单独设置，这可能会发生冲突，导致颜色设置丢失。*</strong>（因为Egret和Laya平台不支持图片变色，所以变暗工也不可用）*</li>
 </ul>
 </li>
 </ul>

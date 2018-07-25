@@ -6,12 +6,12 @@ order: 0
 
 ## FairyGUI 编辑器 
 
->当前版本3.8.3
+>当前版本3.8.4
 
 <div id="downloads">
-<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_3_8_3.zip" target="_self">Windows平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
+<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_3_8_4.zip" target="_self">Windows平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
 
-<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_Mac_3_8_3.zip" target="_self">OSX平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
+<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_Mac_3_8_4.zip" target="_self">OSX平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
 </div>
 
 FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建议解压到非中文目录下。

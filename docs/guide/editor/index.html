@@ -49,7 +49,7 @@
 <li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">在线例子</a></li>
 <li><a href="/showcase/" class="nav-link">商业案例</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答社区</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答</a></li>
 <li><a href="/about/" class="nav-link">关于</a></li>
 <li><a class="nav-link">中文</a> / <a href="http://en.fairygui.com/" target="_self"  class="nav-link">English</a></li>
   </ul>
@@ -71,7 +71,7 @@
 <li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">在线例子</a></li>
 <li><a href="/showcase/" class="nav-link">商业案例</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答社区</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答</a></li>
 <li><a href="/about/" class="nav-link">关于</a></li>
 <li><a class="nav-link">中文</a> / <a href="http://en.fairygui.com/" target="_self"  class="nav-link">English</a></li>
     </ul>
@@ -578,19 +578,25 @@
 </li>
 <li><p><code>压缩描述文件</code>  Laya和Egret项目提供了这样一个发布选项，通过此选项可以控制发布的描述文件是否压缩。默认是压缩的。如果你已经使用了web服务器的gzip压缩功能，又或者打包时会自行压缩，那可以选择不压缩的格式。<br><img src="../../images/20180105005321.png" alt=""></p>
 </li>
+<li><p><code>仅发布定义</code> 通常发布的内容包括素材（图片、声音等）和XML定义文件， 如果你没有增删改素材，那么你可以仅发布XML定义文件，避免了重新生成图集带来的时间消耗。</p>
+</li>
 </ul>
 <h3 id="纹理集定义"><a href="#纹理集定义" class="headerlink" title="纹理集定义"></a>纹理集定义</h3><p><img src="../../images/20170727144133.png" alt=""></p>
 <ul>
-<li><p><code>为Apha通道创建单独的贴图</code> 这个选项仅适用于Unity。通过此方法，可以在Unity里将原纹理设置为不支持Alpha通道的格式（例如ETC1）以减少内存占用。FairyGUI-unity SDK提供了专门的着色器进行混合。</p>
+<li><p><code>None POT</code> None Power Of Two的简写，勾选后，允许输出纹理的大小<strong>不限定为</strong>二的幂。注意，有些纹理格式规定大小必须为二的幂。</p>
+</li>
+<li><p><code>正方形</code> 勾选后，限制输出纹理的宽和高相等。</p>
+</li>
+<li><p><code>允许旋转</code> 允许旋转图片以达到更大的纹理空间利用率。<em>（Egret和LayaAir平台不支持）</em></p>
+</li>
+<li><p><code>分离Alpha通道</code> 这个选项仅适用于Unity。通过此方法，可以在Unity里将原纹理设置为不支持Alpha通道的格式（例如ETC1）以减少内存占用。FairyGUI-unity SDK提供了专门的着色器进行混合。</p>
 </li>
 <li><p><code>纹理集定义</code> 对于支持纹理集的平台，例如Unity/Egret/Starling，你可以规划图片放到不同的纹理集内。这项功能的意义在于：</p>
 <ol>
 <li>图片太大太多，假设纹理集最大支持2048×2048（这个可调整），超出此范围的你可以使用多个纹理集；</li>
 <li>图片用途不一致，例如一张尺寸比较大的色彩丰富的背景图就不适合和色彩比较单一的UI素材放到一起，这样会使最终发布的png图片过大。将超大尺寸背景图单独放一张纹理集是一个比较好的解决方案；</li>
-<li>图片的特性不一致，例如在Unity平台里，你可以为纹理集设置单独的Filter Mode、压缩格式等等。</li>
+<li>图片的特性不一致，例如在Unity平台里，你可以为纹理集设置单独的Filter Mode、压缩格式等等。<br>这里只提供10张纹理集的设置，如果一个包的纹理集超过10张，建议考虑分包。</li>
 </ol>
-</li>
-<li><p><code>仅发布定义</code> 通常发布的内容包括素材（图片、声音等）和XML定义文件， 如果你没有增删改素材，那么你可以仅发布XML定义文件，避免了重新生成图集带来的时间消耗。</p>
 </li>
 <li><p><code>压缩</code> 将纹理使用PNG8格式压缩。这个压缩方式能大大降低PNG文件大小，但也会使图片失真比较严重，特别是色彩比较丰富，或者含有渐变的图片，请谨慎使用。Unity引擎不要使用这个压缩功能，因为Unity对纹理的压缩应该在Unity里设置，Unity在打包时会自动根据设置的格式压缩纹理，使用这里的压缩除了降低图片质量外没有任何减少文件体积的作用。</p>
 </li>

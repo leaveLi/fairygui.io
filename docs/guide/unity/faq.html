@@ -49,7 +49,7 @@
 <li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">在线例子</a></li>
 <li><a href="/showcase/" class="nav-link">商业案例</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答社区</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答</a></li>
 <li><a href="/about/" class="nav-link">关于</a></li>
 <li><a class="nav-link">中文</a> / <a href="http://en.fairygui.com/" target="_self"  class="nav-link">English</a></li>
   </ul>
@@ -71,7 +71,7 @@
 <li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">在线例子</a></li>
 <li><a href="/showcase/" class="nav-link">商业案例</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答社区</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">问答</a></li>
 <li><a href="/about/" class="nav-link">关于</a></li>
 <li><a class="nav-link">中文</a> / <a href="http://en.fairygui.com/" target="_self"  class="nav-link">English</a></li>
     </ul>
@@ -377,7 +377,12 @@
 <h2 id="显示白屏-提示atlas-not-found"><a href="#显示白屏-提示atlas-not-found" class="headerlink" title="显示白屏/提示atlas not found"></a>显示白屏/提示atlas not found</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: texture &apos;atlas0.png&apos; not found in xxx</div></pre></td></tr></table></figure>
 <p>Unity5.5版本开始，纹理设置新增了<a href="http://ask.fairygui.com/?/question/1" target="_blank" rel="external">TextureShape</a>属性，把他设置为2d就可以了。 </p>
 <h2 id="运行报错且看不到界面，但编辑模式没问题"><a href="#运行报错且看不到界面，但编辑模式没问题" class="headerlink" title="运行报错且看不到界面，但编辑模式没问题"></a>运行报错且看不到界面，但编辑模式没问题</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Create Component1@Package1 failed!</div></pre></td></tr></table></figure>
-<p>你的UI包没有正确放置到<strong>Resources</strong>目录，或者Resources拼错了！太多新手犯这样的错误。另外如果有跨包引用，需要使用AddPackage手动载入依赖包。</p>
+<p>这种错误一般是因为使用UIPanel，原因可能有：</p>
+<ol>
+<li>你的UI包没有正确放置到<strong>Resources</strong>目录，或者Resources拼错了！太多新手犯这样的错误。</li>
+<li>如果有跨包引用，需要使用AddPackage手动载入依赖包，并且注意，AddPackage必须在UIPanel创建之前，建议放到Awake。</li>
+<li>如果包发布后移动过位置，或者修改过名称，重新设置一下UIPanel的包和组件名。</li>
+</ol>
 <h2 id="显示不出图片-文字，但没有报错"><a href="#显示不出图片-文字，但没有报错" class="headerlink" title="显示不出图片/文字，但没有报错"></a>显示不出图片/文字，但没有报错</h2><p>项目中没有放置FairyGUI的着色器，即插件里Resources/Shaders里的着色器。请重新安装插件。</p>
 <h2 id="UI显示有重复，或者UI销毁后依然显示"><a href="#UI显示有重复，或者UI销毁后依然显示" class="headerlink" title="UI显示有重复，或者UI销毁后依然显示"></a>UI显示有重复，或者UI销毁后依然显示</h2><ol>
 <li>场景里没有放置主相机。</li>

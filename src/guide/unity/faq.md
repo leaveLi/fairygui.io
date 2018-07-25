@@ -31,7 +31,10 @@ Unity5.5版本开始，纹理设置新增了[TextureShape](http://ask.fairygui.c
 ```
 Create Component1@Package1 failed!
 ```
-你的UI包没有正确放置到**Resources**目录，或者Resources拼错了！太多新手犯这样的错误。另外如果有跨包引用，需要使用AddPackage手动载入依赖包。
+这种错误一般是因为使用UIPanel，原因可能有：
+1. 你的UI包没有正确放置到**Resources**目录，或者Resources拼错了！太多新手犯这样的错误。
+2. 如果有跨包引用，需要使用AddPackage手动载入依赖包，并且注意，AddPackage必须在UIPanel创建之前，建议放到Awake。
+3. 如果包发布后移动过位置，或者修改过名称，重新设置一下UIPanel的包和组件名。
 
 ## 显示不出图片/文字，但没有报错
 

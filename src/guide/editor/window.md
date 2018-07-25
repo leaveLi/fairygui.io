@@ -85,6 +85,16 @@ order: 190
     UIConfig.bringWindowToFrontOnClick = false;
 ```
 
+**窗口管理**
+
+GRoot里提供了一些窗口管理的常用API。
+
+- `BringToFront` 把窗口提到所有窗口的最前面。
+- `CloseAllWindows` 隐藏所有窗口。注意不是销毁。
+- `CloseAllExceptModals` 隐藏所有非模态窗口。
+- `GetTopWindow` 返回当前显示在最上面的窗口。
+- `hasModalWindow` 当前是否有模态窗口在显示。
+
 **直接加组件到GRoot，和使用Window有什么区别？**
 GRoot是2D UI的根容器。当我们通过UIPackage.CreateObject创建出顶级UI界面后，将它添加到GRoot下。例如游戏的登录界面、主界面等，这类界面的特点是在游戏的底层，且比较固定。
 

@@ -4,16 +4,18 @@ type: guide_egret
 order: 0
 ---
 
-开发小游戏须知：
+## 小游戏开发必读
 
-1. 因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，发布时勾选“不压缩描述文件”就可以了。rawinflate这个库就不会再引用到。
-2. 小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名。
+1. 因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，发布时勾选“不压缩描述文件”就可以了。rawinflate这个库就不会再引用到（也不需要打包了）。
+2. 小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名（自己查阅小游戏文档）。代码里不需要改任何东西，因为扩展名是在default.res.json里使用的。
 3. 在scripts/wxgame/wxgame.ts里，在适当的地方加上：
   ```
     if(filename == "libs/fairygui/fairygui.js" || filename == "libs/fairygui/fairygui.min.js") {
         content += ";window.fairygui = fairygui;";
     }
   ```
+4. AddPackage有两种方式，一种是传统的传入文件名方式，另一种是直接传入fui整个文件的内容，也就是说不管你内容是从哪里来的。两种方式可以按需选择。
+5. 如果遇到加载失败，请检查egret的加载流程。因为FairyGUI不负责加载，你需要确保资源已经顺利加载了再AddPackage。
 
 ## Egret 4.x
 
