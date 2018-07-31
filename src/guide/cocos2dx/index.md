@@ -37,7 +37,7 @@ GRoot是UI的根对象，我们可以像Demo那样，每个场景都创建一个
 ```
 
 `eventType` 一个事件类型常量，定义在event/UIEventType.h里。
-`callback` 回调函数，可以用CC_CALLBACK_1宏来定义，也可以用lamba表达式。
+`callback` 回调函数，可以用CC_CALLBACK_1宏来定义，也可以用Lambda表达式。
 `tag` 如果事件注册后要进行remove操作，那么add的时候必须标识这个事件。这里的机制是调用者提供一个EventTag。EventTag可以用整形，或者一个指针地址来构造，例如可以直接传递this。特别地，0表示没有EventTag，也就是不要使用0作为特殊的EventTag。
 
 ## Lua Binding

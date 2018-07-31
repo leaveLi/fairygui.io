@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/product/index.html</loc>
+    
+    <lastmod>2018-07-31T08:26:34.749Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/product/release_notes.html</loc>
+    
+    <lastmod>2018-07-31T07:28:04.048Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
+    
+    <lastmod>2018-07-30T23:42:05.760Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/cocos2dx/index.html</loc>
+    
+    <lastmod>2018-07-29T14:47:00.892Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/service/index.html</loc>
     
     <lastmod>2018-07-25T13:04:20.089Z</lastmod>
@@ -58,30 +86,9 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/product/release_notes.html</loc>
-    
-    <lastmod>2018-07-11T04:15:58.766Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/index.html</loc>
-    
-    <lastmod>2018-07-11T04:12:54.672Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/object.html</loc>
     
     <lastmod>2018-07-05T14:14:12.895Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
-    
-    <lastmod>2018-07-05T03:10:00.498Z</lastmod>
     
   </url>
   
@@ -159,13 +166,6 @@
     <loc>http://www.fairygui.com/showcase/index.html</loc>
     
     <lastmod>2018-05-23T09:30:44.124Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/cocos2dx/index.html</loc>
-    
-    <lastmod>2018-05-22T01:22:19.153Z</lastmod>
     
   </url>
   
