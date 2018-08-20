@@ -538,6 +538,7 @@
 <p>如果运行时要动态启用文本模板功能，不需要设置什么开关，只需要直接调用SetVar即可。<br>如果运行时要动态关闭文本模板功能，只需要把templateVars设置为null即可，即：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aTextField.templateVars = <span class="literal">null</span>;</div></pre></td></tr></table></figure>
 <p>当“{”字符不是用于模板时，可以使用”\{“这样的方式转义，注意，在编辑器输入时是直接输入”\“即可，在代码里需要用”\\“这样才能表达反斜杠。另外，只需转义”{“，不需要转义”}”。</p>
+<p>文本模板优先于UBB解析，所以模板也可以在UBB中使用，例如文本为：”这个是可以变色的[color={color=#FF0000}]文本[/color]”，可以方便的实现动态更改部分文本颜色的需求。</p>
 
     
     <div class="footer">

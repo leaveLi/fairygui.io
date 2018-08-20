@@ -4,6 +4,15 @@ type: product
 order: 2
 ---
 
+## 2018/8/1
+1. [All] 除C++版本，其他平台增加了内置的Tween库，这意味着Unity不再依赖DOTween，AS3/Starling版本不再依赖greensock, Egret/Laya不再依赖它们自身的Tween库。当然，你仍然可以使用这些Tween库，并且建议使用在游戏开发中使用它们，因为FairyGUI内置的Tween库重点在满足FairyGUI的内部需求，功能比较简洁，未必能符合你的项目需求。
+2. [All] 动效现在可以暂停：Transition.setPaused(true);
+3. [All] 动效现在可以播放其中一部分，在Play方法中传入startTime和endTime参数，单位为秒。可以通过GetLabelTime的方式获得编辑器中某个关键帧的时间。
+4. [All] 由于使用了内置的Tween库，现在在游戏暂停再返回后，动效播放不会再出现混乱的情况。
+
+Unity升级说明：
+使用了新的Tween库后，原来GObject.TweenXXX方法返回的不再是DOTween的Tweener对象，而是GTweener对象。如果你有使用TweenXXX系列函数，并且有使用返回的对象，那么需要小心的处理，特别是在Lua中调用。GTweener与DOTween.Tweener的常用API基本一致，回调注册函数也一致，重要差异在于SetEase方法，即GTweener.SetEase。建议全局搜索SetEase，参数修改为FairyGUI的EaseType.XXXX。
+
 ## 2018/7/5
 1. [All] 装载器现在可以载入组件。
 2. [All] 文本增加了模板功能。

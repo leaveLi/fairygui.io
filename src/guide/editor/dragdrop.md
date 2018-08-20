@@ -33,14 +33,14 @@ order: 205
     aObject.addEventListener(DragEvent.DRAG_END, onDragEnd);
 
     //Egret
-    aObject.addEventListener(DragEvent.DRAG_START, this.onDragStart, this);
-    aObject.addEventListener(DragEvent.DRAG_MOVING, this.onDragMove, this);
-    aObject.addEventListener(DragEvent.DRAG_END, this.onDragEnd, this);
+    aObject.addEventListener(fairygui.DragEvent.DRAG_START, this.onDragStart, this);
+    aObject.addEventListener(fairygui.DragEvent.DRAG_MOVING, this.onDragMove, this);
+    aObject.addEventListener(fairygui.DragEvent.DRAG_END, this.onDragEnd, this);
 
     //Laya
-    aObject.on(laya.events.Event.DRAG_START, this, this.onDragStart);
-    aObject.on(laya.events.Event.DRAG_MOVE, this, this.onDragMove);
-    aObject.on(laya.events.Event.DRAG_END, this, this.onDragEnd);
+    aObject.on(fairygui.Events.DRAG_START, this, this.onDragStart);
+    aObject.on(fairygui.Events.DRAG_MOVE, this, this.onDragMove);
+    aObject.on(fairygui.Events.DRAG_END, this, this.onDragEnd);
 
     //Cocos2dx
     aObject->addEventListener(UIEventType::DragStart, CC_CALLBACK_1(AClass::onDragStart, this));
@@ -107,4 +107,4 @@ DragDropManager还提供了常用的拖->放功能，如果一个组件需要接
 
 DragDropManager使用了一个图片资源表达替身，这个图片是用装载器显示的。这个装载器是DragDropManager.inst.dragAgent，你可以调整它的参数以适应实际项目需求。
 
-如果你的替身不是一个图片那么简单，比如你需要用一个组件作为替身，那么你可以定义自己的DragDropManager，直接复制一个DragDropManager，然后在上面修改就可以。这个类的设计就没有考虑到所有实际情况的，它的目的就是给你参考。
+如果你的替身不是一个图片那么简单，比如你需要用一个组件作为替身，那么你可以定义自己的DragDropManager，直接复制一个DragDropManager，在上面修改写你自己的逻辑，然后使用你这个DragDropManager即可。DragDropManager这个类的设计就没有考虑到所有实际情况的，它只是作为一个参考。

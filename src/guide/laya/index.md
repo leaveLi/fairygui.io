@@ -9,7 +9,7 @@ order: 0
 1. 因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，在发布对话框，全局设置里不勾选“压缩描述文件”就可以了。rawinflate这个库就不会再引用到（也不需要打包了）。
 2. 小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名（自己查阅小游戏文档）。然后在代码里设置：
   ```
-    UIConfig.packageFileExtension = "你定义的扩展名";
+    fairygui.UIConfig.packageFileExtension = "你定义的扩展名";
   ```
 3. 下载[xml解析库](http://fairygui.oss-cn-shenzhen.aliyuncs.com/js.rar)，引入方式：
   ```

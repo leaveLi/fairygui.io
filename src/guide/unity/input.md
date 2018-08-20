@@ -37,7 +37,7 @@ FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射
         //点击位置，注意是屏幕坐标，要转换本地坐标要使用GlobalToLocal
         Debug.Log(context.inputEvent.x + ", " + context.inputEvent.y);
 
-        //获取点击的对象
+        //获取点击的对象（在鼠标/触摸事件中）
         Debug.Log((GObject)context.sender);
         //如果事件是冒泡的，可以获得最底层的对象。但要注意，这里的对象类型是DisplayObject，不是GObject。
         Debug.Log((DisplayObject)context.initiator);
@@ -94,7 +94,7 @@ VR里输入一般使用凝视输入，或者手柄输入，针对这些新的输
 
 - `buttonUp` 是否有按键松开。按下、松开整个过程构成一次点击。如果只有按下没有松开，则不会有点击触发，必须注意这一点。
 
-SetCustomInput可以放在Update里调用，而且必须**每帧调用**。如果使用了SetCustomInput，则FairyGUI不再处理鼠标或者触摸出入。
+SetCustomInput可以放在Update里调用，而且必须**每帧调用**。如果使用了SetCustomInput，则FairyGUI不再处理鼠标或者触摸输入。
 
 通过这种方式处理VR输入，UI逻辑不需要做任何修改。
 
