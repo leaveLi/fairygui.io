@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - 图形</title>
+        <title>FairyGUI - 升级到二进制包格式</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="-图形FairyGUI">
+        <meta property="og:title" content="-升级到二进制包格式FairyGUI">
         <meta property="og:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="图形 — FairyGUI">
+        <meta name="twitter:title" content="升级到二进制包格式 — FairyGUI">
         <meta name="twitter:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
@@ -118,7 +118,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/graph.html" class="sidebar-link current">图形</a>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">图形</a>
 	                </li>
 	            
 	                
@@ -223,7 +223,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/upgrade_binary_format.html" class="sidebar-link">升级到二进制包格式</a>
+	                    <a href="/guide/editor/upgrade_binary_format.html" class="sidebar-link current">升级到二进制包格式</a>
 	                </li>
 	            
 	
@@ -373,37 +373,44 @@
 
 <div class="content guide_editor with-sidebar ">
     
-      <h1>图形</h1>
+      <h1>升级到二进制包格式</h1>
     
-    <p>FairyGUI支持生成简单的图形。 点击侧工具栏的<img src="../../images/20170728164112.png" alt="">按钮生成一个图形。</p>
-<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p><img src="../../images/20170728164159.png" alt=""></p>
+    <p>编辑器从3.9.0版本起，支持了新的发布格式，即二进制格式（下面简称新格式）。和以往使用的XML格式（下面简称旧格式）不同，二进制格式更加紧凑，解析时更快，而且占用的内存和产生的内存垃圾更少。<br><strong>(注意：只是指发布后的格式，编辑器里的文件格式不会有任何改变）</strong></p>
+<p>新格式对比旧格式，在不同场合下可以获得的提升为：</p>
 <ul>
-<li><p><code>图形</code> 选择形状为矩形、圆形或者“无”。“无”表示这是一个空的图形，他不消耗任何显示资源，通常用作一个占位的用途。详细可见下面的介绍。<em>（注：部分平台SDK不支持圆形）</em></p>
-</li>
-<li><p><code>线条大小</code> 形状的描边大小。0则表示不描边。<em>（Unity/Starling版本目前不支持圆形和圆角的描边）</em></p>
-</li>
-<li><p><code>线条颜色</code> 形状的描边颜色。</p>
-</li>
-<li><p><code>填充颜色</code> 形状的填充颜色。如果你希望绘制中空的图形，那把填充颜色的透明度设置为0即可。</p>
-</li>
-<li><p><code>圆角</code> 一个整数或者4个用逗号分隔的整数。例如“4”，表示矩形的四个角均为半径为4的圆角。例如“2,1,1,4”，则指定了每个角的半径。<em>（注：只有Unity、Flash版本SDK支持圆角的显示，如果你仍然希望在其他平台使用圆角矩形，可以在右键菜单里点击“转换为位图”）</em></p>
-</li>
+<li><code>AddPackage</code>： GC最大可降低90% CPU耗时最大可降低80%</li>
+<li><code>CreateObject</code>：GC最大可降低约15% CPU耗时最大可降低20%</li>
 </ul>
-<h2 id="GGraph"><a href="#GGraph" class="headerlink" title="GGraph"></a>GGraph</h2><p>图形支持动态创建，动态创建图形需要注意一定要设置图形的大小，否则显示不出来。例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGraph holder = <span class="keyword">new</span> GGraph();</div><div class="line">holder.SetSize(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">holder.DrawRect(...);</div><div class="line">aComponent.AddChild(holder);</div></pre></td></tr></table></figure>
-<p>前面提到，空白的图形可以用作一个占位的用途，运行中可能用其他对象替换这个空白图形。FairyGUI的显示对象与原生显示对象混合使用时就需要用到这种空白的图形。</p>
-<p>举例：现在要在UI中放置入一个原生的对象aSprite，则可以在适当位置放入一个空白的图形，假设对象为holder，那么代码里可以这样写：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">holder.SetNativeObject(aSprite);</div></pre></td></tr></table></figure>
-<p>这样就把aSprite放到了holder所在的位置和深度上。 通过这样的办法，任何原生显示对象都可以轻松插入到FairyGUI的显示列表中。</p>
-<p>如果SetNativeObject被重复调用，则前一个设置对象被销毁，插入新的对象。</p>
-<p>通过GGraph.shape属性可以获得原生矢量绘制的接口类。特别说明的是，Unity平台没有矢量绘制引擎，因此目前只提供了绘制矩形、圆形和多边形。以下是Unity里运用GGraph对象的一些技巧：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//传入多边形的各个顶点绘制多边形</span></div><div class="line">aGraph.shape.DrawPolygon(<span class="keyword">new</span> Vector2[] &#123; ...&#125; &#125;, <span class="keyword">new</span> Color[] &#123; ... &#125;;</div><div class="line"></div><div class="line"><span class="comment">//绘制一个渐变色的矩形</span></div><div class="line">aGraph.shape.DrawRect(<span class="number">0</span>, <span class="keyword">new</span> Color[] &#123; ... &#125;);</div></pre></td></tr></table></figure>
-<p>再次提醒，如果图形是动态创建的，记得设置图形的大小。</p>
+<p>目前Unity、Laya和Egret均已经支持新格式，需要使用GITHUB主干里的最新的SDK源码。编辑器更新到3.9.0版本后，在发布对话框里的全局设置里，勾选“使用二进制格式”。</p>
+<p><strong>文件命名</strong></p>
+<p>新格式的文件命名与旧格式不同。旧格式的文件名中有使用“@”作为连接字符，由于有不少用户反映这个字符在某些场合下不允许使用，所以新格式改为使用“_”字符。在旧格式中，Unity的描述文件名为“xxx.bytes”,新格式中，更改为“xxx.fui.bytes”，这是为了可以更快的识别出包文件。</p>
+<p>支持新格式的SDK不再支持读取旧格式的文件，同样，旧的SDK也无法识别新格式的文件，无法无缝切换，你需要做出抉择。</p>
+<p><strong>UI包管理</strong></p>
+<p>使用新格式后，UI包的管理策略有改变，主要为：</p>
+<ol>
+<li><p>现在AddPackage时不会像以前那样把全部资源（贴图、声音）一次性载入，而是用到再载入。如果你需要全部载入，调用<code>UIPackage.LoadAllAssets</code>。</p>
+</li>
+<li><p>如果UIPackage是从AssetBundle中载入的，在RemovePackage时AssetBundle才会被Unload(true)。如果你确认所有资源都已经载入了（例如调用了LoadAllAssets），也可以自行卸载AssetBundle。</p>
+</li>
+<li><p>调用<code>UIPackage.UnloadAssets</code>可以只释放UI包的资源，而不移除包，也不需要卸载从UI包中创建的UI界面（这些界面你仍然可以调用显示，不会报错，但图片显示空白）。当包需要恢复使用时，调用<code>UIPackage.ReloadAssets</code>恢复资源，那些从这个UI包创建的UI界面能够自动恢复正常显示。如果包是从AssetBundle载入的，那么在UnloadAssets时AssetBundle会被Unload(true)，所以在ReloadAssets时，必须调用ReloadAssets一个带参数的重载并提供新的AssetBundle实例。</p>
+</li>
+<li><p>Egret版本目前不支持Unload和Reload；Laya版本支持Unload，但不需要调用Reload，贴图资源一旦用到就会自动Reload。</p>
+</li>
+<li><p>使用新格式后，UI包描述部分占用的内存急剧减少（只有几十KB~几百KB的规模），所以可以不用再管理包的装载卸载，而直接让UIPackage都常驻，再配合使用UnloadAssets和ReloadAssets就可以达到控制内存的效果了（当然这只是建议）。</p>
+</li>
+</ol>
+<p><strong>另外的一些接口改变</strong></p>
+<ol>
+<li><p>[Unity] UIConfig.buttonSound原来接受一个AudioClip对象，现在需要用NAudioClip，可以用直接用new NAudioClip(audioClip)包装。UIPacakge.GetItemAsset(声音item）现在返回的也是NAudioClip对象。</p>
+</li>
+<li><p>[Unity] UIPackage.AddPackage的接受AssetBundle参数的重载，不再提供unloadBundleAfterLoaded参数。AssetBundle也不会在AddPackage后立刻卸载。</p>
+</li>
+</ol>
 
     
     <div class="footer">
       发现错误或想贡献文档?
-      <a href="https://github.com/fairygui/fairygui.github.io/tree/master/src/guide/editor/graph.md" target="_blank">
+      <a href="https://github.com/fairygui/fairygui.github.io/tree/master/src/guide/editor/upgrade_binary_format.md" target="_blank">
         在 Github 上编辑此文档!
       </a>
     </div>

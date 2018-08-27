@@ -4,6 +4,10 @@ type: product
 order: 1
 ---
 
+## 3.9.0
+1. 新增了发布包描述文件为二进制格式的功能。需要SDK更新支持。[详情](../guide/editor/upgrade_binary_format.html)
+2. 现在可以在编辑器中使用TGA格式图片。
+
 ## 3.8.7
 1. 修正3.8.5出现的制作动画界面中不能导入序列图的bug。
 
