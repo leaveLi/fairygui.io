@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/product/index.html</loc>
+    
+    <lastmod>2018-08-29T09:12:33.562Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/product/release_notes.html</loc>
     
     <lastmod>2018-08-29T08:51:17.330Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://www.fairygui.com/guide/editor/upgrade_binary_format.html</loc>
     
     <lastmod>2018-08-28T05:14:30.843Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/index.html</loc>
-    
-    <lastmod>2018-08-28T05:08:12.932Z</lastmod>
     
   </url>
   
