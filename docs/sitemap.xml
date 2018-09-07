@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/product/sdk_release_notes.html</loc>
+    
+    <lastmod>2018-09-07T14:26:49.459Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/product/index.html</loc>
     
-    <lastmod>2018-08-29T11:55:54.578Z</lastmod>
+    <lastmod>2018-09-07T14:25:51.481Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/window.html</loc>
+    
+    <lastmod>2018-09-07T09:14:40.076Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.fairygui.com/product/release_notes.html</loc>
     
-    <lastmod>2018-08-29T11:53:46.376Z</lastmod>
+    <lastmod>2018-09-07T09:14:06.550Z</lastmod>
     
   </url>
   
@@ -19,13 +33,6 @@
     <loc>http://www.fairygui.com/guide/editor/upgrade_binary_format.html</loc>
     
     <lastmod>2018-08-28T05:14:30.843Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/sdk_release_notes.html</loc>
-    
-    <lastmod>2018-08-27T15:22:31.592Z</lastmod>
     
   </url>
   
@@ -103,13 +110,6 @@
     <loc>http://www.fairygui.com/guide/editor/button.html</loc>
     
     <lastmod>2018-07-25T12:39:58.289Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/window.html</loc>
-    
-    <lastmod>2018-07-25T12:37:45.919Z</lastmod>
     
   </url>
   

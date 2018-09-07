@@ -6,12 +6,12 @@ order: 0
 
 ## FairyGUI 编辑器 
 
->当前版本3.9.3
+>当前版本3.9.5
 
 <div id="downloads">
-<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_3_9_3.zip" target="_self">Windows平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
+<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_3_9_5.zip" target="_self">Windows平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
 
-<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_Mac_3_9_3.zip" target="_self">OSX平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
+<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_Mac_3_9_5.zip" target="_self">OSX平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
 </div>
 
 FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建议解压到非中文目录下。
@@ -45,7 +45,7 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-layabox.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-layabox.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-layabox-demo180523.zip)
+[下载例子](http://res.fairygui.com/FairyGUI-layabox-demo180907.zip)
 
 ## Egret SDK
 
@@ -53,7 +53,7 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-egret.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-egret.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-egret-demo180523.zip)
+[下载例子](http://res.fairygui.com/FairyGUI-egret-demo180907.zip)
 
 ## Pixi SDK
 
@@ -77,7 +77,7 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-starling.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-starling.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-starling-demo180523.zip)
+[下载例子](http://res.fairygui.com/FairyGUI-starling-demo180907.zip)
 
 ## Flash SDK
 
@@ -85,7 +85,7 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-as3.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-as3.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-as3-demo180523.zip)
+[下载例子](http://res.fairygui.com/FairyGUI-as3-demo180907.zip)
 
 ## Cry Engine SDK
 

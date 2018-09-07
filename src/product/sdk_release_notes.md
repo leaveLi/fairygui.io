@@ -4,6 +4,10 @@ type: product
 order: 2
 ---
 
+## 2018/9/7
+1. [Cocos2dx/Cry] 新增支持二进制的包格式。。[详情](../guide/editor/upgrade_binary_format.html)
+2. [Unity] Unity发布了3.0.0正式版本，提供二进制格式的支持。
+
 ## 2018/8/27
 1. [Egret/Laya/Unity] 新增支持二进制的包格式。。[详情](../guide/editor/upgrade_binary_format.html)
 2. [Egret] 修正了MovieClip在egret下发布为native后不显示的bug。
