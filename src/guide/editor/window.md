@@ -45,7 +45,7 @@ order: 190
 
 ![](../../images/ddd2.png)
 
-如果你需要窗口隐藏时播放动画效果，那么覆盖d`oHideAnimation`编写你的动画代码，并且在动画结束时调用`HideImmediately`（**注意不是直接调用onHide！**）。
+如果你需要窗口隐藏时播放动画效果，那么覆盖d`doHideAnimation`编写你的动画代码，并且在动画结束时调用`HideImmediately`（**注意不是直接调用onHide！**）。
 覆盖`onHide`编写其他需要在窗口隐藏时处理的业务逻辑。
 
 ## Window

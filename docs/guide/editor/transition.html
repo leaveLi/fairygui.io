@@ -408,6 +408,8 @@
 <li><code>播放声音</code> 播放一个音效。</li>
 <li><code>播放震动</code> 元件显示一个震动效果。</li>
 <li><code>改变颜色滤镜</code> 改变元件的颜色滤镜。</li>
+<li><code>改变文本</code> 改变文本、标签、按钮、下拉框等这些带有标题属性的Text值。</li>
+<li><code>改变图标</code> 改变装载器、标签、按钮、下拉框等这些带有图标属性的URL值。</li>
 </ul>
 <p><strong>注意：“组”支持的动效类型很少，如果需要复杂的动作，请改用组件。</strong></p>
 <p><strong>时间轴操作</strong></p>
@@ -466,22 +468,29 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Transition trans = aComponent.GetTransition(“peng”);</div><div class="line">trans.Play();</div></pre></td></tr></table></figure>
 <p>Play有多种原型，例如可以重复播放一定次数，可以在播放结束时回调等。例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//结束时有一个回调，但需注意，如果动效里有嵌套的动效，或者有循环的内容，必须是等全部都结束后才会回调。</span></div><div class="line">trans.Play(callback);</div></pre></td></tr></table></figure>
+<p>例如可以播放动效的一部分，通过指定时间范围，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//播放0.5秒-1.5秒部分的动效，即0.5秒（包含）-1.5秒（包含）之间的所有帧。</span></div><div class="line">trans.Play(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0.5</span>, <span class="number">1.5</span>);</div></pre></td></tr></table></figure>
+<p>时间范围可以硬编码，也可以通过标签指定，通过GetLabelTime可以获得某个标签所在时间点。</p>
 <p>也可以倒着放，但要注意倒着放之前需要先执行一次正着放。例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">trans.playReverse();</div></pre></td></tr></table></figure>
+<p>动效可以暂停，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//暂停动效播放</span></div><div class="line">trans.setPaused(<span class="literal">true</span>);</div><div class="line"></div><div class="line"><span class="comment">//恢复动效播放</span></div><div class="line">trans.setPaused(<span class="literal">false</span>);</div></pre></td></tr></table></figure>
 <p>要中途停止动效的播放，可以调用：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">trans.Stop();</div></pre></td></tr></table></figure>
 <p>Stop方法也可以带参数，原型是：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Stop</span>(<span class="params"><span class="keyword">bool</span> setToComplete, <span class="keyword">bool</span> processCallback</span>)</span>;</div></pre></td></tr></table></figure>
 <p><code>setToComplete</code>表示是否将组件的状态设置到播放完成的状态，如果否，组件的状态就会停留在当前时间。<code>processCallback</code>是否调用Play方法传入的回调函数。</p>
-<p>注意：UI动效播放完毕后，组件的状态将停留在最后一帧，而不是回到第一帧，如果你希望动效播放完后组件的状态复原到播放前，你需要最后添加一帧重新设置组件的状态。</p>
+<p>注意：UI动效播放完毕后，组件的状态将停留在最后一帧，而不是回到第一帧，如果你希望动效播放完后组件的状态复原到播放前，你需要最后添加一帧重新设置组件的状态。例如一个动效，设计是透明度经过1秒从1变到0，那么动效播放结束后透明度就是0。有人会问怎样才能让动效播放完了回到第一帧，也就是透明度要等于1，那很简单，在透明度时间轴最后加一帧，设置透明度为1，那么动效播放完了透明度就是1了。</p>
 <p>如果需要修改某个关键帧的属性值，可以使用：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//例如某帧的标签为aa，这帧是设置某个元件的XY值的，将XY的数值改为100,200。</span></div><div class="line">trans.SetValue(<span class="string">"aa"</span>, <span class="number">100</span>, <span class="number">200</span>);</div></pre></td></tr></table></figure>
 <p>可以修改某个Tween的持续时间，但修改某个Tween的时间<strong>不会</strong>使后续的Tween推迟。例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//修改某个Tween的持续时间为0.5秒。注意，标签应该定在Tween的开始关键帧上。</span></div><div class="line">trans.SetDuration(<span class="string">"aa"</span>, <span class="number">0.5</span>f);</div></pre></td></tr></table></figure>
 <p>可以在动效运行到某帧时触发一个回调，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//运行到标签为aa的关键帧时，触发一个callback的回调。</span></div><div class="line">trans.SetHook(<span class="string">"aa"</span>, callback);</div></pre></td></tr></table></figure>
-<p>在Unity中，动效的播放速度是不受Time.timeScale影响的，但你可以单独设置动效的timeScale，例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">trans.timeScale = <span class="number">0.5</span>f;</div></pre></td></tr></table></figure>
+<p>在Unity中，动效的播放速度默认是不受Time.timeScale影响的，但你也可以设定它受影响：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">trans.ignoreEngineTimeScale = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
+<p>也可以单独设置动效的timeScale，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//动效播放的速度将会是原来的一半。</span></div><div class="line">trans.timeScale = <span class="number">0.5</span>f;</div></pre></td></tr></table></figure>
     
     <div class="footer">
       发现错误或想贡献文档?

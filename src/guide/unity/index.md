@@ -10,7 +10,11 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
 
 1. 将打包后的文件直接发布到Unity的Resources目录或者其子目录下，
 
+XML包的文件列表：
   ![](../../images/2015-10-21_151409.png)
+
+二进制包的文件列表：
+  ![](../../images/20180908225713.png)
 
   这种方式处理的UI包，如果使用UIPanel显示UI，不需要任何代码载入；如果是动态创建UI，要使用代码载入包：
 
@@ -20,12 +24,19 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     
     //如果在子目录下
     UIPackage.AddPackage("路径/demo");
+
+    //如果不放到Resources或者其子目录下，可以传入全路径，但这种方法只能在Editor里使用
+    UIPackage.AddPackage("Assets/SomePath/Package1");
   ```
 
 2. 将发布后的文件打包为两个AssetBundle，即定义文件和资源各打包为一个bundle(desc_bundle+res_bundle)。这样做的好处是一般UI的更新都是修改元件位置什么的，不涉及图片资源的更新，那么只需要重新打包和推送desc_bundle就行了，不需要让玩家更新通常体积比较大的res_bundle，节省流量。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，请遵循以下规则打包：
-
+  **XML格式包：**
   - demo.bytes单独打包为desc_bundle；
-  - 其他资源（demo@atlas0.png等），打包到res_bundle（在此例中就是atlas0和sprites）。
+  - 其他资源（demo@atlas0.png等），打包到res_bundle。
+
+  **二进制格式包：**
+  - demo_fui.bytes单独打包为desc_bundle；
+  - 其他资源（demo_atlas0.png等），打包到res_bundle。
 
   这种方式处理的UI包，必须使用代码载入：
 
@@ -43,13 +54,6 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     UIPackage.AddPackage(bundle);
   ```
 
-**在使用AssetBundle的载入方案中，AddPackge提供了一个参数，用于控制是否由FairyGUI接管bundle并负责bundle资源的释放。默认为true，即由FairyGUI接管bundle并负责bundle资源的释放**
-
-```csharp
-    //第二个参数为false，表示不需要让FairyGUI释放bundle。
-    UIPackage.AddPackage(bundle, false);
-```
-
 ## 卸载UI包
 
 当一个包不再使用时，可以将其卸载。
@@ -61,6 +65,16 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
 
 包卸载后，所有包里包含的贴图等资源均会被卸载，由包里创建出来的组件也无法显示正常（虽然不会报错），所以这些组件应该（或已经）被销毁。
 一般不建议包进行频繁装载卸载，因为每次装载卸载必然是要消耗CPU时间（意味着耗电）和产生大量GC的。UI系统占用的内存是可以精确估算的，你可以按照包的使用频率设定哪些包是常驻内存的（建议尽量多）。
+
+## 二进制格式的包内存管理
+
+如果包是二进制格式的，适用于以下说明：
+
+1. AddPackage时不会像XML格式的包那样把全部资源（贴图、声音）一次性载入，而是用到再载入。如果你需要全部载入，调用`UIPackage.LoadAllAssets`。
+
+2. 如果UIPackage是从AssetBundle中载入的，在RemovePackage时AssetBundle才会被Unload(true)。如果你确认所有资源都已经载入了（例如调用了LoadAllAssets），也可以自行卸载AssetBundle。
+
+3. 调用`UIPackage.UnloadAssets`可以只释放UI包的资源，而不移除包，也不需要卸载从UI包中创建的UI界面（这些界面你仍然可以调用显示，不会报错，但图片显示空白）。当包需要恢复使用时，调用`UIPackage.ReloadAssets`恢复资源，那些从这个UI包创建的UI界面能够自动恢复正常显示。如果包是从AssetBundle载入的，那么在UnloadAssets时AssetBundle会被Unload(true)，所以在ReloadAssets时，必须调用ReloadAssets一个带参数的重载并提供新的AssetBundle实例。
 
 ## UIPanel
 

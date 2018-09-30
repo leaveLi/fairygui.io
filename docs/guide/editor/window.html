@@ -396,7 +396,7 @@
 <p>如果你需要窗口显示时播放动画效果，那么覆盖<code>doShowAnimation</code>编写你的动画代码，并且在动画结束后调用onShown。<br>覆盖<code>onShown</code>编写其他需要在窗口显示时处理的业务逻辑。</p>
 <p>调用<code>Hide</code>隐藏窗口的流程：</p>
 <p><img src="../../images/ddd2.png" alt=""></p>
-<p>如果你需要窗口隐藏时播放动画效果，那么覆盖d<code>oHideAnimation</code>编写你的动画代码，并且在动画结束时调用<code>HideImmediately</code>（<strong>注意不是直接调用onHide！</strong>）。<br>覆盖<code>onHide</code>编写其他需要在窗口隐藏时处理的业务逻辑。</p>
+<p>如果你需要窗口隐藏时播放动画效果，那么覆盖d<code>doHideAnimation</code>编写你的动画代码，并且在动画结束时调用<code>HideImmediately</code>（<strong>注意不是直接调用onHide！</strong>）。<br>覆盖<code>onHide</code>编写其他需要在窗口隐藏时处理的业务逻辑。</p>
 <h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h2><ul>
 <li><p><code>Show</code> 显示窗口。</p>
 </li>

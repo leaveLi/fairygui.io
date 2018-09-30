@@ -141,7 +141,7 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
     GameObject go = displayObject.gameObject;
   ```
 
-- `销毁` Dispose。销毁对象，当对象不再使用可以调用它。注意：纹理、声音等这些公共资源是由UIPackage管理的，销毁对象不会回收这些资源。如果要回收这些资源，应该使用UIPackage.RemovePackage。
+- `销毁` Dispose。销毁对象，当对象不再使用可以调用它，且必须调用。注意：纹理、声音等这些公共资源是由UIPackage管理的，销毁对象不会回收这些资源。如果要回收这些资源，应该使用UIPackage.RemovePackage。
 
 - `resourceURL` 对象在资源库中的URL地址。只有图片、动画、组件这些有链接资源的对象才能获得这个URL值。可以用这个URL比较两个组件对象是不是由同一个组件资源构建的。URL是内部编码格式，不可读，如果要获得资源名称，可以使用下面的方法：
 

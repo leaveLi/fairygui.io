@@ -295,7 +295,7 @@ order: 100
     c1->addEventListener(UIEventType::GearStop, CC_CALLBACK_1(AClass::OnGearStop, this));
 ```
 
-如果你正在做界面的初始化，可能不希望出现缓动。可以这样做：
+如果你正在做界面的初始化，可能不希望出现任何缓动。可以这样做：
 
 ```csharp
     //禁止所有控制器引起的缓动
@@ -317,6 +317,6 @@ order: 100
     gearDisplay.pages = new string[] { ... }; 
 
     GearXY gearXY = obj.GetGear(1);
-    gearXY.tweenTime = 0.5f;
+    gearXY.tweenConfig.duration = 0.5f;
 ```
 
