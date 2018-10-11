@@ -35,6 +35,25 @@ order: 200
 
 - `HidePopup` 默认情况下，用户点击空白地方就会自动关闭弹出的组件。也可以调用此API手工关闭。可以指定需要关闭的Popup，不指定参数时，所有当前的弹出都关闭。
 
+点击空白处后弹出框会自动关闭，如果要获得这个关闭的通知，可以监听移出舞台的事件，例如：
+
+```csharp
+    //Unity/Cry
+    aComponent.onRemoveFromStage.Add(onPopupClosed);
+
+    //AS3
+    aComponent.addEventListener(Event.REMOVED_FROM_STAGE, onPopupClosed);
+
+    //Egret
+    aComponent.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onPopupClosed, this);
+
+    //Laya
+    aComponent.on(laya.events.Event.UNDISPLAY, this, this.onPopupClosed);
+
+    //Cocos2dx
+    aComponent->addEventListener(UIEventType::Exit, CC_CALLBACK_1(AClass::onPopupClosed, this));
+```
+
 ## PopupMenu
 
 PopupMenu是FairyGUI提供的一个工具类，用于实现弹出菜单。首先需要在编辑器制作一个菜单组件，点击“资源->新建弹出菜单..."，然后根据向导完成。菜单组件里的关键元素是命名为`list`的列表组件，列表的溢出处理模式应该选择为可见，因为一般来说，菜单都是显示全部item的，不需要滚动。

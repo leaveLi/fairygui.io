@@ -387,7 +387,7 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//物理屏幕坐标转换为逻辑屏幕坐标</span></div><div class="line">Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);</div><div class="line"></div><div class="line"><span class="comment">//UI元件坐标与逻辑屏幕坐标之间的转换</span></div><div class="line">aObject.LocalToRoot(pos);</div><div class="line">aObject.RootToLocal(pos);</div></pre></td></tr></table></figure>
 <p><strong>注意，我们在编辑器里定义的，代码里处理的，一般就是指这个逻辑屏幕坐标。</strong></p>
 <p>如果要转换任意两个UI对象间的坐标，例如需要知道A里面的坐标(10,10)在B里面的位置，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 posInB = aObject.TransformPoint(bObject, <span class="keyword">new</span> Vector2(<span class="number">10</span>,<span class="number">10</span>));</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 posInB = aObject.TransformPoint(<span class="keyword">new</span> Vector2(<span class="number">10</span>,<span class="number">10</span>), bObject);</div></pre></td></tr></table></figure>
 <h2 id="与世界空间坐标转换"><a href="#与世界空间坐标转换" class="headerlink" title="与世界空间坐标转换"></a>与世界空间坐标转换</h2><p>如果要转换世界空间的坐标到UI里的坐标，需要先将世界空间的坐标转换为屏幕坐标，再继续转换，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);</div><div class="line"><span class="comment">//原点位置转换</span></div><div class="line">screenPos.y = Screen.height - screenPos.y; </div><div class="line">Vector2 pt = GRoot.inst.GlobalToLocal(screenPos);</div></pre></td></tr></table></figure>
 <p>如果要转换UI里的坐标到世界空间的坐标，需要先将UI里的坐标转换为屏幕坐标，再继续转换，例如：</p>

@@ -394,6 +394,8 @@
 <h2 id="逻辑屏幕"><a href="#逻辑屏幕" class="headerlink" title="逻辑屏幕"></a>逻辑屏幕</h2><p>全局缩放后的屏幕大小就是逻辑屏幕大小，在上例中，设备分辨率是1280×720，全局缩放系数是1.125，那么逻辑屏幕大小就是（1280/1.125=1138, 720/1.125=640）= 1138x640。GRoot这个UI根组件的大小始终占满逻辑屏幕，也就是说，逻辑屏幕的大小可以通过GRoot.inst.width和GRoot.inst.height获得。</p>
 <h2 id="全屏界面适配"><a href="#全屏界面适配" class="headerlink" title="全屏界面适配"></a>全屏界面适配</h2><p>全局缩放后，大部分UI都不需要做任何调整，只有一个例外，就是设计为全屏的界面。在上例中，在设计分辨率下，全屏界面的大小是960x640，我们也是按这个大小设计全屏组件的。全局缩放后，这时逻辑屏幕的大小变成1138x640了，那大小就不一致了。这是我们需要重新调整组件大小使之满屏，即</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//设置组件全屏，即大小和逻辑屏幕大小一致。</span></div><div class="line"><span class="comment">//组件的内部应该做好关联处理， 以应对大小改变。</span></div><div class="line">aComponent.SetSize(GRoot.inst.width, GRoot.inst.height);</div><div class="line"><span class="comment">//或者更简洁的方式</span></div><div class="line">aComponnet.MakeFullScreen();</div></pre></td></tr></table></figure>
+<p>一般来说，手游在进入游戏后，屏幕大小就不会变化的。但如果你开发的是桌面游戏，又或者支持横竖屏切换的游戏，即屏幕大小是会变化的，那么全屏界面还需要加上对屏幕大小的约束，即</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aComponent.AddRelation(GRoot.inst, RelationType.Size);</div></pre></td></tr></table></figure>
 <p>当然，这仅仅是处理全屏界面的一种方式。在有的情况下，例如如果选用“MatchHeight”模式，也就是高度优先的适配方法，这种方法保证了UI界面垂直方向的内容总是铺满，而水平方向就有可能超出屏幕。这种适配方式需要设计师有“安全区域”的设计思维，不能安排内容在超出屏幕的部分。例如，将全屏界面居中，牺牲掉两边的内容：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aComponent.x = (GRoot.inst.width – aComponent.width)/<span class="number">2</span>;</div></pre></td></tr></table></figure>
 <p>这样，左边缘和右边缘将会被屏幕边缘裁剪掉，这要求设计师在设计时就考虑到这种情况。</p>

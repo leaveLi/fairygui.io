@@ -256,7 +256,7 @@ FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器�
     {
         GObject msgObj;
 
-        //如果你有需要访问容器内容的初始化工作，必须在这个方法里，而不是在构造函数里。
+        //如果你有需要访问容器内容的初始化工作，必须在这个方法里，而不是在构造函数里。各个SDK的函数原型的参数可能略有差别，请以代码提示为准。
         override protected void ConstructFromXML(XML xml)
         {
             base.ConstructFromXML(xml);

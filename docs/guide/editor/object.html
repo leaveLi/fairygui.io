@@ -431,6 +431,8 @@
 <p>注意：设置了滤镜的显示对象无法与其他显示对象合并Draw Call。</p>
 <p><strong>Unity版本须知</strong></p>
 <p>对组件使用BlendMode或者滤镜会需要用到捕获UI成纹理的功能，所以需要定义VUI、Hidden VUI这两个Layer，否则会出现警告。这两个Layer可以随便定义到没使用的层序号，但要注意所有相机的Culling Mask都<strong>不选择</strong>这两个层。另外，运行时场景里会自动出现Capture Camera对象，这是正常的，不需要理会。</p>
+<p>如果你要对使用了自定义遮罩的组件进行设置倾斜、设置BlendMode，设置滤镜，又或者曲面UI中含有自定义遮罩的组件时，需要额外的设置才能显示正常。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.depthSupportForPaitingMode = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <h2 id="TIPS属性"><a href="#TIPS属性" class="headerlink" title="TIPS属性"></a>TIPS属性</h2><p><img src="../../images/20170726161155.png" alt=""></p>
 <p>当鼠标移到元件范围内时，显示这里定义的文本。用户需要提供一个组件用于显示这个文本。这个组件的“扩展”属性需要定义为“标签”，以便底层将TIPS文本设置到标签的“标题”属性中。打开编辑器主菜单“文件”-&gt;“项目设置”，然后在弹出的对话框里选择“预览设置”，右边面板会出现一个“TIPS组件”的设置，将你制作好的标签组件拖入即可。这里的设置仅适用于编辑器预览，运行时需要用代码再次设置：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.tooltipsWin = <span class="string">"ui://包名/组件名"</span>;</div></pre></td></tr></table></figure>
@@ -474,6 +476,8 @@
 </li>
 <li><p><code>resourceURL</code> 对象在资源库中的URL地址。只有图片、动画、组件这些有链接资源的对象才能获得这个URL值。可以用这个URL比较两个组件对象是不是由同一个组件资源构建的。URL是内部编码格式，不可读，如果要获得资源名称，可以使用下面的方法：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//对象在资源库中的名称</span></div><div class="line">Debug.Log(aObject.packageItem.name);</div><div class="line"></div><div class="line"><span class="comment">//根据URL获得资源名称</span></div><div class="line">Debug.Log(UIPackage.GetItemByURL(resourceURL).name);</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>onStage</code> 获取对象是否在舞台上。对象是否在舞台上受多种因素影响，例如对象是否在显示列表中，是否被显示控制器隐藏，是否被组的显示控制隐藏等。</p>
 </li>
 </ul>
 

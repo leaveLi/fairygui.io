@@ -68,6 +68,12 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
 
 对组件使用BlendMode或者滤镜会需要用到捕获UI成纹理的功能，所以需要定义VUI、Hidden VUI这两个Layer，否则会出现警告。这两个Layer可以随便定义到没使用的层序号，但要注意所有相机的Culling Mask都**不选择**这两个层。另外，运行时场景里会自动出现Capture Camera对象，这是正常的，不需要理会。
 
+如果你要对使用了自定义遮罩的组件进行设置倾斜、设置BlendMode，设置滤镜，又或者曲面UI中含有自定义遮罩的组件时，需要额外的设置才能显示正常。
+
+```csharp
+    UIConfig.depthSupportForPaitingMode = true;
+```
+
 ## TIPS属性
 
 ![](../../images/20170726161155.png)
@@ -152,3 +158,5 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
     //根据URL获得资源名称
     Debug.Log(UIPackage.GetItemByURL(resourceURL).name);
   ```
+
+- `onStage` 获取对象是否在舞台上。对象是否在舞台上受多种因素影响，例如对象是否在显示列表中，是否被显示控制器隐藏，是否被组的显示控制隐藏等。

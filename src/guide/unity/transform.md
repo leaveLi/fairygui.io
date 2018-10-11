@@ -50,7 +50,7 @@ GObject里的x/y/position值都是**局部坐标**，也就是相对于父元件
 如果要转换任意两个UI对象间的坐标，例如需要知道A里面的坐标(10,10)在B里面的位置，可以用：
 
 ```csharp
-    Vector2 posInB = aObject.TransformPoint(bObject, new Vector2(10,10));
+    Vector2 posInB = aObject.TransformPoint(new Vector2(10,10), bObject);
 ```
 
 ## 与世界空间坐标转换

@@ -98,11 +98,36 @@ order: 140
     combo.addEventListener(StateChangeEvent.CHANGED, onChanged);
 
     //Egret
-    combo.addEventListener(StateChangeEvent.CHANGED, this.onChanged, this);
+    combo.addEventListener(fairygui.StateChangeEvent.CHANGED, this.onChanged, this);
 
     //Laya
     combo.on(fairygui.Events.STATE_CHANGED, this, this.onChanged);
 
     //Cocos2dx
     combo->addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));
+```
+
+点击空白处后弹出框会自动关闭，如果要获得这个关闭的通知，可以监听移出舞台的事件，例如：
+
+```csharp
+    //Unity/Cry
+    combo.dropdown.onRemoveFromStage.Add(onPopupClosed);
+
+    //AS3
+    combo.dropdown.addEventListener(Event.REMOVED_FROM_STAGE, onPopupClosed);
+
+    //Egret
+    combo.dropdown.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onPopupClosed, this);
+
+    //Laya
+    combo.dropdown.on(laya.events.Event.UNDISPLAY, this, this.onPopupClosed);
+
+    //Cocos2dx
+    combo->getDropdown()->addEventListener(UIEventType::Exit, CC_CALLBACK_1(AClass::onPopupClosed, this));
+```
+
+如果要手工关闭弹出框：
+
+```csharp
+    GRoot.inst.HidePopup();
 ```
