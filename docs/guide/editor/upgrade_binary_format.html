@@ -269,7 +269,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Canvas</a>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Spine/Canvas</a>
 	                </li>
 	            
 	                
@@ -381,7 +381,7 @@
 <li><code>AddPackage</code>： GC最大可降低90% CPU耗时最大可降低80%</li>
 <li><code>CreateObject</code>：GC最大可降低约15% CPU耗时最大可降低20%</li>
 </ul>
-<p>目前Unity、Laya和Egret均已经支持新格式，Cocos2dx和CryEngine会稍后提供，AS3和Starling版本则不会提供新格式的支持。<br>使用新格式需要更新到GitHub里最新的源码（Unity）或库（Laya/Egret)。编辑器更新到3.9.0版本后，在发布对话框里的全局设置里，勾选“使用二进制格式”。</p>
+<p>目前Unity、Laya和Egret均已经支持新格式，Cocos2dx和CryEngine会稍后提供，AS3和Starling版本则不会提供新格式的支持。<br>对于Unity引擎，使用新格式需要使用FairyGUI-Unity 3.0或以上版本，其他引擎尽量更新到最近的库。编辑器更新到3.9.0版本后，在发布对话框里的全局设置里，勾选“使用二进制格式”。</p>
 <p><strong>文件命名</strong></p>
 <p>新格式的文件命名与旧格式不同。旧格式的文件名中有使用“@”作为连接字符，由于有不少用户反映这个字符在某些场合下不允许使用，所以新格式改为使用“_”字符。在旧格式中，Unity的描述文件名为“xxx.bytes”,新格式中，更改为“xxx_fui.bytes”，这是为了可以更快的识别出包文件。新格式只有一个描述文件和一个或多个贴图和声音文件，不会再生成单独的sprites文件。</p>
 <p>支持新格式的SDK不再支持读取旧格式的文件，同样，旧的SDK也无法识别新格式的文件，无法无缝切换，你需要做出抉择。</p>

@@ -269,7 +269,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Canvas</a>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Spine/Canvas</a>
 	                </li>
 	            
 	                
@@ -525,7 +525,8 @@
 <li><code>Design Resolution X</code> <code>Design Resolution Y</code> 涉及分辨率的宽和高。</li>
 <li><code>Ignore Orientation</code> 通常我们设置一个设计分辨率时，FairyGUI会自动根据横竖屏设置调整设计分辨率的屏幕方向，以保证屏幕在旋转时全局缩放系数保证不变。如果你是设计PC上的程序，可能这个特性不是你需要的，那么可以勾选此选项关闭这个功能。</li>
 </ul>
-<h2 id="UIConfig"><a href="#UIConfig" class="headerlink" title="UIConfig"></a>UIConfig</h2><p>UIConfig组件用于设置一些全局的参数。使用UIConfig组件设置和在代码中使用UIConfig类设置全局参数效果是一样的。UIConfig组件还可以加载包，点击<code>Preload Packages</code>下面的Add即可。</p>
+<h2 id="UIConfig"><a href="#UIConfig" class="headerlink" title="UIConfig"></a>UIConfig</h2><p>UIConfig组件用于设置一些全局的参数。使用UIConfig组件和在代码中使用UIConfig类设置全局参数效果是一样的。但有一个区别是使用代码去设置那么编辑模式就看不到正确的效果了，例如你用UIConfig.defaultFont去设置默认字体，那么UIPanel在编辑模式显示的字体效果就不对，只有运行后才对。解决方案就是使用UIConfig组件。在场景里选择任意一个对象，挂上UIConfig组件，修改相应的选项即可。</p>
+<p>UIConfig组件还可以加载包，点击<code>Preload Packages</code>下面的Add即可。</p>
 <p><img src="../../images/2016-04-06_095535.png" alt=""></p>
 
     

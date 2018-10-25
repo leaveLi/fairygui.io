@@ -12,7 +12,7 @@ order: 230
 - `CreateObject`：GC最大可降低约15% CPU耗时最大可降低20%
 
 目前Unity、Laya和Egret均已经支持新格式，Cocos2dx和CryEngine会稍后提供，AS3和Starling版本则不会提供新格式的支持。
-使用新格式需要更新到GitHub里最新的源码（Unity）或库（Laya/Egret)。编辑器更新到3.9.0版本后，在发布对话框里的全局设置里，勾选“使用二进制格式”。
+对于Unity引擎，使用新格式需要使用FairyGUI-Unity 3.0或以上版本，其他引擎尽量更新到最近的库。编辑器更新到3.9.0版本后，在发布对话框里的全局设置里，勾选“使用二进制格式”。
 
 **文件命名**
 

@@ -269,6 +269,8 @@ UIContentScaler组件是用来设置适配的。在启动场景里任何一个Ga
 
 ## UIConfig
 
-UIConfig组件用于设置一些全局的参数。使用UIConfig组件设置和在代码中使用UIConfig类设置全局参数效果是一样的。UIConfig组件还可以加载包，点击`Preload Packages`下面的Add即可。
+UIConfig组件用于设置一些全局的参数。使用UIConfig组件和在代码中使用UIConfig类设置全局参数效果是一样的。但有一个区别是使用代码去设置那么编辑模式就看不到正确的效果了，例如你用UIConfig.defaultFont去设置默认字体，那么UIPanel在编辑模式显示的字体效果就不对，只有运行后才对。解决方案就是使用UIConfig组件。在场景里选择任意一个对象，挂上UIConfig组件，修改相应的选项即可。
+
+UIConfig组件还可以加载包，点击`Preload Packages`下面的Add即可。
 
 ![](../../images/2016-04-06_095535.png)

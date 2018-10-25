@@ -150,6 +150,8 @@ Unity版本对HTML解析有比较完整的支持。
     options.linkHoverBgColor = ...;
 ```
 
+如果同一个文本内的各个链接都需要不同颜色，那么在链接标签外围用颜色标签包住就行了。
+
 - `INPUT` 支持显示以下语法：
 
 ```csharp

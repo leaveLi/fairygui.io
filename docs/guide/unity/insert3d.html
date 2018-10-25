@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - 插入模型/粒子/Canvas</title>
+        <title>FairyGUI - 插入模型/粒子/Spine/Canvas</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="-插入模型/粒子/CanvasFairyGUI">
+        <meta property="og:title" content="-插入模型/粒子/Spine/CanvasFairyGUI">
         <meta property="og:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="插入模型/粒子/Canvas — FairyGUI">
+        <meta name="twitter:title" content="插入模型/粒子/Spine/Canvas — FairyGUI">
         <meta name="twitter:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
@@ -269,7 +269,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/insert3d.html" class="sidebar-link current">插入模型/粒子/Canvas</a>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link current">插入模型/粒子/Spine/Canvas</a>
 	                </li>
 	            
 	                
@@ -373,7 +373,7 @@
 
 <div class="content guide_unity with-sidebar ">
     
-      <h1>插入模型/粒子/Canvas</h1>
+      <h1>插入模型/粒子/Spine/Canvas</h1>
     
     <p>FairyGUI提供了非常完整的解决方案解决模型、粒子、骨骼动画等3D对象与UI穿插的问题，并且支持与UGUI Canvas穿插。</p>
 <h2 id="直接放入3D对象"><a href="#直接放入3D对象" class="headerlink" title="直接放入3D对象"></a>直接放入3D对象</h2><p>这种方式是直接用UI相机渲染3D对象，相比RenderTexture的方案，使用简单且节省内存，缺点是在UI相机下3D对象没有透视。</p>
@@ -408,8 +408,11 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">wrapper.wrapTarget = anotherGameObject;</div></pre></td></tr></table></figure>
 <p>设置新的包装对象后，原来的包装对象只会被删除引用，但不会被销毁。如果你要销毁原来的GameObject，必须自行处理，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Object.Destroy(wrapper.wrapTarget);</div><div class="line">wrapper.wrapTarget = anotherGameObject;</div></pre></td></tr></table></figure>
+<p><strong>复制材质</strong></p>
+<p>如果GoWrapper包装的对象是在很多地方同时使用，而且你在实例化时没有自行处理材质的复制，那么会产生一些问题。例如一个模型，你既在UI上显示，也在场景中使用，UI系统需要修改模型的材质参数，这就会对场景中的显示产生影响。造成这个问题的根源是GoWrapper默认是使用共享材质的，这是出于效率的影响。要解决这个问题，有两种途径。一、在你实例化对象时自行复制材质。你需要小心处理，避免过度的复制操作。二、让GoWrapper自动复制。在设置包装对象时这样调用即可：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//第二个参数为true，表示复制材质</span></div><div class="line">wrapper.setWrapTarget(anotherGameObject, <span class="literal">true</span>);</div></pre></td></tr></table></figure>
 <p><strong>剪裁</strong></p>
-<p>如果需要对3D对象进行剪裁，可以利用自定义遮罩（<strong>模型、粒子等均适用</strong>）。自定义遮罩的使用方法参考：<a href="../editor/component.html#遮罩">组件的遮罩</a>。</p>
+<p>如果需要对3D对象进行剪裁，可以利用自定义遮罩（<strong>模型、粒子、骨骼动画等均适用</strong>）。自定义遮罩的使用方法参考：<a href="../editor/component.html#遮罩">组件的遮罩</a>。</p>
 <p>例如需要在一个列表内的item显示模型，并希望模型在列表滚动时被正确隐藏，这时仅通过列表自身的溢出滚动功能是无法实现的。首先将列表转换为一个组件，在组件内拖入一个矩形图形覆盖列表的视口，然后将这个图形设置为组件的自定义遮罩。</p>
 <p>模型的着色器也必须做出相应的修改，把以下代码添加到模型的着色器的Properties段（可参考FairyGUI-Image.shader）：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">_StencilComp (<span class="string">"Stencil Comparison"</span>, Float) = <span class="number">8</span></div><div class="line">_Stencil (<span class="string">"Stencil ID"</span>, Float) = <span class="number">0</span></div><div class="line">_StencilOp (<span class="string">"Stencil Operation"</span>, Float) = <span class="number">0</span></div><div class="line">_StencilWriteMask (<span class="string">"Stencil Write Mask"</span>, Float) = <span class="number">255</span></div><div class="line">_StencilReadMask (<span class="string">"Stencil Read Mask"</span>, Float) = <span class="number">255</span></div></pre></td></tr></table></figure>
@@ -417,6 +420,7 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Stencil</div><div class="line">&#123;</div><div class="line">    Ref [_Stencil]</div><div class="line">    Comp [_StencilComp]</div><div class="line">    Pass [_StencilOp] </div><div class="line">    ReadMask [_StencilReadMask]</div><div class="line">    WriteMask [_StencilWriteMask]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>最后，设置GoWrapper支持自定义遮罩：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">wrapper.supportStencil = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
+<p><strong>注意，如果有多个相同的被剪裁的对象，他们的材质不能共用一个，否则会出现显示异常。解决方法是复制材质，请参考上一段，复制材质。</strong></p>
 <h2 id="使用RenderTexture"><a href="#使用RenderTexture" class="headerlink" title="使用RenderTexture"></a>使用RenderTexture</h2><p>在UI上展现3D内容的另一种方式是使用RenderTexture。使用RenderTexture的步骤比较复杂，需要另外新建相机渲染目标对象，然后把该相机的输出定向到一张RenderTexture。有了RenderTexture后，我们将它赋值到Image.texture即可。详细的代码可以参考<a href="https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/Examples/RenderTexture/RenderImage.cs" target="_blank" rel="external">RenderImage</a>。</p>
 <p>RenderTexture可以设置背景颜色为透明，方便和UI混合，具体在例子中就是把“this._image.blendMode = BlendMode.Off;”注释掉即可。但如果渲染的内容包含有透明贴图，那么和UI混合时就会出现透明部分的显示错误。在RenderImage这个例子中，FairyGUI提供了一个方案，将RenderTexture所在位置的背景图片影射到RenderTexture渲染相机的背景上，这样就不用担心透贴的问题。</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetBackground</span>(<span class="params">GObject image</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetBackground</span>(<span class="params">GObject image1, GObject image2</span>)</span>;</div></pre></td></tr></table></figure>

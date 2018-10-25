@@ -269,7 +269,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Canvas</a>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Spine/Canvas</a>
 	                </li>
 	            
 	                
@@ -529,7 +529,7 @@
 <p>标签之间支持嵌套，但不支持交叉嵌套。例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//允许</span></div><div class="line">[<span class="meta">color=#FFFFFF</span>][size=<span class="number">20</span>]text[/size][/color]</div><div class="line"></div><div class="line"><span class="comment">//不允许</span></div><div class="line">[<span class="meta">color=#FFFFFF</span>][size=<span class="number">20</span>]text[/color][/size]</div></pre></td></tr></table></figure>
 <p>对不支持的标签，例如“[tag]text[/tag]”，FairyGUI不做解析，这部分内容原样输出。当“[”字符要用于非UBB语法时，可以使用”\[“这样的方式转义，注意，在编辑器输入时是直接输入”\“即可，在代码里需要用”\\“这样才能表达反斜杠。另外，只需转义”[“，不需要转义”]”。</p>
-<p>普通文本不支持语法中的img、url标签，因为普通文本是不可以图文混排的。要支持图文混排，改为使用富文本。</p>
+<p><strong>普通文本不支持语法中的img、url标签，因为普通文本是不可以图文混排的。要支持图文混排，改为使用富文本。</strong></p>
 <p>FairyGUI也提供了扩展UBB解析器的方法。继承UBBParser类，注册自己的TagHandler即可。具体实现方法请阅读UBBParser的源码或参考demo。</p>
 <h2 id="文本模板"><a href="#文本模板" class="headerlink" title="文本模板"></a>文本模板</h2><p>使用文本模板可以更灵活的动态调整文本输出。例如，如果需要显示“我的元宝：100金200银”，那么常见的制作方式有：</p>
 <ol>

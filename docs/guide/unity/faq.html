@@ -269,7 +269,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Canvas</a>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Spine/Canvas</a>
 	                </li>
 	            
 	                
@@ -375,7 +375,10 @@
     
       <h1>常见问题</h1>
     
-    <h2 id="UI包加载失败"><a href="#UI包加载失败" class="headerlink" title="UI包加载失败"></a>UI包加载失败</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: invalid package &apos;XXXX&apos;, </div><div class="line">if the files is checked out from git, </div><div class="line">make sure to disable autocrlf option!</div></pre></td></tr></table></figure>
+    <h2 id="提示旧的包格式"><a href="#提示旧的包格式" class="headerlink" title="提示旧的包格式"></a>提示旧的包格式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: old package format found in &apos;XXXX&apos;</div></pre></td></tr></table></figure>
+<p>你使用了新版本的SDK(&gt;=3.0)，但编辑器导出的格式是XML格式。新版本SDK已经不再支持这种格式，请在发布对话框，全局设置，勾选“使用二进制格式”。详情参考<a href="../editor/upgrade_binary_format.html">升级到二进制格式</a></p>
+<h2 id="包已经正确放置到Unity项目里，但包-组件对话框看不到这个包以及它里面的组件"><a href="#包已经正确放置到Unity项目里，但包-组件对话框看不到这个包以及它里面的组件" class="headerlink" title="包已经正确放置到Unity项目里，但包/组件对话框看不到这个包以及它里面的组件"></a>包已经正确放置到Unity项目里，但包/组件对话框看不到这个包以及它里面的组件</h2><p>请检查包文件的名字是不是xxx_fui这样子，是的话那就是你已经使用了二进制的包格式，但SDK还是老版本的，请使用3.0以上的SDK。</p>
+<h2 id="UI包加载失败"><a href="#UI包加载失败" class="headerlink" title="UI包加载失败"></a>UI包加载失败</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: invalid package &apos;XXXX&apos;, </div><div class="line">if the files is checked out from git, </div><div class="line">make sure to disable autocrlf option!</div></pre></td></tr></table></figure>
 <p>如果你使用的FairyGUI编辑器版本小于3.1.5，那么包描述文件的格式为纯文本，当这个文件从GIT上拉下来时，有可能由于GIT的自动转换换行符功能导致文件内容发生变化从而造成FairyGUI识别错误。解决办法是关闭GIT的自动转换换行符功能，然后再重新拉一次下来。</p>
 <p>如果你使用的FairyGUI编辑器版本大于等于3.1.5，那么包描述文件的格式已修改为二进制，不再受GIT的影响。仍然出现这个错误的原因是新的格式需要Unity SDK 1.8.3或以上版本支持。旧版本无法识别这个格式，就会报这个错误。解决办法是升级你的Unity SDK，升级你的Unity SDK，升级你的Unity SDK，重要事情说三遍。<br>如果暂时不想升级，可以修改xxx.fairy（你的项目描述文件），将里面的<code>version=&quot;3.1&quot;</code>改成<code>version=&quot;3&quot;</code>，这样编辑器就会使用旧的文本格式发布。</p>
 <p>除了上面这个错误，如果包仍然不能加载，检查包名和路径是否正确，特别要注意包只能放置在Resources目录或者它的子目录下，否则就只能打AB包。再看看是不是Unity的项目放置在了带中文名称的目录，这都有可能造成载入失败。</p>

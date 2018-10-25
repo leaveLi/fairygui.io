@@ -1,5 +1,5 @@
 ---
-title: 插入模型/粒子/Canvas
+title: 插入模型/粒子/Spine/Canvas
 type: guide_unity
 order: 50
 ---
@@ -78,9 +78,18 @@ GoWrapper会在构造函数里查询你的GameObject里所有的Renderer并保�
     wrapper.wrapTarget = anotherGameObject;
 ```
 
+**复制材质**
+
+如果GoWrapper包装的对象是在很多地方同时使用，而且你在实例化时没有自行处理材质的复制，那么会产生一些问题。例如一个模型，你既在UI上显示，也在场景中使用，UI系统需要修改模型的材质参数，这就会对场景中的显示产生影响。造成这个问题的根源是GoWrapper默认是使用共享材质的，这是出于效率的影响。要解决这个问题，有两种途径。一、在你实例化对象时自行复制材质。你需要小心处理，避免过度的复制操作。二、让GoWrapper自动复制。在设置包装对象时这样调用即可：
+
+```csharp
+    //第二个参数为true，表示复制材质
+    wrapper.setWrapTarget(anotherGameObject, true);
+```
+
 **剪裁**
 
-如果需要对3D对象进行剪裁，可以利用自定义遮罩（**模型、粒子等均适用**）。自定义遮罩的使用方法参考：[组件的遮罩](../editor/component.html#遮罩)。
+如果需要对3D对象进行剪裁，可以利用自定义遮罩（**模型、粒子、骨骼动画等均适用**）。自定义遮罩的使用方法参考：[组件的遮罩](../editor/component.html#遮罩)。
 
 例如需要在一个列表内的item显示模型，并希望模型在列表滚动时被正确隐藏，这时仅通过列表自身的溢出滚动功能是无法实现的。首先将列表转换为一个组件，在组件内拖入一个矩形图形覆盖列表的视口，然后将这个图形设置为组件的自定义遮罩。
 
@@ -112,6 +121,8 @@ GoWrapper会在构造函数里查询你的GameObject里所有的Renderer并保�
 ```csharp
     wrapper.supportStencil = true;
 ```
+
+**注意，如果有多个相同的被剪裁的对象，他们的材质不能共用一个，否则会出现显示异常。解决方法是复制材质，请参考上一段，复制材质。**
 
 ## 使用RenderTexture
 

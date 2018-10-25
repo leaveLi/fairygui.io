@@ -269,7 +269,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Canvas</a>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Spine/Canvas</a>
 	                </li>
 	            
 	                
@@ -391,7 +391,7 @@
 </li>
 <li><p><code>点击穿透</code> 默认情况下，组件的矩形区域（宽x高）将拦截点击，勾选后，点击事件可以穿透组件中<strong>没有内容</strong>的区域。详细说明在<a href="#点击测试">点击测试</a>。</p>
 </li>
-<li><p><code>溢出处理</code> 表示处理超出组件矩形区域的内容的方式。</p>
+<li><p><code>溢出处理</code> 表示处理超出组件矩形区域的内容的方式。注意：<strong>溢出处理</strong>不支持在代码里动态修改。</p>
 <ul>
 <li><code>可见</code> 表示超出组件矩形区域的内容保持可见，这是默认行为。</li>
 <li><code>隐藏</code> 表示超出组件矩形区域的内容不可见，相当于对组件应用了一个矩形遮罩。</li>
@@ -434,8 +434,8 @@
 <p>可以看到，虽然A在B的上面，但红色方块是可见的，因为A在此区域并没有内容。当点击图中绿色点的位置时，点击事件将在A上面触发，而B是点击不了的。这是因为在A的范围内，点击是不能穿透的。</p>
 <p>如果希望A能被穿透应该怎样？组件属性里提供设置：<img src="../../images/20170802103448.png" alt="">，勾选即可。代码里也可以设置：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//true表示不可穿透，false表示可穿透。</span></div><div class="line">aComponent.opaque = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
-<p>设置穿透后，只有点击4个白块时，A才接收到点击事件，如果点击绿色点位置，B将接收到点击事件。这个特性在设计一些全屏界面时尤其要注意。例如一个主界面添加到舞台，并设置为全屏，如果不穿透的话，那么Stage.isTouchOnUI将一直返回true。</p>
-<p>注意：图片和普通文字是不接受点击的，如果一个只含有图片或普通文字的组件，设置了点击穿透，那么整个组件就是完全穿透了，不会拦截到任何点击。</p>
+<p>设置穿透后，只有点击4个白块时，A才接收到点击事件，如果点击绿色点位置，B将接收到点击事件。<strong>这个特性在设计一些全屏界面时尤其要注意。例如一个主界面添加到舞台，并设置为全屏，如果不穿透的话，那么Stage.isTouchOnUI将一直返回true。</strong></p>
+<p><strong>注意：图片和普通文字是不接受点击的，如果一个只含有图片或普通文字的组件，设置了点击穿透，那么整个组件就是完全穿透了，不会拦截到任何点击。</strong></p>
 <h2 id="像素点击测试"><a href="#像素点击测试" class="headerlink" title="像素点击测试"></a>像素点击测试</h2><p>有些特殊需求，需要用到不规则区域的点击测试。首先你要准备一张包含不规则区域的图片，图片里不透明的像素代表接受点击的区域，透明的像素代表点击穿透的区域，组件里超出图片范围的也是可穿透的区域。</p>
 <p>把这张图片拖入舞台，然后在组件的“像素点击测试”属性里，选择这张图片。</p>
 <center><br><img src="../../images/20170925151838.png" alt=""><br></center>
@@ -504,7 +504,7 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//升序，这是默认值，按照对象在显示列表中的顺序，从小到大依次渲染，效果就是序号大的显示在较前面。</span></div><div class="line">aComponent.childrenRenderOrder = ChildrenRenderOrder.Ascent;</div><div class="line"></div><div class="line"><span class="comment">//降序，按照对象在显示列表中的顺序，从大到小依次渲染，效果就是序号小的显示在较前面。</span></div><div class="line">aComponent.childrenRenderOrder = ChildrenRenderOrder.Descent;</div><div class="line"></div><div class="line"><span class="comment">//拱形，需要指定一个顶峰的索引，从两端向这个索引位置依次渲染，效果就是这个位置的对象显示在最前面，两边的对象依次显示在后面。</span></div><div class="line">aComponent.childrenRenderOrder = ChildrenRenderOrder.Arch;</div><div class="line">aComponent.apexIndex = <span class="number">3</span>; <span class="comment">//索引为3的对象显示在最前面。</span></div></pre></td></tr></table></figure>
 <h3 id="绑定扩展类"><a href="#绑定扩展类" class="headerlink" title="绑定扩展类"></a>绑定扩展类</h3><p>可以绑定一个类为组件的扩展类。首先，编写一个扩展类：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyComponent</span> : <span class="title">GComponent</span></div><div class="line">&#123;</div><div class="line">    GObject msgObj;</div><div class="line"></div><div class="line">    <span class="comment">//如果你有需要访问容器内容的初始化工作，必须在这个方法里，而不是在构造函数里。各个SDK的函数原型的参数可能略有差别，请以代码提示为准。</span></div><div class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">ConstructFromXML</span>(<span class="params">XML xml</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">base</span>.ConstructFromXML(xml);</div><div class="line">        </div><div class="line">        <span class="comment">//在这里继续你的初始化</span></div><div class="line">        msgObj = GetChild(<span class="string">"msg"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ShowMessage</span>(<span class="params"><span class="keyword">string</span> msg</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        msgObj.text = msg;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>然后注册你的扩展类。注意，<strong>必须在组件构建前注册</strong>，如果你使用的是UIPanel，那么在Start里注册是不够早的，必须在Awake里，总之，如果注册不成功，90%都是注册晚于创建，10%是URL错误。</p>
+<p>然后注册你的扩展类。注意，<strong>必须在组件构建前注册</strong>，如果你使用的是UIPanel，那么在Start里注册是不够早的，必须在Awake里，总之，如果注册不成功，90%可能都是注册晚于创建，10%可能是URL错误，这可以通过打印URL排查。</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIObjectFactory.SetPackageItemExtension(<span class="string">"ui://包名/组件A”, typeof(MyComponent));</span></div></pre></td></tr></table></figure>
 <p>这样就为组件A绑定了一个实现类MyComponent 。以后所有组件A创建出来的对象（包括在编辑器里使用的组件A）都是MyComponent类型。然后我们就可以为MyComponent添加API，用更加面向对象的方式操作组件A。例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">MyComponent gcom = (MyComponent)UIPackage.CreateObject(“包名“， ”组件A”);</div><div class="line">gcom.ShowMessage(<span class="string">"Hello world"</span>);</div></pre></td></tr></table></figure>

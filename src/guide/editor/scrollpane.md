@@ -84,6 +84,8 @@ ScrollPane中常用的API有：
 
 - `decelerationRate` 减速率，调整这个值可以控制惯性滚动的距离和时间。惯性滚动是指手指拖动一定距离然后释放后，滚动容器内容继续滚动一定距离后停止。越接近1，减速越慢，意味着滑动的时间和距离更长。默认值是UIConfig.defaultScrollDecelerationRate。
 
+- `CancelDragging` 当滚动面板处于拖拽滚动状态或即将进入拖拽状态时，可以调用此方法停止或禁止本次拖拽。
+
 可以侦听滚动改变，在任何情况下滚动位置改变都会触发这个事件。
 
 ```csharp

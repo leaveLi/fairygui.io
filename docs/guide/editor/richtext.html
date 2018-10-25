@@ -269,7 +269,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Canvas</a>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Spine/Canvas</a>
 	                </li>
 	            
 	                
@@ -462,6 +462,7 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//注意：全局设置应该在创建富文本之前调用。</span></div><div class="line"><span class="comment">//设置整个项目中所有链接是否带下划线</span></div><div class="line">HtmlParseOptions.DefaultLinkUnderline = <span class="literal">false</span>;</div><div class="line"></div><div class="line"><span class="comment">//设置超级链接的颜色</span></div><div class="line">HtmlParseOptions.DefaultLinkColor = ...;</div><div class="line">HtmlParseOptions.DefaultLinkBgColor = ...;</div><div class="line">HtmlParseOptions.DefaultLinkHoverBgColor = ...;</div></pre></td></tr></table></figure>
 <p>如果你只想定义单个富文本的链接样式，那么可以这样：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">HtmlParseOptions options = aRichTextField.richTextField.htmlParseOptions;</div><div class="line">options.linkUnderline = <span class="literal">false</span>;</div><div class="line">options.linkColor = ...;</div><div class="line">options.linkBgColor = ...;</div><div class="line">options.linkHoverBgColor = ...;</div></pre></td></tr></table></figure>
+<p>如果同一个文本内的各个链接都需要不同颜色，那么在链接标签外围用颜色标签包住就行了。</p>
 <ul>
 <li><code>INPUT</code> 支持显示以下语法：</li>
 </ul>
