@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/product/sdk_release_notes.html</loc>
+    
+    <lastmod>2018-10-30T09:51:29.947Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/product/release_notes.html</loc>
+    
+    <lastmod>2018-10-30T07:57:26.352Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/product/index.html</loc>
+    
+    <lastmod>2018-10-30T07:52:51.292Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/scrollpane.html</loc>
+    
+    <lastmod>2018-10-30T03:09:31.770Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/unity/index.html</loc>
+    
+    <lastmod>2018-10-29T10:04:00.832Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/list.html</loc>
+    
+    <lastmod>2018-10-29T02:58:37.635Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/adaptation.html</loc>
+    
+    <lastmod>2018-10-25T08:11:34.006Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/showcase/index.html</loc>
     
     <lastmod>2018-10-25T02:02:09.713Z</lastmod>
@@ -58,37 +107,9 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/unity/index.html</loc>
-    
-    <lastmod>2018-10-12T04:21:05.557Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/scrollpane.html</loc>
-    
-    <lastmod>2018-10-12T04:02:46.022Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/object.html</loc>
     
     <lastmod>2018-10-11T09:15:07.306Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/release_notes.html</loc>
-    
-    <lastmod>2018-10-11T09:05:55.940Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/product/index.html</loc>
-    
-    <lastmod>2018-10-11T09:03:00.856Z</lastmod>
     
   </url>
   
@@ -110,13 +131,6 @@
     <loc>http://www.fairygui.com/guide/editor/popup.html</loc>
     
     <lastmod>2018-10-11T03:44:16.518Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/adaptation.html</loc>
-    
-    <lastmod>2018-10-11T03:21:18.065Z</lastmod>
     
   </url>
   
@@ -170,13 +184,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/product/sdk_release_notes.html</loc>
-    
-    <lastmod>2018-09-07T14:26:49.459Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/unity/input.html</loc>
     
     <lastmod>2018-08-16T13:59:28.075Z</lastmod>
@@ -208,13 +215,6 @@
     <loc>http://www.fairygui.com/guide/unity/drawcall.html</loc>
     
     <lastmod>2018-07-05T02:59:27.112Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/list.html</loc>
-    
-    <lastmod>2018-07-05T01:47:50.666Z</lastmod>
     
   </url>
   

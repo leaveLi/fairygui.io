@@ -10,13 +10,13 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
 
 1. 将打包后的文件直接发布到Unity的Resources目录或者其子目录下，
 
-XML包的文件列表：
+  旧版本格式（XML）的文件列表：
   ![](../../images/2015-10-21_151409.png)
 
-二进制包的文件列表：
+  新版本格式（二进制）的文件列表：
   ![](../../images/20180908225713.png)
 
-  这种方式处理的UI包，如果使用UIPanel显示UI，不需要任何代码载入；如果是动态创建UI，要使用代码载入包：
+  这种方式处理的UI包，如果使用UIPanel显示UI，不需要任何代码载入包，UIPanel会自动载入；如果是动态创建UI，则要使用代码载入包：
 
   ```csharp
     //demo就是发布时填写的文件名
@@ -28,13 +28,14 @@ XML包的文件列表：
     //如果不放到Resources或者其子目录下，可以传入全路径，但这种方法只能在Editor里使用
     UIPackage.AddPackage("Assets/SomePath/Package1");
   ```
+  AddPackage会先使用传入的路径作为key进行检测，如果这个包已经添加，则不会重复添加。
 
 2. 将发布后的文件打包为两个AssetBundle，即定义文件和资源各打包为一个bundle(desc_bundle+res_bundle)。这样做的好处是一般UI的更新都是修改元件位置什么的，不涉及图片资源的更新，那么只需要重新打包和推送desc_bundle就行了，不需要让玩家更新通常体积比较大的res_bundle，节省流量。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，请遵循以下规则打包：
-  **XML格式包：**
+  旧版本格式（XML）：
   - demo.bytes单独打包为desc_bundle；
   - 其他资源（demo@atlas0.png等），打包到res_bundle。
 
-  **二进制格式包：**
+  新版本格式（二进制）
   - demo_fui.bytes单独打包为desc_bundle；
   - 其他资源（demo_atlas0.png等），打包到res_bundle。
 
@@ -44,6 +45,7 @@ XML包的文件列表：
     //desc_bundle和res_boundle的载入由开发者自行实现。
     UIPackage.AddPackage(desc_bundle, res_bundle);
   ```
+  使用这种方式AddPackage，没有排重检测机制，需要你自己保证。
 
 3. 将发布后的文件打包为一个AssetBundle。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，将demo.bytes和其他资源（demo@atlas0.png等），都放入bundle。
  
@@ -53,6 +55,7 @@ XML包的文件列表：
     //bundle的载入由开发者自行实现。
     UIPackage.AddPackage(bundle);
   ```
+  使用这种方式AddPackage，没有排重检测机制，需要你自己保证。
 
 ## 卸载UI包
 

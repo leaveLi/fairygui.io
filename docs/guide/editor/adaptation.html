@@ -392,7 +392,8 @@
 </ul>
 <p>在Unity版本里，除了使用API设置全局缩放外，还提供了一个Unity组件：UIContentScaler。在启动场景里任何一个GameObject挂上UIContentScaler组件即可。并不需要每个场景都挂。参考<a href="#../unity/index.html#UIContentScaler">这里</a>。</p>
 <h2 id="逻辑屏幕"><a href="#逻辑屏幕" class="headerlink" title="逻辑屏幕"></a>逻辑屏幕</h2><p>全局缩放后的屏幕大小就是逻辑屏幕大小，在上例中，设备分辨率是1280×720，全局缩放系数是1.125，那么逻辑屏幕大小就是（1280/1.125=1138, 720/1.125=640）= 1138x640。GRoot这个UI根组件的大小始终占满逻辑屏幕，也就是说，逻辑屏幕的大小可以通过GRoot.inst.width和GRoot.inst.height获得。</p>
-<h2 id="全屏界面适配"><a href="#全屏界面适配" class="headerlink" title="全屏界面适配"></a>全屏界面适配</h2><p>全局缩放后，大部分UI都不需要做任何调整，只有一个例外，就是设计为全屏的界面。在上例中，在设计分辨率下，全屏界面的大小是960x640，我们也是按这个大小设计全屏组件的。全局缩放后，这时逻辑屏幕的大小变成1138x640了，那大小就不一致了。这是我们需要重新调整组件大小使之满屏，即</p>
+<h2 id="全屏界面适配"><a href="#全屏界面适配" class="headerlink" title="全屏界面适配"></a>全屏界面适配</h2><p>全局缩放后，大部分UI都不需要做任何调整，只有一个例外，就是设计为全屏的界面。在上例中，在设计分辨率下，全屏界面的大小是960x640，我们也是按这个大小设计全屏组件的。全局缩放后，这时逻辑屏幕的大小变成1138x640了，那大小就不一致了。这时我们需要重新调整组件大小使之满屏。</p>
+<p>如果你使用的是UIPanel，那么在Inspector上设置Fit Screen为Fit Size就可以了；如果是动态创建的UI，那么可以使用API：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//设置组件全屏，即大小和逻辑屏幕大小一致。</span></div><div class="line"><span class="comment">//组件的内部应该做好关联处理， 以应对大小改变。</span></div><div class="line">aComponent.SetSize(GRoot.inst.width, GRoot.inst.height);</div><div class="line"><span class="comment">//或者更简洁的方式</span></div><div class="line">aComponnet.MakeFullScreen();</div></pre></td></tr></table></figure>
 <p>一般来说，手游在进入游戏后，屏幕大小就不会变化的。但如果你开发的是桌面游戏，又或者支持横竖屏切换的游戏，即屏幕大小是会变化的，那么全屏界面还需要加上对屏幕大小的约束，即</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aComponent.AddRelation(GRoot.inst, RelationType.Size);</div></pre></td></tr></table></figure>

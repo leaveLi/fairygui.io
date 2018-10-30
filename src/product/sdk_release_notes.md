@@ -4,6 +4,20 @@ type: product
 order: 2
 ---
 
+## 2018/10/30
+Unity发布了3.1.0版本，以下是更新内容
+1. 改进了文字描边由原来的4次叠加增加到8次叠加，效果更好。但可以通过设置UIConfig.enhancedTextOutlineEffect=false强制为原来的4次叠加效果。
+2. 优化了Update里的逻辑，CPU消耗最大可减少30%。
+3. GoWrapper现在支持一个网格渲染器内多个材质。
+4. 手机上输入文本激活时，调整光标到最后。
+5. 消除了ColorFilter调整参数时产生的GC。
+6. 修正了设置GLoader.texture=null时显示不正确的bug。
+7. 调整着色器，修正了在Unity5.4版本错误的激活了线性空间颜色相关逻辑的bug。
+8. 修正了PC上无法粘贴多行文本到输入框的bug。
+9. 修正了RemovePackage里有关资源释放的一个bug。
+10. 修正API titleFontSize实现的bug。
+11. 修正了GTween在duration=0时工作不正确的bug。
+
 ## 2018/9/7
 1. [Cocos2dx/Cry] 新增支持二进制的包格式。。[详情](../guide/editor/upgrade_binary_format.html)
 2. [Unity] Unity发布了3.0.0正式版本，提供二进制格式的支持。

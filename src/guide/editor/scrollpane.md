@@ -74,7 +74,7 @@ ScrollPane中常用的API有：
 
 - `ScrollToView` 调整滚动位置，使指定的元件出现在视口内。
 
-- `touchEffect` 打开或关闭触摸滚动功能。
+- `touchEffect` 打开或关闭触摸滚动功能。关闭触摸滚动后，用户就不能拖拽视口进行滚动了。
 
 - `scrollStep` 这个值是指滚动“一格”的距离。这个距离有三个用途：a）scrollUp/scrollDown/scrollLeft/scrollRight； b）点击滚动条的箭头按钮； c）鼠标滚轮，鼠标滚轮滚一次的距离是scrollStep*2。
 

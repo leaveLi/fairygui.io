@@ -115,7 +115,21 @@
     
       <h1>SDK更新日志</h1>
     
-    <h2 id="2018-9-7"><a href="#2018-9-7" class="headerlink" title="2018/9/7"></a>2018/9/7</h2><ol>
+    <h2 id="2018-10-30"><a href="#2018-10-30" class="headerlink" title="2018/10/30"></a>2018/10/30</h2><p>Unity发布了3.1.0版本，以下是更新内容</p>
+<ol>
+<li>改进了文字描边由原来的4次叠加增加到8次叠加，效果更好。但可以通过设置UIConfig.enhancedTextOutlineEffect=false强制为原来的4次叠加效果。</li>
+<li>优化了Update里的逻辑，CPU消耗最大可减少30%。</li>
+<li>GoWrapper现在支持一个网格渲染器内多个材质。</li>
+<li>手机上输入文本激活时，调整光标到最后。</li>
+<li>消除了ColorFilter调整参数时产生的GC。</li>
+<li>修正了设置GLoader.texture=null时显示不正确的bug。</li>
+<li>调整着色器，修正了在Unity5.4版本错误的激活了线性空间颜色相关逻辑的bug。</li>
+<li>修正了PC上无法粘贴多行文本到输入框的bug。</li>
+<li>修正了RemovePackage里有关资源释放的一个bug。</li>
+<li>修正API titleFontSize实现的bug。</li>
+<li>修正了GTween在duration=0时工作不正确的bug。</li>
+</ol>
+<h2 id="2018-9-7"><a href="#2018-9-7" class="headerlink" title="2018/9/7"></a>2018/9/7</h2><ol>
 <li>[Cocos2dx/Cry] 新增支持二进制的包格式。。<a href="../guide/editor/upgrade_binary_format.html">详情</a></li>
 <li>[Unity] Unity发布了3.0.0正式版本，提供二进制格式的支持。</li>
 </ol>

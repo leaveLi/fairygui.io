@@ -214,6 +214,61 @@ order: 180
 
 **提示：虚拟功能只能开启，不能关闭。**
 
+虚拟列表的性能和itemRenderer的处理逻辑密切相关，你应该尽量简化这里面的逻辑，协程、IO、高密度计算这类操作不应该在这里出现，否则会出现卡顿。如果需要在itemRenderer里发起异步操作，切勿让异步操作保存ITEM实例，并且在回调中直接修改ITEM实例，正确的做法是让异步操作保存ITEM的索引，异步操作完成后，查询这个索引的ITEM是否有对应的显示对象，有则更新，如果没有，放弃更新。
+另外，itemRenderer里也不应该有new等会产生GC的操作，因为在滚动的过程中，itemRenderer调用的频率会非常高。
+
+在虚拟列表里，ITEM是复用的，当一个ITEM需要被刷新时，itemRenderer就会被调用，你无需关心这个调用的时机，也不能依赖这个时机。请注意，如果在itemRenderer你使用Add进行事件的侦听操作，**绝不可以使用临时函数或者lamba表达式**。下面举例子说明一下。
+
+C#参考：
+
+```csharp
+    void EventCallback()
+    {
+    }
+
+    EventCallback0 callback = EventCallback;
+
+    void OnRenderItem(int index, GObject obj)
+    {
+        GButton btn = obj.asCom.GetChild("btn").asButton;
+
+        //错误！，临时函数会造成添加多次回调。Lua里使用“function() end”类似。
+        btn.onClick.Add(()=> { });
+
+        //可以，同一个方法只会添加一次。但直接使用方法名会生成几十B的GC。
+        btn.onClick.Add(EventCallback);
+
+        //正确，callback是缓存的代理实例，不会产生GC。
+        btn.onClick.Add(callback);
+
+        //正确，使用Set设置可以保证不会重复添加。
+        btn.onClick.Set(callback);
+
+        //错误！，不能对ITEM使用onClick.Set，你需要用GList.onClickItem
+        obj.onClick.Set(EventCallback);
+    }
+```
+
+AS3/Starling/Egret/Laya参考：
+
+```csharp
+    //
+    private function EventCallback(evt:Event):void
+    {
+    }
+
+    private function onRenderItem(index:int, obj:GObject):void
+    {
+        var btn:GButton = obj.asCom.getChild("btn").asButton;
+
+        //错误，这里不应该使用临时函数
+        btn.addClickListener(function():void {});
+
+        //正确，同一个方法只会添加一次
+        btn.addClickListener(EventCallback); 
+    }
+```
+
 在虚拟列表中，显示对象和item的数量在数量上和顺序上是不一致的，item的数量可以通过numItems获得，而显示对象的数量可以由组件的API numChildren获得。
 
 在虚拟列表中，需要注意item索引和显示对象索引的区分。通过selectedIndex获得的值是item的索引，而非显示对象的索引。AddSelection/RemoveSelection等API同样需要的是item的索引。项目索引和对象索引的转换可以通过以下两个方法完成：
