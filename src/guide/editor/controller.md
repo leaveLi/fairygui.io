@@ -314,7 +314,7 @@ order: 100
     // 3-外观控制，4-颜色控制，5-动画控制，6-文字控制，7-图标控制
     GearDisplay gearDisplay = obj.GetGear(0);
 
-    gearDisplay.controller = obj.parent.GetControler("c1");
+    gearDisplay.controller = obj.parent.GetController("c1");
     //注意这里是页面的id，不是索引或者名称。可以通过Controller.GetPageIdByName转换。
     gearDisplay.pages = new string[] { ... }; 
 

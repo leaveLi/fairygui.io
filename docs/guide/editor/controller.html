@@ -6,18 +6,18 @@
         <title>FairyGUI - 控制器</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
-        <meta name="keywords" content="FairyGUI,FGUI,UI编辑器,H5编辑器,GUI,Unity GUI,LayaAir GUI,Flash GUI,Egret GUI,Pixi GUI,LibGDX GUI,Cocos2dx GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI">
+        <meta name="description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, CryEngine, MonoGame, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
+        <meta name="keywords" content="FairyGUI,FGUI,UI编辑器,H5编辑器,GUI,Unity GUI,LayaAir GUI,Flash GUI,Egret GUI,Pixi GUI,LibGDX GUI,Cocos2dx GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI,MonoGame GUI">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-控制器FairyGUI">
-        <meta property="og:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
+        <meta property="og:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, CryEngine, MonoGame, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="控制器 — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
+        <meta name="twitter:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, CryEngine, MonoGame, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -525,7 +525,7 @@
 <p>如果你正在做界面的初始化，可能不希望出现任何缓动。可以这样做：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//禁止所有控制器引起的缓动</span></div><div class="line">GearBase.disableAllTweenEffect = <span class="literal">true</span>; </div><div class="line">c1.selectedIndex = <span class="number">1</span>;</div><div class="line"><span class="comment">//记住要复原</span></div><div class="line">GearBase.disableAllTweenEffect = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
 <p>可以用代码设置属性控制，但一般不建议这样做，应该尽量在编辑器里完成。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//GearXXX对象是控制器和属性之间的连接。0-显示控制，1-位置控制，2-大小控制，</span></div><div class="line"><span class="comment">// 3-外观控制，4-颜色控制，5-动画控制，6-文字控制，7-图标控制</span></div><div class="line">GearDisplay gearDisplay = obj.GetGear(<span class="number">0</span>);</div><div class="line"></div><div class="line">gearDisplay.controller = obj.parent.GetControler(<span class="string">"c1"</span>);</div><div class="line"><span class="comment">//注意这里是页面的id，不是索引或者名称。可以通过Controller.GetPageIdByName转换。</span></div><div class="line">gearDisplay.pages = <span class="keyword">new</span> <span class="keyword">string</span>[] &#123; ... &#125;; </div><div class="line"></div><div class="line">GearXY gearXY = obj.GetGear(<span class="number">1</span>);</div><div class="line">gearXY.tweenConfig.duration = <span class="number">0.5</span>f;</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//GearXXX对象是控制器和属性之间的连接。0-显示控制，1-位置控制，2-大小控制，</span></div><div class="line"><span class="comment">// 3-外观控制，4-颜色控制，5-动画控制，6-文字控制，7-图标控制</span></div><div class="line">GearDisplay gearDisplay = obj.GetGear(<span class="number">0</span>);</div><div class="line"></div><div class="line">gearDisplay.controller = obj.parent.GetController(<span class="string">"c1"</span>);</div><div class="line"><span class="comment">//注意这里是页面的id，不是索引或者名称。可以通过Controller.GetPageIdByName转换。</span></div><div class="line">gearDisplay.pages = <span class="keyword">new</span> <span class="keyword">string</span>[] &#123; ... &#125;; </div><div class="line"></div><div class="line">GearXY gearXY = obj.GetGear(<span class="number">1</span>);</div><div class="line">gearXY.tweenConfig.duration = <span class="number">0.5</span>f;</div></pre></td></tr></table></figure>
 
     
     <div class="footer">
