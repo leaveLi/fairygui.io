@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/showcase/index.html</loc>
+    
+    <lastmod>2018-11-01T10:34:41.261Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/product/index.html</loc>
     
     <lastmod>2018-11-01T06:22:09.255Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://www.fairygui.com/guide/editor/adaptation.html</loc>
     
     <lastmod>2018-10-25T08:11:34.006Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/showcase/index.html</loc>
-    
-    <lastmod>2018-10-25T02:02:09.713Z</lastmod>
     
   </url>
   
