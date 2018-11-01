@@ -102,3 +102,9 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-vision.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-vision.svg" alt="forks">
 
 [下载例子](https://github.com/fairygui/FairyGUI-vision-examples)
+
+## MonoGame SDK
+
+源码: [https://github.com/fairygui/FairyGUI-monogame](https://github.com/fairygui/FairyGUI-monogame)
+
+<img src="https://img.shields.io/github/stars/fairygui/FairyGUI-monogame.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-monogame.svg" alt="forks">
