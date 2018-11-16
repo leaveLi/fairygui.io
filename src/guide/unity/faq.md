@@ -57,6 +57,9 @@ Create Component1@Package1 failed!
 2. 主相机的ClearFlags错误设置为了Depth。
 3. 场景里还有其他相机，且它的Culling Mask设置勾选了UI。
 
+## 文字显示为黑色
+没有放置着色器。
+
 ## 字体渲染效果不对
 
 如果你设置了字体后，觉得字体效果不对，可以用以下的方式排查：
@@ -148,6 +151,7 @@ UIConfig.buttonSoundVolume仅用于初始化设置，后续改变是无效的。
     //调整全局声音音量，这个包括按钮声音和动效播放的声音
     GRoot.inst.soundVolume = 0.5f;
 ```
+
 ## FairyGUI可以播放视频吗
 
 播放视频的功能Unity有提供，不需要FairyGUI支持。你可以使用一个Loader，然后将视频对象的texture赋值给Loader就可以了。

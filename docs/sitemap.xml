@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/guide/unity/index.html</loc>
+    
+    <lastmod>2018-11-16T10:26:01.673Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/unity/faq.html</loc>
+    
+    <lastmod>2018-11-16T08:46:37.009Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/unity/input.html</loc>
+    
+    <lastmod>2018-11-14T08:36:13.120Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/text.html</loc>
+    
+    <lastmod>2018-11-12T13:33:10.642Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/upgrade_binary_format.html</loc>
+    
+    <lastmod>2018-11-12T11:45:26.535Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/object.html</loc>
+    
+    <lastmod>2018-11-09T09:22:23.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/showcase/index.html</loc>
     
     <lastmod>2018-11-01T10:34:41.261Z</lastmod>
@@ -51,13 +93,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/unity/index.html</loc>
-    
-    <lastmod>2018-10-29T10:04:00.832Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/list.html</loc>
     
     <lastmod>2018-10-29T02:58:37.635Z</lastmod>
@@ -79,13 +114,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/editor/text.html</loc>
-    
-    <lastmod>2018-10-18T06:46:11.899Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
     
     <lastmod>2018-10-18T06:44:34.601Z</lastmod>
@@ -93,30 +121,9 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/guide/unity/faq.html</loc>
-    
-    <lastmod>2018-10-15T12:15:47.163Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/component.html</loc>
     
     <lastmod>2018-10-15T12:03:43.189Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/upgrade_binary_format.html</loc>
-    
-    <lastmod>2018-10-12T09:30:48.256Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/object.html</loc>
-    
-    <lastmod>2018-10-11T09:15:07.306Z</lastmod>
     
   </url>
   
@@ -187,13 +194,6 @@
     <loc>http://www.fairygui.com/guide/editor/graph.html</loc>
     
     <lastmod>2018-09-08T14:40:02.066Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/unity/input.html</loc>
-    
-    <lastmod>2018-08-16T13:59:28.075Z</lastmod>
     
   </url>
   

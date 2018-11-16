@@ -446,14 +446,14 @@
 <li><p><code>Render Mode</code> 有三种：</p>
 <ul>
 <li><code>Screen Space Overlay</code> 默认值，表示这个UI在屏幕空间显示，这时Transform的Scale将被锁定，而且不建议修改Transform中的其他内容（让他们保持为0）。如果要修改面板在屏幕上的位置，使用UI Transform（参考下面关于UI Transform的说明）。</li>
-</ul>
-</li>
 <li><code>Screen Space Camera</code> 表示这个UI在屏幕空间显示，但不使用FairyGUI默认的正交相机，而是使用指定的正交相机。</li>
 <li><code>World Space</code> 表示这个UI在世界空间显示，由透视相机渲染。默认的使用场景的主相机，如果不是，那么设置Render Camera。当使用这种模式时，使用Transfrom修改UI在世界空间中的位置、缩放、旋转。但你仍然可以使用UI Transform。</li>
 </ul>
+</li>
+</ul>
 <p>注意：Render Mode只定义了FairyGUI对待这个UI的方式，通常是坐标相关的操作（如点击检测等），但和渲染无关。UI由哪个相机渲染是由GameObject的layer决定的。所以如果发现UI没有显示出来，可以检查一下GameObject的layer是否正确。例如如果是Screen Space，GameObject应该在UI层，如果是WorldSpace，则是在Default层或者其他自定义的层次。</p>
 <ul>
-<li><p><code>Render Camera</code> 当Render Mode是Screen Space Camera或者World Space时可以设置。如果不设置，默认为场景的主相机。</p>
+<li><p><code>Render Camera</code> 当Render Mode是Screen Space Camera或者World Space时可以设置。如果不设置，默认为场景的主相机。注意，当RenderMode为WorldSpace时，如果这里没有设置相机，那么场景里一定要有主相机，否则UI无法点击。</p>
 </li>
 <li><p><code>Sorting Order</code> 调整UIPanel的显示顺序。越大的显示在越前面。</p>
 </li>
@@ -508,6 +508,17 @@
 <p><strong>使用UIPanel和UIPackage.CreateObject的场合和注意事项</strong></p>
 <p>UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameObject上。当然，UIPanel在2D UI中也可以使用，他的优点是可以直接摆放在场景中，符合Unity的ECS架构。缺点是这种用法对UI管理带来很多麻烦，特别是对中大型游戏。</p>
 <p>使用UIPackage.CreateObject可以使用代码创建任何界面，可以应用在传统的设计模式中，Lua支持也十分方便。不过必须要小心处理生成的对象的生命周期，因为它需要手动显式销毁，并且永远不要将使用CreateObject创建出来的对象挂到其他一些普通GameObject上，否则那些GameObject销毁时会一并销毁这个UI里的GameObject，但这个UI又还处于正常使用状态，就会出现空引用错误。</p>
+<h2 id="GameObject和UI节点的关联"><a href="#GameObject和UI节点的关联" class="headerlink" title="GameObject和UI节点的关联"></a>GameObject和UI节点的关联</h2><p>使用GObject.displayObject.gameObject，很容易获得一个UI节点对应的GameObject；但有些情况下，需要通过GameObject反推到UI节点，例如：</p>
+<ul>
+<li>调试的时候希望在Inspector能看到GameObject对应的UI节点信息；</li>
+<li>做UI自动化测试时，例如使用网易AirTest这样的UI自动化方案时，需要通过GameObject获取到UI节点。</li>
+</ul>
+<p>出于节省内存的考虑，FairyGUI默认是没有给每个GameObject挂上能提供对应UI节点的信息的Mono组件的。从SDK 3.2.0版本开始，可以通过定义一个宏 <strong>FAIRYGUI_TEST</strong> 来实现这些需求。定义这个宏后，当在Scene里点击GameObject时，在Inspector里可以查看Display Object Info这个组件的内容：</p>
+<p><img src="../../images/20181116175512.png" alt=""></p>
+<p>当然，也可以在这里修改它的内容。</p>
+<p>注意，一个GObject可能会由多个GameObject组合，如果选择一个GameObject，只有第一栏信息，没有出现第二栏信息，说明它不是UI节点的主GameObject。</p>
+<p>下面的代码演示了怎样获取一个GameObject对应的UI节点并修改它的文本：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DisplayObjectInfo info = gameObject.GetComponent&lt;DisplayObjectInfo&gt;(); </div><div class="line"></div><div class="line">GObject obj = GRoot.inst.DisplayObjectToGObject(info.displayObject);</div><div class="line">obj.text = &quot;Hello&quot;;</div></pre></td></tr></table></figure>
 <h2 id="Stage-Camera"><a href="#Stage-Camera" class="headerlink" title="Stage Camera"></a>Stage Camera</h2><p>当添加UIPanel后，或者第一次动态创建UI时，场景里会自动新增一个“Stage Camera”。这是默认的UI相机。你也可以手动在场景里增加这个UI相机：</p>
 <p><img src="../../images/2017-08-09_174219.png" alt=""></p>
 <p>“Stage Camera”一般不需要修改它的属性，除了下面这个：</p>

@@ -135,11 +135,11 @@ FairyGUI提供了手势的支持。使用手势的方式是：
     gesture.onAction.Add(OnGestureAction);
 ```
 
-targetObject是接收手势的元件，注意一定要是可触摸的。图片是不可触摸的，一般建议用组件，或者图形（图形透明度可以设置为0）。如果你需要全屏幕监测手势，那么可以直接用GRoot.inst作为targetObject（需1.9.0 SDK或更高版本支持）
+targetObject是接收手势的元件，注意一定要是可触摸的。图片是不可触摸的，一般建议用组件，或者装载器。如果你需要全屏幕监测手势，那么可以直接用GRoot.inst作为targetObject（需1.9.0 SDK或更高版本支持）
 
 常用的手势有：
 
-`LongPressGesture` 长按手势。
+`LongPressGesture` 长按手势。可以设定长按触发的时间，还可以控制长按触发后继续触发通知的时间间隔。
 
 `SwipeGesture` 手指划动手势。
 
@@ -147,4 +147,4 @@ targetObject是接收手势的元件，注意一定要是可触摸的。图片�
 
 `RotationGesture` 两指旋转手势。
 
-手势的使用方法可以参考Gesture这个Demo。
+手势的使用方法可以参考Gesture这个Demo。手势与FairyGUI SDK是非耦合的，也就是说，如果你觉得手势不符合你的要求，你可以复制一个出来自己改自己用。
