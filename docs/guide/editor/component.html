@@ -389,7 +389,7 @@
 </li>
 <li><p><code>初始名字</code> 当组件被实例化（限编辑器内）时，自动设置组件的名称为这里设置的值。最常见的用途就是，FairyGUI里要求窗口框架组件需命名为frame，那么你创作了一个窗口框架组件后，设置“初始名字”为frame，以后每次拖入这个组件，自动就取好名字了，不用每次修改。</p>
 </li>
-<li><p><code>点击穿透</code> 默认情况下，组件的矩形区域（宽x高）将拦截点击，勾选后，点击事件可以穿透组件中<strong>没有内容</strong>的区域。详细说明在<a href="#点击测试">点击测试</a>。</p>
+<li><p><code>点击穿透</code> 默认情况下，组件的矩形区域（宽x高）将拦截点击，勾选后，点击事件可以穿透组件中<strong>没有内容</strong>的区域。详细说明在<a href="#点击穿透">点击穿透</a>。</p>
 </li>
 <li><p><code>溢出处理</code> 表示处理超出组件矩形区域的内容的方式。注意：<strong>溢出处理</strong>不支持在代码里动态修改。</p>
 <ul>
@@ -408,7 +408,7 @@
 </li>
 <li><p><code>反向（挖洞）</code> 详细说明在<a href="#遮罩">遮罩</a>。</p>
 </li>
-<li><p><code>像素点击测试</code> 详细说明在<a href="#点击测试">点击测试</a>。</p>
+<li><p><code>像素点击测试</code> 详细说明在<a href="#像素点击测试">像素点击测试</a>。</p>
 </li>
 <li><p><code>扩展</code> 详细说明在<a href="#扩展">扩展</a>。</p>
 </li>
@@ -444,13 +444,15 @@
 <h3 id="矩形遮罩"><a href="#矩形遮罩" class="headerlink" title="矩形遮罩"></a>矩形遮罩</h3><p>将组件的“溢出处理”设置为“隐藏”或者“滚动”，那么组件就带了矩形遮罩。超出组件(矩形区域-边缘留空）的区域都不可见。无论在什么平台，这种遮罩的效率是最高的。</p>
 <h3 id="自定义遮罩"><a href="#自定义遮罩" class="headerlink" title="自定义遮罩"></a>自定义遮罩</h3><p>可以设置组件内一个图片或者图形作为组件的遮罩。这种遮罩一般都是使用模板测试(Stencil Op)技术。各个平台支持的力度不同：</p>
 <ul>
-<li><p><code>AS3/Starling/Egret/Laya</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内可见，其他区域不可见。</p>
+<li><p><code>AS3/Starling/Egret</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内可见，其他区域不可见。</p>
 <p>不能使用图片（Image）作为遮罩，因为使用图片作为遮罩也是取其矩形区域而已，用一个矩形（Graph）的图形效果是一样的。</p>
 <p>Starling版本要使用自定义遮罩必须在应用程序描述文件里加上:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&lt;initialWindow&gt;</div><div class="line">    &lt;depthAndStencil&gt;<span class="literal">true</span>&lt;/depthAndStencil&gt;</div><div class="line">&lt;/initialWindow&gt;</div></pre></td></tr></table></figure>
 </li>
-<li><p><code>Unity</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内<strong>可见</strong>，其他区域不可见。</p>
+<li><p><code>Unity/Laya</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内<strong>可见</strong>，其他区域不可见。</p>
 <p>使用图片（Image）作为遮罩时，图片内透明度为0的像素对应区域的内容<strong>不可见</strong>，反之可见。超出图片区域的内容<strong>不可见</strong>。</p>
+<p>Unity版本须知：如果你要对使用了自定义遮罩的组件进行设置倾斜、设置BlendMode，设置滤镜，又或者曲面UI中含有自定义遮罩的组件时，需要额外的设置才能显示正常。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.depthSupportForPaitingMode = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="反向遮罩（挖洞）"><a href="#反向遮罩（挖洞）" class="headerlink" title="反向遮罩（挖洞）"></a>反向遮罩（挖洞）</h3><p>效果和正常遮罩相反，也就是可见的区域变不可见，不可见的区域变可见。目前仅Unity平台支持，例如：</p>

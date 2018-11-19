@@ -11,11 +11,7 @@ order: 0
   ```
     fairygui.UIConfig.packageFileExtension = "你定义的扩展名";
   ```
-3. 下载[xml解析库](http://fairygui.oss-cn-shenzhen.aliyuncs.com/js.rar)，引入方式：
-  ```
-    window.Parser = require("./js/dom_parser");
-  ```
-  如果在发布对话框，全局设置里勾选“使用二进制格式”，则不需要XML库的支持。
+3. 在发布对话框，全局设置里勾选“使用二进制格式”。
 4. AddPackage有两种方式，一种是传统的传入文件名方式，另一种是直接传入fui整个文件的内容，也就是说不管你内容是从哪里来的。两种方式可以按需选择。
 5. 如果遇到加载失败，请检查laya的加载流程。因为FairyGUI不负责加载，你需要确保资源已经顺利加载了再AddPackage。
 
@@ -29,9 +25,13 @@ order: 0
 
   ![](../../images/20170809155742.png)
 
-3. 在index.html里添加上述两个库的引用，注意放置的位置。
+3. [LayaAir1.x版本]在index.html里添加上述两个库的引用，注意放置的位置。
 
   ![](../../images/20170809160052.png)
+
+  **[LayaAir2.x版本]**在index.js里添加上述两个库的引用，注意放置的位置。
+
+  ![](../../images/20181117114842.png)
 
   注：FairyGUI只依赖laya.core， laya.html两个模块，不需要laya.ui。
 

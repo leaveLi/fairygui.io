@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fairygui.com/product/sdk_release_notes.html</loc>
+    
+    <lastmod>2018-11-19T15:01:58.266Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/editor/component.html</loc>
+    
+    <lastmod>2018-11-19T03:30:54.155Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fairygui.com/guide/laya/index.html</loc>
+    
+    <lastmod>2018-11-17T03:49:07.895Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fairygui.com/guide/unity/index.html</loc>
     
     <lastmod>2018-11-16T10:26:01.673Z</lastmod>
@@ -79,13 +100,6 @@
   </url>
   
   <url>
-    <loc>http://www.fairygui.com/product/sdk_release_notes.html</loc>
-    
-    <lastmod>2018-10-30T09:51:29.947Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fairygui.com/guide/editor/scrollpane.html</loc>
     
     <lastmod>2018-10-30T03:09:31.770Z</lastmod>
@@ -117,13 +131,6 @@
     <loc>http://www.fairygui.com/guide/editor/richtext.html</loc>
     
     <lastmod>2018-10-18T06:44:34.601Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/editor/component.html</loc>
-    
-    <lastmod>2018-10-15T12:03:43.189Z</lastmod>
     
   </url>
   
@@ -166,13 +173,6 @@
     <loc>http://www.fairygui.com/guide/editor/window.html</loc>
     
     <lastmod>2018-09-21T07:57:06.538Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fairygui.com/guide/laya/index.html</loc>
-    
-    <lastmod>2018-09-09T01:04:36.536Z</lastmod>
     
   </url>
   

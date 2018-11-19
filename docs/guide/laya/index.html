@@ -380,9 +380,7 @@
 <li><p>小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名（自己查阅小游戏文档）。然后在代码里设置：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">fairygui.UIConfig.packageFileExtension = &quot;你定义的扩展名&quot;;</div></pre></td></tr></table></figure>
 </li>
-<li><p>下载<a href="http://fairygui.oss-cn-shenzhen.aliyuncs.com/js.rar" target="_blank" rel="external">xml解析库</a>，引入方式：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">window.Parser = require(&quot;./js/dom_parser&quot;);</div></pre></td></tr></table></figure>
-<p>如果在发布对话框，全局设置里勾选“使用二进制格式”，则不需要XML库的支持。</p>
+<li><p>在发布对话框，全局设置里勾选“使用二进制格式”。</p>
 </li>
 <li>AddPackage有两种方式，一种是传统的传入文件名方式，另一种是直接传入fui整个文件的内容，也就是说不管你内容是从哪里来的。两种方式可以按需选择。</li>
 <li>如果遇到加载失败，请检查laya的加载流程。因为FairyGUI不负责加载，你需要确保资源已经顺利加载了再AddPackage。</li>
@@ -394,8 +392,10 @@
 <li><p>把fairygui.d.ts拷贝到libs目录。</p>
 <p><img src="../../images/20170809155742.png" alt=""></p>
 </li>
-<li><p>在index.html里添加上述两个库的引用，注意放置的位置。</p>
+<li><p>[LayaAir1.x版本]在index.html里添加上述两个库的引用，注意放置的位置。</p>
 <p><img src="../../images/20170809160052.png" alt=""></p>
+<p><strong>[LayaAir2.x版本]</strong>在index.js里添加上述两个库的引用，注意放置的位置。</p>
+<p><img src="../../images/20181117114842.png" alt=""></p>
 <p>注：FairyGUI只依赖laya.core， laya.html两个模块，不需要laya.ui。</p>
 </li>
 <li><p>使用FairyGUI编辑器完成UI编辑。发布目录请选择Laya工程的bin/res目录（当然其他目录也是可以的）。发布后得到两个（或以上）文件。</p>

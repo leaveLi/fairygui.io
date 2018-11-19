@@ -4,6 +4,14 @@ type: product
 order: 2
 ---
 
+## 2018/11/19
+1. [Unity] Unity发布了3.2.0版本。
+2. [Unity] 增加了一个Unity组件DisplayObjectInfo，可以在Inspector下查看和修改GameObject对应的UI节点的信息。支持了网易的UI自动化测试工具[AirTest](https://github.com/xiaoguzhu/Poco-SDK/tree/add_sdk/Unity3D/fairygui)。但默认不挂这个新组件，要启用这个功能，在Scripting Define Symbols里添加**FAIRYGUI_TEST**。
+3. [Laya] 现在已支持LayaAir2.0，要注意master中的代码是支持LayaAir2.0的，分支layaair1.x才是支持LayaAir1.x的。这两个分支目前都保持维护状态，直到LayaAir2.0完全稳定。
+4. [All] 修正了混合不同资源ITEM的虚拟列表在滚动过程中可能会出现ITEM的深度不正确的bug。
+5. [All] 修正了GList.scrollToView在横向流动或者竖向流动布局中滚动位置不正确的bug。
+6. [MonoGame] 新增了MonoGame SDK。
+
 ## 2018/10/30
 Unity发布了3.1.0版本，以下是更新内容
 1. 改进了文字描边由原来的4次叠加增加到8次叠加，效果更好。但可以通过设置UIConfig.enhancedTextOutlineEffect=false强制为原来的4次叠加效果。
