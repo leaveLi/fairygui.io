@@ -45,7 +45,7 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-layabox.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-layabox.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-layabox-demo180907.zip)
+[下载例子](http://res.fairygui.com/FairyGUI-layabox-demo181120.zip)
 
 ## Egret SDK
 
@@ -55,7 +55,7 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 [下载例子](http://res.fairygui.com/FairyGUI-egret-demo180907.zip)
 
-## Pixi SDK
+## PIXI SDK
 
 源码: [https://github.com/jcyuan/FairyGUI-PixiJS/releases](https://github.com/jcyuan/FairyGUI-PixiJS/releases)
 

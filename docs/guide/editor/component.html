@@ -455,7 +455,7 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.depthSupportForPaitingMode = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="反向遮罩（挖洞）"><a href="#反向遮罩（挖洞）" class="headerlink" title="反向遮罩（挖洞）"></a>反向遮罩（挖洞）</h3><p>效果和正常遮罩相反，也就是可见的区域变不可见，不可见的区域变可见。目前仅Unity平台支持，例如：</p>
+<h3 id="反向遮罩（挖洞）"><a href="#反向遮罩（挖洞）" class="headerlink" title="反向遮罩（挖洞）"></a>反向遮罩（挖洞）</h3><p>效果和正常遮罩相反，也就是可见的区域变不可见，不可见的区域变可见<em>(仅部分引擎支持，例如Unity、Laya）</em>。例如：</p>
 <p><img src="../../images/20170622162422.png" alt=""></p>
 <p>使用图形（Graph）作为遮罩时，有图形的区域内容<strong>不可见</strong>，例如，一个圆形，则圆形区域内不可见，其他区域可见。</p>
 <p>使用图片（Image）作为遮罩时，图片内透明度为0的像素对应区域的内容<strong>可见</strong>，反之不可见。超出图片区域的内容<strong>可见</strong>。</p>
