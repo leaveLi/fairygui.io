@@ -4,18 +4,47 @@ type: guide_unity
 order: 90
 ---
 
-## 组件截图
+## PaintMode
 
-使用下面的方法可以实现对组件截图的功能。原理是使用FairyGUI提供的`绘画模式`功能。API是：
+FairyGUI可以使一个显示对象进入`绘画模式`，简单的说就是将目标对象整体画到一张纹理上，然后就可以操作这个纹理实现一些特殊的效果。以下的功能都依赖这种模式：
+
+- 组件的BlendMode不为默认值“Normal”。
+- 对组件使用任意滤镜；
+- 对任意对象使用模糊滤镜；
+- 组件设置了倾斜；
+- 使用了2D模拟3D透视功能，即GObject.perspective = true;
+- 曲面UI
+
+绘画模式功能依赖一个额外的相机，以及特别定义的两个Layer。相机是**自动生成**的，名字是CaptureCamera，你不需要访问和操作它。两个Layer的名字是`VUI`和`Hidden VUI`，如果Unity里没有定义这两个Layer，就会出现警告：
+
+```
+Please define two layers named 'VUI' and 'Hidden VUI' "
+```
+
+这时你要在Layer定义里加上他们，避免出现这个警告。这两个Layer可以随便定义到没使用的层序号（默认是30和31），但要注意所有相机（除了CaptureCamera，它是自动的，不用管）的Culling Mask都**不选择**这两个层。
+
+除了上面提到的功能会使对象进入绘画模式外，也可以调用API手动触发：
 
 ```csharp
+    //进入绘画模式
     EnterPaintingMode(int requestorId, Margin? margin);
+
+    //离开绘画模式
+    LeavePaintingMode(int requestorId);
 ```
 
 - `requestorId` 请求者id。当多个请求要求显示对象进入绘画模式时，可以用这个id区分。取值是1、2、4、8、16以此类推。1024内内部保留。用户自定义的id从1024开始。
 - `margin` 纹理四周的留空。如果特殊处理后的内容大于原内容，那么这里的设置可以使纹理扩大。
 
-利用绘画模式实现截图功能：
+**如果目标对象使用了自定义遮罩，则需要额外的设置才能显示正常。**
+
+```csharp
+    UIConfig.depthSupportForPaitingMode = true;
+```
+
+## 组件截图
+
+使用下面的方法可以实现对组件截图的功能。原理是使用FairyGUI提供的`绘画模式`功能。
 
 ```csharp
     GObject aObject;

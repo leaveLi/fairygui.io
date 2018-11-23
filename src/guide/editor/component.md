@@ -143,11 +143,7 @@ FairyGUI的遮罩有两种：矩形遮罩和自定义遮罩。
 
   使用图片（Image）作为遮罩时，图片内透明度为0的像素对应区域的内容**不可见**，反之可见。超出图片区域的内容**不可见**。
   
-  Unity版本须知：如果你要对使用了自定义遮罩的组件进行设置倾斜、设置BlendMode，设置滤镜，又或者曲面UI中含有自定义遮罩的组件时，需要额外的设置才能显示正常。
-
-  ```csharp
-    UIConfig.depthSupportForPaitingMode = true;
-  ```
+  Unity版本须知：如果你要对使用了自定义遮罩的组件进行设置倾斜、设置BlendMode，设置滤镜，又或者曲面UI中含有自定义遮罩的组件时，需要额外的设置才能显示正常。请参考[PaintMode](../unity/special.html#PaintMode)
 
 ### 反向遮罩（挖洞）
 
@@ -223,7 +219,7 @@ FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器�
 
 - `AddChild` `AddChildAt` 向容器内添加元件。前者将元件添加到显示列表的队尾；后者可以指定一个索引控制元件的插入位置。
 
-- `RemoveChild` `RemoveChildAt` `RemoveCihldren` 从容器内删除元件。当元件从显示对象中移出时，将不再占用显示资源。但元件从显示列表移出后，只是不显示，并没有销毁，如果你没有保存这个对象的引用留待后续使用，或者没有调用对象的Dispose方法销毁对象，那么会产生内存泄露。
+- `RemoveChild` `RemoveChildAt` `RemoveChildren` 从容器内删除元件。当元件从显示对象中移出时，将不再占用显示资源。但元件从显示列表移出后，只是不显示，并没有销毁，如果你没有保存这个对象的引用留待后续使用，或者没有调用对象的Dispose方法销毁对象，那么会产生内存泄露。
 
 - `GetChild` `GetChildAt` 通过索引或名称获得元件引用。元件的名字是允许重复的，在这种情况下，GetChild返回第一个匹配名称的对象。
 

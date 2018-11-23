@@ -164,10 +164,13 @@ UIPanel也可以在游戏中创建，为任意游戏对象动态挂接UI界面�
     panel.packageName = “包名”;
     panel.componentName = “组件名”;
 
-    //下面这是设置选项非必须
+    //下面这是设置选项非必须，注意很多属性都要在container上设置，而不是UIPanel
     
     //设置renderMode的方式
     panel.container.renderMode = RenderMode.WorldSpace;
+
+    //设置renderCamera的方式
+    panel.container.renderCamera = ...;
     
     //设置fairyBatching的方式
     panel.container.fairyBatching = true;

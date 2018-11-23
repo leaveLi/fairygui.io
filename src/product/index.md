@@ -25,13 +25,13 @@ FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建
 
 ## Unity SDK
 
+Unity内下载：在Unity内打开AssetStore，搜索FairyGUI，直接下载导入即可（免费）。
+
+[AssetStore下载](http://u3d.as/kX8) | [GitHub下载](https://github.com/fairygui/FairyGUI-unity/releases) | [网盘下载](http://pan.baidu.com/s/1dDQIg9b) （密码: k2m7）
+
 源码: [https://github.com/fairygui/FairyGUI-unity](https://github.com/fairygui/FairyGUI-unity)
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-unity.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-unity.svg" alt="forks">
-
-[下载例子](https://github.com/fairygui/FairyGUI-unity/releases)
-
-[下载例子-网盘](http://pan.baidu.com/s/1dDQIg9b) （密码: k2m7）
 
 ## Cocos2dx SDK
 

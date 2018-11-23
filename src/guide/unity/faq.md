@@ -88,12 +88,7 @@ Create Component1@Package1 failed!
 
 ## 场景里出现CaptureCamera
 
-以下情况场景中会自动出现CaptureCamera：
-1. 组件的BlendMode不为默认值“Normal”。
-2. 对组件使用任意滤镜；
-3. 对任意对象使用模糊滤镜；
-4. 组件设置了倾斜；
-5. 使用了2D模拟3D透视功能，即GObject.perspective = true;
+参考[PaintMode](special.html#PaintMode)
 
 ## 出现需要定义层的警告
 
@@ -101,7 +96,7 @@ Create Component1@Package1 failed!
 Please define two layers named 'VUI' and 'Hidden VUI' "
 ```
 
-当场景里自动出现CaptureCamera（为什么会出现这个，参考上一条）时，如果没有VUI、Hidden VUI这两个Layer的定义，就会出现这个警告，所以你要在Layer定义里加上他们。这两个Layer可以随便定义到没使用的层序号，但要注意所有相机的Culling Mask都**不选择**这两个层。
+参考[PaintMode](special.html#PaintMode)
 
 ## 放置UI到其他Layer
 

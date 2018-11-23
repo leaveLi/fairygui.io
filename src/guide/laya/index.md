@@ -4,6 +4,9 @@ type: guide_laya
 order: 0
 ---
 
+## 关于LayaAir2.0
+现在已支持LayaAir2.0，要注意GitHub上master分支中的代码是支持LayaAir2.0的，分支layaair1.x才是支持LayaAir1.x的。这两个分支目前都保持维护状态，直到LayaAir2.0完全稳定。
+
 ## 小游戏开发必读
 
 1. 因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，在发布对话框，全局设置里不勾选“压缩描述文件”就可以了。rawinflate这个库就不会再引用到（也不需要打包了）。

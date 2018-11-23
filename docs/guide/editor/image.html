@@ -441,6 +441,8 @@
 <h2 id="GImage"><a href="#GImage" class="headerlink" title="GImage"></a>GImage</h2><p>图片我们一般不直接使用new来创建，也很少有需要单独创建图片的需求。它一般直接放置在其他组件中作为组成元素。如果确实需要实例化一个图片，可以使用以下方法：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GImage aImage = UIPackage.CreateObject(<span class="string">"包名"</span>,<span class="string">"图片名"</span>).asImage;</div></pre></td></tr></table></figure>
 <p>图片作为UI的一个基础组成元素，它的设计首先是考虑到简单高效，所以是不提供API修改图片的。如果有动态更改图片的需求，应该改为使用装载器（GLoader）。</p>
+<p>如果图片设置了填充模式，可以通过代码修改填充比例，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aImage.fillAmount = <span class="number">0.5</span>; <span class="comment">//0~1</span></div></pre></td></tr></table></figure>
 <p>在Unity平台中，如果在某些特殊场合需要将Texture2D对象赋予给GImage，可以这样做：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//必须注意GImage不管理外部对象的生命周期，不会主动销毁your_Texture2D</span></div><div class="line">aImage.texture = <span class="keyword">new</span> NTexture(your_Texture2D);</div></pre></td></tr></table></figure>
 <p>再次强调，这种需求仍然是建议尽量使用装载器实现。</p>

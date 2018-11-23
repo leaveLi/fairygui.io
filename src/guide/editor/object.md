@@ -29,7 +29,7 @@ order: 10
 
  2. 关联系统只对元件的宽高有效，不计入Scale的影响。
 
-- `倾斜X` `倾斜Y` 设置元件的倾斜值。 
+- `倾斜X` `倾斜Y` 设置元件的倾斜值。 对于Unity平台，你可以放心地对图片、动画、装载器使用倾斜，这几乎不会带来额外消耗，但对于其他类型的元件，例如组件，请谨慎使用。组件的倾斜需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再应用倾斜，这会有一定的内存消耗。务必阅读[PaintMode](../unity/special.html#PaintMode)
 
 - `轴心X` `轴心Y` 旋转、缩放、倾斜这些变换时的轴心点。取值范围是0~1。例如X=0.5，Y=0.5表示中心位置。点击右边的小三角形可以快速设置一些常用的值，比如中心，左下角，右下角等。
 
@@ -51,7 +51,7 @@ order: 10
 
 ![](../../images/20170726161142.png)
 
-- `BlendMode` 这个提供了一部分的混合选项设置。对于Unity平台，对图片、动画、文字，你可以放心地修改它们的BlendMode。但对于组件，请谨慎使用。组件的BlendMode需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用混合选项。这里面会有一定的内存消耗。但实现细节无需开发者介入。
+- `BlendMode` 这个提供了一部分的混合选项设置。对于Unity平台，对图片、动画、文字，你可以放心地修改它们的BlendMode。但对于组件，请谨慎使用。组件的BlendMode需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用混合选项，这会有一定的内存消耗。务必阅读[PaintMode](../unity/special.html#PaintMode)
 
 Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以通过使用以下代码重定义混合效果。注意：设置了特别BlendMode的显示对象无法与其他显示对象合并Draw Call。
 
@@ -60,19 +60,9 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
         UnityEngine.Rendering.BlendMode.XX, UnityEngine.Rendering.BlendMode.XX);
 ```
 
-- `滤镜` 目前编辑器支持两种滤镜的定义，颜色滤镜和模糊滤镜。对于H5类平台，请谨慎使用滤镜，因为会带来一定的消耗；对于Unity平台，你可以放心地对图片、动画、装载器使用颜色滤镜，这几乎不会带来额外消耗，但对于其他类型的元件，例如组件，请谨慎使用。组件的滤镜需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用滤镜。这里面会有一定的内存消耗。但实现细节无需开发者介入。
+- `滤镜` 目前编辑器支持两种滤镜的定义，颜色滤镜和模糊滤镜。对于H5类平台，请谨慎使用滤镜，因为会带来一定的消耗；对于Unity平台，你可以放心地对图片、动画、装载器使用颜色滤镜，这几乎不会带来额外消耗，但对于其他类型的元件，例如组件，请谨慎使用。组件的滤镜需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用滤镜，这会有一定的内存消耗。务必阅读[PaintMode](../unity/special.html#PaintMode)
 
-注意：设置了滤镜的显示对象无法与其他显示对象合并Draw Call。
-
-**Unity版本须知**
-
-对组件使用BlendMode或者滤镜会需要用到捕获UI成纹理的功能，所以需要定义VUI、Hidden VUI这两个Layer，否则会出现警告。这两个Layer可以随便定义到没使用的层序号，但要注意所有相机的Culling Mask都**不选择**这两个层。另外，运行时场景里会自动出现Capture Camera对象，这是正常的，不需要理会。
-
-如果你要对使用了自定义遮罩的组件进行设置倾斜、设置BlendMode，设置滤镜，又或者曲面UI中含有自定义遮罩的组件时，需要额外的设置才能显示正常。
-
-```csharp
-    UIConfig.depthSupportForPaitingMode = true;
-```
+  注意：设置了滤镜的显示对象无法与其他显示对象合并Draw Call。
 
 ## Tooltips
 
