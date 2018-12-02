@@ -107,6 +107,6 @@ FairyGUI支持从右向左的阿拉伯语言文字显示。如果需要打开此
 
 ![](../../images/20180319022527.png)
 
-## 自定义滤镜
+## UI自动化测试
 
-待补充。。。
+FairyGUI提供了自动化测试工具[AirTest](http://airtest.netease.com/)的SDK，方便接入自动化测试。可以从[这里](https://github.com/AirtestProject/Poco-SDK/tree/master/Unity3D)下载使用。使用时要注意在Scripting Define Symbols里填入FAIRYGUI_TEST。

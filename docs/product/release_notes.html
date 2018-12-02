@@ -115,36 +115,32 @@
     
       <h1>发行日志</h1>
     
-    <h2 id="3-9-9"><a href="#3-9-9" class="headerlink" title="3.9.9"></a>3.9.9</h2><p>增加了MonoGame引擎的支持，欢迎使用。</p>
-<h2 id="3-9-8"><a href="#3-9-8" class="headerlink" title="3.9.8"></a>3.9.8</h2><ol>
+    <h2 id="3-10-0"><a href="#3-10-0" class="headerlink" title="3.10.0"></a>3.10.0</h2><ol>
+<li>增加了导出符合LayaAir2.0规范的TS代码。在发布设置-&gt;全局设置里选择TypeScript-LayaAir2。模板在template/Laya2TS目录。</li>
+<li>增加了导出依赖关系的功能。当包发布时，它依赖哪些包这个信息会写入发布后的文件，并可以通过SDK读出。</li>
+<li>修正了如果含有大于64K的文本时发布失败的bug。</li>
+<li>修正了位图字体fnt文件如果被版本管理工具自动转换换行符后，“允许改变大小”属性识别错误的bug。</li>
+<li>修正了Mac版本不读取用户目录下安装的字体的bug。</li>
+<li>现在多行文本也可以应用“自动缩小”，不会自动变成单行。</li>
+<li>修正了设置了自定义遮罩的组件，在旋转缩放时显示不正确bug（仅编辑器）。</li>
+</ol>
+<h2 id="3-9"><a href="#3-9" class="headerlink" title="3.9"></a>3.9</h2><ol>
+<li>新增了发布包描述文件为二进制格式的功能。需要SDK更新支持。<a href="../guide/editor/upgrade_binary_format.html">详情</a></li>
+<li>现在可以在编辑器中使用TGA格式图片。</li>
+<li>增加对位图字体勾选了“允许动态字号”后，字体大小错误设置为0的情况的兼容。</li>
+<li>修正发布二进制格式时文字投影不正确的bug。</li>
+<li>动效新增了”改变文字”和“改变图标”两种动画类型。</li>
+<li>修正了Mac系统下不能使用Command+C/X/V/A的问题。</li>
+<li>修正了相同前缀的包在发布时可能错误删除文件的问题。</li>
+<li>现在支持跨包移动资源。</li>
+<li>优化了列表item编辑界面。</li>
+<li>修正了字符串导入导出功能的一个bug（有关文本控制）。</li>
+<li>增加了一个创建窗口框架的向导对话框（在资源菜单下）。</li>
 <li>设计参考图现在可以选择是否在测试视图也显示。</li>
 <li>修正了文本“自动缩小”功能在编辑器预览不正确的bug。</li>
 <li>修正了退出测试视图时，下拉框仍然显示的bug。</li>
 <li>修正了导出C++代码不正确的bug。</li>
-</ol>
-<h2 id="3-9-7"><a href="#3-9-7" class="headerlink" title="3.9.7"></a>3.9.7</h2><ol>
-<li>增加了一个创建窗口框架的向导对话框（在资源菜单下）。</li>
-<li>修正了列表item编辑界面的一个bug。</li>
-</ol>
-<h2 id="3-9-6"><a href="#3-9-6" class="headerlink" title="3.9.6"></a>3.9.6</h2><ol>
-<li>现在支持跨包移动资源。</li>
-<li>优化了列表item编辑界面。</li>
-<li>修正了字符串导入导出功能的一个bug（有关文本控制）。</li>
-</ol>
-<h2 id="3-9-5"><a href="#3-9-5" class="headerlink" title="3.9.5"></a>3.9.5</h2><ol>
-<li>动效新增了”改变文字”和“改变图标”两种动画类型。</li>
-<li>修正了Mac系统下不能使用Command+C/X/V/A的问题。</li>
-<li>修正了相同前缀的包在发布时可能错误删除文件的问题。</li>
-</ol>
-<h2 id="3-9-3"><a href="#3-9-3" class="headerlink" title="3.9.3"></a>3.9.3</h2><ol>
-<li>修正发布二进制格式时文字投影不正确的bug。</li>
-</ol>
-<h2 id="3-9-2"><a href="#3-9-2" class="headerlink" title="3.9.2"></a>3.9.2</h2><ol>
-<li>增加对位图字体勾选了“允许动态字号”后，字体大小错误设置为0的情况的兼容。</li>
-</ol>
-<h2 id="3-9-0"><a href="#3-9-0" class="headerlink" title="3.9.0"></a>3.9.0</h2><ol>
-<li>新增了发布包描述文件为二进制格式的功能。需要SDK更新支持。<a href="../guide/editor/upgrade_binary_format.html">详情</a></li>
-<li>现在可以在编辑器中使用TGA格式图片。</li>
+<li>增加了MonoGame引擎的支持，欢迎使用。</li>
 </ol>
 <h2 id="3-8"><a href="#3-8" class="headerlink" title="3.8"></a>3.8</h2><ol>
 <li>文本/富文本增加了文本模板功能。勾选“使用模板”后，就可以使用{count=100}这样的语法，编辑器显示的是100，代码里可以直接设置count变量实现文本的更改。详情请参考：<a href="../guide/editor/text.html#文本模板">文本模板</a></li>

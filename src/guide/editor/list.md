@@ -305,9 +305,9 @@ AS3/Starling/Egret/Laya参考：
 虚拟列表支持可变大小的item，可以通过两种方式动态改变item的大小：
 
 - 在itemRenderer的内部使用width、height或SetSize改变item的大小。
-- item建立对内部元件的关联，例如item建立了一个对内部某个可变高度文本的高高关联，这样当文本改变时，item的高度自动改变。
+- item建立对内部元件的关联，然后在itemRenderer里修改内容触发内部元件的改变，从而自动改变item高度。例如item建立了一个对内部某个可变高度文本的高高关联，这样当文本改变时，item的高度自动改变。
 
-**除这两种方式外，不可以通过其他方式改变item大小，否则虚拟列表排列会错乱。**
+**除这两种方式外，不可以通过其他在itemRenderer外的方式改变item大小，否则虚拟列表排列会错乱。但你可以通过调用RefreshVirtualList强制触发itemRenderer。**
 
 虚拟列表支持不同类型的item混合。首先为列表定义一个回调函数，例如
 
