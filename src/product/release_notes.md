@@ -4,6 +4,9 @@ type: product
 order: 1
 ---
 
+## 3.10.1
+1. 增加发布到CocosCreator的支持。
+
 ## 3.10.0
 1. 增加了导出符合LayaAir2.0规范的TS代码。在发布设置->全局设置里选择TypeScript-LayaAir2。模板在template/Laya2TS目录。
 2. 增加了导出依赖关系的功能。当包发布时，它依赖哪些包这个信息会写入发布后的文件，并可以通过SDK读出。

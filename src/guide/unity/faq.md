@@ -82,6 +82,8 @@ Create Component1@Package1 failed!
 
 这个API并不需要由开启了fairyBatching的组件调用，aObject可以是任何一个内含的元件。并且你可以在任何时间调用，每帧调用也可以，只要你确认是需要。它的消耗不算大，但也不能说没有。
 
+如果是动效过程观察到这种情况，设置动效的invalidateBatchingEveryFrame=true即可。
+
 ## 图片拼接/平铺有缝
 
 双击图片，在图片属性对话框中勾选“重复边缘像素”。

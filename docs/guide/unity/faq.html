@@ -410,6 +410,7 @@
 <p>对于打开了fairyBatching的组件，当开发者自己调用SetPosition等API改变子元件或者孙子元件的位置、大小，旋转或缩放，并不会自动触发深度调整，例如一个图片原来显示在一个窗口里的顶层，你用Tween将它从原来的位置移到另外一个位置，这个图片就有可能被窗口里的其他元素遮挡。这时开发者需要手动触发深度调整，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.InvalidateBatchingState();</div></pre></td></tr></table></figure>
 <p>这个API并不需要由开启了fairyBatching的组件调用，aObject可以是任何一个内含的元件。并且你可以在任何时间调用，每帧调用也可以，只要你确认是需要。它的消耗不算大，但也不能说没有。</p>
+<p>如果是动效过程观察到这种情况，设置动效的invalidateBatchingEveryFrame=true即可。</p>
 <h2 id="图片拼接-平铺有缝"><a href="#图片拼接-平铺有缝" class="headerlink" title="图片拼接/平铺有缝"></a>图片拼接/平铺有缝</h2><p>双击图片，在图片属性对话框中勾选“重复边缘像素”。</p>
 <h2 id="场景里出现CaptureCamera"><a href="#场景里出现CaptureCamera" class="headerlink" title="场景里出现CaptureCamera"></a>场景里出现CaptureCamera</h2><p>参考<a href="special.html#PaintMode">PaintMode</a></p>
 <h2 id="出现需要定义层的警告"><a href="#出现需要定义层的警告" class="headerlink" title="出现需要定义层的警告"></a>出现需要定义层的警告</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Please define two layers named &apos;VUI&apos; and &apos;Hidden VUI&apos; &quot;</div></pre></td></tr></table></figure>

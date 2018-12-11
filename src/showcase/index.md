@@ -4,6 +4,8 @@ type: showcase
 order: 0
 ---
 
+![](../images/showcase/lai_zi_xing_xing_de_mao.png)
+
 ![](../images/showcase/20181101180507.png)
 
 ![](../images/showcase/20181101183221.jpg)

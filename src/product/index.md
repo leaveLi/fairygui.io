@@ -6,12 +6,12 @@ order: 0
 
 ## FairyGUI 编辑器 
 
->当前版本3.10.0
+>当前版本3.10.1
 
 <div id="downloads">
-<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_3_10_0.zip" target="_self">Windows平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
+<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_3_10_1.zip" target="_self">Windows平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
 
-<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_Mac_3_10_0.zip" target="_self">OSX平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
+<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_Mac_3_10_1.zip" target="_self">OSX平台</a><span class="light info">支持简体中文、繁体中文和英文</span>
 </div>
 
 FairyGUI编辑器是绿色软件，解压后可直接使用，无需安装。建议解压到非中文目录下。
@@ -54,6 +54,14 @@ Unity内下载：在Unity内打开AssetStore，搜索FairyGUI，直接下载导�
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-egret.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-egret.svg" alt="forks">
 
 [下载例子](http://res.fairygui.com/FairyGUI-egret-demo180907.zip)
+
+## CocosCreator SDK
+
+源码: [https://github.com/fairygui/FairyGUI-cocoscreator](https://github.com/fairygui/FairyGUI-cocoscreator)
+
+<img src="https://img.shields.io/github/stars/fairygui/FairyGUI-cocoscreator.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-cocoscreator.svg" alt="forks">
+
+[下载例子](http://res.fairygui.com/FairyGUI-cocoscreator-demo181211.zip)
 
 ## PIXI SDK
 
