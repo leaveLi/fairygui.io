@@ -130,11 +130,14 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
     aObject.rotaionX = 30;
   ```
 
-- `获得原生对象` displayObject。例如：
+- `获得原生对象` displayObject/node*(CocosCreator)*。例如：
 
   ```csharp
     //获取原生对象
     DisplayObject displayObject = aObject.displayObject;
+
+    //CococCreator获取原生对象
+    let node:cc.Node = aObject.node;
 
     //Unity版本获取GameObject
     GameObject go = displayObject.gameObject;

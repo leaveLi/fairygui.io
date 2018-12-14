@@ -1,7 +1,7 @@
 ---
-title: 在Cocos2dx中使用FairyGUI
-type: guide_cocos2dx
-order: 0
+title: Cocos2dx
+type: guide_sdk
+order: 3
 ---
 
 ## 运行Demo

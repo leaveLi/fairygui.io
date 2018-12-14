@@ -52,6 +52,9 @@ order: 200
 
     //Cocos2dx
     aComponent->addEventListener(UIEventType::Exit, CC_CALLBACK_1(AClass::onPopupClosed, this));
+
+    //CocosCreator
+    aComponent.on(fgui.Event.UNDISPLAY, this.onPopupClosed, this);
 ```
 
 ## PopupMenu
@@ -85,6 +88,10 @@ PopupMenu是FairyGUI提供的一个工具类，用于实现弹出菜单。首先
     {
         GButton item = GButton(context.data);
         Debug.Log(item.name);
+    }
+
+    //CocosCreator版本的回调函数，第一个参数就是被点击的item
+    MenuItemCallback(item, evt) {
     }
 
     //添加分隔条

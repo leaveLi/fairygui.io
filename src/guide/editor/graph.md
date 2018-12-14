@@ -43,6 +43,8 @@ FairyGUI支持生成简单的图形。 点击侧工具栏的![](../../images/201
 
 如果SetNativeObject被重复调用，则前一个设置对象被销毁，插入新的对象。
 
+对于Laya、Cocos2dx和CocosCreator平台，他们的节点都是可以随时加入子对象的，因此不需要使用setNativeObject。你可以随时使用holder.displayObject.addChild（Laya）或者holder.node.addChild（Creator）进行挂接原生节点的操作。
+
 通过GGraph.shape属性可以获得原生矢量绘制的接口类。特别说明的是，Unity平台没有矢量绘制引擎，因此目前只提供了绘制矩形、圆形和多边形。以下是Unity里运用GGraph对象的一些技巧：
 
 ```csharp

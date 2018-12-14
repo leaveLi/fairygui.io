@@ -1,5 +1,5 @@
-site_description: "FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, CryEngine, MonoGame, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎"
-site_keywords: "FairyGUI,FGUI,UI编辑器,H5编辑器,GUI,Unity GUI,LayaAir GUI,Flash GUI,Egret GUI,Pixi GUI,LibGDX GUI,Cocos2dx GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI,MonoGame GUI"
+site_description: "FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持UUnity, Cocos2dx, CryEngine, MonoGame, Havok Vision, Starling, Egret, LayaAir, CocosCreator, Haxe, PIXI, LibGDX等引擎"
+site_keywords: "FairyGUI,FGUI,UI编辑器,H5编辑器,GUI,Unity GUI,LayaAir GUI,Flash GUI,Egret GUI,Pixi GUI,LibGDX GUI,Cocos2dx GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI,MonoGame GUI,CocosCreator"
 site_index_description: "超强UI编辑器，跨平台开源UI解决方案"
 root_domain: fairygui.com
 fairygui_version: 3.0

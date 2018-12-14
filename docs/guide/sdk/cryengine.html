@@ -3,21 +3,21 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - Cry-事件机制</title>
+        <title>FairyGUI - Cry Engine</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, CryEngine, MonoGame, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
-        <meta name="keywords" content="FairyGUI,FGUI,UI编辑器,H5编辑器,GUI,Unity GUI,LayaAir GUI,Flash GUI,Egret GUI,Pixi GUI,LibGDX GUI,Cocos2dx GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI,MonoGame GUI">
+        <meta name="description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持UUnity, Cocos2dx, CryEngine, MonoGame, Havok Vision, Starling, Egret, LayaAir, CocosCreator, Haxe, PIXI, LibGDX等引擎">
+        <meta name="keywords" content="FairyGUI,FGUI,UI编辑器,H5编辑器,GUI,Unity GUI,LayaAir GUI,Flash GUI,Egret GUI,Pixi GUI,LibGDX GUI,Cocos2dx GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI,MonoGame GUI,CocosCreator">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="-Cry-事件机制FairyGUI">
-        <meta property="og:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, CryEngine, MonoGame, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
+        <meta property="og:title" content="-Cry EngineFairyGUI">
+        <meta property="og:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持UUnity, Cocos2dx, CryEngine, MonoGame, Havok Vision, Starling, Egret, LayaAir, CocosCreator, Haxe, PIXI, LibGDX等引擎">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Cry-事件机制 — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持Unity, Cocos2dx, CryEngine, MonoGame, Starling, Egret, LayaAir, Haxe, Pixi, LibGDX等引擎">
+        <meta name="twitter:title" content="Cry Engine — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI是一款超强的UI编辑器，及跨平台开源UI解决方案，制作效率直接提升 50%！，支持UUnity, Cocos2dx, CryEngine, MonoGame, Havok Vision, Starling, Egret, LayaAir, CocosCreator, Haxe, PIXI, LibGDX等引擎">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -26,7 +26,7 @@
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.min.js"></script>
-        <script>window.PAGE_TYPE = "guide_cry"</script>
+        <script>window.PAGE_TYPE = "guide_sdk"</script>
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
@@ -82,7 +82,7 @@
         <h2>
             Guide
             <!--<select class="version-select">
-                <option value="SELF" selected>cry</option>
+                <option value="SELF" selected>sdk</option>
             </select>-->
         </h2>
         <ul class="menu-root">
@@ -230,7 +230,41 @@
 	            
 	                
 	                
-	                <li><h3>Unity</h3></li>
+	                <li><h3>SDK</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/sdk/laya.html" class="sidebar-link">LayaAir</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/egret.html" class="sidebar-link">Egret</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/cocos2dx.html" class="sidebar-link">Cocos2dx</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/creator.html" class="sidebar-link">Cocos Creator</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/cryengine.html" class="sidebar-link current">Cry Engine</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
 	                    <a href="/guide/unity/index.html" class="sidebar-link">显示UI面板</a>
@@ -303,88 +337,46 @@
 	                </li>
 	            
 
-	            
-	                
-	                
-	                <li><h3>Cocos2dx</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">在Cocos2dx中使用FairyGUI</a>
-	                </li>
-	            
-	            
-	            
-	                
-	                
-	                <li><h3>CryEngine</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/cry/index.html" class="sidebar-link">在Cry Engine中使用FairyGUI</a>
-	                </li>
-	            
-	                
-	                
-	                <li>
-	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-坐标系统</a>
-	                </li>
-	            
-	                
-	                
-	                <li>
-	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-输入处理</a>
-	                </li>
-	            
-	                
-	                
-	                <li>
-	                    <a href="/guide/cry/event.html" class="sidebar-link current">Cry-事件机制</a>
-	                </li>
-	            
-	            
-	            
-	                
-	                
-	                <li><h3>LayaAir</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">在LayaAir中使用FairyGUI</a>
-	                </li>
-	            
-	
-	            
-	                
-	                
-	                <li><h3>Egret</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">在Egret中使用FairyGUI</a>
-	                </li>
-	            
-
-	            
-
-	            
-
             
         </ul>
     </div>
 </div>
 
 
-<div class="content guide_cry with-sidebar ">
+<div class="content guide_sdk with-sidebar ">
     
-      <h1>Cry-事件机制</h1>
+      <h1>Cry Engine</h1>
     
-    <p><code>EventDispatcher</code>是事件分发的中心，GObject就是一个EventDispatcher。每个事件类型都对应一个<code>EventListener</code>，接收事件并调用处理函数。</p>
+    <h2 id="加载UI包"><a href="#加载UI包" class="headerlink" title="加载UI包"></a>加载UI包</h2><p>将打包后的文件直接发布到Cry项目的Assets目录或者其子目录下，</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//demo就是发布时填写的文件名</span></div><div class="line">UIPackage.AddPackage(<span class="string">"demo"</span>);</div><div class="line"></div><div class="line"><span class="comment">//如果在子目录下</span></div><div class="line">UIPackage.AddPackage(<span class="string">"路径/demo"</span>);</div></pre></td></tr></table></figure>
+<h2 id="卸载UI包"><a href="#卸载UI包" class="headerlink" title="卸载UI包"></a>卸载UI包</h2><p>当一个包不再使用时，可以将其卸载。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这里可以使用包的id，包的名称，包的路径，均可以</span></div><div class="line">UIPackage.RemovePackage(<span class="string">"package"</span>);</div></pre></td></tr></table></figure>
+<p>包卸载后，所有包里包含的贴图等资源均会被卸载，由包里创建出来的组件也无法显示正常（虽然不会报错），所以这些组件应该（或已经）被销毁。<br>一般不建议包进行频繁装载卸载，因为每次装载卸载必然是要消耗CPU时间（意味着耗电）和产生大量GC的。UI系统占用的内存是可以精确估算的，你可以按照包的使用频率设定哪些包是常驻内存的（建议尽量多）。</p>
+<h2 id="创建UI"><a href="#创建UI" class="headerlink" title="创建UI"></a>创建UI</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent view = UIPackage.CreateObject(“包名”, “组件名”).asCom;</div><div class="line"></div><div class="line"><span class="comment">//以下几种方式都可以将view显示出来：</span></div><div class="line"></div><div class="line"><span class="comment">//1，直接加到GRoot显示出来</span></div><div class="line">GRoot.inst.AddChild(view);</div><div class="line"></div><div class="line"><span class="comment">//2，使用窗口方式显示</span></div><div class="line">aWindow.contentPane = view;</div><div class="line">aWindow.Show();</div><div class="line"></div><div class="line"><span class="comment">//3，加到其他组件里</span></div><div class="line">aComponnent.AddChild(view);</div></pre></td></tr></table></figure>
+<p>如果界面内容过多，创建时可能引起卡顿，FairyGUI提供了异步创建UI的方式，异步创建方式下，每帧消耗的CPU资源将受到控制，但创建时间也会比同步创建稍久一点。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIPackage.CreateObjectAsync(<span class="string">"包名"</span>,<span class="string">"组件名"</span>, MyCreateObjectCallback);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">MyCreateObjectCallback</span>(<span class="params">GObject obj</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>动态创建的界面不会自动销毁，例如一个背包窗口，你并不需要在每次过场景都销毁。如果要销毁界面，需要手工调用Dispose方法，例如</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">view.Dispose();</div></pre></td></tr></table></figure>
+<h2 id="坐标系统"><a href="#坐标系统" class="headerlink" title="坐标系统"></a>坐标系统</h2><p>GObject里的x/y/position值都是<strong>局部坐标</strong>，也就是相对于父元件的偏移。GObject没有提供直接的属性获得对象的全局坐标，但提供了方法进行转换。</p>
+<p>如果要获得任意一个UI元件在屏幕上的坐标，可以用：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = aObject.LocalToGlobal(Vector2.zero);</div></pre></td></tr></table></figure>
+<p>相反，如果要获取屏幕坐标在UI元件上的局部坐标，可以用：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 localPos = aObject.GlobalToLocal(screenPos);</div></pre></td></tr></table></figure>
+<p>如果有UI适配导致的全局缩放，那么逻辑屏幕大小和物理屏幕大小不一致，逻辑屏幕的坐标就是GRoot里的坐标。如果要进行局部坐标与逻辑屏幕坐标的转换，可以用：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//物理屏幕坐标转换为逻辑屏幕坐标</span></div><div class="line">Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);</div><div class="line"></div><div class="line"><span class="comment">//UI元件坐标与逻辑屏幕坐标之间的转换</span></div><div class="line">aObject.LocalToRoot(pos);</div><div class="line">aObject.RootToLocal(pos);</div></pre></td></tr></table></figure>
+<p><strong>注意，我们在编辑器里定义的，代码里处理的，一般就是指这个逻辑屏幕坐标。</strong></p>
+<p>如果要转换任意两个UI对象间的坐标，例如需要知道A里面的坐标(10,10)在B里面的位置，可以用：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 posInB = aObject.TransformPoint(bObject, <span class="keyword">new</span> Vector2(<span class="number">10</span>,<span class="number">10</span>));</div></pre></td></tr></table></figure>
+<h2 id="事件系统"><a href="#事件系统" class="headerlink" title="事件系统"></a>事件系统</h2><p><code>EventDispatcher</code>是事件分发的中心，GObject就是一个EventDispatcher。每个事件类型都对应一个<code>EventListener</code>，接收事件并调用处理函数。</p>
 <p>例如，编写某个元件单击的处理逻辑：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.onClick.Add(aCallback);</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params"></span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">//some logic</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="冒泡和捕获"><a href="#冒泡和捕获" class="headerlink" title="冒泡和捕获"></a>冒泡和捕获</h2><p>一些特殊的事件，比如鼠标/触摸事件，具备向父组件传递的特性，这个传递过程叫做冒泡。例如当手指接触A元件时，A元件触发TouchBegin事件，然后A元件的父组件B触发TouchBegin事件，然后B的父组件C也触发TouchBegin事件，以此类推，直到舞台根部。这个设计保证了所有相关的显示对象都有机会处理触摸事件，而不只是最顶端的显示对象。</p>
+<h3 id="冒泡和捕获"><a href="#冒泡和捕获" class="headerlink" title="冒泡和捕获"></a>冒泡和捕获</h3><p>一些特殊的事件，比如鼠标/触摸事件，具备向父组件传递的特性，这个传递过程叫做冒泡。例如当手指接触A元件时，A元件触发TouchBegin事件，然后A元件的父组件B触发TouchBegin事件，然后B的父组件C也触发TouchBegin事件，以此类推，直到舞台根部。这个设计保证了所有相关的显示对象都有机会处理触摸事件，而不只是最顶端的显示对象。</p>
 <p>冒泡过程可以被打断，通过调用EventContext.StopPropagation()可以使冒泡停止向父组件推进。</p>
 <p>从上面的冒泡过程可以看出，事件处理的顺序应该是：A’s listeners-&gt;B’s listeners-&gt;C’s listeners，这里还有一种机制可以让链路上任意一个对象可以提前处理事件，这就是事件捕获。事件捕获是反向的，例如在上面的例子中，就是C先捕获事件，然后是B，再到A。所以所有事件处理的完整顺序应该是：</p>
 <p>C’s capture listeners-&gt;B’s capture listeners-&gt;A’s capture listeners-&gt;A’s listeners-&gt;B’s listeners-&gt;C’s listeners</p>
 <p>捕获传递链是不能中止的，冒泡传递链可以通过StopPropagation中止。<br>事件捕获的设计可以使父元件优于子元件和孙子元件检查事件。</p>
 <p>并非所有事件都有冒泡设计，在非冒泡事件中，capture的回调优于普通回调，仅此而已，可以作为一个优先级特性来使用。</p>
-<h2 id="事件回调函数"><a href="#事件回调函数" class="headerlink" title="事件回调函数"></a>事件回调函数</h2><p>每个事件可以注册一个或多个回调函数。函数原型为：</p>
+<h3 id="事件回调函数"><a href="#事件回调函数" class="headerlink" title="事件回调函数"></a>事件回调函数</h3><p>每个事件可以注册一个或多个回调函数。函数原型为：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback0</span>(<span class="params"></span>)</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback1</span>(<span class="params">EventContext context</span>)</span>;</div></pre></td></tr></table></figure>
 <p>两种形式的使用方法都是相同的，差别在于不带参数或带一个参数,只是为了方便在不需要用到EventContext时少写一点而已。</p>
 <p>没有直接传递自定义参数进回调函数的办法。但可以通过三种方式间接实现：</p>
@@ -397,11 +389,11 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">a.data = ...;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Debug.Log(context.sender.data)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="EventListener"><a href="#EventListener" class="headerlink" title="EventListener"></a>EventListener</h2><ul>
+<h3 id="EventListener"><a href="#EventListener" class="headerlink" title="EventListener"></a>EventListener</h3><ul>
 <li><code>Add</code> <code>Remove</code> 添加或删除一个回调。</li>
 <li><code>AddCapture</code> <code>RemoveCapture</code> 添加或删除一个捕获期回调。</li>
 </ul>
-<h2 id="EventContext"><a href="#EventContext" class="headerlink" title="EventContext"></a>EventContext</h2><p>EventContext是回调函数的参数类型。</p>
+<h3 id="EventContext"><a href="#EventContext" class="headerlink" title="EventContext"></a>EventContext</h3><p>EventContext是回调函数的参数类型。</p>
 <ul>
 <li><p><code>sender</code> 获得事件的分发者。</p>
 </li>
@@ -420,13 +412,13 @@
 <li><p><code>UncaptureTouch</code> 取消CaptureTouch发起的触摸事件捕获。</p>
 </li>
 </ul>
-<h2 id="InputEvent"><a href="#InputEvent" class="headerlink" title="InputEvent"></a>InputEvent</h2><p>对键盘事件和鼠标/触摸事件，可以通过EventContext.inputEvent获得此类事件的相关数据。</p>
+<h3 id="InputEvent"><a href="#InputEvent" class="headerlink" title="InputEvent"></a>InputEvent</h3><p>对键盘事件和鼠标/触摸事件，可以通过EventContext.inputEvent获得此类事件的相关数据。</p>
 <ul>
 <li><p><code>x</code> <code>y</code> 鼠标或手指的位置；这是舞台坐标，因为UI可能因为自适配发生了缩放，所以如果要转成UI元件中的坐标，要使用GObject.GlobalToLocal转换。</p>
 </li>
-<li><p><code>keyCode</code> 按键代码；</p>
+<li><p><code>keyCode</code> 按键代码。</p>
 </li>
-<li><p><code>modifiers</code> 参考UnityEngine.EventModifiers。</p>
+<li><p><code>modifiers</code> 参考InputModifierFlags。</p>
 </li>
 <li><p><code>mouseWheelDelta</code> 鼠标滚轮滚动值。</p>
 </li>
@@ -435,11 +427,29 @@
 <li><p><code>isDoubleClick</code> 是否双击。</p>
 </li>
 </ul>
-
+<h2 id="鼠标-触摸输入"><a href="#鼠标-触摸输入" class="headerlink" title="鼠标/触摸输入"></a>鼠标/触摸输入</h2><p>如果要区分点击UI还是点击场景里的对象，可以使用下面的方法：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span>(Stage.isTouchOnUI) <span class="comment">//点在了UI上</span></div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> <span class="comment">//没有点在UI上</span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这种检测不仅适用于点击，也适用于悬停。例如，如果鼠标悬停在UI上，这个判断也是真。</p>
+<p>和鼠标/触摸相关的事件有：</p>
+<ul>
+<li><code>onTouchBegin</code> 鼠标按键按下（左、中、右键），或者手指按下。鼠标按钮可以从context.inputEvent.button获得，0-左键,1-中键,2-右键。</li>
+<li><code>onTouchMove</code> 鼠标指针移动或者手指在屏幕上移动。这个事件只有两种情况会触发，1、在onTouchBegin里调用了context.CaptureTouch()，那么后续的移动事件都会在这个对象上触发（无论手指或指针位置是不是在该对象上方）。2、舞台的onTouchMove始终会触发，即Stage.inst.onTouchMove，不需要使用CaptureTouch捕获。</li>
+<li><code>onTouchEnd</code> 鼠标按键释放或者手指从屏幕上离开。如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的，如果确实需要，可以在onTouchBegin里调用context.CaptureTouch()请求捕获。</li>
+<li><code>onClick</code> 鼠标或者手指点击。可以从context.inputEvent.isDoubleClick判断是否双击。</li>
+<li><code>onRightClick</code> 鼠标右键点击。</li>
+</ul>
+<p>在任何事件（即不只是鼠标/触摸相关的事件）回调中都可以获得当前鼠标或手指位置，以及点击的对象，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">AnyEventHandler</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Debug.Log(context.inputEvent.x + <span class="string">", "</span> + context.inputEvent.y);</div><div class="line"></div><div class="line">    Debug.Log(context.sender);</div><div class="line">    Debug.Log(context.initiator);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果不在事件中，需要获得当前鼠标或者手指的位置，可以用：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这是鼠标的位置，或者最后一个手指的位置</span></div><div class="line">Vector2 pos1 = Stage.inst.touchPosition;</div><div class="line"></div><div class="line"><span class="comment">//获取指定手指的位置，参数是手指id</span></div><div class="line">Vector2 pos2 = Stage.inst.GetTouchPosition(<span class="number">1</span>);</div></pre></td></tr></table></figure>
+<p>在任何时候，如果需要获得当前点击的对象，或者鼠标下的对象，都可以通过以下的方式获得：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = GRoot.inst.touchTarget;</div><div class="line"></div><div class="line"><span class="comment">//判断是不是在某个组件内</span></div><div class="line">Debug.Log(testComponent.IsAncestorOf(obj));</div></pre></td></tr></table></figure>
+<h2 id="键盘输入"><a href="#键盘输入" class="headerlink" title="键盘输入"></a>键盘输入</h2><p>侦听键盘输入的方法是：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Stage.inst.onKeyDown.Add(OnKeyDown);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnKeyDown</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Debug.Log(context.inputEvent.keyCode);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
     
     <div class="footer">
       发现错误或想贡献文档?
-      <a href="https://github.com/fairygui/fairygui.github.io/tree/master/src/guide/cry/event.md" target="_blank">
+      <a href="https://github.com/fairygui/fairygui.github.io/tree/master/src/guide/sdk/cryengine.md" target="_blank">
         在 Github 上编辑此文档!
       </a>
     </div>

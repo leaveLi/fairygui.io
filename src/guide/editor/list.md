@@ -131,21 +131,24 @@ order: 180
 然后设置这个函数为列表的渲染函数：
 
 ```csharp
-    //Unity/Cry
+    //Unity/Cry/MonoGame
     aList.itemRenderer = RenderListItem;
     
     //AS3
-    aList.itemRenderer = RenderListItem;
+    aList.itemRenderer = renderListItem;
     
     //Egret
-    aList.itemRenderer = RenderListItem;
+    aList.itemRenderer = renderListItem;
     aList.callbackThisObj = this;
     
     //Laya。（注意，最后一个参数必须为false！）
-    aList.itemRenderer = Handler.create(this, this.RenderListItem, null, false);
+    aList.itemRenderer = Handler.create(this, this.renderListItem, null, false);
 
     //Cocos2dx
     aList->itemRenderer = CC_CALLBACK_2(AClass::renderListItem, this);
+
+    //CocosCreator
+    aList.itemRenderer = this.renderListItem.bind(this);
 ```
 
 最后直接设置列表中的项目总数，这样列表就会调整当前列表容器的对象数量，然后调用回调函数渲染item。
@@ -178,7 +181,7 @@ order: 180
 点击列表内的某一个item触发事件：
 
 ```csharp
-    //Unity/Cry, EventContext.data就是当前被点击的item对象
+    //Unity/Cry/MonoGame, EventContext.data就是当前被点击的item对象
     list.onClickItem.Add(onClickItem);
     
     //AS3, ItemEvent.itemObject就是当前被点击的对象
@@ -192,6 +195,9 @@ order: 180
 
     //Cocos2dx，EventContext.getData()就是当前被点击的item对象
     list->addEventListener(UIEventType::ClickItem, CC_CALLBACK_1(AClass::onClickItem, this));
+
+    //CocosCreator, onClickItem的第一个参数就是当前被点击的对象，可选的第二个对象是fgui.Event。
+    list.on(fgui.Event.CLICK_ITEM, this.onClickItem, this);
 ```
 
 从上面的代码可以看出，事件回调里都可以方便的获得当前点击的对象。如果要获得索引，那么可以使用GetChildIndex。
@@ -330,17 +336,20 @@ AS3/Starling/Egret/Laya参考：
     aList.itemProvider = GetListItemResource;
 
     //AS3
-    aList.itemProvider = GetListItemResource;
+    aList.itemProvider = getListItemResource;
 
     //Egret
-    aList.itemProvider = GetListItemResource;
+    aList.itemProvider = getListItemResource;
     aList.callbackThisObj = this;
 
     //Laya。（注意，最后一个参数必须为false！）
-    aList.itemProvider = Handler.create(this, this.GetListItemResource, null, false);
+    aList.itemProvider = Handler.create(this, this.getListItemResource, null, false);
 
     //Cocos2dx
     aList->itemProvider = CC_CALLBACK_1(AClass::getListItemResource, this);
+
+    //CocosCreator
+    aList.itemProvider = this.getListItemResource.bind(this);
 ```
 
 对于横向流动、竖向流动和分页的列表，与非虚拟列表具有流动特性不同，虚拟列表每行或每列的item个数都是固定的。列表在初始化时会创建一个默认的item用于测算这个数量。

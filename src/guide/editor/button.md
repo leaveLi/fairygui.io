@@ -142,7 +142,7 @@ order: 130
 监听普通按钮点击的方式为：（注意，点击事件不只是按钮有，任何支持触摸的元件都有，例如普通组件、装载器、图形等，他们的点击事件注册方式和按钮是相同的。）
 
 ```csharp
-    //Unity/Cry
+    //Unity/Cry/MonoGame
     button.onClick.Add(onClick);
 
     //AS3
@@ -156,6 +156,9 @@ order: 130
 
     //Cocos2dx
     button->addClickListener(CC_CALLBACK_1(AClass::onClick, this));
+
+    //CocosCreator
+    button.onClick(this.onClick, this);
 ```
 
 按钮可以模拟触发点击：
@@ -171,7 +174,7 @@ order: 130
 单选和多选按钮状态改变时有通知事件：
 
 ```csharp
-    //Unity/Cry
+    //Unity/Cry/MonoGame
     button.onChanged.Add(onChanged);
 
     //AS3
@@ -185,4 +188,7 @@ order: 130
 
     //Cocos2dx
     button->addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));
+
+    //CocosCreator
+    button.on(fgui.Event.STATUS_CHANGED, this.onChanged, this);
 ```

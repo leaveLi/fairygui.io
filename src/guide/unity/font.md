@@ -36,7 +36,7 @@ FairyGUI使用Unity的动态字体技术渲染文字。只需以下几个简单�
 
 ![](../../images/2016-07-06_143622.png)
 
-这里用到了"黑体"这个名字的字体，这是与UIConfig.defaultFont设不同的字体，那么我们需要注册这种字体。方法是，首先做好上面第一步1和第2步，假如字体文件名称是HeiTi.ttf，然后：
+这里用到了"黑体"这个名字的字体，这是与UIConfig.defaultFont不同的字体，那么我们需要注册这种字体。方法是，首先做好上面第一步1和第2步，假如字体文件名称是HeiTi.ttf，然后：
 
 ```csharp
     FontManager.RegisterFont(FontManager.GetFont("HeiTi"), "黑体");

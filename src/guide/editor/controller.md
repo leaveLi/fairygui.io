@@ -265,7 +265,7 @@ order: 100
 控制器改变时有通知事件：
 
 ```csharp
-    //Unity/Cry
+    //Unity/Cry/MonoGame
     c1.onChanged.Add(onChanged);
 
     //AS3
@@ -279,22 +279,28 @@ order: 100
 
     //Cocos2dx
     c1->addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));
+
+    //CocosCreator
+    c1.on(fgui.Event.STATUS_CHANGED, this.onChanged, this);
 ```
 
 改变控制器页面时，与之连接的属性控制可能带有缓动，如果你要获得缓动结束的通知，可以侦听GearStop事件：
 
 ```csharp
-    //Unity/Cry
+    //Unity/Cry/MonoGame
     aObject.OnGearStop.Add(OnGearStop);
 
     //Egret
-    c1.addEventListener(GObject.GEAR_STOP, this.OnGearStop, this);
+    c1.addEventListener(GObject.GEAR_STOP, this.onGearStop, this);
 
     //Laya
-    c1.on(fairygui.Events.GEAR_STOP, this, this.OnGearStop);
+    c1.on(fairygui.Events.GEAR_STOP, this, this.onGearStop);
 
     //Cocos2dx
     c1->addEventListener(UIEventType::GearStop, CC_CALLBACK_1(AClass::OnGearStop, this));
+
+    //CocosCreator
+    c1.on(fgui.Event.GEAR_STOP, this.onGearStop, this);
 ```
 
 如果你正在做界面的初始化，可能不希望出现任何缓动。可以这样做：

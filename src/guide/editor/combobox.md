@@ -91,7 +91,7 @@ order: 140
 下拉框选择改变时有通知事件：
 
 ```csharp
-    //Unity/Cry
+    //Unity/Cry/MonoGame
     combo.onChanged.Add(onChanged);
 
     //AS3
@@ -105,6 +105,9 @@ order: 140
 
     //Cocos2dx
     combo->addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));
+
+    //CocosCreator
+    combo.on(fgui.Event.STATUS_CHANGED, this.onChanged, this);
 ```
 
 点击空白处后弹出框会自动关闭，如果要获得这个关闭的通知，可以监听移出舞台的事件，例如：
@@ -124,6 +127,9 @@ order: 140
 
     //Cocos2dx
     combo->getDropdown()->addEventListener(UIEventType::Exit, CC_CALLBACK_1(AClass::onPopupClosed, this));
+
+    //CocosCreator
+    combo.on(fgui.Event.UNDISPLAY, this.onPopupClosed, this);
 ```
 
 如果要手工关闭弹出框：

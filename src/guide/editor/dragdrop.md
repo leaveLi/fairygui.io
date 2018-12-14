@@ -46,6 +46,11 @@ order: 205
     aObject->addEventListener(UIEventType::DragStart, CC_CALLBACK_1(AClass::onDragStart, this));
     aObject->addEventListener(UIEventType::DragMove, CC_CALLBACK_1(AClass::onDragMove, this));
     aObject->addEventListener(UIEventType::DragEnd, CC_CALLBACK_1(AClass::onDragEnd, this));
+
+    //CocosCreator
+    aObject.on(fgui.Event.DRAG_START, this.onDragStart, this);
+    aObject.on(fgui.Event.DRAG_MOVING, this.onDragMove, this);
+    aObject.on(fgui.Event.DRAG_END, this.onDragEnd, this);  
 ```
 
 ## 转换拖动
@@ -57,6 +62,7 @@ order: 205
     _dragArea.draggable = true;
     _dragArea.onDragStart.Add(onDragStart);
 
+    //Unity/Cry/MonoGame
     void onDragStart(EventContext context)
     {
         //取消掉源拖动，也就是_dragArea不会被实际拖动
@@ -64,6 +70,26 @@ order: 205
     
         //设置窗口处于拖动状态。context.data是手指的id。
         this.StartDrag((int)context.data);
+    }
+
+    //Laya
+    onDragStart(evt:laya.events.Event) {
+        var obj: fairygui.GObject = fairygui.GObject.cast(evt.currentTarget);
+
+        //取消对原目标的拖动，换成一个替代品
+        obj.stopDrag();
+
+        this.startDrag();
+    }
+
+    //CocosCreator
+    onDragStart(evt:fgui.Event) {
+        let obj:fgui.GObject = fgui.GObject.cast(evt.currentTarget);
+        
+        //取消对原目标的拖动，换成一个替代品
+        obj.stopDrag();
+
+        this.startDrag();
     }
 ```
 
@@ -77,6 +103,7 @@ order: 205
     aObject.draggable = true;
     aObject.onDragStart.Add(onDragStart);
 
+    //Unity/Cry/MonoGame
     void onDragStart(EventContext context)
     {
         //取消掉源拖动
@@ -87,10 +114,14 @@ order: 205
     }
 ```
 
-使用了替身拖动后，如果要检测拖动结束，不能在监听原来的对象，而应该使用：
+使用了替身拖动后，如果要检测拖动结束，不能再监听原来的对象，而应该使用：
 
 ```csharp
+    //Unity/Cry/MonoGame
     DragDropManager.inst.dragAgent.onDragEnd.Add(onDragEnd);
+
+    //CocosCreator
+    DragDropManager.inst.dragAgent.on(fgui.Event.DRAG_END, this.onDragEnd, this);
 ```
 
 DragDropManager还提供了常用的拖->放功能，如果一个组件需要接收其他元件拖动到它里面并释放的事件，可以使用：
@@ -98,10 +129,16 @@ DragDropManager还提供了常用的拖->放功能，如果一个组件需要接
 ```csharp
     aComponent.onDrop.Add(onDrop);
 
+    //Unity/Cry/MonoGame
     void onDrop(EventContext context)
     {
         //这里context.data就是StartDrag里传入的userData
         Debug.Log(context.data);
+    }
+
+    //CocosCreator
+    void onDrop(dropTarget:fgui.GObject, userData:any) {
+        //这里sourceData是StartDrag传入的userData
     }
 ```
 

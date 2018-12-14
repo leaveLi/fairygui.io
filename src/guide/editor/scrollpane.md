@@ -103,6 +103,9 @@ ScrollPane中常用的API有：
 
     //Cocos2dx，注意是用组件侦听，不是ScrollPane
     aComponent->addEventListener(UIEventType::Scroll, CC_CALLBACK_1(AClass::onScroll, this));
+
+    //CocosCreator，注意使用组件侦听，不是ScrollPane
+    aComponent.on(fgui.Event.SCROLL, this.onScroll, this);
 ```
 
 和滚动相关的事件还有：
@@ -136,4 +139,9 @@ ScrollPane中常用的API有：
     aComponent->addEventListener(UIEventType::ScrollEnd, CC_CALLBACK_1(AClass::onScrollEnd, this));
     aComponent->addEventListener(UIEventType::PullDownRelease, CC_CALLBACK_1(AClass::onPullDownRelease, this));
     aComponent->addEventListener(UIEventType::PullUpRelease, CC_CALLBACK_1(AClass::onPullUpRelease, this));
+
+    //CocosCreator，注意使用组件侦听，不是ScrollPane
+    scrollPane.on(fgui.Event.SCROLL_END, this.onScrollEnd, this);
+    scrollPane.on(fgui.Event.PULL_DOWN_RELEASE, this.onPullDownRelease, this);
+    scrollPane.on(fgui.Event.PULL_UP_RELEASE, this.onPullUpRelease, this);
 ```

@@ -86,4 +86,7 @@ order: 160
 
     //Cocos2dx
     slider->addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));
+
+    //CocosCreator
+    slider.on(fgui.Event.STATUS_CHANGED, this.onChanged, this);
 ```

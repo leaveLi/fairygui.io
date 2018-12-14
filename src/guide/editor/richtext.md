@@ -70,7 +70,7 @@ order: 70
 侦听富文本中链接点击的方法是（这个事件是冒泡的，也就是你可以不在富文本上侦听，在它的父元件或者祖父元件上侦听都是可以的）：
 
 ```csharp
-    //Unity/Cry, EventContext里的data就是href值。
+    //Unity/Cry/MonoGame, EventContext里的data就是href值。
     aRichTextField.onClickLink.Add(onClickLink);
 
     //AS3/Egret，TextEvent.text就是href值。
@@ -84,6 +84,9 @@ order: 70
 
     //Cocos2dx，EventContext.getDataValue().asString()就是href的值。
     aRichTextField->addEventListener(UIEventType::ClickLink, CC_CALLBACK_1(AClass::onClickLink, this));
+
+    //CocosCreator，onClickLink的第一个参数就是href值，可选的第二个参数是fgui.Event
+    aRichTextField.on(fgui.Event.LINK, this.onClickLink, this);    
 ```
 
 富文本最重要的功能是支持HTML解析和渲染。普通的文本样式标签，例如`FONT`、`B`、`I`、`U`这些一般都能很好的支持。其他一些对象标签，例如`A`、`IMG`等在各个引擎中支持的力度有所不同：
@@ -105,9 +108,11 @@ order: 70
 
 - `Unity` 支持`A`、`IMG`、`INPUT`、`SELECT`，`P`等。请参考[这里](#HTML语法)
 
+- `Cocos Creator` 支持 `A`、`IMG`。Creator版本的GRichTextField的实质是包装了cc.RichText。
+
 ## HTML语法
 
-Unity版本对HTML解析有比较完整的支持。
+Unity/MonoGame版本对HTML解析有比较完整的支持。
 
 - `IMG` 支持混排UI库里的图片/动画和外部(网络）图片。加载外部图片的能力可以通过[扩展Loader](loader.html#GLoader)提供。注意，img标签需要使用“/&gt;”结束，而不是“&gt;”。例如：
 

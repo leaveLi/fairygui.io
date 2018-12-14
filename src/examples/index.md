@@ -20,6 +20,10 @@ Laya/Egret在线示例：
 10. [UI动效例子](http://www.fairygui.com/laya-demo/transition)
 11. [下拉刷新例子](http://www.fairygui.com/laya-demo/pulltorefresh)
 12. [复杂动效例子](http://www.fairygui.com/laya-demo/inventory)
+
+CocosCreator在线示例
+
+[综合例子](http://www.fairygui.com/cocos-demo/)
  
 PIXI在线示例
 
