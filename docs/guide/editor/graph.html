@@ -370,7 +370,7 @@
 <p>如果SetNativeObject被重复调用，则前一个设置对象被销毁，插入新的对象。</p>
 <p>对于Laya、Cocos2dx和CocosCreator平台，他们的节点都是可以随时加入子对象的，因此不需要使用setNativeObject。你可以随时使用holder.displayObject.addChild（Laya）或者holder.node.addChild（Creator）进行挂接原生节点的操作。</p>
 <p>通过GGraph.shape属性可以获得原生矢量绘制的接口类。特别说明的是，Unity平台没有矢量绘制引擎，因此目前只提供了绘制矩形、圆形和多边形。以下是Unity里运用GGraph对象的一些技巧：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//传入多边形的各个顶点绘制多边形</span></div><div class="line">aGraph.shape.DrawPolygon(<span class="keyword">new</span> Vector2[] &#123; ...&#125; &#125;, <span class="keyword">new</span> Color[] &#123; ... &#125;;</div><div class="line"></div><div class="line"><span class="comment">//绘制一个渐变色的矩形</span></div><div class="line">aGraph.shape.DrawRect(<span class="number">0</span>, <span class="keyword">new</span> Color[] &#123; ... &#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//传入多边形的各个顶点绘制多边形，注意点必须是顺时针方向传入！！</span></div><div class="line">aGraph.shape.DrawPolygon(<span class="keyword">new</span> Vector2[] &#123; ...&#125; &#125;, <span class="keyword">new</span> Color[] &#123; ... &#125;;</div><div class="line"></div><div class="line"><span class="comment">//绘制一个渐变色的矩形</span></div><div class="line">aGraph.shape.DrawRect(<span class="number">0</span>, <span class="keyword">new</span> Color[] &#123; ... &#125;);</div></pre></td></tr></table></figure>
 <p>再次提醒，如果图形是动态创建的，记得设置图形的大小。</p>
 
     
