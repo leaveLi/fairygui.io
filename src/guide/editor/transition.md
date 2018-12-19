@@ -180,6 +180,12 @@ Stop方法也可以带参数，原型是：
     trans.SetHook("aa", callback);
 ```
 
+可以修正动效某个标签对应动效片段的目标对象，但必须注意，**要在动效停止状态下调用**，例如：
+
+```csharp
+    trans.SetTarget("aa", newTarget);
+```
+
 在Unity中，动效的播放速度默认是不受Time.timeScale影响的，但你也可以设定它受影响：
 
 ```csharp
