@@ -399,8 +399,8 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aMovie.playing = <span class="literal">false</span>; <span class="comment">//切换播放和停止状态</span></div><div class="line">aMovie.frame = <span class="number">5</span>; <span class="comment">//如果动画处于停止状态，可以设置停止在第几帧</span></div></pre></td></tr></table></figure>
 <p>对动画进行循环播放的设置，例如从第几帧播放到第几帧，循环播放多少次等：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aMovie.SetPlaySettings(<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>);</div></pre></td></tr></table></figure>
-<p>对动画播放过程的控制，可以使用PlayState对象：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//返回播放头部</span></div><div class="line">((MovieClip)aMovie.displayObject).playState.reset();</div></pre></td></tr></table></figure>
+<p>对动画播放过程的其他控制，可以使用MovieClip对象：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//返回播放头部</span></div><div class="line">((MovieClip)aMovie.displayObject).Rewind();</div></pre></td></tr></table></figure>
 <p>动画播放完成可以获得一个回调通知：（如果是循环播放，则所有循环结束后才算播放完成）</p>
 <figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aMovie.onPlayEnd.Add(...);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aMovie.setPlaySettings(..., callback);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aMovie.setPlaySettings(..., callback, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aMovie.setPlaySettings(..., Handler.create(callback, <span class="keyword">this</span>));</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">aMovie-&gt;setPlaySettings(..., CC_CALLBACK_0(AClass::onPlayComplete, this));</div></pre></td></tr></table></figure>
 

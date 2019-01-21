@@ -376,12 +376,7 @@
 <p>某些字体，Unity渲染有粗体效果，但当设置成斜体时，粗体效果又丢失（例如雅黑）。FairyGUI在这种情况可以取消Unity默认渲染粗体的效果，改为增加额外的面渲染粗体。激活这个功能的方法是</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(<span class="string">"字体路径"</span>).customBoldAndItalic = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>如果已经设置了customBold，不需要再设置customBoldAndItalic。</p>
-<h2 id="增强字体效果"><a href="#增强字体效果" class="headerlink" title="增强字体效果"></a>增强字体效果</h2><p>在实际游戏制作过程中发现在桌面平台下Unity对中文字体的渲染稍显模糊和暗淡，因此FairyGUI使用了特制的着色器解决了这个问题。以下是Unity默认的字体渲染效果和FairyGUI的字体渲染效果的比较：</p>
-<p><img src="../../images/2015-10-21_172001.png" alt=""></p>
-<p>可以看见经过FairyGUI的特殊处理，中文文字更清晰更亮。</p>
-<p>只有在桌面平台下FairyGUI才会开启这种技术，移动平台永远不会开启，因为在高DPI情况下，字体默认的渲染效果已经非常漂亮。</p>
-<p>另外，如果你不喜欢这种显示效果，或者你使用的是全英文的文字，也可以手动把这种技术关闭：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.renderingTextBrighterOnDesktop = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
+
     
     <div class="footer">
       发现错误或想贡献文档?

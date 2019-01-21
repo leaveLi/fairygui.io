@@ -70,6 +70,16 @@ Create Component1@Package1 failed!
 
 ![](../../images/20170808230450.png)
 
+## 突然出现文字都变成紫色，然后又恢复正常
+
+Unity为字体维护一个动态贴图，里面包含了当前用到的文字。当发生文本赋值时，如果当前贴图不足以容纳新的文字，Unity就会自动重建贴图，那么所有文字对应的UV就会发生变化。这时原来已经在显示的文字就会出现异常，比如破碎，紫色之类的效果。
+
+FairyGUI已经为这种情况内置了应对方案，就是在出现这种情况时马上把所有文字重绘一遍。所以网上一些先行撑大文字贴图的方案在FairyGUI这里并不需要。
+
+但FairyGUI进行这种操作是有时间点的，就是StageEngine.LateUpdate里。如果你的文本赋值发生在LateUpdate，而且很不幸执行顺序在StageEngine.LateUpdate之后，那么FairyGUI没有机会再进行补救了，这帧就会出现文字显示异常的情况。
+
+所以要防止这种情况出现，检查你的文本赋值，尽量放在Update里，不要放到LateUpdate里。
+
 ## 层级显示错误
 
 如果你看到了层级错乱的情况出现，那多半是因为fairyBatching的影响。在[DrawCall优化](drawcall.html)这篇教程里已经有提到，这里再说明一下。

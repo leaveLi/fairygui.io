@@ -65,19 +65,3 @@ RegisterFont的第二个参数对应编辑器里使用的字体名称；第一�
 ```
 
 如果已经设置了customBold，不需要再设置customBoldAndItalic。
-
-## 增强字体效果
-
-在实际游戏制作过程中发现在桌面平台下Unity对中文字体的渲染稍显模糊和暗淡，因此FairyGUI使用了特制的着色器解决了这个问题。以下是Unity默认的字体渲染效果和FairyGUI的字体渲染效果的比较：
-
-![](../../images/2015-10-21_172001.png)
-
-可以看见经过FairyGUI的特殊处理，中文文字更清晰更亮。
-
-只有在桌面平台下FairyGUI才会开启这种技术，移动平台永远不会开启，因为在高DPI情况下，字体默认的渲染效果已经非常漂亮。
-
-另外，如果你不喜欢这种显示效果，或者你使用的是全英文的文字，也可以手动把这种技术关闭：
-
-```csharp
-    UIConfig.renderingTextBrighterOnDesktop = false;
-```

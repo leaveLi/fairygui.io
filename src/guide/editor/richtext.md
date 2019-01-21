@@ -108,7 +108,7 @@ order: 70
 
 - `Unity` 支持`A`、`IMG`、`INPUT`、`SELECT`，`P`等。请参考[这里](#HTML语法)
 
-- `Cocos Creator` 支持 `A`、`IMG`。Creator版本的GRichTextField的实质是包装了cc.RichText。
+- `Cocos Creator` 支持 `A`、`IMG`。支持包里的和外部的图片，但不支持动画（动画显示成单帧）。Creator版本的GRichTextField的实质是包装了cc.RichText。
 
 ## HTML语法
 

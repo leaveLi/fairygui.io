@@ -77,11 +77,11 @@ order: 30
     aMovie.SetPlaySettings(0, -1, 0, -1); 
 ```
 
-对动画播放过程的控制，可以使用PlayState对象：
+对动画播放过程的其他控制，可以使用MovieClip对象：
 
 ```csharp
     //返回播放头部
-    ((MovieClip)aMovie.displayObject).playState.reset();
+    ((MovieClip)aMovie.displayObject).Rewind();
 ```
 
 动画播放完成可以获得一个回调通知：（如果是循环播放，则所有循环结束后才算播放完成）

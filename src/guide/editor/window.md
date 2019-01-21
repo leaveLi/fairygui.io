@@ -38,15 +38,15 @@ order: 190
 
 ![](../../images/ddd.png)
 
-如果你需要窗口显示时播放动画效果，那么覆盖`doShowAnimation`编写你的动画代码，并且在动画结束后调用onShown。
-覆盖`onShown`编写其他需要在窗口显示时处理的业务逻辑。
+如果你需要窗口显示时播放动画效果，那么覆盖`DoShowAnimation`编写你的动画代码，并且在动画结束后调用onShown。
+覆盖`OnShown`编写其他需要在窗口显示时处理的业务逻辑。
 
 调用`Hide`隐藏窗口的流程：
 
 ![](../../images/ddd2.png)
 
-如果你需要窗口隐藏时播放动画效果，那么覆盖d`doHideAnimation`编写你的动画代码，并且在动画结束时调用`HideImmediately`（**注意不是直接调用onHide！**）。
-覆盖`onHide`编写其他需要在窗口隐藏时处理的业务逻辑。
+如果你需要窗口隐藏时播放动画效果，那么覆盖`DoHideAnimation`编写你的动画代码，并且在动画结束时调用`HideImmediately`（**注意不是直接调用onHide！**）。
+覆盖`OnHide`编写其他需要在窗口隐藏时处理的业务逻辑。
 
 ## Window
 

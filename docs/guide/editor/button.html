@@ -395,15 +395,15 @@
 <ul>
 <li><p><code>状态</code> 单选按钮或多选按钮可以设置按钮是否处于选中状态。</p>
 </li>
-<li><p><code>标题</code> 设置的文本将赋值到标签组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。<br>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
+<li><p><code>标题</code> 设置的文本将赋值到按钮组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。<br>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
 </li>
 <li><p><code>选中时标题</code> 当按钮处于选中状态时，设置标题属性为这里设置的值；当按钮处于不选中状态时，恢复原标题属性的值。</p>
 </li>
-<li><p><code>标题颜色</code> 默认的标题颜色是标签组件内的“title”元件的文字颜色，勾选后，可以修改文字颜色。如果不存在“title”元件，则什么事都不会发生。</p>
+<li><p><code>标题颜色</code> 默认的标题颜色是按钮组件内的“title”元件的文字颜色，勾选后，可以修改文字颜色。如果不存在“title”元件，则什么事都不会发生。</p>
 </li>
-<li><p><code>字体大小</code> 默认的字体大小是标签组件内的“title”元件的字体大小，勾选后，可以修改字体大小。如果不存在“title”元件，则什么事都不会发生。</p>
+<li><p><code>字体大小</code> 默认的字体大小是按钮组件内的“title”元件的字体大小，勾选后，可以修改字体大小。如果不存在“title”元件，则什么事都不会发生。</p>
 </li>
-<li><p><code>图标</code> 设置的URL将赋值到标签组件内的“icon”元件的图标属性。如果不存在“icon”元件，则什么事都不会发生。</p>
+<li><p><code>图标</code> 设置的URL将赋值到按钮组件内的“icon”元件的图标属性。如果不存在“icon”元件，则什么事都不会发生。</p>
 </li>
 <li><p><code>选中时图标</code> 当按钮处于选中状态时，设置图标属性为这里设置的值；当按钮处于不选中状态时，恢复原图标属性的值。</p>
 </li>
@@ -423,7 +423,7 @@
 <p>通过代码设置按钮与控制器的联动的方式是：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">button.pageOption.controller = aController;</div><div class="line">button.pageOption.index = <span class="number">1</span>; <span class="comment">//通过索引设置</span></div><div class="line">button.pageOption.name = <span class="string">"page_name"</span>; <span class="comment">//或通过页面名称设置</span></div></pre></td></tr></table></figure>
 <p>按钮全局声音的设置为：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity版本要求一个AudioClip对象，如果是使用库里面的资源，那么可以使用：</span></div><div class="line">UIConfig.buttonSound = (AudioClip)UIPackage.GetItemAssetByURL(<span class="string">"ui://包名/声音名"</span>);</div><div class="line"></div><div class="line"><span class="comment">//其他版本要求一个资源url，即：</span></div><div class="line">UIConfig.buttonSound = <span class="string">"ui://包名/声音名"</span>;</div><div class="line"></div><div class="line"><span class="comment">//全局音量    </span></div><div class="line">UIConfig.buttonSoundVolumeScale = <span class="number">1</span>f;</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity版本要求一个AudioClip对象，如果是使用库里面的资源，那么可以使用：</span></div><div class="line">UIConfig.buttonSound = (NAudioClip)UIPackage.GetItemAssetByURL(<span class="string">"ui://包名/声音名"</span>);</div><div class="line"></div><div class="line"><span class="comment">//其他版本要求一个资源url，即：</span></div><div class="line">UIConfig.buttonSound = <span class="string">"ui://包名/声音名"</span>;</div><div class="line"></div><div class="line"><span class="comment">//全局音量    </span></div><div class="line">UIConfig.buttonSoundVolumeScale = <span class="number">1</span>f;</div></pre></td></tr></table></figure>
 <p>这个设置只能在创建任何UI前设置。如果要控制全局声音的开关或音量，可以这样：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//开关声音(Laya和Egret自己有提供声音开关，不需要用这个，请查阅他们的文档）</span></div><div class="line">GRoot.inst.EnabledSound();</div><div class="line">GRoot.inst.DisableSound();</div><div class="line"></div><div class="line"><span class="comment">//调整全局声音音量，这个包括按钮声音和动效播放的声音</span></div><div class="line">GRoot.inst.soundVolume = <span class="number">0.5</span>f;</div></pre></td></tr></table></figure>
 <p>监听普通按钮点击的方式为：（注意，点击事件不只是按钮有，任何支持触摸的元件都有，例如普通组件、装载器、图形等，他们的点击事件注册方式和按钮是相同的。）</p>
