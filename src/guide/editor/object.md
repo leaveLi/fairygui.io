@@ -85,7 +85,7 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
 
 ## GObject
 
-- `设置坐标` SetXY或者单独设置x、y。
+- `设置坐标` SetXY、SetPosition或者单独设置x、y。
 
 - `设置大小` SetSize或者单独设置width、height。SetSize还可以带第三个参数：
 
@@ -98,7 +98,7 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
 
 - `设置Scale` SetScale或者单独设置scaleX、scaleY。
 
-- `设置轴心` SetPivot。
+- `设置轴心` SetPivot或者单独设置pivotX、pivotY。
 
 ```csharp
     aObject.SetPivot(0.5f, 0.5f); //设置轴心

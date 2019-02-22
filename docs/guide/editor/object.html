@@ -413,7 +413,7 @@
 <h2 id="自定义数据"><a href="#自定义数据" class="headerlink" title="自定义数据"></a>自定义数据</h2><p><img src="../../images/20180108143441.png" alt=""></p>
 <p>可以设置一个自定义的数据，这个数据FairyGUI不做解析，按原样发布到最后的描述文件中。开发者可以在运行时获取。获取方式是：GObject.data或GObject.userData（Cocos2dx、Vision）。</p>
 <h2 id="GObject"><a href="#GObject" class="headerlink" title="GObject"></a>GObject</h2><ul>
-<li><p><code>设置坐标</code> SetXY或者单独设置x、y。</p>
+<li><p><code>设置坐标</code> SetXY、SetPosition或者单独设置x、y。</p>
 </li>
 <li><p><code>设置大小</code> SetSize或者单独设置width、height。SetSize还可以带第三个参数：</p>
 </li>
@@ -424,7 +424,7 @@
 </li>
 <li><p><code>设置Scale</code> SetScale或者单独设置scaleX、scaleY。</p>
 </li>
-<li><p><code>设置轴心</code> SetPivot。</p>
+<li><p><code>设置轴心</code> SetPivot或者单独设置pivotX、pivotY。</p>
 </li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.SetPivot(<span class="number">0.5</span>f, <span class="number">0.5</span>f); <span class="comment">//设置轴心</span></div><div class="line">aObject.SetPivot(<span class="number">0.5</span>f, <span class="number">0.5</span>f, <span class="literal">true</span>); <span class="comment">//设置轴心，并同时作为锚点</span></div></pre></td></tr></table></figure>

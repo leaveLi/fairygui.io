@@ -126,9 +126,9 @@ GoWrapper会在构造函数里查询你的GameObject里所有的Renderer并保�
 
 ## 使用RenderTexture
 
-在UI上展现3D内容的另一种方式是使用RenderTexture。使用RenderTexture的步骤比较复杂，需要另外新建相机渲染目标对象，然后把该相机的输出定向到一张RenderTexture。有了RenderTexture后，我们将它赋值到Image.texture即可。详细的代码可以参考[RenderImage](https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/Examples/RenderTexture/RenderImage.cs)。
+在UI上展现3D内容的另一种方式是使用RenderTexture。使用RenderTexture的步骤比较复杂，需要另外新建相机渲染目标对象，然后把该相机的输出定向到一张RenderTexture。有了RenderTexture后，我们将它赋值到Image.texture即可。详细的代码可以参考[RenderImage](https://github.com/fairygui/FairyGUI-unity/blob/master/Assets/Examples/RenderTexture/RenderImage.cs)。
 
-RenderTexture可以设置背景颜色为透明，方便和UI混合，具体在例子中就是把“this._image.blendMode = BlendMode.Off;”注释掉即可。但如果渲染的内容包含有透明贴图，那么和UI混合时就会出现透明部分的显示错误。在RenderImage这个例子中，FairyGUI提供了一个方案，将RenderTexture所在位置的背景图片影射到RenderTexture渲染相机的背景上，这样就不用担心透贴的问题。
+RenderTexture可以设置背景颜色为透明，方便和UI混合，具体在例子中就是把“this._image.blendMode = BlendMode.Off;”注释掉即可。但如果渲染的内容包含有透明贴图，那么和UI混合时就会出现透明部分的显示错误，有两种解决方案，第一种方案可以参考[这里的资料](https://blog.uwa4d.com/archives/Severe_MOBA.html)，修改模型或者粒子的着色器，以及RenderTexture的着色器。 第二种方案是FairyGUI提供的独特方案，也就是像RenderImage演示的那样，将RenderTexture所在位置的背景图片影射到RenderTexture渲染相机的背景上：
 
 ```csharp
     public void SetBackground(GObject image);
