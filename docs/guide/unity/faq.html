@@ -403,6 +403,8 @@
 <h2 id="使用UIConfig-buttonSoundVolume改变全局按钮音量无效"><a href="#使用UIConfig-buttonSoundVolume改变全局按钮音量无效" class="headerlink" title="使用UIConfig.buttonSoundVolume改变全局按钮音量无效"></a>使用UIConfig.buttonSoundVolume改变全局按钮音量无效</h2><p>UIConfig.buttonSoundVolume仅用于初始化设置，后续改变是无效的。如果要控制全局声音的开关或音量，可以这样：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//开关声音</span></div><div class="line">GRoot.inst.EnabledSound();</div><div class="line">GRoot.inst.DisableSound();</div><div class="line"></div><div class="line"><span class="comment">//调整全局声音音量，这个包括按钮声音和动效播放的声音</span></div><div class="line">GRoot.inst.soundVolume = <span class="number">0.5</span>f;</div></pre></td></tr></table></figure>
 <h2 id="FairyGUI可以播放视频吗"><a href="#FairyGUI可以播放视频吗" class="headerlink" title="FairyGUI可以播放视频吗"></a>FairyGUI可以播放视频吗</h2><p>播放视频的功能Unity有提供，不需要FairyGUI支持。你可以使用一个Loader，然后将视频对象的texture赋值给Loader就可以了。</p>
+<h2 id="可以用代码创建动效吗"><a href="#可以用代码创建动效吗" class="headerlink" title="可以用代码创建动效吗"></a>可以用代码创建动效吗</h2><p>动效（Transition）是为了编辑器里可视化设计提出的一个概念。如果你是全部用代码来设计UI元件的动作，那就不需要用动效了，直接用Tween来完成。可以用DoTween或者FairyGUI内置的GTween。</p>
+<h2 id="创建的Tweener调用kill-false-时偶尔会将正在播放的其他动效暂停"><a href="#创建的Tweener调用kill-false-时偶尔会将正在播放的其他动效暂停" class="headerlink" title="创建的Tweener调用kill(false)时偶尔会将正在播放的其他动效暂停"></a>创建的Tweener调用kill(false)时偶尔会将正在播放的其他动效暂停</h2><p>GTweener是重用的。注意检查你的所有代码，不要重用或者误用GTweener实例，也就是说，Tween一旦结束，GTweener实例就不要再使用了，更加不要去kill。一般建议不要保存GTweener实例。</p>
 
     
     <div class="footer">

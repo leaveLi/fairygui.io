@@ -162,3 +162,11 @@ UIConfig.buttonSoundVolume仅用于初始化设置，后续改变是无效的。
 ## FairyGUI可以播放视频吗
 
 播放视频的功能Unity有提供，不需要FairyGUI支持。你可以使用一个Loader，然后将视频对象的texture赋值给Loader就可以了。
+
+## 可以用代码创建动效吗
+
+动效（Transition）是为了编辑器里可视化设计提出的一个概念。如果你是全部用代码来设计UI元件的动作，那就不需要用动效了，直接用Tween来完成。可以用DoTween或者FairyGUI内置的GTween。
+
+## 创建的Tweener调用kill(false)时偶尔会将正在播放的其他动效暂停
+
+GTweener是重用的。注意检查你的所有代码，不要重用或者误用GTweener实例，也就是说，Tween一旦结束，GTweener实例就不要再使用了，更加不要去kill。一般建议不要保存GTweener实例。

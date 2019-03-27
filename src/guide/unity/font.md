@@ -48,6 +48,17 @@ RegisterFont的第二个参数对应编辑器里使用的字体名称；第一�
 
 ![](../../images/20170808230450.png)
 
+## 动态加载字体
+
+一般来说，字体文件放到Resources目录下即可，如果需要将字体打包到AssetBundle，那么需要自行加载并注册字体。
+
+``` csharp
+    Font myFont = myBundle.LoadAsset<Font>(name);
+    FontManager.RegisterFont(new DynamicFont("字体名称", myFont),"字体名称");
+```
+
+记住要在字体使用到之前注册好。
+
 ## 自定义粗体
 
 当你使用部分字体的粗体效果时，你会发现粗体的效果在Unity中的显示不正确，这是因为有些字体不带粗体效果的，这时候Unity就会用拉宽来实现，就像变扁了。FairyGUI可以用额外的mesh来解决粗体的显示。方法是：

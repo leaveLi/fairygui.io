@@ -370,6 +370,9 @@
 <p>RegisterFont的第二个参数对应编辑器里使用的字体名称；第一个参数，是Unity中放入的字体文件资源。如果文件带路径，这也需要把路径填上。</p>
 <p>要查看你定义的字体是不是生效，可以在Project视图，点击并展开字体文件，如果字体被正确使用，那么可以看到Font Texture以及Texture会有你用到的文字。</p>
 <p><img src="../../images/20170808230450.png" alt=""></p>
+<h2 id="动态加载字体"><a href="#动态加载字体" class="headerlink" title="动态加载字体"></a>动态加载字体</h2><p>一般来说，字体文件放到Resources目录下即可，如果需要将字体打包到AssetBundle，那么需要自行加载并注册字体。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Font myFont = myBundle.LoadAsset&lt;Font&gt;(name);</div><div class="line">FontManager.RegisterFont(<span class="keyword">new</span> DynamicFont(<span class="string">"字体名称"</span>, myFont),<span class="string">"字体名称"</span>);</div></pre></td></tr></table></figure>
+<p>记住要在字体使用到之前注册好。</p>
 <h2 id="自定义粗体"><a href="#自定义粗体" class="headerlink" title="自定义粗体"></a>自定义粗体</h2><p>当你使用部分字体的粗体效果时，你会发现粗体的效果在Unity中的显示不正确，这是因为有些字体不带粗体效果的，这时候Unity就会用拉宽来实现，就像变扁了。FairyGUI可以用额外的mesh来解决粗体的显示。方法是：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(<span class="string">"字体路径"</span>).customBold = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>这里字体路径与UIConfig.defaultFont里设置的内容应该完全一样。</p>
