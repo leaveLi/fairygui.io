@@ -50,7 +50,7 @@ GLoader可以载入图片、动画和组件。如果是UI包里的资源，那�
 
 - AS3 使用flash.display.Loader加载的外部资源。
 - Starling 使用flash.display.Loader加载的位图资源。加载后转化为Texture。
-- Egret 使用egret.RES.getResAsync加载的外部位图资源。
+- Egret 使用RES.getResByUrl加载的外部位图资源。
 - Layabox 使用Laya.loader.load加载的外部资源。
 - Unity 使用Resources.Load加载的外部贴图资源。
 
